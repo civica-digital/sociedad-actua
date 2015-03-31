@@ -1,0 +1,22 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#map {
+  width: 60%;
+  height: 380px;
+  margin: 20px auto;
+
+}
+
+
+.centre {
+  width: 100%;
+  min-height: 1px;
+  height: 40px;
+
+  .col-lg-6 {
+    float: none;
+    margin: 20px auto;
+
+  }
+}
