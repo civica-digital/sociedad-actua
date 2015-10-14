@@ -19,6 +19,8 @@ gem 'sendgrid'
 gem 'simple_form'
 gem 'unicorn'
 gem 'unicorn-rails'
+gem 'rolify'
+
 
 group :development do
   gem 'better_errors'
