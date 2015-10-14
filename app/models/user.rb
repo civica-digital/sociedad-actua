@@ -1,9 +1,13 @@
 class User < ActiveRecord::Base
-  enum role: [:user, :vip, :admin]
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  enum role: [:users, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
   rolify :role_cname => 'Role'
-
   has_and_belongs_to_many :users, :join_table => :users_users
   belongs_to :resource, :polymorphic => true
 
