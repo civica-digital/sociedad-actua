@@ -1,0 +1,26 @@
+<div class="authform">
+  <%= form_for(resource, :as => resource_name, :url => registration_path, :html => { :role => 'form'}) do |f| %>
+    <h3>Sign up</h3>
+    <%= devise_error_messages! %>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :profile %>
+      <%= f.select :roles, options_for_select([[:collaborator] * 2,
+                                                 [:organization] * 2,
+                                                 [:investor] * 2]) %>
+    </div>
+
+     <%= f.submit 'Sign up', :class => 'button right' %>
+  <% end %>
+</div>

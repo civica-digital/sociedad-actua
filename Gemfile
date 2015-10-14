@@ -20,6 +20,7 @@ gem 'simple_form'
 gem 'unicorn'
 gem 'unicorn-rails'
 gem 'rolify'
+gem 'devise'
 
 
 group :development do
