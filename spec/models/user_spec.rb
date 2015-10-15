@@ -33,10 +33,10 @@ RSpec.describe User, type: :model do
     expect(another_user).to have_role(:user)
   end
 
-  it "fails if password length is less than 8" do
+  it "fails if password length is less than 6" do
     another_user = FactoryGirl.create(:user)
 
-    another_user.password = Faker::Number.number(7)
+    another_user.password = Faker::Number.number(5)
 
     expect(another_user).to_not be_valid
   end
