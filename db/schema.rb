@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014020634) do
+ActiveRecord::Schema.define(version: 20151015205232) do
+
+  create_table "organizations", force: :cascade do |t|
+    t.string   "type_organization",                                   null: false
+    t.string   "name",                                                null: false
+    t.datetime "remember_created_at", default: '2015-10-16 11:05:56', null: false
+    t.string   "email",                                               null: false
+    t.string   "rfc"
+    t.text     "mision"
+    t.string   "address"
+    t.string   "colonia"
+    t.string   "town"
+    t.integer  "zip"
+    t.string   "telephone"
+    t.string   "site"
+    t.string   "blog"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "youtube"
+    t.string   "instagram"
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
