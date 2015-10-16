@@ -1,3 +1,3 @@
 class Organization < ActiveRecord::Base
-  has_many :profile, as: :profile
+  has_one :user, as: :profile
 end

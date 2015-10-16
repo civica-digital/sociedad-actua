@@ -6,13 +6,13 @@ class User < ActiveRecord::Base
 
   after_initialize :set_default_role, :if => :new_record?
 
+  belongs_to :profile, polymorphic: true
+
   rolify :role_cname => 'Role'
 
   def set_default_role
     if User.count == 0
       self.add_role :admin
-    else
-      self.add_role :user
     end
   end
 
