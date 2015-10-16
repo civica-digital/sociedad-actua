@@ -6,7 +6,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     unless ['collaborator', 'organization', 'investor'].include? params["user"]["role"]
       flash[:notice] = "Este elemento no pertence a algun perfil valido"
-      render "new"
+      redirect_to registration_new_url
+      return
     end
 
     super
@@ -17,6 +18,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   protected
+  def after_sign_up_path_for(resource)
+    eval("new_#{params["user"]["role"].pluralize}_path") # TODO: Cambiar a forma segura
+  end
+
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
