@@ -15,5 +15,5 @@ Rails.application.routes.draw do
 
   get '/auth/failure' => 'sessions#failure'
 
-  resource :organizations
+  resources :organizations
 end
