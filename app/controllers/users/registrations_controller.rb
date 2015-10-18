@@ -19,7 +19,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
   def after_sign_up_path_for(resource)
-    eval("new_#{params["user"]["role"].pluralize}_path") # TODO: Cambiar a forma segura
+    eval("new_#{params["user"]["role"].singularize}_path") # TODO: Cambiar a forma segura
   end
 
 
