@@ -9,9 +9,9 @@ class OrganizationsController < ApplicationController
 
   def create
     @organization = Organization.new(organization_params)
-
+    @organization.user = current_user
     if @organization.save
-      flash[:notice] = "Excelente! Bienvenida a tu #{organization.type_organization}, este es tu perfil público."
+      flash[:notice] = "Excelente! Bienvenida a tu #{@organization.type_organization}, este es tu perfil público."
       redirect_to @organization
     else
       render 'new'
