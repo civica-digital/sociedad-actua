@@ -64,3 +64,7 @@ pickle-email-*.html
 
 # Ignore application configuration
 /config/application.yml
+
+# Dev environment files
+.ruby-version
+.ruby-gemset
