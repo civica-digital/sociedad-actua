@@ -30,7 +30,7 @@ RSpec.describe User, type: :model do
   it "is a user if isn't a admin" do
     another_user = FactoryGirl.create(:user)
 
-    expect(another_user).to have_role(:user)
+    expect(another_user).to_not have_role(:admin)
   end
 
   it "fails if password length is less than 6" do
