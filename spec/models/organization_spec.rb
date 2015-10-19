@@ -5,7 +5,7 @@ RSpec.describe Organization, type: :model do
 
 
 
-  describe "Should validates every field" do
+  describe "Should be valid and verify the required fields" do
     subject { @user }
 
     it { should be_valid }
@@ -14,6 +14,15 @@ RSpec.describe Organization, type: :model do
       @user.email = nil
       expect(@user).to_not be_valid
     end
-    
+
+    it "should have always a name"  do
+      @user.name = nil
+      expect(@user).to_not be_valid
+    end
+
+    it "should have always an organization's type"  do
+      @user.type_organization = nil
+      expect(@user).to_not be_valid
+    end
   end
 end
