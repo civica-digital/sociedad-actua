@@ -1,22 +1,37 @@
-# Add account credentials and API keys here.
-# See http://railsapps.github.io/rails-environment-variables.html
-# This file should be listed in .gitignore to keep your settings secret!
-# Each entry sets a local environment variable.
-# For example, setting:
-# GMAIL_USERNAME: Your_Gmail_Username
-# makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
+# Be sure to restart your server when you modify this file.
 
-# Add configuration values here, as shown below.
+# Your secret key is used for verifying the integrity of signed cookies.
+# If you change this key, all old signed cookies will become invalid!
+
+# Make sure the secret is at least 30 characters and all random,
+# no regular words or you'll be exposed to dictionary attacks.
+# You can use `rake secret` to generate a secure secret key.
+
+# Make sure the secrets in this file are kept private
+# if you're sharing your code publicly.
+
+# development:
+#   omniauth_provider_key: <%= ENV["OMNIAUTH_PROVIDER_KEY"] %>
+#   omniauth_provider_secret: <%= ENV["OMNIAUTH_PROVIDER_SECRET"] %>
+#   email_provider_username: <%= ENV["SENDGRID_USERNAME"] %>
+#   email_provider_password: <%= ENV["SENDGRID_PASSWORD"] %>
+#   domain_name: example.com
+#   secret_key_base: 5c6b63d330ff1cbd63f225f88248462e528f870efd3f5153357b692ce187a30028f2fc0f0d6f5e4c1453f131138e2fded1401d8a759a2fd99025be400fb66ad7
 #
-# pusher_app_id: "2954"
-# pusher_key: 7381a978f7dd7f9a1117
-# pusher_secret: abdc3b896a0ffb85d373
-# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
-# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
+# test:
+#   secret_key_base: 3806db2544d25d539a627a820cc4b20b71fb6f805487f86e71221adb21fe65da5afa6cecd46ab2c9624fbb252b3b8cb57ebd02a163d1c97f9a2ea9b2ddb79cdf
 #
+# # Do not keep production secrets in the repository,
+# # instead read values from the environment.
 # production:
-#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
-#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+#   omniauth_provider_key: <%= ENV["OMNIAUTH_PROVIDER_KEY"] %>
+#   omniauth_provider_secret: <%= ENV["OMNIAUTH_PROVIDER_SECRET"] %>
+#   email_provider_username: <%= ENV["SENDGRID_USERNAME"] %>
+#   email_provider_password: <%= ENV["SENDGRID_PASSWORD"] %>
+#   domain_name: <%= ENV["DOMAIN_NAME"] %>
+#   secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+
+SECRET_KEY_BASE: 5c6b63d330ff1cbd63f225f88248462e528f870efd3f5153357b692ce187a30028f2fc0f0d6f5e4c1453f131138e2fded1401d8a759a2fd99025be400fb66ad7
 SENDGRID_USERNAME: Your_Username
 SENDGRID_PASSWORD: Your_Password
 DOMAIN_NAME: example.com

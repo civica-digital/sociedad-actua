@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ // @import "jquery.ui.core";
+ // @import "jquery.ui.theme";
+ // @import "jquery.ui.datepicker";
+ @import "font-awesome";
+
+ // Defaults
+ @import 'defaults/colors';
+ @import 'defaults/utilities';
+ @import 'defaults/mixins';
+
+ // Elements
+ @import "elements/text";
+ @import "elements/input";
+ @import "elements/button";
+ @import "elements/link";
+ @import "elements/table";
+
+ // Components
+ @import "components/navbar";
+ @import "components/footer";
+ @import "components/landing";
+ @import "components/forms";
+ @import "components/checkbox";
+ @import "components/cards";

@@ -1,0 +1,14 @@
+.btn {
+  @extend .control_override;
+  padding: 10px;
+  border: 0;
+  text-transform: uppercase;
+}
+
+.btn-primary, .btn-primary.disabled {
+  @include button($cartoon_green, white);
+}
+
+.btn-default, .btn-default.disabled {
+  @include button($grey_150, $grey_600);
+}

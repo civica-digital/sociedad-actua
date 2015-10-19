@@ -1,0 +1,47 @@
+.form__container {
+  label { font-size: 16px; }
+}
+
+// let's override some of the bootstrap classes
+.control_override {
+  border-radius: 0;
+}
+
+.form-control {
+  @extend .control_override;
+  height: 40px;
+
+  &.inline {
+    display: inline-block;
+    width: 500px;
+  }
+}
+
+.inline {
+  display: inline-block !important;
+}
+
+.block {
+  display: block !important;
+}
+
+.file_input {
+  @extend .inline;
+}
+
+.fakefile {
+  margin-right: 30px;
+  input {
+    @extend .inline;
+    margin-right: 15px;
+  }
+}
+
+input.error {
+  border: 1px solid #A94442;
+}
+
+label.error {
+  color: #A94442;
+  font-weight: 700;
+}

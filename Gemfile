@@ -10,7 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass'
-gem 'figaro', '>= 1.0.0.rc1'
+gem 'figaro'
 gem 'high_voltage'
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -19,6 +19,7 @@ gem 'sendgrid'
 gem 'simple_form'
 gem 'unicorn'
 gem 'unicorn-rails'
+gem "font-awesome-rails"
 
 group :development do
   gem 'better_errors'

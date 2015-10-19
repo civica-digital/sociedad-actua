@@ -1,0 +1,37 @@
+// Navbar default colors
+$footer_background_color: $black;
+
+// Paddings
+$footer_padding_top: 50px;
+$footer_padding_bottom: 50px;
+
+// Links
+$link_header_padding_bottom: 10px;
+
+#footer{
+  background-color: $footer_background_color;
+
+  padding-top: $footer_padding_top;
+  padding-bottom: $footer_padding_bottom;
+
+  .info__links {
+    margin-bottom: 30px;
+  }
+
+  p, a {
+    color: #fff;
+    &.header {
+      font-weight: bolder;
+      color: #fff;
+    }
+  }
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+    li{
+      color: #fff;
+      margin-bottom: 5px;
+    }
+  }
+}
