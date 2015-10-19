@@ -5,8 +5,8 @@ FactoryGirl.define do
       f.name { Faker::Company.name }
       f.type_organization  "ACs"
       f.email { Faker::Internet.email }
-      f.mision { Faker::Lorem.paragraph }
-      f.zip { Faker::Number.number(5) }
+      f.mision { Faker::Lorem.sentence }
+      f.zip { Faker::Number.number(5).to_s }
       f.telephone { Faker::PhoneNumber.cell_phone }
       f.site { Faker::Internet.url }
   end
