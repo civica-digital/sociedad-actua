@@ -8,6 +8,7 @@ class Organization < ActiveRecord::Base
   validates :type_organization, :inclusion => { :in => %w{ACs ABPs Colectivos Grupos },
                                                 :message => "%{value} no es un tipo de organización valido"}
 
+  validates :foundation, :inclusion =>  { :in => 1900..2040 }, allow_blank: true
   # TODO: validar formato de correo
   # validates :email,
 

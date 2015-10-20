@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019110435) do
+ActiveRecord::Schema.define(version: 20151020061303) do
 
   create_table "organizations", force: :cascade do |t|
-    t.string   "type_organization",                                 null: false
-    t.string   "name",                                              null: false
-    t.datetime "foundation",        default: '2015-10-17 08:44:21', null: false
-    t.string   "email",                                             null: false
+    t.string   "type_organization",                                   null: false
+    t.string   "name",                                                null: false
+    t.datetime "remember_created_at", default: '2015-10-20 06:18:53', null: false
+    t.string   "email",                                               null: false
     t.string   "rfc"
     t.text     "mision"
     t.string   "address"
     t.string   "colonia"
     t.string   "town"
-    t.string   "zip"
+    t.integer  "zip"
     t.string   "telephone"
     t.string   "site"
     t.string   "blog"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20151019110435) do
     t.string   "twitter"
     t.string   "youtube"
     t.string   "instagram"
+    t.integer  "foundation",          default: 2015
   end
 
   create_table "roles", force: :cascade do |t|

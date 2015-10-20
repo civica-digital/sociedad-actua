@@ -9,5 +9,6 @@ FactoryGirl.define do
       f.zip { Faker::Number.number(5).to_s }
       f.telephone { Faker::PhoneNumber.cell_phone }
       f.site { Faker::Internet.url }
+      f.foundation { Faker::Number.between(1980, 2020) }
   end
 end
