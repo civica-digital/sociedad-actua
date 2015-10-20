@@ -10,5 +10,9 @@ FactoryGirl.define do
       f.telephone { Faker::PhoneNumber.cell_phone }
       f.site { Faker::Internet.url }
       f.foundation { Faker::Number.between(1980, 2020) }
+      f.address { Faker::Address.street_address }
+      f.colonia { Faker::Address.street_name }
+      f.town { Faker::Address.city }
+
   end
 end
