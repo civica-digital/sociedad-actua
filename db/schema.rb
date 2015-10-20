@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020061303) do
+ActiveRecord::Schema.define(version: 20151020073431) do
 
   create_table "organizations", force: :cascade do |t|
     t.string   "type_organization",                                   null: false
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 20151020061303) do
     t.string   "youtube"
     t.string   "instagram"
     t.integer  "foundation",          default: 2015
+    t.boolean  "show_street",         default: false
+    t.boolean  "show_address",        default: false
+    t.boolean  "show_colonia",        default: false
+    t.boolean  "show_town",           default: false
+    t.boolean  "show_telephone",      default: false
+    t.boolean  "show_zip",            default: false
+    t.boolean  "show_email"
   end
 
   create_table "roles", force: :cascade do |t|

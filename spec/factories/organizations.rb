@@ -13,6 +13,9 @@ FactoryGirl.define do
       f.address { Faker::Address.street_address }
       f.colonia { Faker::Address.street_name }
       f.town { Faker::Address.city }
-
+      f.show_address true
+      f.show_town true
+      f.show_telephone true
+      f.show_email 1
   end
 end

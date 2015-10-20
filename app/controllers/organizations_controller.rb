@@ -24,6 +24,8 @@ class OrganizationsController < ApplicationController
     params.require(:organization).permit(:name, :type_organization, :rfc,
                                          :mision, :address, :colonia, :town,
                                          :zip, :telephone, :email, :site, :facebook,
-                                         :twitter, :youtube, :instagram, :blog)
+                                         :twitter, :youtube, :instagram, :blog,
+                                         :show_address, :show_town, :show_colonia,
+                                         :show_telephone, :show_zip, :show_email)
   end
 end

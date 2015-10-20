@@ -25,4 +25,7 @@ class Organization < ActiveRecord::Base
 
   # TODO: validar el formato de url para sitio y redes sociales
   # validates_with URLValidator, fields: [:site, :blog, facebook, youtube, instagram, twitter]
+
+  validates :show_address, :show_town, :show_colonia,
+            :show_telephone, :show_zip, :show_email, :inclusion => { :in => [true, false] }, allow_blank: true
 end

@@ -16,7 +16,7 @@
 
       <div class="row">
         <div class="col-md-4"><%= f.input :rfc %></div>
-        <div class="col-md-1"></div>
+        <div class="col-md-2"><%= f.input :foundation, collection: 1980..2016, selected: 2015 %></div>
       </div>
 
     <div class="row">
@@ -28,13 +28,29 @@
 
       <div class="row">
 
-          <div class="col-md-4"><%= f.input :address %></div>
-          <div class="col-md-4"><%= f.input :colonia %></div>
-          <div class="col-md-4"><%= f.input :town %></div>
-
-          <div class="col-md-4"><%= f.input :zip %></div>
-          <div class="col-md-4"><%= f.input :telephone %></div>
-          <div class="col-md-4"><%= f.input :email%></div>
+          <div class="col-md-4">
+            <%= f.input :address %>
+            <%= f.input :show_address, label: false %>
+          </div>
+          <div class="col-md-4">
+            <%= f.input :colonia %>
+            <%= f.input :show_colonia, label: false %>
+          </div>
+          <div class="col-md-4"><%= f.input :town %>
+            <%= f.input :show_town, label: false %>
+          </div>
+          <div class="col-md-4">
+            <%= f.input :zip %>
+            <%= f.input :show_zip, label: false %>
+          </div>
+          <div class="col-md-4">
+            <%= f.input :telephone %>
+            <%= f.input :show_telephone, label: false %>
+          </div>
+          <div class="col-md-4">
+            <%= f.input :email%>
+            <%= f.input :show_email, label: false %>
+          </div>
 
       </div>
 
