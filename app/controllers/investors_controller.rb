@@ -1,5 +1,6 @@
 class InvestorsController < ApplicationController
   before_action :investor_params, only: :create
+  before_action :authenticate_user!, :except => [:show, :index]
 
   def new
   	@investor = Investor.new
@@ -7,6 +8,7 @@ class InvestorsController < ApplicationController
 
   def create
   	@investor = Investor.new(investor_params)
+    @investor.user = current_user
     if @investor.save
       flash[:notice] = "Excelente! Bienvenido #{@investor.type_investor}, este es tu perfil público."
       redirect_to @investor

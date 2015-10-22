@@ -1,4 +1,6 @@
 class Investor < ActiveRecord::Base
+  has_one :user, as: :profile
+
   validates :name, :type_investor, :characteristics, presence: true
 
   validates :name, :length => { :minimum => 2 }
