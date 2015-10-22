@@ -5,7 +5,7 @@ FactoryGirl.define do
     f.name { Faker::Name.name }
     f.email { Faker::Internet.email }
     f.description { Faker::Lorem.sentence }
-    f.type { %w{Asesor(a) Voluntario(a) Periodista}.sample }
+    f.type_collaborator { %w{Asesor(a) Voluntario(a) Periodista}.sample }
   end
 
 end
