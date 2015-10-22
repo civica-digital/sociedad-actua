@@ -1,12 +1,11 @@
+require 'faker'
+
 FactoryGirl.define do
-  factory :user do
-    name "Test User"
-    email "test@example.com"
-    password "please123"
 
-    trait :admin do
-      role 'admin'
-    end
-
+  factory :user do | f |
+    f.name { Faker::Company.name }
+    f.email {Faker::Internet.email }
+    f.password { Faker::Internet.password(6, 20) }
   end
+
 end

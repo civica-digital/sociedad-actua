@@ -1,12 +1,18 @@
 class User < ActiveRecord::Base
-  enum role: [:user, :vip, :admin]
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
   after_initialize :set_default_role, :if => :new_record?
+
+  belongs_to :profile, polymorphic: true
+
+  rolify :role_cname => 'Role'
 
   def set_default_role
     if User.count == 0
-      self.role ||= :admin
-    else
-      self.role ||= :user
+      self.add_role :admin
     end
   end
 
@@ -15,7 +21,7 @@ class User < ActiveRecord::Base
       user.provider = auth['provider']
       user.uid = auth['uid']
       if auth['info']
-         user.name = auth['info']['name'] || ""
+        user.name = auth['info']['name'] || ""
       end
     end
   end

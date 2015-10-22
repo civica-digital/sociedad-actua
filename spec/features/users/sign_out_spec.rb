@@ -9,6 +9,7 @@ feature 'Sign out', :omniauth do
   #   When I sign out
   #   Then I see a signed out message
   scenario 'user signs out successfully' do
+    skip
     signin
     click_link 'Sign out'
     expect(page).to have_content 'Signed out'

@@ -9,6 +9,7 @@ feature 'Home page' do
   #   When I visit the home page
   #   Then I see "Welcome"
   scenario 'visit the home page' do
+    skipx|
     visit root_path
     expect(page).to have_content 'Welcome'
   end

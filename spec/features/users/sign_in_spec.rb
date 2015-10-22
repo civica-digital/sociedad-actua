@@ -10,6 +10,7 @@ feature 'Sign in', :omniauth do
   #   When I sign in
   #   Then I see a success message
   scenario "user can sign in with valid account" do
+    skip
     signin
     expect(page).to have_content("Sign out")
   end
@@ -20,6 +21,7 @@ feature 'Sign in', :omniauth do
   #   When I sign in
   #   Then I see an authentication error message
   scenario 'user cannot sign in with invalid account' do
+    skip
     OmniAuth.config.mock_auth[:twitter] = :invalid_credentials
     visit root_path
     expect(page).to have_content("Sign in")

@@ -1,0 +1,76 @@
+<h1>Completar registro</h1>
+
+
+<div class="container">
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+<%= simple_form_for @organization do |f| %>
+      <div class="row">
+        <div class="col-md-8"><%= f.input :name %></div>
+        <div class="col-md-4"><%= f.input :type_organization,
+                     collection: ["ACs", "ABPs", "Colectivos", "Grupos"],
+                     prompt: "Tipo de organización",
+                     selected: "ACs" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4"><%= f.input :rfc %></div>
+        <div class="col-md-2"><%= f.input :foundation, collection: 1980..2016, selected: 2015 %></div>
+      </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <%= f.input :mision %>
+      </div>
+    </div>
+
+
+      <div class="row">
+
+          <div class="col-md-4">
+            <%= f.input :address %>
+            <%= f.input :show_address, label: false %>
+          </div>
+          <div class="col-md-4">
+            <%= f.input :colonia %>
+            <%= f.input :show_colonia, label: false %>
+          </div>
+          <div class="col-md-4"><%= f.input :town %>
+            <%= f.input :show_town, label: false %>
+          </div>
+          <div class="col-md-4">
+            <%= f.input :zip %>
+            <%= f.input :show_zip, label: false %>
+          </div>
+          <div class="col-md-4">
+            <%= f.input :telephone %>
+            <%= f.input :show_telephone, label: false %>
+          </div>
+          <div class="col-md-4">
+            <%= f.input :email%>
+            <%= f.input :show_email, label: false %>
+          </div>
+
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <%= f.label "Escribe las ligas a tu sitio y redes sociales" %>
+        </div>
+
+        <div class="col-md-4"><%= f.input :site %></div>
+        <div class="col-md-4"><%= f.input :facebook %></div>
+        <div class="col-md-4"><%= f.input :twitter %></div>
+
+        <div class="col-md-4"><%= f.input :youtube %></div>
+        <div class="col-md-4"><%= f.input :instagram %></div>
+        <div class="col-md-4"><%= f.input :blog %></div>
+      </div>
+
+    <%= f.button :submit %>
+<% end %>
+  </div>
+</div>
+</div>
