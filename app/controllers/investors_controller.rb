@@ -8,7 +8,7 @@ class InvestorsController < ApplicationController
   def create
   	@investor = Investor.new(investor_params)
     if @investor.save
-      flash[:notice] = "Excelente! Bienvenido #{@investor.type}, este es tu perfil público."
+      flash[:notice] = "Excelente! Bienvenido #{@investor.type_investor}, este es tu perfil público."
       redirect_to @investor
     else
       render 'new'
@@ -21,7 +21,7 @@ class InvestorsController < ApplicationController
 
   private
   def investor_params
-    params.require(:investor).permit(:name, :type, :mantra, :characteristics,
+    params.require(:investor).permit(:name, :type_investor, :mantra, :characteristics,
                                          :site_url, :facebook_url, :blog_url)
   end
 end
