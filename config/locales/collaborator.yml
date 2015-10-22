@@ -1,29 +1,31 @@
 es:
-  form:
-    sign_up:
-      title: Regístrate
-      submit: Crear mi cuenta
-    shared:
-      log_in: Inicia sesión
-      register: Regístrate
   simple_form:
     options:
-      user:
+      collaborator:
         role:
           collaborator: Colaborador
           organization: Organización
           investor: Inversionista
     labels:
-      user:
+      collaborator:
+        name: Nombre
         email: Correo electrónico
+        type_collaborator: Tipo de colaborador
+        description: Descripción
+        site_url: Url de sitio web
+        blog_url: Url de blog
+        facebook_url: Facebook
+        twitter_url: Twitter
+        instagram_url: Instagram
+        youtube_url: Youtube
         password: Contraseña
         password_confirmation: Confirma tu contraseña
         role: Tipo de perfil
     hints:
-      user:
+      collaborator:
         # password: Mínimo 6 caracteres
     placeholders:
-      user:
+      collaborator:
         email: ej. usuario@dominio.org
         password: Al menos 6 caracteres
         password_confirmation: Confirma tu contraseña

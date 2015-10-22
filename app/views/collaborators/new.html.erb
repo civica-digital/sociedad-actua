@@ -3,7 +3,6 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
     <%=  simple_form_for @collaborator do |f| %>
           <%= f.input :name %>
           <%= f.input :type_collaborator, collection: %w{Asesor(a) Voluntario(a) Periodista},
@@ -15,6 +14,5 @@
           <% end %>
           <%= f.button :submit %>
     <% end %>
-    </div>
   </div>
 </div>
