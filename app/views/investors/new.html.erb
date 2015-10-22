@@ -5,7 +5,7 @@
     <div class="col-md-8 col-md-offset-2">
     <%=  simple_form_for @investor do |f| %>
           <%= f.input :name %>
-          <%= f.input :type, collection: %w{Fundación Empresa Individuo},
+          <%= f.input :type_investor, collection: %w{Fundación Empresa Individuo},
                       selected: "Fundación", prompt: "Tipo de inversionista" %>
           <%= f.input :mantra %>
           <%= f.input :characteristics %>
