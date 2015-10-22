@@ -1,0 +1,14 @@
+.uppercase {
+  text-transform: uppercase;
+}
+
+.bg--grey { background-color: $grey_100 !important; }
+.bg--dark-grey { background-color: $grey_800 !important; }
+
+.little-margin-right {
+  margin-right: 15px !important;
+}
+
+.section{
+  margin: 30px 0 30px 0;
+}

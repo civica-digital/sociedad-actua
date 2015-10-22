@@ -1,0 +1,128 @@
+// Headings
+@mixin heading($size, $color, $margin-bottom: 10px) {
+  color: $color;
+  font-size: $size;
+  font-weight: 300;
+  margin-bottom: $margin-bottom;
+}
+
+// Colors
+$default_text_color: $grey_800;
+
+/* Heading */
+@mixin heading-1($color: $grey_600) { @include heading(32px, $color); }
+@mixin heading-3($color: $grey_600) { @include heading(22px, $color); }
+@mixin heading-5($color: $grey_600) { @include heading(18px, $color); }
+
+
+// Text
+@mixin text__decorator($color) {
+    color: $color;
+    font-weight: 300;
+}
+
+// Links
+@mixin navigation($position) {
+  text-align: $position;
+}
+
+@mixin button($background_color, $text_color) {
+  background-color: $background_color;
+  color: $text_color;
+
+  &:hover {
+    background-color: $background_color;
+    color: $text_color;
+  }
+}
+
+// Custom checkbox icon
+@mixin checkbox($color, $content-unchecked, $content-checked, $top){
+  margin-right: 12px;
+  visibility: hidden;
+
+  &:checked:after, &:after {
+    visibility: visible;
+    font-family: FontAwesome;
+    font-size: 20px;
+    height: 17px;
+    width: 17px;
+    position: relative;
+    top: $top;
+    left: 0px;
+    background-color: #FFF;
+    color: $color;
+    display: inline-block;
+  }
+
+  &:after {
+    content: $content-checked;
+  }
+
+  &:checked:after{
+    content: $content-unchecked;
+  }
+}
+
+// Date entry for the timeline
+@mixin date-entry($background-color, $color, $arrow-color) {
+  display: inline-block;
+  vertical-align: top;
+  background: $background-color;
+  color: #fff;
+  padding: 10px;
+  font-size: 12px;
+  text-align: center;
+  position: relative;
+  border-top: 4px solid $arrow-color;
+  border-radius: 3px;
+  min-width: 200px;
+  max-width: 500px;
+
+  img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+  }
+
+  h1 {
+      color: #fff;
+      font-size: 18px;
+      font-family: Georgia, serif;
+      font-weight: bold;
+      margin-bottom: 10px;
+  }
+
+  h2 {
+      letter-spacing: .2em;
+      margin-bottom: 10px;
+      font-size: 14px;
+  }
+
+  &:after {
+      content:'';
+      display: block;
+      background: #eee;
+      width: 12px;
+      height: 12px;
+      border-radius: 6px;
+      border: 3px solid $arrow-color;
+      position: absolute;
+      left: 50%;
+      top: -30px;
+      margin-left: -6px;
+  }
+
+  &:before {
+      content: '';
+      display: block;
+      background: $arrow-color;
+      width: 5px;
+      height: 20px;
+      position: absolute;
+      left: 50%;
+      top: -20px;
+      margin-left: -2px;
+  }
+}

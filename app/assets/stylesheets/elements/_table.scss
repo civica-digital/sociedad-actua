@@ -1,0 +1,16 @@
+@import "defaults/colors";
+
+.table-cell {
+  @include text__decorator($grey_800);
+  padding: 15px;
+}
+
+.table {
+  & > tbody > tr > td {
+    @extend .table-cell;
+  }
+
+  & > thead > tr > th {
+    @extend .table-cell;
+  }
+}

@@ -1,0 +1,76 @@
+/* Landing component */
+
+// Background
+$landing_image_background: url('/assets/escuadron.jpg');
+
+// Container
+$landing_container_width: 100%;
+$landing_container_height: 600px;
+$main_top_and_bottom_margin: 100px;
+
+// Colors
+$landing_default_color: #FFFFFF;
+$form_links_color: #FFF;
+
+#intro {
+  z-index: -1;
+  width: $landing_container_width;
+  height: $landing_container_height;
+  background-image: $landing_image_background;
+  background-size: cover;
+  color: $landing_default_color;
+  margin-top: -$main_top_and_bottom_margin;
+
+  h5 { @include heading(18px, $landing_default_color, 50px); }
+
+  .overlay {
+    position: absolute;
+    width: $landing_container_width;
+    height: $landing_container_height;
+    background: $grey_800;
+    opacity: 0.7;
+  }
+
+  .content {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    text-align: center;
+    max-width: 700px;
+    padding-top: 70px;
+
+    h3 { line-height: 1.5; }
+  }
+
+  .actions {
+    margin-bottom: 70px;
+  }
+
+  p.topic {
+    @extend .uppercase;
+    color: $landing_default_color;
+    font-size: 16px;
+  }
+
+  hr {
+    margin-top: 0;
+  }
+
+  .recent_activity {
+    padding: 0;
+    list-style-type: none;
+
+
+    li {
+      background-color: $grey_800;
+      padding: 10px 10px 10px 20px;
+      &.odd { opacity: 0.6; }
+      &.even { opacity: 0.8; }
+    }
+  }
+}
+
+a.form-link {
+  margin-top: 0.75em;
+  color: $form_links_color;
+}

@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151020073431) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "organizations", force: :cascade do |t|
     t.string   "type_organization",                                   null: false
     t.string   "name",                                                null: false
@@ -49,7 +52,7 @@ ActiveRecord::Schema.define(version: 20151020073431) do
     t.datetime "updated_at"
   end
 
-  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -74,23 +77,23 @@ ActiveRecord::Schema.define(version: 20151020073431) do
     t.string   "profile_type"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["name", "resource_type", "resource_id"], name: "index_users_on_name_and_resource_type_and_resource_id"
-  add_index "users", ["name"], name: "index_users_on_name"
-  add_index "users", ["profile_type", "profile_id"], name: "index_users_on_profile_type_and_profile_id"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["name", "resource_type", "resource_id"], name: "index_users_on_name_and_resource_type_and_resource_id", using: :btree
+  add_index "users", ["name"], name: "index_users_on_name", using: :btree
+  add_index "users", ["profile_type", "profile_id"], name: "index_users_on_profile_type_and_profile_id", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "users_roles", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "role_id"
   end
 
-  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
+  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
   create_table "users_users", id: false, force: :cascade do |t|
     t.integer "user_id"
   end
 
-  add_index "users_users", ["user_id", "user_id"], name: "index_users_users_on_user_id_and_user_id"
+  add_index "users_users", ["user_id", "user_id"], name: "index_users_users_on_user_id_and_user_id", using: :btree
 
 end

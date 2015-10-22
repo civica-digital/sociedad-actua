@@ -1,0 +1,21 @@
+h1 { @include heading-1(); }
+h3 { @include heading-3(); }
+h5 { @include heading-5(); }
+
+/* Paragraph, spans and links */
+p, span, label {
+  @include text__decorator($grey_200);
+}
+
+/* Text helpers
+ * If some of the next classes is present '!important', override everything.
+ */
+
+// Colors
+.bright { color: #fff !important; }
+.dark { color: $grey_800 !important; }
+.primary { color: $cartoon_green !important; }
+.danger { color: $red_800 !important; }
+
+// Weights
+.boldish { font-weight: 400 !important; } // normally 300;

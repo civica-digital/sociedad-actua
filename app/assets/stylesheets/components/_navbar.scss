@@ -1,0 +1,59 @@
+// Navbar default colors
+$navbar_background_color: $grey_800;
+$navbar_default_links_color: #fff;
+$navbar_active_links_color: $cartoon_green;
+
+// Paddings
+$navbar_padding_top: 10px;
+$navbar_padding_bottom: 10px;
+
+// Margins
+$navbar_margin_bottom: 50px;
+
+// Avatar
+$navbar_avatar_size: 80px;
+
+
+nav {
+  z-index: 1;
+
+  margin-bottom: $navbar_margin_bottom !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+
+  span {
+    color: $navbar_default_links_color;
+  }
+
+  &.navbar.navbar-default {
+    background-color: $navbar_background_color;
+  }
+
+  .navbar-header > a > img {
+    margin-top: $navbar_avatar_size / 4;
+    margin-bottom: $navbar_avatar_size / 4;
+  }
+
+  .avatar{
+    height: $navbar_avatar_size / 2;
+    width: $navbar_avatar_size / 2;
+    border-radius: 50%;
+  }
+}
+
+#navbar > ul > li > a {
+  color: $navbar_default_links_color;
+  line-height: $navbar_avatar_size / 2;
+
+  &:hover {
+    color: $navbar_active_links_color;
+  }
+
+  &.dropdown-toggle {
+    color: $navbar_active_links_color;
+  }
+}
+
+.navbar-default .navbar-nav > .open > a {
+  background-color: $navbar_background_color !important;
+}

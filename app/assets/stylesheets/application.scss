@@ -1,0 +1,41 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ // @import "jquery.ui.core";
+ // @import "jquery.ui.theme";
+ // @import "jquery.ui.datepicker";
+ @import "font-awesome";
+
+ // Defaults
+ @import 'defaults/colors';
+ @import 'defaults/utilities';
+ @import 'defaults/mixins';
+
+ // Elements
+ @import "elements/text";
+ @import "elements/input";
+ @import "elements/button";
+ @import "elements/link";
+ @import "elements/table";
+
+ // Components
+ @import "components/navbar";
+ @import "components/footer";
+ @import "components/landing";
+ @import "components/forms";
+ @import "components/checkbox";
+ @import "components/top_navbar";
+ @import "components/cards";

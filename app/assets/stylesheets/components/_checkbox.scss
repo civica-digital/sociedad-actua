@@ -1,0 +1,12 @@
+input.checkbox-round {
+  @include checkbox($grey_200, '\f058', '\f10c', -4px);
+}
+
+input.checkbox-round-step {
+  @include checkbox($cartoon_green, '\f058', '\f10c', -9px);
+}
+
+// another style example
+// input.checkbox-square {
+//   @include checkbox($cartoon_green, '\f14a', '\f096', -4px);
+// }

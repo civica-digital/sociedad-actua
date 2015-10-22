@@ -1,0 +1,56 @@
+
+.card {
+  h3 { @include heading-3(); }
+  h5 { @include heading-5($grey_200); }
+
+  padding: 10px 50px 30px 70px;
+  margin-bottom: 30px;
+  background-color: #fff;
+
+  .title, .subtitle {
+    margin-bottom: 15px;
+  }
+
+  .list {
+    padding: 0;
+    list-style-type: none;
+    margin-bottom: 30px;
+
+    .item { margin-bottom: 5px; }
+    .index {
+      display: inline-block;
+      color: $grey_800;
+      font-weight: bold;
+      width: 30px;
+    }
+  }
+
+  .list__warnings {
+    @extend .list;
+    .item {
+      @extend .bg--grey;
+      padding: 10px;
+      margin-bottom: 5px;
+    }
+    .index {
+      @extend .danger;
+      width: 150px;
+    }
+  }
+
+
+  .footnote {
+    p, span { @include text__decorator(black); }
+    h3 { @include heading-3($grey_800); }
+    h5 { @include heading-5($grey_600); }
+
+    background-color: $grey_100;
+    padding: 15px;
+  }
+
+  // 2nd level nested card
+  .card { padding: 10px 50px 30px 30px; }
+
+  // Card helper utilities
+  .padding-top { padding-top: 20px !important;  }
+}

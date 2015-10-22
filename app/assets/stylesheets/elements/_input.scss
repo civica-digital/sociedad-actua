@@ -1,0 +1,14 @@
+@import "defaults/colors";
+
+.input-group-addon {
+  background-color: white !important;
+  border-radius: 0;
+}
+
+.input-icon {
+  @extend .form-control;
+  border-right: 0 !important;
+  box-shadow: none !important;
+
+  &:focus { border-color: $input_border_color !important; }
+}

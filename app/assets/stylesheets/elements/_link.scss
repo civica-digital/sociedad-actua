@@ -1,0 +1,14 @@
+@import "defaults/mixins";
+
+.navigation-back {
+  @include navigation(left);
+}
+
+.navigation-center {
+  text-transform: uppercase;
+  @include navigation(center);
+}
+
+.navigation-right {
+  @include navigation(right);
+}
