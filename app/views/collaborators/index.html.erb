@@ -1,0 +1,11 @@
+<h1>Colaboradores</h1>
+
+<% Collaborator.all.each do |e| %>
+<div class="row">
+  <div class="col-md-4">
+    <h3><%= e.name %></h3>
+    <small><%= e.email %></small>
+    <p><%= e.description %></p>
+  </div>
+</div>
+<% end %>
