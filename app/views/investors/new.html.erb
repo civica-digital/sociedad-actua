@@ -4,11 +4,11 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
     <%=  simple_form_for @investor do |f| %>
-          <%= f.input :name %>
+          <%= f.input :name, label: "Nombre" %>
           <%= f.input :type_investor, collection: %w{Fundación Empresa Individuo},
-                      selected: "Fundación", prompt: "Tipo de inversionista" %>
-          <%= f.input :mantra %>
-          <%= f.input :characteristics %>
+                      selected: "Fundación", label: "Tipo de inversionista", prompt: "Tipo de inversionista" %>
+          <%= f.input :mantra, label: "Misión" %>
+          <%= f.input :characteristics, label: "Características de proyectos que apoya" %>
           <% [:site_url, :blog_url, :facebook_url].each do |e| %>
               <%= f.input e %>
           <% end %>
