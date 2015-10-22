@@ -1,0 +1,19 @@
+es:
+  form:
+    sign_up:
+      title: Regístrate
+      submit: Crear mi cuenta
+    shared:
+      log_in: Inicia sesión
+      register: Regístrate
+  simple_form:
+    labels:
+      user:
+        email: Correo electrónico
+        password: Contraseña
+        password_confirmation: Confirma tu contraseña
+        role: Tipo de perfil
+    placeholders:
+      email: ej. usuario@dominio.com
+      password: Mínimo 6 caracteres
+      password_confirmation: Confirma tu contraseña

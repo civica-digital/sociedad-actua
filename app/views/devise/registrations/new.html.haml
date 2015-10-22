@@ -1,4 +1,4 @@
-%h2 Sign up
+%h1= t('form.sign_up.title')
 
 = simple_form_for(resource, as: resource_name, url: registration_path) do |f|
   = f.error_notification
@@ -10,6 +10,6 @@
     = f.input :role, collection:  %w{organization investor collaborator}, required: true
 
   .form-actions
-    = f.button :submit, "Sign up"
+    = f.button :submit, t('form.sign_up.submit')
 
-= render "devise/shared/links"
+-# = render "devise/shared/links"
