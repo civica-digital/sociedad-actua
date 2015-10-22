@@ -7,7 +7,7 @@
     = f.input :email, required: true, autofocus: true
     = f.input :password, required: true
     = f.input :password_confirmation, required: true
-    = f.input :role, collection:  %w{organization investor collaborator}, required: true
+    = f.input :role, collection: [:collaborator, :organization, :investor], required: true
 
   .form-actions.text-right
     = f.button :submit, t('form.sign_up.submit')

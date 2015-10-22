@@ -7,6 +7,12 @@ es:
       log_in: Inicia sesión
       register: Regístrate
   simple_form:
+    options:
+      user:
+        role:
+          collaborator: Colaborador
+          organization: Organización
+          investor: Inversionista
     labels:
       user:
         email: Correo electrónico
