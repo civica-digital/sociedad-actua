@@ -1,1 +1,24 @@
-<h3>Welcome</h3>
+<%= image_tag 'landing-video.png', width: '100%' %>
+
+<div class="row text-center">
+  <h3>Reg&iacute;strate</h3>
+</div>
+<div class="row section">
+  <div class="col-xs-12 col-sm-4 text-center">
+    <%= link_to root_path do %>
+      <%= image_tag 'roles/allies.png' %>
+    <% end %>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 text-center">
+    <%= link_to root_path do %>
+      <%= image_tag 'roles/projects.png' %>
+    <% end %>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 text-center">
+    <%= link_to root_path do %>
+      <%= image_tag 'roles/investors.png' %>
+    <% end %>
+  </div>
+</div>
