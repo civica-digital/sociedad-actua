@@ -13,7 +13,11 @@ es:
         password: Contraseña
         password_confirmation: Confirma tu contraseña
         role: Tipo de perfil
+    hints:
+      user:
+        # password: Mínimo 6 caracteres
     placeholders:
-      email: ej. usuario@dominio.com
-      password: Mínimo 6 caracteres
-      password_confirmation: Confirma tu contraseña
+      user:
+        email: ej. usuario@dominio.org
+        password: Al menos 6 caracteres
+        password_confirmation: Confirma tu contraseña
