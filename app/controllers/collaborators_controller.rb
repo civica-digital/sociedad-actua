@@ -1,5 +1,6 @@
 class CollaboratorsController < ApplicationController
   before_action :collaborator_params, only: :create
+  before_action :authenticate_user!, :except => [:show, :index]
 
   def show
     @collaborator = Collaborator.find(params[:id])
@@ -7,6 +8,7 @@ class CollaboratorsController < ApplicationController
 
   def create
     @collaborator = Collaborator.new(collaborator_params)
+    @collaborator.user = current_user
     if @collaborator.save
       flash[:notice] = "Excelente! Bienvenido #{@collaborator.type_collaborator}, este es tu perfil público."
       redirect_to @collaborator

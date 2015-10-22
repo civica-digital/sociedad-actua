@@ -1,4 +1,6 @@
 class Collaborator < ActiveRecord::Base
+  has_one :user, as: :profile
+
   validates :email, :name, :type_collaborator, :description, presence: true
   validates :email, :name, uniqueness: true
 

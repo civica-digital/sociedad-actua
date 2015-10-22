@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.feature "AddNewCollaborators", type: :feature do
   it "Allow create one new collaborator" do
+
+    signup_organization
+
     visit new_collaborator_path
 
     email = Faker::Internet.email
