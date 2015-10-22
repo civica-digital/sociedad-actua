@@ -13,6 +13,21 @@ $input_border_color: #CCC;
 
 $cartoon_green: #00CC99; // ex. button
 
-$blue_800: #337AB7; // timeline clear date entry
 $red_800: #FF6666; // ex. form error
-$orange_800: #F0AD4E; // timeline warning date entry
+
+// Blues
+$blue_600: #4CC3FB;
+$blue_800: #0DA4F9;
+
+// Yellow
+$yellow_800: #FFD200;
+
+// Orange
+$orange_800: #FF7D00;
+
+
+// Most used variables
+$first__accent: $blue_600;
+$second__accent: $blue_800;
+$third__accent: $yellow_800;
+$fourth__accent: $orange_800;

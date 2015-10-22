@@ -10,9 +10,9 @@
 $default_text_color: $grey_800;
 
 /* Heading */
-@mixin heading-1($color: $cartoon_green) { @include heading(32px, $color); }
-@mixin heading-3($color: $cartoon_green) { @include heading(22px, $color); }
-@mixin heading-5($color: $cartoon_green) { @include heading(18px, $color); }
+@mixin heading-1($color: $grey_600) { @include heading(32px, $color); }
+@mixin heading-3($color: $grey_600) { @include heading(22px, $color); }
+@mixin heading-5($color: $grey_600) { @include heading(18px, $color); }
 
 
 // Text
