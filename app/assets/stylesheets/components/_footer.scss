@@ -1,5 +1,7 @@
 // Navbar default colors
-$footer_background_color: $black;
+$footer_background_color: $grey_150;
+$footer_header_color: $fourth__accent;
+$footer_text_color: $grey_800;
 
 // Paddings
 $footer_padding_top: 50px;
@@ -18,11 +20,12 @@ $link_header_padding_bottom: 10px;
     margin-bottom: 30px;
   }
 
-  p, a {
-    color: #fff;
+  p, a, span {
+    color: $footer_text_color;
     &.header {
+      font-size: 16px;
+      color: $footer_header_color;
       font-weight: bolder;
-      color: #fff;
     }
   }
 
