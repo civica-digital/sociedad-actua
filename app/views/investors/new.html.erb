@@ -7,12 +7,18 @@
           <%= f.input :name, label: "Nombre" %>
           <%= f.input :type_investor, collection: %w{Fundación Empresa Individuo},
                       selected: "Fundación", label: "Tipo de inversionista", prompt: "Tipo de inversionista" %>
+          <%= f.input :email, label: "Email" %>
+          <%= f.input :telephone, label: "Teléfono" %>
+          <%= f.input :address, label: "Calle y número" %>
+          <%= f.input :neighborhood, label: "Colonia" %>
+          <%= f.input :city, label: "Ciudad" %>
+          <%= f.input :zipcode, label: "Código postal" %>
           <%= f.input :mantra, label: "Misión" %>
           <%= f.input :characteristics, label: "Características de proyectos que apoya" %>
-          <% [:site_url, :blog_url, :facebook_url].each do |e| %>
-              <%= f.input e %>
-          <% end %>
-          <%= f.button :submit %>
+          <%= f.input :site_url, label: "Sitio web" %>
+          <%= f.input :facebook_url, label: "Página de Facebook" %>
+          <%= f.input :blog_url, label: "Blog" %>
+          <%= f.button :submit, "Registrar inversionista" %>
     <% end %>
     </div>
   </div>
