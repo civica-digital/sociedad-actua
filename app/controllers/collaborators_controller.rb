@@ -9,8 +9,8 @@ class CollaboratorsController < ApplicationController
   def create
     @collaborator = Collaborator.new(collaborator_params)
     @collaborator.user = current_user
-    if @collaborator.save
-      flash[:notice] = "Excelente! Bienvenido #{@collaborator.type_collaborator}, este es tu perfil público."
+    if @collaborator.save and current_user.profile.nil?
+      flash[:notice] = "Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!"
       redirect_to @collaborator
     else
       render 'new'
@@ -18,14 +18,20 @@ class CollaboratorsController < ApplicationController
   end
 
   def new
-    @collaborator = Collaborator.new
+    if current_user.profile.nil?
+      @collaborator = Collaborator.new
+    else
+      redirect_to root_path
+      flash[:notice] = "Ya tienes un perfil asociado."
+    end
+
   end
 
   private
   def collaborator_params
     params.require(:collaborator).permit(:name, :email, :type_collaborator, :description,
                                          :site_url, :facebook_url, :instagram_url,
-                                         :twitter_url, :youtube_url, :blog_url)
+                                         :twitter_url, :youtube_url, :blog_url, :logog)
   end
 
 end
