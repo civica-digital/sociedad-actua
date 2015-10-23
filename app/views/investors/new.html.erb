@@ -12,6 +12,9 @@
               <%= f.input :type_investor, collection: %w{Fundación Empresa Individuo},
                       selected: "Fundación", label: "Tipo de inversionista", prompt: "Tipo de inversionista" %>
             </div>
+            <div class="col-md-4">
+              <%= f.input :logo, label: "Adjunta tu logotipo" %>
+            </div>
           </div>
           
           <div class="row">
