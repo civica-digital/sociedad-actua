@@ -20,7 +20,9 @@ gem 'simple_form'
 gem 'rolify'
 gem 'devise'
 gem 'haml-rails', '~> 0.9'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+gem 'chosen-rails', '~> 1.0.0'
+gem 'sqlite3'
 
 group :development do
   gem 'better_errors'
