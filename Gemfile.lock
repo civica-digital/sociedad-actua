@@ -438,7 +438,6 @@ GEM
       websocket (~> 1.0)
     sendgrid (1.2.0)
       json
-      json
     sexp_processor (4.6.0)
     shellany (0.0.1)
     simple_form (3.2.0)
@@ -537,3 +536,6 @@ DEPENDENCIES
   unicorn
   unicorn-rails
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.6
