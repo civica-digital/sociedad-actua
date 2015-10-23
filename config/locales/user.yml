@@ -6,6 +6,8 @@ es:
           attributes:
             email:
               taken: "Este email ya esta en uso"
+            password_confirmation:
+              confirmation: Las contraseñas deben ser iguales.
   form:
     sign_up:
       title: Regístrate
