@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $("#investor_city").chosen
+  $("#organization_town").chosen
     allow_single_deselect: true
-    no_results_text: 'No se encontraron coincidencias'
+    no_results_text: 'No se encontraron coincidencias.'
     width: '200px'

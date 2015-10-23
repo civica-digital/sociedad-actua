@@ -1,4 +1,42 @@
 es:
+  activerecord:
+    errors:
+      models:
+        organization:
+          attributes:
+            name:
+              blank: Este campo no puede estar vacío.
+            mision:
+              too_short: Este campo es obligatorio llenarlo con una longitud no mayor a 500 caracteres.
+            address:
+              blank: Este campo no puede estar vacío.
+            colonia:
+              blank: Este campo no puede estar vacío.
+            town:
+              blank: Este campo no puede estar vacío.
+            zip:
+              invalid: Código postal inválido.
+            telephone:
+              blank: Este campo no puede estar vacío.
+            email:
+              taken: Este correo ya está siendo utilizado.
+              blank: Este campo no puede estar vacío.
+            site:
+              invalid: El url proporcionado es inválido.
+            facebook:
+              invalid: El url proporcionado es inválido.
+            twitter:
+              invalid: El url proporcionado es inválido.
+            youtube:
+              invalid: El url proporcionado es inválido.
+            instagram:
+              invalid: El url proporcionado es inválido.
+            blog:
+              invalid: El url proporcionado es inválido.
+  organization:
+    notices:
+      saved: Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!
+      profile_already_exists: Ya tienes un perfil asociado.
   simple_form:
     labels:
       organization:
@@ -20,7 +58,7 @@ es:
         address: Dirección
         telephone: Teléfono
         zip: Código postal
-        site: Pagina web
+        site: Página web
         mision: Descripción
         foundation: Fundación
         rfc: RFC
