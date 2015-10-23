@@ -38,10 +38,8 @@
             <%= f.input :show_colonia, label: false %>
           </div>
           <div class="col-md-4">
-            <%= f.input  :town, collection: municipal_list, include_black: false,
-                               input_html: {
-                                       class: "choosen-select",
-                                       tabindex: "2"  } %>
+            <%= f.input :town, collection: municipal_list, include_black: false,
+                               input_html: { "data-placeholder": "Buscar municipio", class: "choosen-select", tabindex: "2"  } %>
             <%= f.input :show_town, label: false %>
           </div>
           </div>
