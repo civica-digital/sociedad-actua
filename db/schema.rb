@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023023335) do
+ActiveRecord::Schema.define(version: 20151023203630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20151023023335) do
     t.string   "site_url"
     t.string   "blog_url"
     t.string   "facebook_url"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "address"
     t.string   "neighborhood"
     t.string   "city"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20151023023335) do
     t.string   "amount"
     t.boolean  "constitution"
     t.string   "expense_type"
+    t.string   "causes_supported"
   end
 
   create_table "organizations", force: :cascade do |t|
