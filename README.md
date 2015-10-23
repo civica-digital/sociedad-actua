@@ -1,4 +1,4 @@
-Sociedad Actua
+Sociedad Actua [![Build Status](https://travis-ci.org/civica-digital/sociedad-actua.png)](https://travis-ci.org/civica-digital/sociedad-actua) 
 ================
 
 This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
