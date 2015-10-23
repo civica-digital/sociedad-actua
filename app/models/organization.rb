@@ -3,7 +3,7 @@ class Organization < ActiveRecord::Base
   mount_uploader :logo, LogoUploader
 
   validates :name, :type_organization, :email, :presence =>  true
-  validates :name, :email, :uniqueness => true
+  validates :email, :uniqueness => true
   validates :name, :length => { :minimum => 2 }
   validates :mision, :length => { :maximum => 500 }, presence: true, allow_blank: false
   validates :type_organization, :inclusion => { :in => %w{ACs ABPs Colectivos Grupos },
@@ -19,7 +19,7 @@ class Organization < ActiveRecord::Base
   # TODO: validar formato de
   # validates :rfc
    validates :rfc, format: { with: /\A[A-ZÑ&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9]([A-Z0-9]{3})?\z/i, message: 'No es un formato de RFC válido' }, if: Proc.new { |a| a.rfc.present? }
- 
+
   validates :zip, :format => { :with => /[0-9]{5}/}, presence: true
 
   # TODO: validar numero de telefono

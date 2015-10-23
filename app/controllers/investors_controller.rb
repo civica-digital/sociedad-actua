@@ -7,7 +7,7 @@ class InvestorsController < ApplicationController
       @investor = Investor.new
     else
       redirect_to root_path
-      flash[:notice] = "Ya tienes un perfil asociado."
+      flash[:notice] = I18n.t('collaborator.notices.profile_already_exists')
     end
   end
 
@@ -15,7 +15,7 @@ class InvestorsController < ApplicationController
   	@investor = Investor.new(investor_params)
     @investor.user = current_user
     if @investor.save and current_user.profile.nil?
-      flash[:notice] = "Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!"
+      flash[:notice] = I18n.t('collaborator.notices.saved')
       redirect_to @investor
     else
       render 'new'
@@ -28,9 +28,9 @@ class InvestorsController < ApplicationController
 
   private
   def investor_params
-    params.require(:investor).permit(:name, :type_investor, :mantra, :characteristics, 
+    params.require(:investor).permit(:name, :type_investor, :mantra, :characteristics,
                                     :telephone, :email, :address, :zipcode, :city,
-                                    :investment_type, :amount, :constitution, :expense_type, 
+                                    :investment_type, :amount, :constitution, :expense_type,
                                     :neighborhood, :site_url, :facebook_url, :blog_url, :logo)
   end
 end

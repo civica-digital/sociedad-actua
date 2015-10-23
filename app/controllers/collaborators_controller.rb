@@ -10,7 +10,7 @@ class CollaboratorsController < ApplicationController
     @collaborator = Collaborator.new(collaborator_params)
     @collaborator.user = current_user
     if @collaborator.save and current_user.profile.nil?
-      flash[:notice] = "Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!"
+      flash[:notice] = I18n.t('collaborator.notices.saved')
       redirect_to @collaborator
     else
       render 'new'
@@ -22,7 +22,7 @@ class CollaboratorsController < ApplicationController
       @collaborator = Collaborator.new
     else
       redirect_to root_path
-      flash[:notice] = "Ya tienes un perfil asociado."
+      flash[:notice] = I18n.t('collaborator.notices.profile_already_exists')
     end
 
   end

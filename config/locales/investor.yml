@@ -2,33 +2,32 @@ es:
   activerecord:
     errors:
       models:
-        collaborator:
+        investor:
           attributes:
             email:
               blank: Este campo no puede estar vacío.
               taken: Este correo ya está siendo utilizado.
             name:
               blank: Este campo no puede estar vacío.
-              taken: Este nombre ya está dado de alta.
-            description:
-              blank: Este campo no puede estar vacío.
+            characteristics:
+              blank: Este campo es obligatorio llenarlo con una longitud no mayor a 500 caracteres.
 
-  collaborator:
+  investor:
     notices:
       saved: Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!
       profile_already_exists: Ya tienes un perfil asociado.
   simple_form:
     options:
-      collaborator:
+      investor:
         role:
-          collaborator: Colaborador
+          investor: Colaborador
           organization: Organización
           investor: Inversionista
     labels:
-      collaborator:
+      investor:
         name: Nombre
         email: Correo electrónico
-        type_collaborator: Tipo de colaborador
+        type_investor: Tipo de colaborador
         description: Descripción
         site_url: Url de sitio web
         blog_url: Url de blog
@@ -40,10 +39,10 @@ es:
         password_confirmation: Confirma tu contraseña
         role: Tipo de perfil
     hints:
-      collaborator:
+      investor:
         # password: Mínimo 6 caracteres
     placeholders:
-      collaborator:
+      investor:
         email: ej. usuario@dominio.org
         password: Al menos 6 caracteres
         password_confirmation: Confirma tu contraseña
