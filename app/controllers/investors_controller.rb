@@ -4,6 +4,7 @@ class InvestorsController < ApplicationController
 
   def new
   	@investor = Investor.new
+    @causes = CAUSES
   end
 
   def create
@@ -26,6 +27,7 @@ class InvestorsController < ApplicationController
     params.require(:investor).permit(:name, :type_investor, :mantra, :characteristics, 
                                     :telephone, :email, :address, :zipcode, :city,
                                     :investment_type, :amount, :constitution, :expense_type, 
-                                    :neighborhood, :site_url, :facebook_url, :blog_url)
+                                    :neighborhood, :site_url, :facebook_url, :blog_url,
+                                    :causes_supported)
   end
 end

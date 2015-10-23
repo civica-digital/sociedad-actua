@@ -45,6 +45,13 @@
           </div>
 
           <div class="row">
+            <div class="col-md-6">
+              <%= f.input :causes_supported, collection: @causes,
+                      include_blank: true, label: "Causa que más apoyo"%>
+            </div>
+          </div>
+
+          <div class="row">
             <div class="col-md-12">
               <%= f.input :investment_type, label: "¿Con qué te gustaría apoyar?" %>
             </div>
