@@ -24,7 +24,8 @@ class InvestorsController < ApplicationController
   private
   def investor_params
     params.require(:investor).permit(:name, :type_investor, :mantra, :characteristics, 
-                                    :telephone, :email, :address, :zipcode, :city, 
+                                    :telephone, :email, :address, :zipcode, :city,
+                                    :investment_type, :amount, :constitution, :expense_type, 
                                     :neighborhood, :site_url, :facebook_url, :blog_url)
   end
 end
