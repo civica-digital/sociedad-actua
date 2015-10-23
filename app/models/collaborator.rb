@@ -1,5 +1,6 @@
 class Collaborator < ActiveRecord::Base
   has_one :user, as: :profile
+  mount_uploader :logo, LogoUploader
 
   validates :email, :name, :type_collaborator, :description, presence: true
   validates :email, :name, uniqueness: true

@@ -22,7 +22,11 @@ gem 'devise'
 gem 'haml-rails', '~> 0.9'
 gem 'font-awesome-rails'
 gem 'chosen-rails', '~> 1.0.0'
-gem 'sqlite3'
+gem 'carrierwave'
+gem 'fog', '~> 1.34.0'
+gem 'aws-sdk', '< 2.0'
+gem 'compass-rails'
+gem 'mini_magick'
 
 group :development do
   gem 'better_errors'
