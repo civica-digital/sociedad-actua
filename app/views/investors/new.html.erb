@@ -1,81 +1,87 @@
 <h1>Completar registro</h1>
 
-<%= simple_form_for @investor do |f| %>
+<div class="container">
   <div class="row">
-    <div class="col-md-4">
-      <%= f.input :name, label: "Nombre" %>
-    </div>
-    <div class="col-md-4">
-      <%= f.input :type_investor, collection: %w{Fundación Empresa Individuo},
-              selected: "Fundación", label: "Tipo de inversionista", prompt: "Tipo de inversionista" %>
-    </div>
-    <div class="col-md-4">
-      <%= f.input :logo, label: "Adjunta tu logotipo" %>
+    <div class="col-md-8 col-md-offset-2">
+    <%= simple_form_for @investor do |f| %>
+          <div class="row">
+            <div class="col-md-8">
+              <%= f.input :name, label: "Nombre" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :type_investor, collection: %w{Fundación Empresa Individuo},
+                      selected: "Fundación", label: "Tipo de inversionista", prompt: "Tipo de inversionista" %>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-4">
+              <%= f.input :email, label: "Email" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :telephone, label: "Teléfono" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :city, label: "Ciudad" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :address, label: "Calle y número" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :neighborhood, label: "Colonia" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :zipcode, label: "Código postal" %>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-12">
+              <%= f.input :mantra, label: "Misión" %>
+            </div>
+            <div class="col-md-12">
+              <%= f.input :characteristics, label: "Características de proyectos que apoya" %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.input :causes_supported, collection: @causes,
+                      include_blank: true, label: "Causa que más apoyo"%>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <%= f.input :investment_type, label: "¿Con qué te gustaría apoyar?" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :amount, label: "Rango montos" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :expense_type, label: "Tipo de gasto autorizado" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :constitution, label: "Necesidad de Constitución" %>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-4">
+              <%= f.input :site_url, label: "Sitio web" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :facebook_url, label: "Página de Facebook" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :blog_url, label: "Blog" %>
+            </div>
+          </div>
+
+          <div align="right">
+            <%= f.button :submit, "Registrar inversionista" %>
+          </div>
+    <% end %>
     </div>
   </div>
-
-    <div class="row">
-      <div class="col-md-4">
-        <%= f.input :email, label: "Email" %>
-      </div>
-      <div class="col-md-4">
-        <%= f.input :telephone, label: "Teléfono" %>
-      </div>
-      <div class="col-md-4">
-
-        <%= f.input :city, collection: municipal_list, include_black: false,
-                    input_html: { "data-placeholder"=> "Buscar municipio", class: "choosen-select", tabindex: "2"  }, label: "Ciudad"%>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        <%= f.input :address, label: "Calle y número" %>
-      </div>
-      <div class="col-md-4">
-        <%= f.input :neighborhood, label: "Colonia" %>
-      </div>
-      <div class="col-md-4">
-        <%= f.input :zipcode, label: "Código postal" %>
-      </div>
-    </div>
-
-  <div class="row">
-    <div class="col-md-12">
-      <%= f.input :mantra, label: "Misión" %>
-    </div>
-    <div class="col-md-12">
-      <%= f.input :characteristics, label: "Características de proyectos que apoya" %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-12">
-      <%= f.input :investment_type, label: "¿Con qué te gustaría apoyar?" %>
-    </div>
-    <div class="col-md-4">
-      <%= f.input :amount, label: "Rango montos" %>
-    </div>
-    <div class="col-md-4">
-      <%= f.input :expense_type, label: "Tipo de gasto autorizado" %>
-    </div>
-    <div class="col-md-4">
-      <%= f.input :constitution, label: "Necesidad de Constitución" %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-4">
-      <%= f.input :site_url, label: "Sitio web" %>
-    </div>
-    <div class="col-md-4">
-      <%= f.input :facebook_url, label: "Página de Facebook" %>
-    </div>
-    <div class="col-md-4">
-      <%= f.input :blog_url, label: "Blog" %>
-    </div>
-  </div>
-
-  <div align="right">
-    <%= f.button :submit, "Registrar inversionista" %>
-  </div>
-<% end %>
+</div>

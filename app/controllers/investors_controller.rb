@@ -5,6 +5,7 @@ class InvestorsController < ApplicationController
   def new
     if current_user.profile.nil?
       @investor = Investor.new
+      @causes = CAUSES
     else
       redirect_to root_path
       flash[:notice] = I18n.t('collaborator.notices.profile_already_exists')
@@ -30,7 +31,8 @@ class InvestorsController < ApplicationController
   def investor_params
     params.require(:investor).permit(:name, :type_investor, :mantra, :characteristics,
                                     :telephone, :email, :address, :zipcode, :city,
-                                    :investment_type, :amount, :constitution, :expense_type,
-                                    :neighborhood, :site_url, :facebook_url, :blog_url, :logo)
+                                    :investment_type, :amount, :constitution, :expense_type, 
+                                    :neighborhood, :site_url, :facebook_url, :blog_url,
+                                    :causes_supported)
   end
 end
