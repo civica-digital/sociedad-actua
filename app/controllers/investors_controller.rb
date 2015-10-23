@@ -10,7 +10,7 @@ class InvestorsController < ApplicationController
   	@investor = Investor.new(investor_params)
     @investor.user = current_user
     if @investor.save
-      flash[:notice] = "Excelente! Bienvenido #{@investor.type_investor}, este es tu perfil público."
+      flash[:notice] = "Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!"
       redirect_to @investor
     else
       render 'new'
