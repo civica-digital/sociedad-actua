@@ -1,7 +1,5 @@
 language: ruby
 rvm:
-  - 2.0.0
-  - 2.1.1
   - 2.2.0
   - 2.2.2
   - ruby-head
@@ -16,5 +14,4 @@ notifications:
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
-  - bundle exec rake db:create RAILS_ENV=test
-  - bundle exec rake db:migrate RAILS_ENV=test
+
