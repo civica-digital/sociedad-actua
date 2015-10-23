@@ -1,5 +1,6 @@
 class Investor < ActiveRecord::Base
   has_one :user, as: :profile
+  mount_uploader :logo, LogoUploader
 
   validates :name, :type_investor, :characteristics, presence: true
 

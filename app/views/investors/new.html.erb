@@ -12,17 +12,25 @@
               <%= f.input :type_investor, collection: %w{Fundación Empresa Individuo},
                       selected: "Fundación", label: "Tipo de inversionista", prompt: "Tipo de inversionista" %>
             </div>
+            <div class="col-md-4">
+              <%= f.input :logo, label: "Adjunta tu logotipo" %>
+            </div>
           </div>
           
           <div class="row">
-            <div class="col-md-4">
-              <%= f.input :email, label: "Email" %>
-            </div>
-            <div class="col-md-4">
-              <%= f.input :telephone, label: "Teléfono" %>
-            </div>
-            <div class="col-md-4">
-              <%= f.input :city, label: "Ciudad" %>
+            <div class="row">
+
+              <div class="col-md-4">
+                <%= f.input :email, label: "Email" %>
+              </div>
+              <div class="col-md-4">
+                <%= f.input :telephone, label: "Teléfono" %>
+              </div>
+              <div class="col-md-4">
+
+                <%= f.input :city, collection: municipal_list, include_black: false,
+                            input_html: { "data-placeholder": "Buscar municipio", class: "choosen-select", tabindex: "2"  }, label: "Ciudad"%>
+              </div>
             </div>
             <div class="col-md-4">
               <%= f.input :address, label: "Calle y número" %>

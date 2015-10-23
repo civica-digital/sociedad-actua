@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023023335) do
+ActiveRecord::Schema.define(version: 20151023100935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20151023023335) do
     t.string "twitter_url"
     t.string "youtube_url"
     t.string "blog_url"
+    t.string "logo"
   end
 
   create_table "investors", force: :cascade do |t|
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 20151023023335) do
     t.string   "amount"
     t.boolean  "constitution"
     t.string   "expense_type"
+    t.string   "logo"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -77,6 +79,7 @@ ActiveRecord::Schema.define(version: 20151023023335) do
     t.boolean  "show_telephone",      default: false
     t.boolean  "show_zip",            default: false
     t.boolean  "show_email"
+    t.string   "logo"
   end
 
   create_table "roles", force: :cascade do |t|

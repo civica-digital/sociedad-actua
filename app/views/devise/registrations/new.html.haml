@@ -7,7 +7,9 @@
     = f.input :email, required: true, autofocus: true
     = f.input :password, required: true
     = f.input :password_confirmation, required: true
-    = f.input :role, collection: [:collaborator, :organization, :investor], required: true
+    = f.input :role, collection: [["Colaborador: Me interesa colaborar con proyectos sociales", :collaborator],
+      ["Organización: Trabajo en un proyecto", :organization],
+      ["Inversionista: Soy inversionista social", :investor]], required: true, :value_method => :second
 
   .form-actions.text-right
     = f.button :submit, t('form.sign_up.submit')

@@ -20,7 +20,13 @@ gem 'simple_form'
 gem 'rolify'
 gem 'devise'
 gem 'haml-rails', '~> 0.9'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+gem 'chosen-rails', '~> 1.0.0'
+gem 'carrierwave'
+gem 'fog', '~> 1.34.0'
+gem 'aws-sdk', '< 2.0'
+gem 'compass-rails', github: 'Compass/compass-rails', branch: 'master'
+gem 'mini_magick'
 
 group :development do
   gem 'better_errors'
