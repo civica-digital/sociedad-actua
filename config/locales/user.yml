@@ -1,4 +1,11 @@
 es:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "Este email ya esta en uso"
   form:
     sign_up:
       title: Regístrate

@@ -1,4 +1,22 @@
 es:
+  activerecord:
+    errors:
+      models:
+        collaborator:
+          attributes:
+            email:
+              blank: Este campo es obligatorio.
+              taken: Este correo ya está siendo utilizado.
+            name:
+              blank: Este campo es obligatorio.
+              taken: Este nombre ya está dado de alta.
+            description:
+              blank: Este campo es obligatorio.
+
+  collaborator:
+    notices:
+      saved: Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!
+      profile_already_exists: Ya tienes un perfil asociado.
   simple_form:
     options:
       collaborator:

@@ -1,8 +1,1 @@
 es:
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            email:
-              taken: "Este email ya esta en uso"
