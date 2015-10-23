@@ -25,9 +25,9 @@
       </div>
     </div>
 
-
       <div class="row">
         <div class="col-md-12">
+          <%= f.label "Marca la información que no quieres hacer pública." %>
           <div class="row">
           <div class="col-md-4">
             <%= f.input :address %>
@@ -38,7 +38,7 @@
             <%= f.input :show_colonia, label: false %>
           </div>
           <div class="col-md-4">
-            <%= f.input  :town, collection: cities_list, include_black: false,
+            <%= f.input  :town, collection: municipal_list, include_black: false,
                                input_html: {
                                        class: "choosen-select",
                                        tabindex: "2"  } %>
