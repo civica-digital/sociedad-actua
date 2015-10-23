@@ -1,9 +1,4 @@
 <h1>Completar registro</h1>
-
-
-<div class="container">
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
 <%= simple_form_for @organization do |f| %>
       <div class="row">
         <div class="col-md-8"><%= f.input :name %></div>
@@ -38,7 +33,7 @@
           </div>
           <div class="col-md-4">
             <%= f.input :town, collection: municipal_list, include_black: false,
-                               input_html: { "data-placeholder": "Buscar municipio", class: "choosen-select", tabindex: "2"  } %>
+                               input_html: { "data-placeholder"=> "Buscar municipio", class: "choosen-select", tabindex: "2"  } %>
           </div>
           </div>
         </div>
@@ -71,6 +66,3 @@
 
     <%= f.button :submit, "Crear organización" %>
 <% end %>
-  </div>
-</div>
-</div>

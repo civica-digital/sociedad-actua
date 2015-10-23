@@ -8,7 +8,7 @@ class OrganizationsController < ApplicationController
       @organization = Organization.new
     else
       redirect_to root_path
-      flash[:notice] = "Ya tienes un perfil asociado."
+      flash[:notice] = I18n.t('organization.notices.profile_already_exists')
     end
   end
 
@@ -16,7 +16,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     @organization.user = current_user
     if @organization.save and current_user.profile.nil?
-      flash[:notice] = "Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!"
+      flash[:notice] = I18n.t('organization.notices.saved')
       redirect_to @organization
     else
       render 'new'

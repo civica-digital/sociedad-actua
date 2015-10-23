@@ -5,13 +5,13 @@ es:
         collaborator:
           attributes:
             email:
-              blank: Este campo es obligatorio.
+              blank: Este campo no puede estar vacío.
               taken: Este correo ya está siendo utilizado.
             name:
-              blank: Este campo es obligatorio.
+              blank: Este campo no puede estar vacío.
               taken: Este nombre ya está dado de alta.
             description:
-              blank: Este campo es obligatorio.
+              blank: Este campo no puede estar vacío.
 
   collaborator:
     notices:
