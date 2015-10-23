@@ -21,6 +21,7 @@ gem 'rolify'
 gem 'devise'
 gem 'haml-rails', '~> 0.9'
 gem "font-awesome-rails"
+gem 'chosen_rails'
 
 group :development do
   gem 'better_errors'
