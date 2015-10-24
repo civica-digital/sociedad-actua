@@ -31,6 +31,7 @@ class InvestorsController < ApplicationController
     params.require(:investor).permit(:name, :type_investor, :mantra, :characteristics,
                                     :telephone, :email, :address, :zipcode, :city,
                                     :investment_type, :amount, :constitution, :expense_type,
-                                    :neighborhood, :site_url, :facebook_url, :blog_url, :logo)
+                                    :neighborhood, :site_url, :facebook_url, :blog_url, :logo,
+                                    :causes_supported)
   end
 end
