@@ -1,3 +1,3 @@
-class Proyect < ActiveRecord::Base
+class Project < ActiveRecord::Base
 	belongs_to :organization
 end
