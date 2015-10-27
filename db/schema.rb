@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023233802) do
+ActiveRecord::Schema.define(version: 20151027214857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20151023233802) do
     t.boolean  "show_zip",            default: false
     t.boolean  "show_email"
     t.string   "logo"
+    t.string   "causes_interest"
   end
 
   create_table "roles", force: :cascade do |t|

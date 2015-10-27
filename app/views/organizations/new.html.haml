@@ -6,7 +6,8 @@
       = f.input :type_organization,                          
         collection: ["ACs", "ABPs", "Colectivos", "Grupos"], 
         prompt: "Tipo de organización",                      
-        selected: "ACs"                                      
+        selected: "ACs" 
+                                  
   .row
     .col-md-4= f.input :rfc
     .col-md-2= f.input :foundation, collection: 1980..2016, selected: 2015
