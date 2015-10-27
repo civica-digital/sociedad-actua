@@ -7,11 +7,21 @@ es:
             email:
               blank: Este campo no puede estar vacío.
               taken: Este correo ya está siendo utilizado.
+              invalid: El correo proporcionado no es válido.
             name:
               blank: Este campo no puede estar vacío.
             characteristics:
               blank: Este campo es obligatorio llenarlo con una longitud no mayor a 500 caracteres.
-
+            zipcode:
+              invalid: El código postal no es válido.
+            type_investor:
+              blank: Este campos no puede estar vacío.
+            site_url:
+              invalid: El url proporcionado no es válido.
+            blog_url:
+              invalid: El url proporcionado no es válido.
+            facebook_url:
+              invalid: El url proporcionado no es válido.
   investor:
     notices:
       saved: Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!
@@ -23,14 +33,19 @@ es:
           investor: Colaborador
           organization: Organización
           investor: Inversionista
+        type_investor:
+          institution: Institución
+          business: Empresa
+          individual: Individuo
     labels:
       investor:
         name: Nombre
         email: Correo electrónico
-        type_investor: Tipo de colaborador
+        type_investor: Tipo de Inversionista
         description: Descripción
-        site_url: Url de sitio web
-        blog_url: Url de blog
+        logo: Adjunta tu logotipo
+        site_url: Sitio web
+        blog_url: Blog
         facebook_url: Facebook
         twitter_url: Twitter
         instagram_url: Instagram
@@ -38,6 +53,18 @@ es:
         password: Contraseña
         password_confirmation: Confirma tu contraseña
         role: Tipo de perfil
+        city: Municipio
+        telephone: Teléfono
+        address: Calle y número
+        neighborhood: Colonia
+        zipcode: Código postal
+        mantra: Misión
+        characteristics: Características de proyectos que apoya
+        causes_supported: "Causas que más apoya:   "
+        investment_type: ¿Con qué te gustaría apoyar?
+        amount: Rango montos
+        expense_type: Tipo de gasto autorizado
+        constitution: Necesidad de Constitución
     hints:
       investor:
         # password: Mínimo 6 caracteres
@@ -49,3 +76,5 @@ es:
         site_url: http://www.misitio.com
         facebook_url: http://www.facebook.com
         blog_url: http://www.miblog.com
+        city: Buscar municipio
+        causes_supported: Seleccionar causas
