@@ -4,6 +4,9 @@ es:
       investor:
         create: Registrar inversionista
         update: Actualizar
+      organization:
+        create: Registrar Organización
+        update: Actualizar
   simple_form:
     "yes": 'Sí'
     "no": 'No'
