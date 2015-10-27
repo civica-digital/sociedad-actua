@@ -15,8 +15,8 @@ Rails.application.routes.draw do
 
   get '/auth/failure' => 'sessions#failure'
 
-  resources :organizations
-  resources :collaborators
+  resources :organizaciones,as: :organizations, :path_names => {:edit => "editar", :new => "nuevo" }, controller: :organizations 
+  resources :colaboradores,as: :collaborators, :path_names => {:edit => "editar", :new => "nuevo" }, controller: :collaborators 
+  resources :inversionistas,as: :investors, :path_names => {:edit => "editar", :new => "nuevo" }, controller: :investors 
 
-  resources :investors
 end
