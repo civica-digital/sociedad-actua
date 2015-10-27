@@ -1,0 +1,18 @@
+$chosen-bg: $fourth__accent;
+
+.chosen-container {
+  width: 100% !important;
+}
+
+.chosen-container-multi .chosen-choices {
+  border: 1px solid #cccccc;
+}
+
+.chosen-container-active {
+  border: 1px solid $chosen-bg;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(255, 125, 0, 0.6) !important;
+}
+
+.chosen-container-multi .chosen-choices li.search-field {
+  margin: 3px 0 3px 5px;
+}

@@ -18,8 +18,8 @@
  // @import "jquery.ui.theme";
  // @import "jquery.ui.datepicker";
  @import 'font-awesome.css';
-
  @import 'chosen';
+
 
  // Defaults
  @import 'defaults/colors';
@@ -41,6 +41,7 @@
  @import "components/checkbox";
  @import "components/top_navbar";
  @import "components/cards";
+ @import "components/multiple_chosen";
 
  #main {
    margin-bottom: 70px;
