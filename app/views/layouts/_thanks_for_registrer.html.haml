@@ -1,0 +1,17 @@
+.container
+  .row
+    .col-md-8.col-md-offset-2
+      .row
+        .col-md-3
+          = image_tag "organizations/gracias_2x.png", class: "img-responsive"
+        .col-md-9
+          %h1.orange= t('organization.show.welcome_title_organization')
+          %h1= name
+          %p
+            = text_principal
+            %br
+            = text_secondary
+          .form-actions.text-left
+            = link_to t('organization.show.new_project'), url, :class=> "btn btn-default" unless url.nil?
+            .text-left.padding-top-links
+              = link_to t('organization.show.uses_polices_html'), root_path

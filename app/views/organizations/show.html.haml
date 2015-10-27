@@ -1,19 +1,2 @@
-.container
-  .row
-    .col-md-8.col-md-offset-2
-      .row
-        .col-md-3
-          = image_tag "organizations/gracias_2x.png", class: "img-responsive"
-        .col-md-9
-          %h1.orange= t('organization.show.welcome_title_organization')
-          %h1= @organization.name
-          %p
-            = t('organization.show.subtitle')
-            %br
-            = t('organization.show.invitation')
-          .form-actions.text-left
-            = link_to t('organization.show.new_project'), new_project_path, :class=> "btn btn-default"
-            .text-left.padding-top-links
-              = link_to t('organization.show.uses_polices_html'), root_path
-
+= render "layouts/thanks_for_registrer", name: @organization.name, url: new_project_path, text_principal: t('organization.show.subtitle'), text_secondary: t('organization.show.invitation')
           
