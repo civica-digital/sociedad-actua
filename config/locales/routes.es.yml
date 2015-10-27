@@ -1,0 +1,11 @@
+es:
+  routes:
+    users: usuarios
+    organizations: organizaciones
+    collaborators: colaboradores
+    investors: inversionistas
+    register: registro
+    login: iniciar-sesion
+    logut: cerrar-sesion
+    new: nuevo
+    edit: editar

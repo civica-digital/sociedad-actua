@@ -288,6 +288,9 @@ GEM
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     rolify (4.1.1)
+    route_translator (4.1.0)
+      actionpack (>= 3.2, < 5.0)
+      activesupport (>= 3.2, < 5.0)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -418,6 +421,7 @@ DEPENDENCIES
   rb-fsevent
   rb-inotify
   rolify
+  route_translator
   rspec-rails
   rubocop
   sass-rails (~> 5.0)

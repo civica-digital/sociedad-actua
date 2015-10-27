@@ -27,6 +27,7 @@ gem 'aws-sdk'
 gem 'carrierwave-aws'
 gem 'compass-rails', github: 'Compass/compass-rails', branch: 'master'
 gem 'mini_magick'
+gem 'route_translator'
 
 group :development do
   gem 'better_errors'

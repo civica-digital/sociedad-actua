@@ -15,8 +15,16 @@ Rails.application.routes.draw do
 
   get '/auth/failure' => 'sessions#failure'
 
-  resources :organizations
-  resources :collaborators
+  localized do
+    as :user do
+      get  '/register' => 'users/registrations#new', :as => :registration_new
+      get  '/login' => 'devise/sessions#new', :as => :signin
+      get  '/logout' => 'devise/sessions#destroy', :as => :signout
+    end
 
-  resources :investors
+    resources :users
+    resources :organizations
+    resources :collaborators
+    resources :investors
+  end
 end
