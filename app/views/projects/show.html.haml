@@ -1,1 +1,1 @@
-= render "layouts/thanks_for_registrer", name: @project.name, url: nil, text_principal: t('project.show.subtitle'), text_secondary: t('project.show.invitation')
+= render "layouts/thanks_for_registrer", name: @project.name, url: project_path(@project.id), text_button: t('project.show.button_text'), title: t('project.show.welcome'), text_principal: t('project.show.subtitle'), text_secondary: t('project.show.invitation')
