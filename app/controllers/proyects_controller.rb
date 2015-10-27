@@ -34,7 +34,6 @@ class ProyectsController < ApplicationController
     end
   end
 
-on
   def update
     respond_to do |format|
       if @proyect.update(proyect_params)
