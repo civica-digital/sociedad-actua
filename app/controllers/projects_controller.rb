@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-
+    @project.organization_id = current_user.id
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -61,7 +61,9 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     end
 
-    def project_params
-      params[:project]
-    end
+   def project_params
+    params.require(:project).permit(:name, :goals, :description, :status,
+                                         :direction, :comments_from_direction, :name_of_owner,
+                                         :email, :phone, :website, :facebook, :organization_id)
+  end
 end
