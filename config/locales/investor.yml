@@ -7,11 +7,15 @@ es:
             email:
               blank: Este campo no puede estar vacío.
               taken: Este correo ya está siendo utilizado.
+              invalid: El correo proporcionado no es válido.
             name:
               blank: Este campo no puede estar vacío.
             characteristics:
               blank: Este campo es obligatorio llenarlo con una longitud no mayor a 500 caracteres.
-
+            zipcode:
+              invalid: El código postal no es válido.
+            type_investor:
+              blank: Este campos no puede estar vacío.
   investor:
     notices:
       saved: Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!
@@ -23,6 +27,10 @@ es:
           investor: Colaborador
           organization: Organización
           investor: Inversionista
+        type_investor:
+          institution: Institución
+          business: Empresa
+          individual: Individuo
     labels:
       investor:
         name: Nombre

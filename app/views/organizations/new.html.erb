@@ -32,7 +32,7 @@
             <%= f.input :colonia %>
           </div>
           <div class="col-md-4">
-            <%= f.input :town, collection: municipal_list, include_black: false,
+            <%= f.input :town, collection: CITIES, include_black: false,
                                input_html: { "data-placeholder"=> "Buscar municipio", class: "choosen-select", tabindex: "2"  } %>
           </div>
           </div>

@@ -1,0 +1,58 @@
+%h1 Completar registro
+
+= simple_form_for @investor do |f|
+  .row
+    .col-md-4
+      = f.input :name, label: "Nombre"
+    .col-md-4
+      = f.input :type_investor, collection: INVESTOR_TYPE, label: "Tipo de inversionista", prompt: "Tipo de inversionista"
+    .col-md-4
+      = f.input :logo, label: "Adjunta tu logotipo"
+
+  .row
+    .col-md-4
+      = f.input :email, label: "Email"
+    .col-md-4
+      = f.input :telephone, label: "Teléfono"
+    .col-md-4
+      = f.input :city, collection: CITIES, include_black: false,
+                  input_html: { "data-placeholder"=> "Buscar municipio", class: "choosen-select", tabindex: "2"  }
+  .row
+    .col-md-4
+      = f.input :address, label: "Calle y número"
+    .col-md-4
+      = f.input :neighborhood, label: "Colonia"
+    .col-md-4
+      = f.input :zipcode, label: "Código postal"
+
+  .row
+    .col-md-12
+      = f.input :mantra, label: "Misión"
+    .col-md-12
+      = f.input :characteristics, label: "Características de proyectos que apoya"
+
+  .row
+    .col-md-6
+      = f.input :causes_supported, collection: INVESTOR_CAUSES, include_blank: true, multiple: true,
+                    input_html: { "data-placeholder"=> "Seleccionar causas", class: "choosen-select", tabindex: "2"  }, label: "Causas que más apoya:   "
+
+  .row
+    .col-md-12
+      = f.input :investment_type, label: "¿Con qué te gustaría apoyar?"
+    .col-md-4
+      = f.input :amount, label: "Rango montos"
+    .col-md-4
+      = f.input :expense_type, label: "Tipo de gasto autorizado"
+    .col-md-4
+      = f.input :constitution, label: "Necesidad de Constitución"
+
+  .row
+    .col-md-4
+      = f.input :site_url, label: "Sitio web"
+    .col-md-4
+      = f.input :facebook_url, label: "Página de Facebook"
+    .col-md-4
+      = f.input :blog_url, label: "Blog"
+
+  .text-right
+    = f.button :submit, "Registrar inversionista"
