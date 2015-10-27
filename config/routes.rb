@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   resources :collaborators
 
   resources :investors
-  resources :proyects
+  resources :projects
 end
