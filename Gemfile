@@ -28,6 +28,8 @@ gem 'carrierwave-aws'
 gem 'compass-rails', github: 'Compass/compass-rails', branch: 'master'
 gem 'mini_magick'
 gem 'route_translator'
+gem 'gmaps4rails' #googlemaps
+gem 'underscore-rails'
 
 group :development do
   gem 'better_errors'

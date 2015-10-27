@@ -34,6 +34,12 @@ es:
             blog:
               invalid: El url proporcionado es inválido.
   organization:
+    show:
+      welcome_title_organization: ¡Gracias por registrarte!
+      subtitle: Para hacer público tu perfil, te pedimos dar de alta al menos un proyecto. 
+      invitation: Puedes hacerlo ahora o posteriormente.
+      new_project: Registrar proyecto
+      uses_polices_html: Conoce aquí nuestras <b>Políticas de uso</b>
     notices:
       saved: Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!
       profile_already_exists: Ya tienes un perfil asociado.

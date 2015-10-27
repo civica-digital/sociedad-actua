@@ -14,6 +14,10 @@ es:
               blank: Este campo no puede estar vacío.
 
   collaborator:
+    show:
+      welcome_title_organization: ¡Gracias por registrarte!
+      subtitle: Tu información a sido registrada. 
+      invitation: Más adelante podras acceder a tu perfil de Sociedad Actúa.
     notices:
       saved: Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!
       profile_already_exists: Ya tienes un perfil asociado.

@@ -1,0 +1,23 @@
+%div.container
+  %div.row
+    =  simple_form_for @project do |f| 
+      = f.input :name
+      = f.input :goals
+      = f.input :description
+      = f.input :status, collection: [["Activo", :active],
+      ["Concluido", :finish]], required: true, :value_method => :second
+      %div.col-md-12
+        %div{:id=>"geolocation", :style=>'width: 100%; height: 400px;'}
+      = f.input :direction, :onkeypress => "loading();"
+      %div{:id=>"spinner", :class=>"spinner", :style=>"display:none;"}
+        = image_tag "spinner.gif", class: "img-responsive center-block" ,:id=>"img-spinner"
+      = f.input :comments_from_direction
+      = f.input :name_of_owner
+      = f.input :email, input_html: { value: current_user.email } 
+      = f.input :phone
+      -[:website, :facebook, :twitter].each do |e|
+        = f.input e 
+      = f.button :submit, "Crear colaborador"
+
+:javascript
+  $(document).ready(loadMap);

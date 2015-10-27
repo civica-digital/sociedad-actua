@@ -1,4 +1,2 @@
-.container
-  .row
-    .col-md-12
-      %h1= @organization.name
+= render "layouts/thanks_for_registrer", name: @organization.name, url: new_project_path, text_principal: t('organization.show.subtitle'), text_secondary: t('organization.show.invitation')
+          
