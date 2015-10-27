@@ -3,56 +3,54 @@
 = simple_form_for @investor do |f|
   .row
     .col-md-4
-      = f.input :name, label: "Nombre"
+      = f.input :name
     .col-md-4
-      = f.input :type_investor, collection: INVESTOR_TYPE, label: "Tipo de inversionista", prompt: "Tipo de inversionista"
+      = f.input :type_investor, collection: INVESTOR_TYPE, prompt: "Tipo de inversionista"
     .col-md-4
-      = f.input :logo, label: "Adjunta tu logotipo"
+      = f.input :logo
 
   .row
     .col-md-4
-      = f.input :email, label: "Email"
+      = f.input :email
     .col-md-4
-      = f.input :telephone, label: "Teléfono"
+      = f.input :telephone
     .col-md-4
-      = f.input :city, collection: CITIES, include_black: false,
-                  input_html: { "data-placeholder"=> "Buscar municipio", class: "choosen-select", tabindex: "2"  }
+      = f.input :city, collection: CITIES, include_black: false, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.investor.city'), class: "chosen-select", tabindex: "2"  }
   .row
     .col-md-4
-      = f.input :address, label: "Calle y número"
+      = f.input :address
     .col-md-4
-      = f.input :neighborhood, label: "Colonia"
+      = f.input :neighborhood
     .col-md-4
-      = f.input :zipcode, label: "Código postal"
+      = f.input :zipcode
 
   .row
     .col-md-12
-      = f.input :mantra, label: "Misión"
+      = f.input :mantra
     .col-md-12
-      = f.input :characteristics, label: "Características de proyectos que apoya"
+      = f.input :characteristics
 
   .row
     .col-md-6
-      = f.input :causes_supported, collection: INVESTOR_CAUSES, include_blank: true, multiple: true,
-                    input_html: { "data-placeholder"=> "Seleccionar causas", class: "choosen-select", tabindex: "2"  }, label: "Causas que más apoya:   "
+      = f.input :causes_supported, collection: INVESTOR_CAUSES, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.investor.causes_supported'), class: "choosen-select", tabindex: "2"  }
 
   .row
     .col-md-12
-      = f.input :investment_type, label: "¿Con qué te gustaría apoyar?"
+      = f.input :investment_type
     .col-md-4
-      = f.input :amount, label: "Rango montos"
+      = f.input :amount
     .col-md-4
-      = f.input :expense_type, label: "Tipo de gasto autorizado"
+      = f.input :expense_type
     .col-md-4
-      = f.input :constitution, label: "Necesidad de Constitución"
+      = f.input :constitution
 
   .row
     .col-md-4
-      = f.input :site_url, label: "Sitio web"
+      = f.input :site_url
     .col-md-4
-      = f.input :facebook_url, label: "Página de Facebook"
+      = f.input :facebook_url
     .col-md-4
-      = f.input :blog_url, label: "Blog"
+      = f.input :blog_url
 
   .text-right
-    = f.button :submit, "Registrar inversionista"
+    = f.button :submit
