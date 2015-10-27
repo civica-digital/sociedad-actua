@@ -14,6 +14,12 @@ es:
               blank: Este campo no puede estar vacío.
 
   project:
+    show:
+      welcome_title_organization: ¡Gracias por agregar el proyecto!
+      subtitle: Este ya es público. 
+      invitation: Puedes editar aquí el proyecto.
+      new_project: Editar proyecto
+      uses_polices_html: Conoce aquí nuestras <b>Políticas de uso</
     notices:
       saved: Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!
       profile_already_exists: Ya tienes un perfil asociado.
