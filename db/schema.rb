@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20151023233802) do
   create_table "organizations", force: :cascade do |t|
     t.string   "type_organization",                                   null: false
     t.string   "name",                                                null: false
-    t.datetime "remember_created_at", default: '2015-10-23 23:39:47', null: false
+    t.datetime "remember_created_at", default: '2015-10-20 06:18:53', null: false
     t.string   "email",                                               null: false
     t.string   "rfc"
     t.text     "mision"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20151023233802) do
     t.string   "youtube"
     t.string   "instagram"
     t.integer  "foundation",          default: 2015
+    t.boolean  "show_street",         default: false
     t.boolean  "show_address",        default: false
     t.boolean  "show_colonia",        default: false
     t.boolean  "show_town",           default: false
