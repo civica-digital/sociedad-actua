@@ -9,7 +9,7 @@ class CollaboratorsController < ApplicationController
   def create
     @collaborator = Collaborator.new(collaborator_params)
     @collaborator.user = current_user
-    if @collaborator.save and !current_user.profile.nil?
+    if @collaborator.save 
       flash[:notice] = I18n.t('collaborator.notices.saved')
       redirect_to @collaborator
    
