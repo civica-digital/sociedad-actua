@@ -14,8 +14,7 @@ class InvestorsController < ApplicationController
   def create
   	@investor = Investor.new(investor_params)
     @investor.user = current_user
-    if @investor.save 
-      
+    if @investor.save
       flash[:notice] = I18n.t('collaborator.notices.saved')
       redirect_to @investor
     else
@@ -33,6 +32,6 @@ class InvestorsController < ApplicationController
                                     :telephone, :email, :address, :zipcode, :city,
                                     :investment_type, :amount, :constitution, :expense_type,
                                     :neighborhood, :site_url, :facebook_url, :blog_url, :logo,
-                                    :causes_supported)
+                                    causes_supported: [])
   end
 end

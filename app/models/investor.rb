@@ -1,4 +1,5 @@
 class Investor < ActiveRecord::Base
+  serialize :causes_supported, Array
   has_one :user, as: :profile
   mount_uploader :logo, LogoUploader
 
