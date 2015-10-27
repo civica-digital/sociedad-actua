@@ -24,7 +24,7 @@
       <div class="col-md-4">
 
         <%= f.input :city, collection: municipal_list, include_black: false,
-                    input_html: { "data-placeholder"=> "Buscar municipio", class: "choosen-select", tabindex: "2"  }, label: "Ciudad"%>
+                    input_html: { "data-placeholder"=> "Buscar municipio", class: "choosen-select", tabindex: "2"  }, label: "Ciudad: "%>
       </div>
     </div>
     <div class="row">
@@ -45,6 +45,13 @@
     </div>
     <div class="col-md-12">
       <%= f.input :characteristics, label: "Características de proyectos que apoya" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :causes_supported, collection: causes_list, include_blank: true, multiple: true,
+                    input_html: { "data-placeholder"=> "Seleccionar causas", class: "choosen-select", tabindex: "2"  }, label: "Causas que más apoya:   "%>
     </div>
   </div>
 
