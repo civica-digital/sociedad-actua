@@ -32,7 +32,7 @@
 
   .row
     .col-md-6
-      = f.input :causes_supported, collection: INVESTOR_CAUSES, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.investor.causes_supported'), multiple: true, class: "chosen-select", tabindex: "2"  }
+      = f.input :causes_supported, collection: CAUSES, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.investor.causes_supported'), multiple: true, class: "chosen-select", tabindex: "2"  }
 
   .row
     .col-md-12

@@ -1,4 +1,4 @@
-INVESTOR_CAUSES = [
+CAUSES = [
   'Accesibilidad, movilidad y vialidad',
   'Adicciones',
   'Alimentación, horticultura y agricultura',

@@ -71,6 +71,8 @@ es:
         foundation: Fundación
         rfc: RFC
         causes_interest: Selecciona Causas de Interés
+        logo: Adjunta tu logotipo
+        sites_url: Escribe las ligas a tu sitio y redes sociales
 
     hints:
       organization:
@@ -87,4 +89,6 @@ es:
         instagram: http://www.instagram.com
         blog: http://www.miblog.com
         causes_interest: Seleccionar causas
+        sites_url: Escribe las ligas a tu sitio y redes sociales
+        information: Marca la información que no quieres hacer pública.
         city: Buscar municipio
