@@ -1,4 +1,19 @@
 .container
   .row
-    .col-md-12
-      %h1= @organization.name
+    .col-md-8.col-md-offset-2
+      .row
+        .col-md-3
+          = image_tag "organizations/gracias_2x.png", class: "img-responsive"
+        .col-md-9
+          %h1.orange= t('organization.show.welcome_title_organization')
+          %h1= @organization.name
+          %p
+            = t('organization.show.subtitle')
+            %br
+            = t('organization.show.invitation')
+          .form-actions.text-left
+            = link_to t('organization.show.new_proyect'), root_path, :class=> "btn btn-default"
+            .text-left.padding-top-links
+              = link_to t('organization.show.uses_polices_html'), root_path
+
+          
