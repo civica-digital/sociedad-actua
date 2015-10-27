@@ -1,0 +1,50 @@
+es:
+  activerecord:
+    errors:
+      models:
+        collaborator:
+          attributes:
+            email:
+              blank: Este campo no puede estar vacío.
+              taken: Este correo ya está siendo utilizado.
+            name:
+              blank: Este campo no puede estar vacío.
+              taken: Este nombre ya está dado de alta.
+            description:
+              blank: Este campo no puede estar vacío.
+
+  project:
+    notices:
+      saved: Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!
+      profile_already_exists: Ya tienes un perfil asociado.
+  simple_form:
+    labels:
+      project:
+        name: Nombre
+        email: Correo electrónico
+        goals: Objetivos
+        status:  Estatus
+        direction: Dirección
+        comments_from_direction: Comentarios de la dirección
+        name_of_owner: Nombre del responsable
+        phone: Teléfono
+        website: Sitio Web
+        description: Descripción
+
+    hints:
+      project:
+        # password: Mínimo 6 caracteres
+    placeholders:
+      project:
+        name: Nombre ejemplo
+        email: ej. usuario@dominio.org
+        goals: Objetivos
+        status:  Estatus
+        direction: Dirección
+        comments_from_direction: Comentarios de la dirección
+        name_of_owner: ej. Nombre Apellido
+        phone: Teléfono
+        website: http://www.misitio.com
+        facebook: http://www.facebook.com/usuario
+        twitter: http://www.twitter.com/usuario
+        description: Descripción del proyecto
