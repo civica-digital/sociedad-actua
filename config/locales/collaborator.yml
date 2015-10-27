@@ -47,3 +47,9 @@ es:
         email: ej. usuario@dominio.org
         password: Al menos 6 caracteres
         password_confirmation: Confirma tu contraseña
+        site_url: http://www.misitio.com
+        facebook_url: http://www.facebook.com
+        twitter_url: http://www.twitter.com
+        youtube_url: http://www.youtube.com
+        instagram_url: http://www.instagram.com
+        blog_url: http://www.miblog.com

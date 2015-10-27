@@ -7,7 +7,12 @@
     </div>
     <div class="col-xs-12 col-sm-6 text-right">
       <%#= link_to 'Registro', '#', class: 'link' %>
-      <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %>
+      <% if user_signed_in? %>
+       <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %>
+      <% else %> 
+         <%= link_to 'Iniciar sesión', new_user_session_path %>
+      <% end %>
+       
     </div>
   </div>
 </div>
