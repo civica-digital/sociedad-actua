@@ -1,7 +1,8 @@
 // Navbar default colors
-$navbar_background_color: $grey_800;
-$navbar_default_links_color: #fff;
-$navbar_active_links_color: $cartoon_green;
+$navbar_background_color: white;
+$navbar_default_links_color: $grey_600;
+$navbar_active_links_color: black;
+$link_font_size: 20px;
 
 // Paddings
 $navbar_padding_top: 10px;
@@ -44,6 +45,7 @@ nav {
 #navbar > ul > li > a {
   color: $navbar_default_links_color;
   line-height: $navbar_avatar_size / 2;
+  font-size: $link_font_size;
 
   &:hover {
     color: $navbar_active_links_color;
