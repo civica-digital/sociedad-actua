@@ -14,7 +14,8 @@ class InvestorsController < ApplicationController
   def create
   	@investor = Investor.new(investor_params)
     @investor.user = current_user
-    if @investor.save and current_user.profile.nil?
+    if @investor.save 
+      
       flash[:notice] = I18n.t('collaborator.notices.saved')
       redirect_to @investor
     else
