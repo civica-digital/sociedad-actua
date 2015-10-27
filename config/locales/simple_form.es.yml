@@ -1,4 +1,9 @@
 es:
+  helpers:
+    submit:
+      investor:
+        create: Registrar inversionista
+        update: Actualizar
   simple_form:
     "yes": 'Sí'
     "no": 'No'
