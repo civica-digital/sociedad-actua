@@ -1,6 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_filter :configure_sign_up_params, only: [:create]
   before_action :valid_organizations_type, only: [:create]
+  before_action :get_rol, only: [:new]
 
   protected
   def after_sign_up_path_for(resource)
@@ -23,6 +24,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to registration_new_url
       return
     end
+  end
+
+  def get_rol
+    if params[:user_type]
+      @user_type = params[:user_type]
+    end  
   end
 
 end
