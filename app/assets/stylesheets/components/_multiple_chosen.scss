@@ -1,6 +1,9 @@
 $chosen-bg: $fourth__accent;
 
 .chosen-container {
+  li {
+    font-size: 12px !important;
+  }
   width: 100% !important;
 }
 
