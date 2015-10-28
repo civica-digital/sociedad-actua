@@ -45,6 +45,7 @@ nav {
 #navbar > ul > li > a {
   color: $navbar_default_links_color;
   line-height: $navbar_avatar_size / 2;
+  top: 25px; // Filthy hack I hate you.
   font-size: $link_font_size;
 
   &:hover {
