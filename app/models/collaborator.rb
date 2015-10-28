@@ -2,7 +2,7 @@ class Collaborator < ActiveRecord::Base
   has_one :user, as: :profile
   mount_uploader :logo, LogoUploader
 
-  validates :email, :type_collaborator, :description, presence: true
+  validates :email, :type_collaborator, :description, presence:  true, on: :update
   validates :email, uniqueness: true
 
   validates :name, :length => { :minimum => 2 }
