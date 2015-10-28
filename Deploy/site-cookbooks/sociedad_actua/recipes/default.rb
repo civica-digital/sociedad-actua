@@ -51,6 +51,13 @@ docker_container "postgres" do
 end
 
 
+directory "/www" do
+  owner "root"
+  group "root"
+  mode  "755"
+  action :create
+end
+
 directory "/www/sitios/" do
   owner "root"
   group "root"
@@ -82,7 +89,7 @@ end
 docker_image 'actua' do
   tag 'latest'
   source "/www/sitios/sociedad_actua"
-  action :nothing
+  action :build
   notifies :run, 'docker_container[actua_create]', :immediately
   cmd_timeout 2400
 end
@@ -121,7 +128,6 @@ docker_container "sociedad_actua" do
   volume ["/www/sitios/sociedad_actua"]
   detach true
   port ['80:80', "443:443"]
-  notifies :redeploy, "docker_container[sidekiq]", :immediately
   action :run
   cmd_timeout 600
 end
