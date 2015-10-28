@@ -27,15 +27,15 @@ class User < ActiveRecord::Base
   end
 
   def collaborator?
-    has_profile? 'Collaborator' && self.profile.present?
+    has_profile?('Collaborator') && self.profile.present?
   end
 
   def investor?
-    has_profile? 'Investor' && self.profile.present?
+    has_profile?('Investor') && self.profile.present?
   end
 
   def organization?
-    has_profile? 'Organization' && self.profile.present?
+    has_profile?('Organization') && self.profile.present?
   end
 
   def has_profile?(profile)
