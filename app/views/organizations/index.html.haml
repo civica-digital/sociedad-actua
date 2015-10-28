@@ -1,0 +1,8 @@
+%h1
+  Organizaciones
+-@organizations.each do |e|
+  %div.row
+    %div.col-md-4
+      %h3= e.name
+      %small= e.email
+      %p= e.type_organization
