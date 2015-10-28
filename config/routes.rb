@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get '/auth/failure' => 'sessions#failure'
 
   localized do
+    get  '/tos' => 'visitors#tos'
+
     as :user do
       get  '/register' => 'users/registrations#new', :as => :registration_new
       get  '/login' => 'devise/sessions#new', :as => :signin
