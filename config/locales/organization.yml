@@ -80,6 +80,14 @@ es:
         causes_interest: Selecciona Causas de Interés
         logo: Adjunta tu logotipo
         sites_url: Escribe las ligas a tu sitio y redes sociales
+        has_funding_private:  Privada
+        has_funding_public: Pública
+        has_funding_auto: Autoregulación
+        has_funding_national: Nacional
+        has_funding_international: Internacional
+        rate_private: '% de fondo privado'
+        rate_national: '% de fondo nacional'
+        rate_international: '% de fondo internacional'
 
     hints:
       organization:

@@ -10,6 +10,9 @@ es:
   simple_form:
     "yes": 'Sí'
     "no": 'No'
+    placeholders:
+      organization:
+        information_funding: "Agrega aquí tus fuentes de fondeo"
     required:
       text: 'requerido'
       mark: '*'

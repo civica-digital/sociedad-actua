@@ -24,3 +24,8 @@
     width: 48px; /* width of the spinner gif */
     height: 48px; /*hight of the spinner gif +2px to fix IE8 issue */
 }
+
+.background-funding{
+  background-color: $blue_800;
+  color: #ffffff !important;
+}
