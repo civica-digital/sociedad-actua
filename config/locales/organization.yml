@@ -44,6 +44,14 @@ es:
       saved: Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!
       profile_already_exists: Ya tienes un perfil asociado.
   simple_form:
+    options:
+      organization:
+        type_organization:
+          acs: ACs 
+          abps: ABPs 
+          collective: Colectivo
+          groups: Grupos
+
     labels:
       organization:
         name: Nombre
@@ -61,13 +69,17 @@ es:
         role: Tipo de perfil
         town: Ciudad
         type_organization: Tipo de organización
-        address: Dirección
+        address: Calle y número
         telephone: Teléfono
         zip: Código postal
         site: Página web
         mision: Descripción
         foundation: Fundación
         rfc: RFC
+        causes_interest: Selecciona Causas de Interés
+        logo: Adjunta tu logotipo
+        sites_url: Escribe las ligas a tu sitio y redes sociales
+
     hints:
       organization:
         # password: Mínimo 6 caracteres
@@ -82,3 +94,7 @@ es:
         youtube: http://www.youtube.com
         instagram: http://www.instagram.com
         blog: http://www.miblog.com
+        causes_interest: Seleccionar causas
+        sites_url: Escribe las ligas a tu sitio y redes sociales
+        information: Marca la información que no quieres hacer pública.
+        city: Buscar municipio

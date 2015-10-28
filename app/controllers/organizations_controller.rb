@@ -15,6 +15,7 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
     @organization.user = current_user
+  
     if @organization.save 
       flash[:notice] = I18n.t('organization.notices.saved')
       redirect_to @organization
@@ -31,6 +32,6 @@ class OrganizationsController < ApplicationController
                                          :zip, :telephone, :email, :site, :facebook,
                                          :twitter, :youtube, :instagram, :blog,
                                          :show_address, :show_town, :show_colonia,
-                                         :show_telephone, :show_zip, :show_email, :logo)
+                                         :show_telephone, :show_zip, :show_email, :logo,causes_interest: [])
   end
 end

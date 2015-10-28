@@ -1,4 +1,5 @@
 class Organization < ActiveRecord::Base
+  serialize :causes_interest, Array
   has_one :user, as: :profile
   has_many :projects
   mount_uploader :logo, LogoUploader
@@ -7,7 +8,7 @@ class Organization < ActiveRecord::Base
   validates :email, :uniqueness => true
   validates :name, :length => { :minimum => 2 }
   validates :mision, :length => { :maximum => 500 }, presence: true, allow_blank: false
-  validates :type_organization, :inclusion => { :in => %w{ACs ABPs Colectivos Grupos },
+  validates :type_organization, :inclusion => { :in => ORGANIZATION_TYPE.map(&:to_s),
                                                 :message => "%{value} no es un tipo de organización valido"}, presence: true
 
   validates :foundation, :inclusion =>  { :in => 1900..2040 }, presence: true
