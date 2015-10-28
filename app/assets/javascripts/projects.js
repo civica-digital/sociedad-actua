@@ -48,7 +48,7 @@
         handler.map.centerOn(marker);
         handler.getMap().setZoom(18);
         google.maps.event.addListener(marker.serviceObject, 'dragend', function() {
-          codeLatLng(this.getPosition().lat(),this.getPosition().lng);
+          codeLatLng(this.getPosition().lat(),this.getPosition().lng());
         });
       } 
     });
