@@ -13,6 +13,7 @@
         = image_tag "spinner.gif", class: "img-responsive center-block" ,:id=>"img-spinner"
       = f.input :comments_from_direction
       = f.input :name_of_owner
+      = f.input :photo_project
       = f.input :email, input_html: { value: current_user.email } 
       = f.input :phone
       -[:website, :facebook, :twitter].each do |e|
