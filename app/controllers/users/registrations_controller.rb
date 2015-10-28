@@ -1,8 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_filter :configure_sign_up_params, only: [:create]
   before_action :valid_organizations_type, only: [:create]
-  before_action :get_rol, only: [:new]
-
+  before_action :get_rol
   protected
   def after_sign_up_path_for(resource)
     eval("new_#{params["user"]["role"].singularize}_path") # TODO: Cambiar a forma segura
@@ -27,8 +26,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def get_rol
-    if params[:user_type]
-      @user_type = params[:user_type]
+    if params[:user_type] || params[:user]
+      @user_type = params[:user_type] || params[:user][:role]
     end  
   end
 

@@ -6,8 +6,11 @@ es:
           attributes:
             email:
               taken: "Este email ya esta en uso"
+              blank: "El correo no puede estar en blanco"
             password_confirmation:
               confirmation: Las contraseñas deben ser iguales.
+            password:
+              blank: Las contraseñas no deben estar en blanco.
   form:
     sign_up:
       title: Regístrate
