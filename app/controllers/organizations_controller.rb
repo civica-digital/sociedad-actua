@@ -4,13 +4,11 @@ class OrganizationsController < ApplicationController
   def index
    @organizations = Organization.all
   end
-  
+
   def show
-   
   end
 
   def edit
-    
   end
 
   def new
@@ -25,8 +23,8 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
     @organization.user = current_user
-    
-    if @organization.save 
+
+    if @organization.save
       flash[:notice] = I18n.t('organization.notices.saved')
       redirect_to @organization
     else

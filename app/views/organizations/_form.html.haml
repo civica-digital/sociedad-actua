@@ -1,4 +1,3 @@
-%h1 Completar registro
 = simple_form_for @organization do |f|
   .row
     .col-md-8
@@ -9,7 +8,7 @@
 
   .row
     .col-md-6
-      = f.input :causes_interest, collection: CAUSES, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.organization.causes_interest'), multiple: true, class: "chosen-select", tabindex: "2"  }                                     
+      = f.input :causes_interest, collection: CAUSES, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.organization.causes_interest'), multiple: true, class: "chosen-select", tabindex: "2"  }
   .row
     .col-md-4= f.input :rfc
     .col-md-2= f.input :foundation, collection: 1980..2016, selected: 2015
