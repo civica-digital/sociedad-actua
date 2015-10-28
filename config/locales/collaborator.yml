@@ -12,8 +12,10 @@ es:
             name:
               blank: Este campo no puede estar vacío.
               taken: Este nombre ya está dado de alta.
+              too_short: Este campo es obligatorio llenarlo con una longitud  mayor.
             description:
               blank: Este campo no puede estar vacío.
+              too_short: Este campo es obligatorio llenarlo con una longitud no mayor a 500 caracteres.
 
   collaborator:
     show:
