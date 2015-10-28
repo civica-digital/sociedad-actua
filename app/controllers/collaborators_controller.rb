@@ -40,8 +40,8 @@ class CollaboratorsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @collaborator.update(project_params)
-        format.html { redirect_to @collaborator, notice: 'Collaborator was successfully updated.' }
+      if @collaborator.update(collaborator_params)
+        format.html { redirect_to @collaborator, notice: I18n.t('collaborator.notices.updated') }
         format.json { render :show, status: :ok, location: @collaborator }
       else
         format.html { render :edit }

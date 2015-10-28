@@ -4,6 +4,8 @@ es:
       models:
         collaborator:
           attributes:
+            site_url:
+              invalid: El formato web es invalido.
             email:
               blank: Este campo no puede estar vacío.
               taken: Este correo ya está siendo utilizado.
@@ -22,6 +24,7 @@ es:
     notices:
       saved: Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!
       profile_already_exists: Ya tienes un perfil asociado.
+      updated: Tu información ha sido actualizada.
   simple_form:
     options:
       collaborator:

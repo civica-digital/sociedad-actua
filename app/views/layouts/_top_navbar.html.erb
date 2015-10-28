@@ -43,8 +43,11 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <% if user_signed_in? %>
-            <p class="navbar-text pull-right navbar-custom"><%= link_to 'Editar perfil', link_to_edit_profile(current_user) %> | <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete%>
+          <% if user_full_signed?(current_user) %>
+            <p class="navbar-text pull-right navbar-custom"><%= link_to 'Editar perfil', link_to_edit_profile(current_user),'data-no-turbolink' => true %> | <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete%>
+            </p>
+          <%elsif user_signed_in?%>
+            <p class="navbar-text pull-right navbar-custom"><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete%>
             </p>
           <% else %>
              <%= link_to 'Iniciar sesión', new_user_session_path %>

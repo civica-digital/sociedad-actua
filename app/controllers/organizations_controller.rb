@@ -1,6 +1,16 @@
 class OrganizationsController < ApplicationController
+  before_action :set_organization, only: [:show, :edit, :update, :destroy]
+
+  def index
+   @organizations = Organization.all
+  end
+  
   def show
-    @organization = Organization.find(params[:id])
+   
+  end
+
+  def edit
+    
   end
 
   def new
@@ -24,6 +34,18 @@ class OrganizationsController < ApplicationController
     end
   end
 
+    def update
+    respond_to do |format|
+      if @organization.update(organization_params)
+        format.html { redirect_to @organization, notice: I18n.t('organization.notices.updated') }
+        format.json { render :show, status: :ok, location: @organization }
+      else
+        format.html { render :edit }
+        format.json { render json: @organization.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
   def organization_params
@@ -33,5 +55,8 @@ class OrganizationsController < ApplicationController
                                          :twitter, :youtube, :instagram, :blog,
                                          :show_address, :show_town, :show_colonia,
                                          :show_telephone, :show_zip, :show_email, :logo,causes_interest: [])
+  end
+  def set_organization
+    @organization = Organization.find(params[:id])
   end
 end
