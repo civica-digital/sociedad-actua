@@ -6,6 +6,7 @@ es:
           attributes:
             name:
               blank: Este campo no puede estar vacío.
+              too_short: Este campo es obligatorio llenarlo con una longitud  mayor.
             mision:
               too_short: Este campo es obligatorio llenarlo con una longitud no mayor a 500 caracteres.
             address:
