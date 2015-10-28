@@ -36,6 +36,7 @@ es:
         phone: Teléfono
         website: Sitio Web
         description: Descripción
+        photo_project: Foto del proyecto
 
     hints:
       project:
