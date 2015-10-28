@@ -13,7 +13,7 @@ class Organization < ActiveRecord::Base
 
   validates :foundation, :inclusion =>  { :in => 1900..2040 }, presence: true
 
-  validates :address, :colonia, :town, :telephone, presence: true
+  validates :address, :colonia, :town, presence: true
 
   # TODO: validar formato de correo
   # validates :email,
