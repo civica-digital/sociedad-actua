@@ -4,13 +4,13 @@ module ApplicationHelper
   def link_to_edit_profile(user)
     case user.profile_type
       when "Collaborator"
-       return edit_collaborator_es_path(Collaborator.where(email: user.email).last) 
+       return edit_collaborator_es_path(user.profile.id) 
       when "Investor"
-        return edit_investor_es_path(Investor.where(email: user.email).last)
+        return edit_investor_es_path(user.profile.id)
       when "Organization"
-       return edit_organization_es_path(Organization.where(email: user.email).last)
-      end 
-    end
+       return edit_organization_es_path(user.profile.id)
+      else
+    end 
   end
 
 
@@ -20,14 +20,6 @@ module ApplicationHelper
 
 
   def user_completed_register?(user)
-    case user.profile_type
-      when "Collaborator"
-       return !Collaborator.where(email: user.email).blank? 
-      when "Investor"
-        return !Investor.where(email: user.email).blank?
-      when "Organization"
-       return !Organization.where(email: user.email).blank?
-    else
-      false
-    end 
+    return !user.profile.nil?  
   end
+end
