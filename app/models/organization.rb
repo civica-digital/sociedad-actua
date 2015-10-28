@@ -6,7 +6,7 @@ class Organization < ActiveRecord::Base
 
   validates :name, :type_organization, :email, presence:  true, on: :update
   validates :email, :uniqueness => true
-  validates :name, :length => { :minimum => 2 }
+  validates :name, :length => { :minimum => 2 },if: Proc.new { |a| a.name.present? }
   validates :mision, :length => { :maximum => 500 },presence:  true, on: :update, allow_blank: false
   validates :type_organization, :inclusion => { :in => ORGANIZATION_TYPE.map(&:to_s),
                                                 :message => "%{value} no es un tipo de organización valido"}, presence:  true, on: :update

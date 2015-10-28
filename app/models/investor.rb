@@ -5,7 +5,7 @@ class Investor < ActiveRecord::Base
 
   validates :name, :type_investor, :characteristics,  presence:  true, on: :update
 
-  validates :name, :length => { :minimum => 2 }
+  validates :name, :length => { :minimum => 2 },if: Proc.new { |a| a.name.present? }
   validates :characteristics, :length => { :maximum => 500 }, allow_blank: false
 
   validates :type_investor, :inclusion => { :in => INVESTOR_TYPE.map(&:to_s),

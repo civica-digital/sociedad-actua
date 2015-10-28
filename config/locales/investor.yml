@@ -14,6 +14,7 @@ es:
             characteristics:
               blank: Este campo es obligatorio llenarlo con una longitud no mayor a 500 caracteres.
               too_short: Este campo es obligatorio llenarlo con una longitud no mayor a 500 caracteres.
+              too_long: Este campo es obligatorio llenarlo con una longitud no mayor a 500 caracteres.
             zipcode:
               invalid: El código postal no es válido.
             type_investor:

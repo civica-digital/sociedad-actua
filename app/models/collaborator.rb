@@ -5,7 +5,7 @@ class Collaborator < ActiveRecord::Base
   validates :email, :type_collaborator, :description, presence:  true, on: :update
   validates :email, uniqueness: true
 
-  validates :name, :length => { :minimum => 2 }, on: :update
+  validates :name, :length => { :minimum => 2 },if: Proc.new { |a| a.name.present? }
   validates :description, :length => { :maximum => 500 }, allow_blank: false, on: :update
 
   validates :type_collaborator, :inclusion => { :in => %w{Asesor(a) Voluntario(a) Periodista},
