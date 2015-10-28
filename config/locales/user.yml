@@ -1,4 +1,7 @@
 es:
+  user:
+    menu:
+      edit_profile: Mi perfil
   activerecord:
     errors:
       models:

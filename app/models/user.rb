@@ -26,4 +26,19 @@ class User < ActiveRecord::Base
     end
   end
 
+  def collaborator?
+    has_profile? 'Collaborator'
+  end
+
+  def investor?
+    has_profile? 'Investor'
+  end
+
+  def organization?
+    has_profile? 'Organization'
+  end
+
+  def has_profile?(profile)
+    self.profile_type == profile
+  end
 end
