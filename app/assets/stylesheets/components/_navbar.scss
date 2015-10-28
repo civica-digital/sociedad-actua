@@ -59,9 +59,3 @@ nav {
 .navbar-default .navbar-nav > .open > a {
   background-color: $navbar_background_color !important;
 }
-
-.navbar-custom > a {
-  color: $navbar_default_links_color !important;
-  line-height: $navbar_avatar_size / 2;
-  font-size: $link_font_size;
-}
