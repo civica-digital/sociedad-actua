@@ -16,7 +16,6 @@ class Investor < ActiveRecord::Base
  validates :facebook_url, format: { with: URI.regexp }, if: Proc.new { |a| a.facebook_url.present? }
  validates :blog_url, format: { with: URI.regexp }, if: Proc.new { |a| a.blog_url.present? }
 
- validates :zipcode, :format => { :with => /[0-9]{5}/}, presence: true
-
+ validates :zipcode, :format => { :with => /[0-9]{5}/}
  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
 end
