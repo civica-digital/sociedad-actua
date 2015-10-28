@@ -23,17 +23,40 @@
 
       .row
         .col-md-4
-          = f.input :address
+          .col-md-10
+            = f.input :address
+          .col-md-2  
+            = f.check_box :show_address
+
         .col-md-4
-          = f.input :colonia
+          .col-md-10
+            = f.input :colonia
+          .col-md-2  
+            = f.check_box :show_colonia
+
         .col-md-4
-          = f.input :town, collection: CITIES, include_black: false,input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.organization.city'), class: "chosen-select", tabindex: "2"  }
+          .col-md-10
+            = f.input :town, collection: CITIES, include_black: false,input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.organization.city'), class: "chosen-select", tabindex: "2"  }
+          .col-md-2  
+            = f.check_box :show_town
+
     .col-md-4
-      = f.input :zip
+      .col-md-10
+        = f.input :zip
+      .col-md-2  
+        = f.check_box :show_zip
+
     .col-md-4
-      = f.input :telephone
+      .col-md-10
+        = f.input :telephone
+      .col-md-2  
+        = f.check_box :show_telephone
+
     .col-md-4
-      = f.input :email, input_html: { value: current_user.email }
+      .col-md-10
+        = f.input :email, input_html: { value: current_user.email }
+      .col-md-2  
+        = f.check_box :show_email
   .row
     .col-md-12
       = f.label I18n.t('simple_form.placeholders.organization.sites_url')
