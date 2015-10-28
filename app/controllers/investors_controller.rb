@@ -1,6 +1,20 @@
 class InvestorsController < ApplicationController
   before_action :investor_params, only: :create
   before_action :authenticate_user!, :except => [:show, :index]
+  before_action :set_collaborator, only: [:show, :edit, :update, :destroy]
+
+  def index
+   @investors = Investor.all
+  end
+  
+  def show
+   
+  end
+
+  def edit
+    
+  end
+
 
   def new
     if current_user.profile.nil?
@@ -22,9 +36,18 @@ class InvestorsController < ApplicationController
     end
   end
 
-  def show
-  	@investor = Investor.find(params[:id])
+  def update
+    respond_to do |format|
+      if @investor.update(investor_params)
+        format.html { redirect_to @investor, notice: I18n.t('investor.notices.updated') }
+        format.json { render :show, status: :ok, location: @investor }
+      else
+        format.html { render :edit }
+        format.json { render json: @investor.errors, status: :unprocessable_entity }
+      end
+    end
   end
+  
 
   private
   def investor_params
@@ -34,4 +57,9 @@ class InvestorsController < ApplicationController
                                     :neighborhood, :site_url, :facebook_url, :blog_url, :logo,
                                     causes_supported: [])
   end
+
+  def set_collaborator
+     @investor = Investor.find(params[:id])
+  end
+
 end
