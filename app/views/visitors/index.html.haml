@@ -1,0 +1,30 @@
+= image_tag 'landing-video.png', width: '100%'
+
+.row.section.text-center
+  %h1 Reg&iacute;strate
+
+.row.section
+  .col-xs-12.col-sm-4.text-center
+    = link_to registration_new_path(user_type: "organization") do
+      = image_tag 'roles/organizations_2x.png', height: '150px'
+      %h3 Organizaciones
+    %p Organizaciones legalmente constituidas que ejecutan proyectos
+
+  -# .col-xs-12.col-sm-4.text-center
+  -#   = link_to registration_new_path(user_type: "organization") do
+  -#     = image_tag 'roles/groups_2x.png', height: '150px'
+  -#     %h3 Grupos
+  -#   %p Colectivos sin figura jurídica que ejecutan proyectos
+
+  .col-xs-12.col-sm-4.text-center
+    = link_to registration_new_path(user_type: "collaborator") do
+      = image_tag 'roles/collaborators_2x.png', height: '150px'
+      %h3 Colaboradores
+    %p Investigadores(as), consultores(as), voluntarios(as) y periodistas interesados(as) en apoyar causas sociales
+
+
+  .col-xs-12.col-sm-4.text-center
+    = link_to registration_new_path(user_type: "investor") do
+      = image_tag 'roles/investors_2x.png', height: '150px'
+      %h3 Inversionistas
+    %p Organizaciones y personas interesadas en invertir en los proyectos sociales
