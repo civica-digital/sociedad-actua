@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   localized do
     get  '/tos' => 'visitors#tos'
+    get '/privacy' => 'visitors#privacy'
 
     as :user do
       get  '/register' => 'users/registrations#new', :as => :registration_new
