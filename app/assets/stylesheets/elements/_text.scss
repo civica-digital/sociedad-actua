@@ -3,7 +3,7 @@ h3 { @include heading-3(); }
 h5 { @include heading-5(); }
 
 /* Paragraph, spans and links */
-p, span, label {
+p, span, label, li {
   @include text__decorator($grey_200);
 }
 

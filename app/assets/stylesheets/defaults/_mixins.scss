@@ -19,6 +19,7 @@ $default_text_color: $grey_800;
 @mixin text__decorator($color) {
     color: $color;
     font-weight: 300;
+    font-size: 16px;
 }
 
 // Links
