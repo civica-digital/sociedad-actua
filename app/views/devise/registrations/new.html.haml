@@ -7,7 +7,7 @@
     = f.input :email, required: true, autofocus: true
     = f.input :password, required: true
     = f.input :password_confirmation, required: true
-    = f.input :role, collection: [["Trabajo en un proyecto", :organization],
+    = f.input :profile_type, collection: [["Trabajo en un proyecto", :organization],
       ["Soy inversionista social", :investor],
       ["Me interesa colaborar con proyectos sociales", :collaborator]], required: true, :value_method => :second, selected: @user_type
 

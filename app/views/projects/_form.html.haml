@@ -15,7 +15,7 @@
       = f.input :name_of_owner
       = f.input :photo_project
       = link_to @project.photo_project.file.filename, @project.photo_project_url, target: '_blank' if @project.photo_project?
-      = f.input :email, input_html: { value: current_user.email }
+      = f.input :email
       = f.input :phone
       -[:website, :facebook, :twitter].each do |e|
         = f.input e

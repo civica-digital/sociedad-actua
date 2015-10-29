@@ -57,7 +57,7 @@ class OrganizationsController < ApplicationController
                                          :show_telephone, :show_zip, :show_email, :logo,causes_interest: [])
 
   end
-  
+
   def set_organization
     @organization = Organization.find(params[:id])
   end
