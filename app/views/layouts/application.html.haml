@@ -13,11 +13,16 @@
     = csrf_meta_tags
     = render 'layouts/social_tags'
   %body
-    #main.container{:role => "main"}
-      .navigation
+    #main{:role => "main"}
+      .navigation.container
         / <haml_loud> render &#39;layouts/navigation&#39; </haml_loud>
         = render 'layouts/top_navbar'
-      = render 'layouts/messages'
-      = yield
+        
+      .container
+        = render 'layouts/messages'
+      = image_tag 'landing-video.jpg', width: '100%'
+
+      .container
+        = yield
     = render 'layouts/footer'
     = render 'layouts/ga'
