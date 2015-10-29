@@ -17,10 +17,11 @@
       .navigation.container
         / <haml_loud> render &#39;layouts/navigation&#39; </haml_loud>
         = render 'layouts/top_navbar'
-        
+
       .container
         = render 'layouts/messages'
-      = image_tag 'landing-video.jpg', width: '100%'
+        
+      = yield :landing
 
       .container
         = yield
