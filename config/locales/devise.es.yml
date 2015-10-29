@@ -13,7 +13,7 @@ es:
 
   devise:
     failure:
-      already_authenticated: 'Ya está dentro del sistema.'
+      already_authenticated: 'Ya estás dentro de Sociedad Actúa.'
       unauthenticated: 'Necesita ingresar o registrarse para continuar.'
       unconfirmed: 'Debe confirmar su cuenta para continuar.'
       locked: 'Su cuenta está bloqueada.'
@@ -23,8 +23,10 @@ es:
       inactive: 'Su cuenta aún no ha sido activada.'
       not_found_in_database: 'El usuario no se encuentra registrado.'
     sessions:
-      signed_in: 'Ingreso exitoso.'
-      signed_out: 'Usted ha salido del sistema.'
+      signed_in: 'Iniciaste sesión con éxito.'
+      signed_out: '¡Vuelve pronto!'
+      user:
+        already_signed_out: 'Ya habías cerrado sesión.'
       admin:
         signed_in: 'Ingreso exitoso.'
         signed_out: 'Usted ha salido del sistema.'
@@ -38,7 +40,7 @@ es:
       send_paranoid_instructions: 'Si su correo electrónico existe en nuestra base de datos, usted recibirá un correo con instrucciones sobre cómo confirmar su cuenta en unos minutos.'
       confirmed: 'Su cuenta fue confirmada exitosamente, usted ha sido ingresado al sistema.'
     registrations:
-      signed_up: '¡Bienvenido! Ha ingresado al sistema exitosamente.'
+      signed_up: '¡Genial! Te has registrado a Sociedad Actúa. Ahora completa tu perfil de usuario.'
       inactive_signed_up: 'Se ha registrado exitosamente; sin embargo, no lo hemos podido ingresar debido a que su cuenta está %{reason}.'
       updated: 'Usted actualizó su cuenta exitosamente.'
       destroyed: '¡Hasta luego! Su cuenta fue cancelada con éxito, esperamos verle de nuevo pronto. Gracias.'

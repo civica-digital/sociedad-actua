@@ -10,6 +10,7 @@ es:
             email:
               taken: "Este email ya esta en uso"
               blank: "El correo no puede estar en blanco"
+              invalid: "El formato del correo es inválido"
             password_confirmation:
               confirmation: Las contraseñas deben ser iguales.
             password:

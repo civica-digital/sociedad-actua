@@ -20,7 +20,7 @@ es:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Revisa los siguientes problemas:"
+      default_message: "Revisa de nuevo los siguientes campos:"
     # Examples
     # labels:
     #   defaults:
