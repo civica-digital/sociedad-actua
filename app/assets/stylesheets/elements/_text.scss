@@ -3,9 +3,7 @@ h3 { @include heading-3(); }
 h5 { @include heading-5(); }
 
 /* Paragraph, spans and links */
-p, span, label, li {
-  @include text__decorator($grey_200);
-}
+p, span, label, li { @include text__decorator($grey_200); }
 
 /* Text helpers
  * If some of the next classes is present '!important', override everything.
@@ -13,6 +11,7 @@ p, span, label, li {
 
 // Colors
 .bright { color: #ffffff !important; }
+.light-grey { color: $grey_600 !important; }
 .dark { color: $grey_800 !important; }
 .primary { color: $cartoon_green !important; }
 .danger { color: $red_800 !important; }
