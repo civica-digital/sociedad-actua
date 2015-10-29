@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 20151028221005) do
     t.boolean  "show_email"
     t.string   "logo"
     t.string   "causes_interest"
-    t.string   "category"
     t.boolean  "has_funding_private",       default: false
     t.boolean  "has_funding_public",        default: false
     t.boolean  "has_funding_auto",          default: false
