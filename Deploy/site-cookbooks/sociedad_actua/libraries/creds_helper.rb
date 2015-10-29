@@ -14,8 +14,9 @@ module Creds
 
     def list_creds
         creds = creds_h
-        list_creds  = []
-        creds.each do |k, v|
+        puts creds['rails']['env']
+        list_creds  = [creds['rails']['env']]
+            creds.each do |k, v|
           if v.class == Hash
             v.each do |sk, sv|
               list_creds << "#{k.upcase}_#{sk.upcase}=#{sv}"
