@@ -89,6 +89,8 @@ es:
         rate_private: '% de fondo privado'
         rate_national: '% de fondo nacional'
         rate_international: '% de fondo internacional'
+        rate_public: '%de fondo público'
+        rate_auto: '% de autogeneración'
 
     hints:
       organization:
