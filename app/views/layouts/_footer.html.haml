@@ -1,19 +1,19 @@
-#footer.hidden-print
+.footer.hidden-print
   .container
     .row.info__links
       .col-xs-12.col-sm-2
-        = image_tag 'logoFooter_2x.png', style: 'height:110px;'
-      -#.col-xs-12.col-sm-2
+        = image_tag 'footer/logoFooter_2x.png', style: 'height:110px;'
+      .col-xs-12.col-sm-2
         %p.header Conoce
         %ul
-          %li= link_to 'Causas', '#'
-          %li= link_to 'Proyectos', '#'
-          %li= link_to 'Organizaciones', '#'
-      -#.col-xs-12.col-sm-2
+          %li= link_to 'Causas', '#/', onclick: "alert('Gracias por explorar Sociedad Actúa. Esta sección estará disponible a partir del 4 de noviembre.')"
+          %li= link_to 'Proyectos', '#/', onclick: "alert('Gracias por explorar Sociedad Actúa. Esta sección estará disponible a partir del 4 de noviembre.')"
+          %li= link_to 'Organizaciones', '#/', onclick: "alert('Gracias por explorar Sociedad Actúa. Esta sección estará disponible a partir del 4 de noviembre.')"
+      .col-xs-12.col-sm-2
         %p.header
         %ul
-          %li= link_to 'Grupos', '#'
-          %li= link_to 'Inversionistas', '#'
+          %li= link_to 'Grupos', '#/', onclick: "alert('Gracias por explorar Sociedad Actúa. Esta sección estará disponible a partir del 4 de noviembre.')"
+          %li= link_to 'Inversionistas', '#/', onclick: "alert('Gracias por explorar Sociedad Actúa. Esta sección estará disponible a partir del 4 de noviembre.')"
       .col-xs-12.col-sm-3
         %p.header
         %ul
@@ -32,6 +32,15 @@
         %ul
           %li= mail_to 'hola@sociedadactua.org'
           %li 81 89 89 23 00
-    -# .row
-      .col-xs-12
-        %p= link_to 'LIBRE USO MX', '#'
+.footer.bg--hard-grey.hidden-print
+  .container
+    .row{style:'line-height:3;'}
+      .col-xs-12.col-sm-3
+        %p.light-grey Sociedad Act&uacute;a es un proyecto de
+      .col-xs-12.col-sm-3
+        = image_tag 'footer/consejo_civico_2x.png', style: 'height:50px;'
+      .col-xs-12.col-sm-3
+        = image_tag 'footer/comunidar_2x.png', style: 'height:50px;'
+      .col-xs-12.col-sm-3
+        %a{ rel:"license", href:"http://creativecommons.org/licenses/by-nc-sa/4.0/" }
+          %img{alt:"Creative Commons License", style:"border-width:0", src:"https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"}
