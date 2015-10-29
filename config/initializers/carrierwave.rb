@@ -1,5 +1,5 @@
 CarrierWave.configure do |config|
-  unless Rails.env.test?
+  if Rails.env.production?
     config.aws_credentials = {
       :access_key_id      => ENV['AWS_KEY'],
       :secret_access_key  => ENV['AWS_SECRET'],
@@ -13,6 +13,6 @@ CarrierWave.configure do |config|
 
   config.permissions = 0600
 
-  config.storage(Rails.env.test? ? :file : :aws)
+  config.storage(Rails.env.development? || Rails.env.test? ? :file : :aws)
   config.enable_processing = false if Rails.env.test?
 end

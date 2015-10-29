@@ -5,6 +5,7 @@
       = f.input :type_collaborator, collection: %w{Asesor(a) Voluntario(a) Periodista},selected: "Asesor(a)", prompt: "Tipo de colaborador"
       = f.input :email, input_html: { value: current_user.email }
       = f.input :logo, label: "Adjunta tu logotipo."
+      = link_to @collaborator.logo.file.filename, @collaborator.logo_url, target: '_blank' if @collaborator.logo?
       = f.input :description
       - [:site_url, :blog_url, :facebook_url, :twitter_url, :instagram_url, :youtube_url].each do |e|
         = f.input e

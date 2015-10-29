@@ -1,6 +1,6 @@
 %div.container
   %div.row
-    =  simple_form_for @project do |f| 
+    =  simple_form_for @project do |f|
       = f.input :name
       = f.input :goals
       = f.input :description
@@ -14,10 +14,11 @@
       = f.input :comments_from_direction
       = f.input :name_of_owner
       = f.input :photo_project
-      = f.input :email, input_html: { value: current_user.email } 
+      = link_to @project.photo_project.file.filename, @project.photo_project_url, target: '_blank' if @project.photo_project?
+      = f.input :email, input_html: { value: current_user.email }
       = f.input :phone
       -[:website, :facebook, :twitter].each do |e|
-        = f.input e 
+        = f.input e
       = f.button :submit, "Crear proyecto"
 
 :javascript

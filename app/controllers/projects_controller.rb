@@ -1,24 +1,19 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
-
   def index
     @projects = Project.all
   end
 
-
   def show
   end
-
 
   def new
     @project = Project.new
   end
 
-
   def edit
   end
-
 
   def create
     @project = Project.new(project_params)
@@ -37,7 +32,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, I18n.t('project.notices.successfully_updated') }
+        format.html { redirect_to @project, notice: I18n.t('project.notices.successfully_updated') }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
@@ -45,7 +40,6 @@ class ProjectsController < ApplicationController
       end
     end
   end
-
 
   def destroy
     @project.destroy
@@ -56,14 +50,13 @@ class ProjectsController < ApplicationController
   end
 
   private
-
     def set_project
       @project = Project.find(params[:id])
     end
 
    def project_params
-    params.require(:project).permit(:name, :goals, :description, :status,
-                                         :direction, :comments_from_direction, :name_of_owner,
-                                         :email, :phone, :website, :facebook, :organization_id)
+    params.require(:project).permit(:name, :goals, :description, :status, :photo_project,
+                                     :direction, :comments_from_direction, :name_of_owner,
+                                     :email, :phone, :website, :facebook, :organization_id)
   end
 end
