@@ -48,3 +48,7 @@ es:
         email: ej. usuario@dominio.org
         password: Al menos 6 caracteres
         password_confirmation: Confirma tu contraseña
+
+  mailers:
+    welcome_email:
+      subject: "¡Bienvenido(a) a Sociedad Actúa!"

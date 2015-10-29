@@ -42,6 +42,8 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'spring-commands-rspec'
+  gem 'launchy'
+  gem 'letter_opener'
 end
 
 group :development, :test do
