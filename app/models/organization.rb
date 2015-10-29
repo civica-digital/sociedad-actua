@@ -17,7 +17,7 @@ class Organization < ActiveRecord::Base
 
   # TODO: validar formato de correo
   # validates :email,
-  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :update }
   # TODO: validar formato de
   # validates :rfc
   validates :rfc, format: { with: /\A[A-ZÑ&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9]([A-Z0-9]{3})?\z/i, message: 'No es un formato de RFC válido' }, if: Proc.new { |a| a.rfc.present? }

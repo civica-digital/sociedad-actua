@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   belongs_to :profile, polymorphic: true
 
   rolify :role_cname => 'Role'
+  before_crate :create_resource
 
   def set_default_role
     if User.count == 0
@@ -27,7 +28,9 @@ class User < ActiveRecord::Base
   end
 
   def collaborator?
+  
     has_profile?('Collaborator') && self.profile.present?
+    
   end
 
   def investor?
@@ -36,9 +39,21 @@ class User < ActiveRecord::Base
 
   def organization?
     has_profile?('Organization') && self.profile.present?
+
   end
 
   def has_profile?(profile)
     self.profile_type == profile
+
+  end
+
+  
+
+  def create_resource 
+    
+      @organization=Organization.create
+      
+
+        
   end
 end
