@@ -1,6 +1,6 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
-REGISTRATION_PARAMS = [:email, :password, :password_confirmation, :role]
+REGISTRATION_PARAMS = [:email, :password, :password_confirmation, :profile_type]
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing

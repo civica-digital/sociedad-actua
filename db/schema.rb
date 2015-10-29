@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029190834) do
+
+ActiveRecord::Schema.define(version: 20151029231603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,9 +89,9 @@ ActiveRecord::Schema.define(version: 20151029190834) do
     t.boolean  "has_funding_auto",          default: false
     t.boolean  "has_funding_national",      default: false
     t.boolean  "has_funding_international", default: false
-    t.integer  "rate_private"
-    t.integer  "rate_national"
-    t.integer  "rate_international"
+    t.integer  "rate_private",              default: 0
+    t.integer  "rate_national",             default: 0
+    t.integer  "rate_international",        default: 0
   end
 
   create_table "projects", force: :cascade do |t|

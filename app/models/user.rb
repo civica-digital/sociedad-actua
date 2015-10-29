@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   rolify :role_cname => 'Role'
   before_crate :create_resource
 
+  before_create :create_resource
+
   def set_default_role
     if User.count == 0
       self.add_role :admin
@@ -55,5 +57,19 @@ class User < ActiveRecord::Base
       
 
         
+  end
+
+  private
+  # Refactor this ASAP
+  # we shouldn't be setting a resource in this way
+  def create_resource
+    case self.profile_type = self.profile_type.capitalize
+    when 'Organization'
+      self.profile = Organization.create(email: self.email)
+    when 'Collaborator'
+      self.profile = Collaborator.create(email: self.email)
+    when 'Investor'
+      self.profile = Investor.create(email: self.email)
+    end
   end
 end
