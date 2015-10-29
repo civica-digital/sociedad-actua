@@ -6,6 +6,7 @@
       = f.input :type_investor, collection: INVESTOR_TYPE, prompt: "Tipo de inversionista"
     .col-md-4
       = f.input :logo
+      = link_to @investor.logo.file.filename, @investor.logo_url, target: '_blank' if @investor.logo?
 
   .row
     .col-md-4
