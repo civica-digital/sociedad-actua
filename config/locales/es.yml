@@ -1,1 +1,4 @@
 es:
+  errors:
+    messages:
+      extension_white_list_error: 'Ese tipo de archivo no es aceptado.'

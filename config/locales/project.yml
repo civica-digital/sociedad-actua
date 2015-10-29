@@ -23,6 +23,10 @@ es:
     notices:
       saved: Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!
       profile_already_exists: Ya tienes un perfil asociado.
+      successfully_created: El proyecto se creó con éxito.
+      successfully_updated: El proyecto se actualizó con éxito.
+      successfully_destroyed: El proyecto fue eliminado con éxito.
+
   simple_form:
     labels:
       project:
