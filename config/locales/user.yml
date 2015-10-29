@@ -15,6 +15,11 @@ es:
             password:
               blank: Las contraseñas no deben estar en blanco.
   form:
+    sign_in:
+      title: Inicia sesión
+      email: Correo electrónico
+      password: Contraseña
+      submit: Entrar
     sign_up:
       title: Regístrate
       submit: Crear mi cuenta
