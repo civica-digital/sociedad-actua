@@ -2,6 +2,9 @@ es:
   user:
     menu:
       edit_profile: Mi perfil
+    mailers:
+      welcome_email:
+        subject: "¡Bienvenido(a) a Sociedad Actúa!"
   activerecord:
     errors:
       models:
@@ -49,6 +52,3 @@ es:
         password: Al menos 6 caracteres
         password_confirmation: Confirma tu contraseña
 
-  mailers:
-    welcome_email:
-      subject: "¡Bienvenido(a) a Sociedad Actúa!"
