@@ -35,6 +35,12 @@ nav {
     margin-bottom: $navbar_avatar_size / 4;
   }
 
+  .navbar-logo {
+    img {
+      max-width: 250px;
+    }
+  }
+
   .avatar{
     height: $navbar_avatar_size / 2;
     width: $navbar_avatar_size / 2;

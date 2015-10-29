@@ -3,13 +3,13 @@
     .row.info__links
       .col-xs-12.col-sm-2
         = image_tag 'logoFooter_2x.png', style: 'height:110px;'
-      .col-xs-12.col-sm-2
+      -#.col-xs-12.col-sm-2
         %p.header Conoce
         %ul
           %li= link_to 'Causas', '#'
           %li= link_to 'Proyectos', '#'
           %li= link_to 'Organizaciones', '#'
-      .col-xs-12.col-sm-2
+      -#.col-xs-12.col-sm-2
         %p.header
         %ul
           %li= link_to 'Grupos', '#'
@@ -23,11 +23,11 @@
               %span.first_accent Sociedad
               %span.fourth_accent Act&uacute;a
               %span ?
-          %li= link_to '¿Quiénes somos?', '#'
+          -#%li= link_to '¿Quiénes somos?', '#'
           %li= link_to 'Políticas de uso', tos_path
           %li= link_to 'Aviso de privacidad', privacy_path
-          %li= link_to 'GitHub', 'https://github.com/civica-digital/sociedad-actua/'
-      .col-xs-12.col-sm-3
+          %li= link_to 'Código Abierto', 'https://github.com/civica-digital/sociedad-actua/'
+      .col-xs-12.col-sm-3.pull-right
         %p.header Cont&aacute;ctanos
         %ul
           %li= mail_to 'hola@sociedadactua.org'
