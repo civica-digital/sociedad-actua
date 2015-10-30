@@ -37,11 +37,11 @@
     .col-md-12
       = f.input :investment_type
     .col-md-4
-      = f.input :amount
+      = f.input :amount, label: t('simple_form.labels.investor.amount_html')
     .col-md-4
-      = f.input :expense_type
+      = f.input :expense_type, label: t('simple_form.labels.investor.expense_type_html')
     .col-md-4
-      = f.input :constitution
+      = f.input :constitution, label: t('simple_form.labels.investor.constitution_html')
 
   .row
     .col-md-4

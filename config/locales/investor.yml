@@ -28,7 +28,7 @@ es:
   investor:
     show:
       welcome: ¡Gracias por registrarte!
-      subtitle: Tu información a sido registrada. 
+      subtitle: Tu información a sido registrada.
       invitation: Más adelante podras acceder a tu perfil de Sociedad Actúa.
       button_text: Ver perfil
     notices:
@@ -71,9 +71,9 @@ es:
         characteristics: Características de proyectos que apoya
         causes_supported: "Causas que más apoya:   "
         investment_type: ¿Con qué te gustaría apoyar?
-        amount: Rango montos
-        expense_type: Tipo de gasto autorizado
-        constitution: Necesidad de Constitución
+        amount_html: Rango montos <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Escribe aquí lo mínimo y máximo que tienes disponibilidad para invertir en un proyecto social.">?</span>
+        expense_type_html: Tipo de gasto autorizado <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Comenta en caso de que tengas restricciones específicas en qué se pueden aplicar los recursos que inviertas.">?</span>
+        constitution_html: Necesidad de Constitución <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="¿Es imprescindible que se trate de una organización legalmente constituida para recibir tu apoyo?">?</span>
     hints:
       investor:
         # password: Mínimo 6 caracteres

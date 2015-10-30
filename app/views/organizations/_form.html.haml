@@ -7,17 +7,17 @@
 
   .row
     .col-md-6
-      = f.input :causes_interest, label: raw(t('simple_form.labels.organization.causes_interest_with_tooltip')), collection: CAUSES, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.organization.causes_interest'), multiple: true, class: "chosen-select", tabindex: "2" }
+      = f.input :causes_interest, label: t('simple_form.labels.organization.causes_interest_with_tooltip_html'), collection: CAUSES, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.organization.causes_interest'), multiple: true, class: "chosen-select", tabindex: "2" }
 
   .row
-    .col-md-4= f.input :rfc, label: raw(t('simple_form.labels.organization.rfc_with_tooltip'))
-    .col-md-2= f.input :foundation, label: raw(t('simple_form.labels.organization.foundation_with_tooltip')), collection: 1980..2016, selected: 2015
+    .col-md-4= f.input :rfc, label: t('simple_form.labels.organization.rfc_with_tooltip_html')
+    .col-md-2= f.input :foundation, label: t('simple_form.labels.organization.foundation_with_tooltip_html'), collection: 1980..2016, selected: 2015
     .col-md-4
       = f.input :logo
       = link_to @organization.logo.file.filename, @organization.logo_url, target: '_blank' if @organization.logo?
   .row
     .col-md-12
-      = f.input :mision
+      = f.input :mision, label: t('simple_form.labels.organization.mision_with_tooltip_html')
 
   .row
     .col-md-12
