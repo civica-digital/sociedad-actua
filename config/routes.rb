@@ -27,9 +27,10 @@ Rails.application.routes.draw do
     end
 
     resources :users
-    resources :organizations
+    resources :organizations do
+      resources :projects
+    end
     resources :collaborators
     resources :investors
-    resources :projects
   end
 end
