@@ -44,6 +44,7 @@ group :development do
   gem 'rb-inotify', :require=>false
   gem 'spring-commands-rspec'
   gem 'letter_opener'
+  gem 'thin'
 end
 
 group :development, :test do
