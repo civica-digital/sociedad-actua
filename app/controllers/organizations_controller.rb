@@ -52,8 +52,7 @@ class OrganizationsController < ApplicationController
                                          :zip, :telephone, :email, :site, :facebook,
                                          :twitter, :youtube, :instagram, :blog,
                                          :show_address, :show_town, :show_colonia,
-                                         :has_funding_private,:has_funding_public,:has_funding_auto,:has_funding_national,
-                                         :has_funding_international,:rate_private,:rate_national,:rate_international,
+                                         :rate_private, :rate_public,:rate_national,:rate_international, :rate_auto,
                                          :show_telephone, :show_zip, :show_email, :logo,causes_interest: [])
 
   end
