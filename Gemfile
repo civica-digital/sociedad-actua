@@ -30,6 +30,7 @@ gem 'mini_magick'
 gem 'route_translator'
 gem 'gmaps4rails' #googlemaps
 gem 'underscore-rails'
+gem 'airbrake'
 
 group :development do
   gem 'better_errors'
@@ -42,7 +43,6 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'spring-commands-rspec'
-  gem 'launchy'
   gem 'letter_opener'
 end
 
@@ -56,12 +56,12 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'launchy'
 end
 
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'launchy'
   gem 'selenium-webdriver'
 end
 
