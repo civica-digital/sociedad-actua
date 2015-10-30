@@ -4,9 +4,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :get_role
 
   protected
-  # def after_sign_up_path_for(resource)
-  #   eval("new_#{params["user"]["profile_type"].singularize}_path") # TODO: Cambiar a forma segura
-  # end
+  def after_sign_up_path_for(resource)
+    eval("edit_#{params["user"]["profile_type"].singularize}_path(#{resource.profile.id})") # TODO: Cambiar a forma segura
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
