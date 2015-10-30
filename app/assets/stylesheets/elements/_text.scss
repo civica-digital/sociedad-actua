@@ -16,6 +16,7 @@ p, span, label, li { @include text__decorator($grey_200); }
 .primary { color: $cartoon_green !important; }
 .danger { color: $red_800 !important; }
 .orange {color: $orange_800 !important;}
+.blue{color: $blue_600 !important;}
 
 // Weights
 .boldish { font-weight: 400 !important; } // normally 300;
