@@ -1,6 +1,6 @@
 %div.container
   %div.row
-    =  simple_form_for @project do |f| 
+    =  simple_form_for [@project.organization, @project] do |f|
       = f.input :name
       = f.input :goals
       = f.input :description

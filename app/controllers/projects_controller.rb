@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 
 
   def index
-    @projects = Project.all
+    @projects = Organization.find(params[:organization_id]).projects
   end
 
 
