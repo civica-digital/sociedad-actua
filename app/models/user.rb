@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   belongs_to :profile, polymorphic: true
 
   rolify :role_cname => 'Role'
-  before_crate :create_resource
 
   before_create :create_resource
 
