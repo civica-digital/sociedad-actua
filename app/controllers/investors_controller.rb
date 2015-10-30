@@ -51,12 +51,15 @@ class InvestorsController < ApplicationController
 
   private
   def investor_params
-    params.require(:investor).permit(:name, :type_investor, :mantra, :characteristics,
+    params.require(:investor).permit(:name, :type_investor,
                                     :telephone, :email, :address, :zipcode, :city,
                                     :investment_type, :amount, :constitution, :expense_type,
-                                    :neighborhood, :site_url, :facebook_url, :blog_url, :logo,
-                                    causes_supported: [])
+                                    :neighborhood, :site_url, :facebook_url, :blog_url,
+                                    :twitter_url,:youtube_url,:instagram_url,:contact_name,:legal_time,:logo,
+                                    causes_supported: [], )
   end
+
+    
 
   def set_collaborator
      @investor = Investor.find(params[:id])
