@@ -76,9 +76,9 @@ es:
         zip: Código postal
         site: Página web
         mision: Descripción
-        foundation: Actuando desde
-        rfc: RFC
-        causes_interest: Causas de Interés
+        foundation_with_tooltip: Actuando desde <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Dinos desde cuándo se dedican a esta labor, independientemente de su constitución legal.">?</span>
+        rfc_with_tooltip: RFC <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Contar con este dato nos ayuda a tener información más completa para desarrollar mejores estudios sobre el sector. Proporcionarlo es opcional.">?</span>
+        causes_interest_with_tooltip: Causas de Interés <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Puedes seleccionar tantas causas como desees, todas se escriben en el mismo recuadro.">?</span>
         logo: Adjunta tu logotipo
         sites_url: Escribe las ligas a tu sitio y redes sociales
         has_funding_private:  Privada
