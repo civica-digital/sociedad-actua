@@ -1,4 +1,6 @@
  //Cargamos el mapa y llamamos la localizacion del usuario
+   var markersArray = [];
+
     function loadMap(){
       handler = Gmaps.build('Google');
       infowindow = new google.maps.InfoWindow();
@@ -16,6 +18,7 @@
           lat: position.coords.latitude,
           lng: position.coords.longitude
         },{ draggable: true});
+        markersArray.push(marker);
         codeLatLng(position.coords.latitude,position.coords.longitude);
       handler.map.centerOn(marker);
       handler.getMap().setZoom(18);
@@ -41,15 +44,8 @@
       if (status == google.maps.GeocoderStatus.OK) {
         var latitude = results[0].geometry.location.lat();
         var longitude = results[0].geometry.location.lng();
-        marker = handler.addMarker({
-          lat: latitude,
-          lng: longitude
-        },{ draggable: true});
-        handler.map.centerOn(marker);
-        handler.getMap().setZoom(18);
-        google.maps.event.addListener(marker.serviceObject, 'dragend', function() {
-          codeLatLng(this.getPosition().lat(),this.getPosition().lng());
-        });
+        clearOverlays(latitude, longitude);
+
       } 
     });
     $('#spinner').hide();
@@ -82,3 +78,20 @@
         }, 3000 );
       });
   }
+
+
+  function clearOverlays(latitude, longitude) {
+          for (var i = 0; i < markersArray.length; i++ ) {
+            markersArray[i].serviceObject.setVisible(false);
+          }
+          marker = handler.addMarker({
+            lat: latitude,
+            lng: longitude
+          },{ draggable: true});
+          markersArray.push(marker);
+          handler.map.centerOn(marker);
+          handler.getMap().setZoom(18);
+          google.maps.event.addListener(marker.serviceObject, 'dragend', function() {
+            codeLatLng(this.getPosition().lat(),this.getPosition().lng());
+          });
+      }

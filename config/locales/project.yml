@@ -13,6 +13,9 @@ es:
             description:
               blank: Este campo no puede estar vacío.
 
+  projects:
+    form:
+      map_title: Comprueba que la ubicación en el mapa sea correcta, mueve el marcador.
   project:
     show:
       welcome: ¡Gracias por agregar el proyecto!
