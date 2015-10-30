@@ -1,13 +1,13 @@
-%div.container
-  %div.row
+.container
+  .row
     =  simple_form_for @project do |f|
       = f.input :name
       = f.input :goals
       = f.input :description
       = f.input :status, collection: [["Activo", :active],
       ["Concluido", :finish]], required: true, :value_method => :second
-      %div.col-md-12
-        %div.blue.h3=t('.map_title')
+      .col-md-12
+        %h3.blue=t('.map_title')
         %div{:id=>"geolocation", :style=>'width: 100%; height: 400px;'}
       = f.input :direction, :onkeypress => "loading();"
       %div{:id=>"spinner", :class=>"spinner", :style=>"display:none;"}
