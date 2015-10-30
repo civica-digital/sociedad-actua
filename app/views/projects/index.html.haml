@@ -3,15 +3,13 @@
 
 .h4= pluralize(@projects.count, "proyecto")
 
--@projects.each do |o|
+-@projects.each do |project|
   .row
     .col-md-4
       .thumbnail
-        %img{ src: o.photo_project}
+        %img{ src: project.photo_project}
         .caption
-          %h3= o.name
-          %p= o.description
+          %h3= project.name
+          %p= project.description
           %p
-            %a{href: edit_organization_project_path(o), class: "btn btn-default", role: "button"} Editar
-
-
+            %a{href: edit_organization_project_path(project.organization, project), class: "btn btn-default", role: "button"} Editar

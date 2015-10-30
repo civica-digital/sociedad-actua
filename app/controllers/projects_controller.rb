@@ -9,18 +9,20 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    @organization = Organization.find(params[:organization_id])
+    @project = @organization.projects.new
   end
 
   def edit
+    @organization = Organization.find(params[:organization_id])
   end
 
   def create
     @project = Project.new(project_params)
-    @project.organization_id = current_user.id
+    @project.organization = current_user.profile # TO-DO: Refactor this
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: I18n.t('project.notices.successfully_created') }
+        format.html { redirect_to organization_projects_path(@project.organization), notice: I18n.t('project.notices.successfully_created') }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -32,7 +34,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: I18n.t('project.notices.successfully_updated') }
+        format.html { redirect_to organization_projects_path(@project.organization), notice: I18n.t('project.notices.successfully_updated') }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
