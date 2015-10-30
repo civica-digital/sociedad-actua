@@ -1,14 +1,12 @@
 class OrganizationsController < ApplicationController
-  before_action :set_organization, only: [:show, :edit, :update, :destroy]
+  before_action :set_organization, only: [:show, :edit, :update]
 
   def index
-   @organizations = Organization.all
+    @organizations = Organization.all
   end
 
   def show
-  end
-
-  def edit
+    authorize @organization
   end
 
   def new
@@ -32,7 +30,13 @@ class OrganizationsController < ApplicationController
     end
   end
 
-    def update
+  def edit
+    authorize @organization
+  end
+
+  def update
+    authorize @organization
+
     respond_to do |format|
       if @organization.update(organization_params)
         format.html { redirect_to @organization, notice: I18n.t('organization.notices.updated') }
@@ -52,12 +56,11 @@ class OrganizationsController < ApplicationController
                                          :zip, :telephone, :email, :site, :facebook,
                                          :twitter, :youtube, :instagram, :blog,
                                          :show_address, :show_town, :show_colonia,
-                                         :rate_private, :rate_public,:rate_national,:rate_international, :rate_auto,
-                                         :show_telephone, :show_zip, :show_email, :logo,causes_interest: [])
-
+                                         :rate_private, :rate_public, :rate_national, :rate_international, :rate_auto,
+                                         :show_telephone, :show_zip, :show_email, :logo, causes_interest: [])
   end
 
   def set_organization
-      @organization = Organization.find(params[:id])
+    @organization = Organization.find(params[:id])
   end
 end
