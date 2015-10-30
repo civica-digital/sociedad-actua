@@ -18,12 +18,6 @@
     %p Colectivos sin figura jurídica que ejecutan proyectos
 
   .col-xs-12.col-sm-3.text-center
-    = link_to registration_new_path(user_type: "collaborator") do
-      = image_tag 'roles/collaborators_2x.png', class: 'landing-icon'
-      %h3 Colaboradores
-    %p Investigadores(as), consultores(as), voluntarios(as) y periodistas interesados(as) en apoyar causas sociales
-
-  .col-xs-12.col-sm-3.text-center
     = link_to registration_new_path(user_type: "investor") do
       = image_tag 'roles/investors_2x.png', class: 'landing-icon'
       %h3 Inversionistas
@@ -31,6 +25,6 @@
 
   .col-xs-12.col-sm-3.text-center
     = link_to registration_new_path(user_type: "collaborator") do
-      = image_tag 'roles/collaborators_2x.png', height: '150px'
+      = image_tag 'roles/collaborators_2x.png', class: 'landing-icon'
       %h3 Colaboradores
     %p Investigadores(as), consultores(as), voluntarios(as) y periodistas interesados(as) en apoyar causas sociales
