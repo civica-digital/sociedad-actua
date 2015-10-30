@@ -4,13 +4,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  after_initialize :set_default_role, :if => :new_record?
-
   belongs_to :profile, polymorphic: true
+
+  after_initialize :set_default_role, :if => :new_record?
+  before_create :create_resource
+  after_create :send_welcome_email
 
   rolify :role_cname => 'Role'
 
-  before_create :create_resource
 
   def set_default_role
     if User.count == 0
@@ -47,6 +48,7 @@ class User < ActiveRecord::Base
   private
   # Refactor this ASAP
   # we shouldn't be setting a resource in this way
+
   def create_resource
     case self.profile_type = self.profile_type.capitalize
     when 'Organization'
@@ -56,5 +58,9 @@ class User < ActiveRecord::Base
     when 'Investor'
       self.profile = Investor.create(email: self.email)
     end
+  end
+
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver
   end
 end
