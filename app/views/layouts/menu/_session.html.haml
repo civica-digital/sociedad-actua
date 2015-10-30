@@ -5,7 +5,6 @@
   %li= link_to t('user.menu.edit_profile'), edit_investor_path(current_user.profile), data: { no_turbolink: true }
 - if current_user.organization?
   %li= link_to t('user.menu.edit_profile'), edit_organization_path(current_user.profile), data: { no_turbolink: true }
-  %li= link_to "Mis proyectos", organization_projects_path(current_user.profile),  data: { no_turbolink: true }
 
 -# Every other link that applies to all roles
 %li= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete
