@@ -2,3 +2,12 @@ es:
   errors:
     messages:
       extension_white_list_error: 'Ese tipo de archivo no es aceptado.'
+
+  about:
+    title:
+      what_is: '¿Qué es Sociedad Actúa?'
+    text: 'Es una plataforma para la coordinación de esfuerzos de la sociedad civil.'
+    text_support: 'Mediante su base de datos de fácil manejo y los perfiles organizaciones y personas
+                  logra la visibilidad de los proyectos de la sociedad civil que mejoran Nuevo León
+                  y facilita el encuentro con los fondos que desean impulsar su desarrollo, así
+                  como con otros aliados.'
