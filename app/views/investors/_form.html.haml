@@ -1,55 +1,67 @@
 = simple_form_for @investor do |f|
+  .col-md-12
+    = f.label I18n.t('simple_form.placeholders.investor.general_information')
+  .col-md-1
+  .col-md-10 
+    .row
+      .col-md-4
+        = f.input :name
+      .col-md-4
+        = f.input :type_investor, collection: INVESTOR_TYPE, prompt: "Tipo de inversionista"
+      .col-md-4
+        = f.input :logo
+        = link_to @investor.logo.file.filename, @investor.logo_url, target: '_blank' if @investor.logo?
+    .row
+      .col-md-12
+        = f.label I18n.t('simple_form.placeholders.investor.help_information')
+    .row
+      .col-md-6
+        = f.input :causes_supported, collection: CAUSES, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.investor.causes_supported'), multiple: true, class: "chosen-select", tabindex: "2"  }
+    .row
+      .col-md-12
+        = f.input :investment_type
+      .col-md-4
+        = f.input :amount
+      .col-md-4
+        = f.input :expense_type
+      .col-md-4
+        = f.input :constitution   
   .row
-    .col-md-4
-      = f.input :name
-    .col-md-4
-      = f.input :type_investor, collection: INVESTOR_TYPE, prompt: "Tipo de inversionista"
-    .col-md-4
-      = f.input :logo
-      = link_to @investor.logo.file.filename, @investor.logo_url, target: '_blank' if @investor.logo?
-
-  .row
-    .col-md-4
-      = f.input :email
-    .col-md-4
-      = f.input :telephone
-    .col-md-4
-      = f.input :city, collection: CITIES, include_black: false, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.investor.city'), class: "chosen-select", tabindex: "2"  }
-  .row
-    .col-md-4
-      = f.input :address
-    .col-md-4
-      = f.input :neighborhood
-    .col-md-4
-      = f.input :zipcode
+    .col-md-12
+      = f.label I18n.t('simple_form.placeholders.investor.contact_information')
+      %p
+      .col-md-1
+      .col-md-10 
+        .row.background-information
+          .col-md-4
+            = f.input :site_url
+          .col-md-4
+            = f.input :facebook_url
+          .col-md-4
+            = f.input :blog_url
+        .row
+          .col-md-12
+            = f.label I18n.t('simple_form.placeholders.investor.lbl_contact')    
+        .row
+          .col-md-4
+            = f.input :email
+          .col-md-4
+            = f.input :telephone
+          .col-md-4
+            = f.input :city, collection: CITIES, include_black: false, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.investor.city'), class: "chosen-select", tabindex: "2"  }
+        .row
+          .col-md-4
+            = f.input :address
+          .col-md-4
+            = f.input :neighborhood
+          .col-md-4
+            = f.input :zipcode
+        
 
   .row
     .col-md-12
       = f.input :mantra
     .col-md-12
       = f.input :characteristics
-
-  .row
-    .col-md-6
-      = f.input :causes_supported, collection: CAUSES, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.investor.causes_supported'), multiple: true, class: "chosen-select", tabindex: "2"  }
-
-  .row
-    .col-md-12
-      = f.input :investment_type
-    .col-md-4
-      = f.input :amount, label: t('simple_form.labels.investor.amount_html')
-    .col-md-4
-      = f.input :expense_type, label: t('simple_form.labels.investor.expense_type_html')
-    .col-md-4
-      = f.input :constitution, label: t('simple_form.labels.investor.constitution_html')
-
-  .row
-    .col-md-4
-      = f.input :site_url
-    .col-md-4
-      = f.input :facebook_url
-    .col-md-4
-      = f.input :blog_url
-
   .text-right
     = f.button :submit, "Guardar inversionista"
