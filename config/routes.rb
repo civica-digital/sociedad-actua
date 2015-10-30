@@ -27,10 +27,10 @@ Rails.application.routes.draw do
     end
 
     resources :users, except: :destroy
-    resources :organizations, except: :destroy do
+    resources :organizations, except: [:new, :create, :destroy] do
       resources :projects, except: :destroy
     end
-    resources :collaborators, except: :destroy
-    resources :investors, except: :destroy
+    resources :collaborators, except: [:new, :create, :destroy]
+    resources :investors, except: [:new, :create, :destroy]
   end
 end

@@ -9,27 +9,6 @@ class OrganizationsController < ApplicationController
     authorize @organization
   end
 
-  def new
-    if current_user.profile.nil?
-      @organization = Organization.new
-    else
-      redirect_to root_path
-      flash[:notice] = I18n.t('organization.notices.profile_already_exists')
-    end
-  end
-
-  def create
-    @organization = Organization.new(organization_params)
-    @organization.user = current_user
-
-    if @organization.save
-      flash[:notice] = I18n.t('organization.notices.saved')
-      redirect_to @organization
-    else
-      render 'new'
-    end
-  end
-
   def edit
     authorize @organization
   end
