@@ -24,6 +24,7 @@ es:
       email: Correo electrónico
       password: Contraseña
       submit: Entrar
+      forgot_password: '¿Olvidaste tu contraseña? Recupérala aquí'
     sign_up:
       title: Regístrate
       submit: Crear mi cuenta

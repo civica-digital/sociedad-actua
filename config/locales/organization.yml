@@ -47,6 +47,7 @@ es:
       saved: Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!
       profile_already_exists: Ya tienes un perfil asociado.
       updated: Tu información ha sido actualizada.
+
   simple_form:
     options:
       organization:
