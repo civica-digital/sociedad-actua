@@ -2,8 +2,8 @@
   %div.row
     =  simple_form_for @project do |f|
       = f.input :name
-      = f.input :goals
-      = f.input :description
+      = f.input :goals, label: t('simple_form.labels.project.goals_html')
+      = f.input :description, label: t('simple_form.labels.project.description_html')
       = f.input :status, collection: [["Activo", :active],
       ["Concluido", :finish]], required: true, :value_method => :second
       %div.col-md-12
