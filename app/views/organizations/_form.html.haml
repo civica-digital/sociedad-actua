@@ -24,19 +24,12 @@
       = f.label I18n.t('simple_form.placeholders.organization.information_funding')
     .col-md-12.background-funding
       .row
-        .col-md-1
-        .col-md-2.checkbox-funding= f.input :has_funding_private
-        .col-md-2.checkbox-funding= f.input :has_funding_public
-        .col-md-2.checkbox-funding= f.input :has_funding_auto
-        .col-md-2.checkbox-funding= f.input :has_funding_national
-        .col-md-2.checkbox-funding= f.input :has_funding_international
+        .col-md-4.checkbox-funding= f.input :rate_private, collection: 0..100, selected: @organization.rate_private, :input_html => { :onchange=>"validate_private_public_sum('is_private');"}
+        .col-md-4.checkbox-funding= f.input :rate_public, collection: 0..100, selected: @organization.rate_public, :input_html => { :onchange=>"validate_private_public_sum('is_public');"}
+        .col-md-4.checkbox-funding= f.input :rate_auto, collection: 0..100, selected: @organization.rate_auto, :input_html => { :onchange=>"validate_private_public_sum('auto');"}
       .row
-        .col-md-1
-        .col-md-2.checkbox-funding= f.input :rate_private, collection: 0..100, selected: @organization.rate_private
-        .col-md-2
-        .col-md-2
-        .col-md-2.checkbox-funding= f.input :rate_national, collection: 0..100, selected: @organization.rate_national
-        .col-md-2.checkbox-funding= f.input :rate_international, collection: 0..100, selected: @organization.rate_international
+        .col-md-6.checkbox-funding= f.input :rate_national, collection: 0..100, selected: @organization.rate_national, :input_html => { :onchange=>"validate_national_sum('national');"}
+        .col-md-6.checkbox-funding= f.input :rate_international, collection: 0..100, selected: @organization.rate_international, :input_html => { :onchange=>"validate_national_sum('international');"}
   .row
     .col-md-12
       = f.label I18n.t('simple_form.placeholders.organization.information')

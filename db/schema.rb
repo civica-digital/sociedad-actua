@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029231603) do
+ActiveRecord::Schema.define(version: 20151030000703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20151029231603) do
   create_table "organizations", force: :cascade do |t|
     t.string   "type_organization"
     t.string   "name"
-    t.datetime "remember_created_at",       default: '2015-10-20 06:18:53', null: false
+    t.datetime "remember_created_at", default: '2015-10-20 06:18:53', null: false
     t.string   "email"
     t.string   "rfc"
     t.text     "mision"
@@ -72,24 +72,21 @@ ActiveRecord::Schema.define(version: 20151029231603) do
     t.string   "twitter"
     t.string   "youtube"
     t.string   "instagram"
-    t.integer  "foundation",                default: 2015
-    t.boolean  "show_street",               default: false
-    t.boolean  "show_address",              default: false
-    t.boolean  "show_colonia",              default: false
-    t.boolean  "show_town",                 default: false
-    t.boolean  "show_telephone",            default: false
-    t.boolean  "show_zip",                  default: false
+    t.integer  "foundation",          default: 2015
+    t.boolean  "show_street",         default: false
+    t.boolean  "show_address",        default: false
+    t.boolean  "show_colonia",        default: false
+    t.boolean  "show_town",           default: false
+    t.boolean  "show_telephone",      default: false
+    t.boolean  "show_zip",            default: false
     t.boolean  "show_email"
     t.string   "logo"
     t.string   "causes_interest"
-    t.boolean  "has_funding_private",       default: false
-    t.boolean  "has_funding_public",        default: false
-    t.boolean  "has_funding_auto",          default: false
-    t.boolean  "has_funding_national",      default: false
-    t.boolean  "has_funding_international", default: false
-    t.integer  "rate_private",              default: 0
-    t.integer  "rate_national",             default: 0
-    t.integer  "rate_international",        default: 0
+    t.integer  "rate_private",        default: 30
+    t.integer  "rate_national",       default: 50
+    t.integer  "rate_international",  default: 50
+    t.integer  "rate_public",         default: 30
+    t.integer  "rate_auto",           default: 40
   end
 
   create_table "projects", force: :cascade do |t|
