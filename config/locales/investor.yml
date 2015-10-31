@@ -85,6 +85,9 @@ es:
         site_url: http://www.misitio.com
         facebook_url: http://www.facebook.com
         blog_url: http://www.miblog.com
+        twitter_url: http://www.twitter.com
+        youtube_url: http://www.youtube.com
+        instagram_url: http://www.instagram.com
         city: Buscar municipio
         causes_supported: Seleccionar causas
         lbl_contact: La siguiente información es exclusiva para su registro y no será mostrada enel perfil publico.
