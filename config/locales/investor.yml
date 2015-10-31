@@ -25,6 +25,12 @@ es:
               invalid: El url proporcionado no es válido.
             facebook_url:
               invalid: El url proporcionado no es válido.
+            youtube_url:
+              invalid: El url proporcionado no es válido.
+            instagram_url:
+              invalid: El url proporcionado no es válido.
+            twitter_url:
+              invalid: El url proporcionado no es válido.
   investor:
     show:
       welcome: ¡Gracias por registrarte!
