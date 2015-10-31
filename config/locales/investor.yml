@@ -88,6 +88,7 @@ es:
         city: Buscar municipio
         causes_supported: Seleccionar causas
         lbl_contact: La siguiente información es exclusiva para su registro y no será mostrada enel perfil publico.
-        general_information: Información general
-        contact_information: Información de contacto
+        general_information: 1.Información general
+        contact_information: 2.Información de contacto
         help_information: Esta Información ayudará a guiar mejor a las personas para saber en qué casos contactarte.
+        investment_information: ¿Con qué te gustaría ayudar?

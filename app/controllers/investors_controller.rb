@@ -26,6 +26,7 @@ class InvestorsController < ApplicationController
   end
 
   def create
+    
   	@investor = Investor.new(investor_params)
     @investor.user = current_user
     if @investor.save
@@ -39,6 +40,7 @@ class InvestorsController < ApplicationController
   def update
     respond_to do |format|
       if @investor.update(investor_params)
+        
         format.html { redirect_to @investor, notice: I18n.t('investor.notices.updated') }
         format.json { render :show, status: :ok, location: @investor }
       else
@@ -53,10 +55,10 @@ class InvestorsController < ApplicationController
   def investor_params
     params.require(:investor).permit(:name, :type_investor,
                                     :telephone, :email, :address, :zipcode, :city,
-                                    :investment_type, :amount, :constitution, :expense_type,
+                                     :amount, :constitution, :expense_type,
                                     :neighborhood, :site_url, :facebook_url, :blog_url,
                                     :twitter_url,:youtube_url,:instagram_url,:contact_name,:legal_time,:logo,
-                                    causes_supported: [], )
+                                    causes_supported: [],investment_type: [])
   end
 
     
