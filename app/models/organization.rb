@@ -30,6 +30,7 @@ class Organization < ActiveRecord::Base
 
   # TODO: validar el formato de url para sitio y redes sociales
   # validates_with URLValidator, fields: [:site, :blog, facebook, youtube, instagram, twitter]
+  validates :profile_url, format: { with: URI.regexp }, if: Proc.new { |a| a.profile_url.present? }
   validates :site, format: { with: URI.regexp }, if: Proc.new { |a| a.site.present? }
   validates :blog, format: { with: URI.regexp }, if: Proc.new { |a| a.blog.present? }
   validates :facebook, format: { with: URI.regexp }, if: Proc.new { |a| a.facebook.present? }
