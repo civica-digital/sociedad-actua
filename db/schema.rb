@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151030000703) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20151101170519) do
 
   create_table "collaborators", force: :cascade do |t|
     t.string "name"
@@ -28,6 +25,7 @@ ActiveRecord::Schema.define(version: 20151030000703) do
     t.string "youtube_url"
     t.string "blog_url"
     t.string "logo"
+    t.string "causes_interest"
   end
 
   create_table "investors", force: :cascade do |t|
@@ -57,7 +55,7 @@ ActiveRecord::Schema.define(version: 20151030000703) do
   create_table "organizations", force: :cascade do |t|
     t.string   "type_organization"
     t.string   "name"
-    t.datetime "remember_created_at", default: '2015-10-27 22:05:44', null: false
+    t.datetime "remember_created_at", default: '2015-11-01 17:09:00', null: false
     t.string   "email"
     t.string   "rfc"
     t.text     "mision"
@@ -115,7 +113,7 @@ ActiveRecord::Schema.define(version: 20151030000703) do
     t.datetime "updated_at"
   end
 
-  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
+  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -140,23 +138,23 @@ ActiveRecord::Schema.define(version: 20151030000703) do
     t.string   "profile_type"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["name", "resource_type", "resource_id"], name: "index_users_on_name_and_resource_type_and_resource_id", using: :btree
-  add_index "users", ["name"], name: "index_users_on_name", using: :btree
-  add_index "users", ["profile_type", "profile_id"], name: "index_users_on_profile_type_and_profile_id", using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["name", "resource_type", "resource_id"], name: "index_users_on_name_and_resource_type_and_resource_id"
+  add_index "users", ["name"], name: "index_users_on_name"
+  add_index "users", ["profile_type", "profile_id"], name: "index_users_on_profile_type_and_profile_id"
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "users_roles", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "role_id"
   end
 
-  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
 
   create_table "users_users", id: false, force: :cascade do |t|
     t.integer "user_id"
   end
 
-  add_index "users_users", ["user_id", "user_id"], name: "index_users_users_on_user_id_and_user_id", using: :btree
+  add_index "users_users", ["user_id", "user_id"], name: "index_users_users_on_user_id_and_user_id"
 
 end
