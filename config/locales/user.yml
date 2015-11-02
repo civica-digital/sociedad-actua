@@ -10,6 +10,9 @@ es:
       models:
         user:
           attributes:
+            reset_password_token:
+              blank: no puede estar en blanco
+              invalid: es inválido
             email:
               taken: "Este email ya esta en uso"
               blank: "El correo no puede estar en blanco"

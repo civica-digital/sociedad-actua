@@ -1,11 +1,15 @@
 %h1.section= t('.change_your_password')
 
-= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, role: 'form' }) do |f|
-  = devise_error_messages!
+= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+  = f.error_notification
+
+  = f.input :reset_password_token, as: :hidden
+  = f.full_error :reset_password_token
 
   .form-inputs
-    = f.input :password, autofocus: true, autocomplete: 'off'
-    = f.input :password_confirmation, autocomplete: 'off'
+
+    = f.input :password, required: true, autofocus: true, autocomplete: 'off'
+    = f.input :password_confirmation, required: true, autocomplete: 'off'
 
   .form-actions.text-right
     = f.button :submit, t('.change_my_password')
