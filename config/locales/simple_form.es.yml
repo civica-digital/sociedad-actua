@@ -11,8 +11,7 @@ es:
     "yes": 'Sí'
     "no": 'No'
     placeholders:
-      search: Busca por nombre
-      nil: ""
+      search: 'Busca por nombre de proyecto:'
       organization:
         information_funding: "Agrega aquí tus fuentes de fondeo"
     required:
