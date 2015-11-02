@@ -22,6 +22,7 @@
       = f.input :name_of_owner
       = f.input :photo_project
       = link_to @project.photo_project.file.filename, @project.photo_project_url, target: '_blank' if @project.photo_project?
+      = f.input :clasification, :collection => NTEE, :as => :grouped_select, group_method: :last, value_method: :first, label_method: :last, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.project.clasification'), multiple: true, class: "chosen-select", tabindex: "2"  }
       = f.input :email
       = f.input :phone
       -[:website, :facebook, :twitter].each do |e|
