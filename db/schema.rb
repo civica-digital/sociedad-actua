@@ -33,8 +33,6 @@ ActiveRecord::Schema.define(version: 20151102152157) do
 
   create_table "investors", force: :cascade do |t|
     t.string   "name"
-    t.text     "mantra"
-    t.text     "characteristics"
     t.string   "type_investor"
     t.string   "site_url"
     t.string   "blog_url"
@@ -53,6 +51,11 @@ ActiveRecord::Schema.define(version: 20151102152157) do
     t.string   "expense_type"
     t.string   "logo"
     t.string   "causes_supported"
+    t.string   "twitter_url"
+    t.string   "youtube_url"
+    t.string   "instagram_url"
+    t.string   "contact_name"
+    t.string   "legal_time"
   end
 
   create_table "organizations", force: :cascade do |t|

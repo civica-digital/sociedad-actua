@@ -25,6 +25,12 @@ es:
               invalid: El url proporcionado no es válido.
             facebook_url:
               invalid: El url proporcionado no es válido.
+            youtube_url:
+              invalid: El url proporcionado no es válido.
+            instagram_url:
+              invalid: El url proporcionado no es válido.
+            twitter_url:
+              invalid: El url proporcionado no es válido.
   investor:
     show:
       welcome: ¡Gracias por registrarte!
@@ -74,6 +80,8 @@ es:
         amount_html: Rango montos <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Escribe aquí lo mínimo y máximo que tienes disponibilidad para invertir en un proyecto social.">?</span>
         expense_type_html: Tipo de gasto autorizado <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Comenta en caso de que tengas restricciones específicas en qué se pueden aplicar los recursos que inviertas.">?</span>
         constitution_html: Necesidad de Constitución <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="¿Es imprescindible que se trate de una organización legalmente constituida para recibir tu apoyo?">?</span>
+        contact_name: Nombre de contacto
+        legal_time: Tiempo mínimo de constitución legal
     hints:
       investor:
         # password: Mínimo 6 caracteres
@@ -85,9 +93,13 @@ es:
         site_url: http://www.misitio.com
         facebook_url: http://www.facebook.com
         blog_url: http://www.miblog.com
+        twitter_url: http://www.twitter.com
+        youtube_url: http://www.youtube.com
+        instagram_url: http://www.instagram.com
         city: Buscar municipio
         causes_supported: Seleccionar causas
         lbl_contact: La siguiente información es exclusiva para su registro y no será mostrada enel perfil publico.
-        general_information: Información general
-        contact_information: Información de contacto
-        help_information: Esta Informaciín ayudará a guiar mejor a las personas para saber en qué casos contactarte.
+        general_information: 1.Información general
+        contact_information: 2.Información de contacto
+        help_information: Esta Información ayudará a guiar mejor a las personas para saber en qué casos contactarte.
+        investment_information: ¿Con qué te gustaría ayudar?
