@@ -78,6 +78,7 @@ es:
         zip: Código postal
         site: Página web
         profile_url: ¿Estás en Fondos a la Vista? Copia el enlace a tu perfil
+        other_causes: Otras causas
         mision_with_tooltip_html: Descripción <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Escribe aquí misión, visión, objetivos generales, metas relevantes y lo que consideres que refleja el espíritu de tu organización o grupo.">?</span>
         foundation_with_tooltip_html: Actuando desde <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Dinos desde cuándo se dedican a esta labor, independientemente de su constitución legal.">?</span>
         rfc_with_tooltip_html: RFC <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Contar con este dato nos ayuda a tener información más completa para desarrollar mejores estudios sobre el sector. Proporcionarlo es opcional.">?</span>
