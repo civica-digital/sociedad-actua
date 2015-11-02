@@ -20,7 +20,7 @@ es:
   collaborator:
     show:
       welcome: ¡Gracias por registrarte!
-      subtitle: Tu información a sido registrada. 
+      subtitle: Tu información a sido registrada.
       invitation: Más adelante podras acceder a tu perfil de Sociedad Actúa.
       button_text: Ver perfil
     notices:

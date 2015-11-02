@@ -32,7 +32,9 @@ class User < ActiveRecord::Base
   end
 
   def collaborator?
+  
     has_profile?('Collaborator') && self.profile.present?
+    
   end
 
   def investor?
@@ -41,10 +43,22 @@ class User < ActiveRecord::Base
 
   def organization?
     has_profile?('Organization') && self.profile.present?
+
   end
 
   def has_profile?(profile)
     self.profile_type == profile
+
+  end
+
+  
+
+  def create_resource 
+    
+      @organization=Organization.create
+      
+
+        
   end
 
   private
