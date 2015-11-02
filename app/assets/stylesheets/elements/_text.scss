@@ -3,7 +3,8 @@ h3 { @include heading-3(); }
 h5 { @include heading-5(); }
 
 /* Paragraph, spans and links */
-p, span, label, li { @include text__decorator($grey_200); }
+p, span, li { @include text__decorator($grey_200); }
+label { @include text__decorator($grey_600); }
 
 /* Text helpers
  * If some of the next classes is present '!important', override everything.

@@ -10,6 +10,8 @@
         %h3.blue=t('.map_title')
         %div{:id=>"geolocation", :style=>'width: 100%; height: 400px;'}
       = f.input :direction, :onkeypress => "loading();"
+      = f.input :lat, input_html: { type: "hidden" }, label: false
+      = f.input :lng, input_html: { type: "hidden" }, label: false
       %div{:id=>"spinner", :class=>"spinner", :style=>"display:none;"}
         = image_tag "spinner.gif", class: "img-responsive center-block" ,:id=>"img-spinner"
       = f.input :photo_project

@@ -31,6 +31,7 @@ gem 'route_translator'
 gem 'gmaps4rails' #googlemaps
 gem 'underscore-rails'
 gem 'airbrake'
+gem 'pundit'
 
 group :development do
   gem 'better_errors'
@@ -44,6 +45,7 @@ group :development do
   gem 'rb-inotify', :require=>false
   gem 'spring-commands-rspec'
   gem 'letter_opener'
+  gem 'thin'
 end
 
 group :development, :test do

@@ -63,6 +63,8 @@
         if (status == google.maps.GeocoderStatus.OK) {
           if (results[1]) {
             document.getElementById('project_direction').value = results[1].formatted_address;
+            document.getElementById('project_lat').value = lat;
+            document.getElementById('project_lng').value = lng;
             $('#spinner').hide();
           }
           else{

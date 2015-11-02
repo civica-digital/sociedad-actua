@@ -6,20 +6,25 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    authorize @project
   end
 
   def new
     @organization = Organization.find(params[:organization_id])
     @project = @organization.projects.new
+    authorize @project
   end
 
   def edit
+    authorize @project
     @organization = Organization.find(params[:organization_id])
   end
 
   def create
     @project = Project.new(project_params)
     @project.organization = current_user.profile # TO-DO: Refactor this
+    authorize @project
+
     respond_to do |format|
       if @project.save
         format.html { redirect_to organization_projects_path(@project.organization), notice: I18n.t('project.notices.successfully_created') }
@@ -32,6 +37,8 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    authorize @project
+    
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to organization_projects_path(@project.organization), notice: I18n.t('project.notices.successfully_updated') }
@@ -43,14 +50,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def destroy
-    @project.destroy
-    respond_to do |format|
-      format.html { redirect_to projects_url, notice: I18n.t('project.notices.successfully_destroyed') }
-      format.json { head :no_content }
-    end
-  end
-
   private
     def set_project
       @project = Project.find(params[:id])
@@ -59,7 +58,6 @@ class ProjectsController < ApplicationController
    def project_params
     params.require(:project).permit(:name, :goals, :description, :status, :photo_project,
                                      :direction, :comments_from_direction, :name_of_owner,
-                                     :email, :phone, :website, :facebook, :organization_id,:latitude,
-                                     :longitude)
+                                     :email, :phone, :website, :facebook, :organization_id, :lat, :lng)
   end
 end
