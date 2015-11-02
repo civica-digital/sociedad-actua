@@ -34,8 +34,14 @@
       .col-md-1
         = image_tag "landing/encuentra_2x.png", class: "img-responsive"
       .col-md-11.padding-text-map
-        %p.bright Encuentra
-        %p.bright Encuentra proyectos por ubicación geográfica
+        .row
+          = simple_form_for @projetc, :url => root_path, :method => :post do |f|
+            .col-md-6
+              %p.bright Encuentra
+              %p.bright Encuentra proyectos por ubicación geográfica
+            .col-md-6.text.right
+              =f.label I18n.t('simple_form.placeholders.search'), class: "bright"
+              =f.input :name, collection: @projects, include_black: false,input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.search'), class: "chosen-select ", tabindex: "2"  }, :label =>false
     %div{:id=>"geolocation", :style=>'width: 100%; height: 400px;'}
     .row
       .col-md-2.padding-text-map
