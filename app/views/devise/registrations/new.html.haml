@@ -10,6 +10,7 @@
     = f.input :profile_type, collection: [["Trabajo en un proyecto", :organization],
       ["Soy inversionista social", :investor],
       ["Me interesa colaborar con proyectos sociales", :collaborator]], required: true, :value_method => :second, selected: @user_type
+    = f.input :terms_of_service, as: :boolean, input_html: { checked: 'checked' }
 
   .form-actions.text-right
     = f.button :submit, t('form.sign_up.submit')
