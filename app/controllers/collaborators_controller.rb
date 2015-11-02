@@ -34,7 +34,7 @@ class CollaboratorsController < ApplicationController
   def collaborator_params
     params.require(:collaborator).permit(:name, :email, :type_collaborator, :description,
                                          :site_url, :facebook_url, :instagram_url,
-                                         :twitter_url, :youtube_url, :blog_url, :logo, causes_interest: [])
+                                         :twitter_url, :youtube_url, :blog_url, :logo, :other_causes, causes_interest: [])
   end
 
   def set_collaborator
