@@ -31,6 +31,7 @@ gem 'route_translator'
 gem 'gmaps4rails' #googlemaps
 gem 'underscore-rails'
 gem 'airbrake'
+gem 'pundit'
 
 group :development do
   gem 'better_errors'

@@ -26,11 +26,11 @@ Rails.application.routes.draw do
       get  '/logout' => 'devise/sessions#destroy', :as => :signout
     end
 
-    resources :users
-    resources :organizations do
-      resources :projects
+    resources :users, except: :destroy
+    resources :organizations, except: [:new, :create, :destroy] do
+      resources :projects, except: :destroy
     end
-    resources :collaborators
-    resources :investors
+    resources :collaborators, except: [:new, :create, :destroy]
+    resources :investors, except: [:new, :create, :destroy]
   end
 end

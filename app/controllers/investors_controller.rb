@@ -1,42 +1,22 @@
 class InvestorsController < ApplicationController
   before_action :investor_params, only: :create
-  before_action :authenticate_user!, :except => [:show, :index]
-  before_action :set_collaborator, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
+  before_action :set_investor, only: [:show, :edit, :update, :destroy]
 
   def index
-   @investors = Investor.all
+    @investors = Investor.all
   end
-  
+
   def show
-   
+    authorize @investor
   end
 
   def edit
-    
-  end
-
-
-  def new
-    if current_user.profile.nil?
-      @investor = Investor.new
-    else
-      redirect_to root_path
-      flash[:notice] = I18n.t('collaborator.notices.profile_already_exists')
-    end
-  end
-
-  def create
-  	@investor = Investor.new(investor_params)
-    @investor.user = current_user
-    if @investor.save
-      flash[:notice] = I18n.t('collaborator.notices.saved')
-      redirect_to @investor
-    else
-      render 'new'
-    end
+    authorize @investor
   end
 
   def update
+    authorize @investor
     respond_to do |format|
       if @investor.update(investor_params)
         format.html { redirect_to @investor, notice: I18n.t('investor.notices.updated') }
@@ -47,19 +27,18 @@ class InvestorsController < ApplicationController
       end
     end
   end
-  
 
   private
+
   def investor_params
     params.require(:investor).permit(:name, :type_investor, :mantra, :characteristics,
-                                    :telephone, :email, :address, :zipcode, :city,
-                                    :investment_type, :amount, :constitution, :expense_type,
-                                    :neighborhood, :site_url, :facebook_url, :blog_url, :logo,
-                                    causes_supported: [])
+                                     :telephone, :email, :address, :zipcode, :city,
+                                     :investment_type, :amount, :constitution, :expense_type,
+                                     :neighborhood, :site_url, :facebook_url, :blog_url, :logo,
+                                     causes_supported: [])
   end
 
-  def set_collaborator
-     @investor = Investor.find(params[:id])
+  def set_investor
+    @investor = Investor.find(params[:id])
   end
-
 end
