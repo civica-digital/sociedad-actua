@@ -15,7 +15,6 @@ class OrganizationsController < ApplicationController
 
   def update
     authorize @organization
-
     respond_to do |format|
       if @organization.update(organization_params)
         format.html { redirect_to @organization, notice: I18n.t('organization.notices.updated') }
@@ -36,7 +35,7 @@ class OrganizationsController < ApplicationController
                                          :twitter, :youtube, :instagram, :blog,:profile_url,
                                          :show_address, :show_town, :show_colonia,
                                          :rate_private, :rate_public, :rate_national, :rate_international, :rate_auto,
-                                         :show_telephone, :show_zip, :show_email, :logo, causes_interest: [])
+                                         :show_telephone, :show_zip, :show_email, :logo,:other_causes, causes_interest: [])
   end
 
   def set_organization

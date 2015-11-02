@@ -44,6 +44,9 @@ es:
         website: Sitio Web
         description_html: Descripción <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Comenta en qué consiste el proyecto cuáles son las actividades específicas que realizan, a qué tipo de población atienden, en dónde lo hacen, con qué frecuencia, quiénes participan, si tienen alianzas con otros actores sociales y cuáles son.">?</span>
         photo_project: Foto del proyecto
+        other_causes: Otras causas
+        causes_interest_with_tooltip_html: Causas de Interés <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Puedes seleccionar tantas causas como desees, todas se escriben en el mismo recuadro.">?</span>
+        
     hints:
       project:
         # password: Mínimo 6 caracteres
@@ -61,3 +64,4 @@ es:
         facebook: http://www.facebook.com/usuario
         twitter: http://www.twitter.com/usuario
         description: Descripción del proyecto
+        causes_interest: Seleccionar causas

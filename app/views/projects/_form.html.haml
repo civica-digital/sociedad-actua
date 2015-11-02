@@ -6,10 +6,12 @@
       = f.input :description, label: t('simple_form.labels.project.description_html')
       = f.input :status, collection: [["Activo", :active],
       ["Concluido", :finish]], required: true, :value_method => :second
-      .col-md-12  
-        .row
-          .col-md-6
-            = f.input :causes_interest, collection: CAUSES, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.organization.causes_interest'), multiple: true, class: "chosen-select", tabindex: "2"  }
+      .row
+        .col-md-6
+         
+          = f.input :causes_interest, label: t('simple_form.labels.project.causes_interest_with_tooltip_html'), collection: CAUSES, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.project.causes_interest'), multiple: true, class: "chosen-select", tabindex: "2" }
+        .col-md-6
+          = f.input :other_causes
       .col-md-12
         %h3.blue=t('.map_title')
         %div{:id=>"geolocation", :style=>'width: 100%; height: 400px;'}

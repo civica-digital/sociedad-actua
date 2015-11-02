@@ -16,9 +16,13 @@
             = f.input :logo, label: "Adjunta tu logotipo."
             = link_to @collaborator.logo.file.filename, @collaborator.logo_url, target: '_blank' if @collaborator.logo?
             = f.input :description
-            = f.input :causes_interest, collection: CAUSES, include_black: true, multiple: true,
-              input_html: { "data-placeholer" => I18n.t('simple_form.placeholders.collaborator.causes_interest'),
-              multiple: true, class: "chosen-select", tabindex: "2" }
+            .row
+              .col-md-6
+                = f.input :causes_interest, collection: CAUSES, include_black: true, multiple: true,
+                  input_html: { "data-placeholer" => I18n.t('simple_form.placeholders.collaborator.causes_interest'),
+                  multiple: true, class: "chosen-select", tabindex: "2" }
+              .col-md-6
+                = f.input :other_causes
             .row
               .col-md-12
                 = f.label I18n.t('simple_form.placeholders.collaborator.social_information')

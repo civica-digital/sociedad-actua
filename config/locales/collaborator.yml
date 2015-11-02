@@ -50,6 +50,7 @@ es:
         password_confirmation: Confirma tu contraseña
         role: Tipo de perfil
         causes_interest: Selecciona Causas de Interés
+        other_causes: Otras causas
     hints:
       collaborator:
         # password: Mínimo 6 caracteres
