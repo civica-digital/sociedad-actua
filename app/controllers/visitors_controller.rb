@@ -10,9 +10,13 @@ class VisitorsController < ApplicationController
 
   def index
   	@projects = Project.all
-	@hash = Gmaps4rails.build_markers(@projects) do |project, marker|
-  		marker.lat project.latitude
-  		marker.lng project.longitude
-	end
+    @array_lat=[]
+    @array_lng=[]
+    @array_name=[]
+  	Project.all.each_with_index do |project, index|
+    	@array_lat[index] = project.lat
+    	@array_lng[index] = project.lng
+      @array_name[index] = project.name
+  	end
   end
 end

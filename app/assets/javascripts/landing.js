@@ -1,6 +1,8 @@
 var markersArray = [];
 
-    function loadMaplanding(){
+    function loadMapLanding(){
+
+
       handler = Gmaps.build('Google');
       infowindow = new google.maps.InfoWindow();
       handler.buildMap({ internal: {id: 'geolocation'} }, function(){
@@ -11,9 +13,3 @@ var markersArray = [];
         }  
       });
     }
-
-    //mostramos en el mapa la ubicacion del usuario
-    function centerOnMap(position){
-      handler.map.centerOn([position.coords.latitude,position.coords.longitude]);
-      handler.getMap().setZoom(18);
-  }
