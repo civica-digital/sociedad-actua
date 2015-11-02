@@ -17,6 +17,8 @@
     .row
       .col-md-6
         = f.input :causes_supported, collection: CAUSES, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.investor.causes_supported'), multiple: true, class: "chosen-select", tabindex: "2"  }
+      .col-md-6
+        = f.input :other_causes
     .row
       .col-md-12
         = f.label I18n.t('simple_form.placeholders.investor.investment_information')
