@@ -18,6 +18,7 @@ label { @include text__decorator($grey_600); }
 .danger { color: $red_800 !important; }
 .orange {color: $orange_800 !important;}
 .blue{color: $blue_600 !important;}
+.yellow{color: $yellow_800 !important;}
 
 // Weights
 .boldish { font-weight: 400 !important; } // normally 300;

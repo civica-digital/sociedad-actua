@@ -12,6 +12,7 @@ es:
     "no": 'No'
     placeholders:
       search: 'Busca por nombre de proyecto:'
+      search_city: 'Municipio:'
       organization:
         information_funding: "Agrega aquí tus fuentes de fondeo"
     required:
