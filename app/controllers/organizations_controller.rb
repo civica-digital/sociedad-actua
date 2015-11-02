@@ -33,7 +33,7 @@ class OrganizationsController < ApplicationController
     params.require(:organization).permit(:name, :type_organization, :rfc,
                                          :mision, :address, :colonia, :town,
                                          :zip, :telephone, :email, :site, :facebook,
-                                         :twitter, :youtube, :instagram, :blog,
+                                         :twitter, :youtube, :instagram, :blog,:profile_url,
                                          :show_address, :show_town, :show_colonia,
                                          :rate_private, :rate_public, :rate_national, :rate_international, :rate_auto,
                                          :show_telephone, :show_zip, :show_email, :logo, causes_interest: [])
