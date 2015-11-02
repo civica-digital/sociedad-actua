@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   before_create :create_resource
   after_create :send_welcome_email
 
+  validates :terms_of_service, acceptance: true, on: :create
+
   rolify :role_cname => 'Role'
 
 
