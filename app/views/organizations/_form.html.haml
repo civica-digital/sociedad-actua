@@ -27,9 +27,9 @@
             = f.input :profile_url
           .col-md-12
             = f.label I18n.t('simple_form.placeholders.organization.information_funding')
+            .glyphicon.glyphicon-chevron-down{:data => {:toggle => 'collapse', :target => '.background-funding'}}
   .row
-
-    .col-md-12.background-funding
+    .col-md-12.background-funding.panel-collapse.collapse{"aria-labelledby" => "headingOne", :role => "tabpanel"}
       .row
         .col-md-4.checkbox-funding= f.input :rate_private, collection: 0..100, selected: @organization.rate_private, :input_html => { :onchange=>"validate_private_public_sum('is_private');"}
         .col-md-4.checkbox-funding= f.input :rate_public, collection: 0..100, selected: @organization.rate_public, :input_html => { :onchange=>"validate_private_public_sum('is_public');"}
