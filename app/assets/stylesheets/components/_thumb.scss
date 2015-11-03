@@ -1,0 +1,36 @@
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.thumbs {
+
+  background-color: #F58417;
+
+  padding-top: 40px;
+  padding-bottom: 30px;
+
+  .title {
+    color: white;
+    font-weight: bold;
+  }
+
+  .thumb {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+
+    .logo {
+      width: 150px;
+      height: 150px;
+      border-radius: 75px;
+
+    }
+
+    .label_thumb {
+      color: white;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+}

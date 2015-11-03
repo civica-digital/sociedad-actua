@@ -1,0 +1,57 @@
+.profile-section
+  .container
+    .row
+      .col-md-3.offset
+        .frame.center-block
+          %img.center-block.logo{:src => @organization.logo.mid.url }
+      .col-md-8
+        %h1.title= @organization.name
+        %label= "Misión, Visión, Valores y Objeticos generales"
+        %p= @organization.mision
+
+        %hr
+
+        .row
+          .col-md-6
+            %label= "Causas:"
+            #{@organization.causes_interest.join(", ")}
+          .col-md-6
+            %label= "Mejorando el mundo desde:"
+            #{@organization.foundation}
+          .col-md-6
+            %label= "RFC:"
+            #{@organization.rfc}
+          .col-md-6
+            %label= "Tipo:"
+            #{@organization.type_organization}
+
+        %hr
+
+        %label= "Fuente de fondeo"
+        %br
+        "Nacional #{@organization.rate_public}/Privada #{@organization.rate_private}"
+        %br
+        %a.btn.btn-default= "Fondos a la vista"
+
+        %hr
+
+        .row
+          .col-md-6
+            %label= "Sitio web:"
+            #{@organization.site}
+          .col-md-6
+            %label= "Facebook:"
+            #{@organization.facebook}
+          .col-md-6
+            %label= "Twitter:"
+            #{@organization.twitter}
+          .col-md-6
+            %label= "Youtube:"
+            #{@organization.youtube}
+          .col-md-6
+            %label= "Instagram:"
+            #{@organization.instagram}
+
+        %hr
+
+        %a.btn.btn-default= "Contactar"

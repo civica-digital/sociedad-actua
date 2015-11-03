@@ -1,7 +1,3 @@
-= render "layouts/thanks_for_register",
-  name: @organization.name,
-  url: new_organization_project_path(@organization),
-  text_button: t('organization.show.button_text'),
-  title: t('organization.show.welcome'),
-  text_principal: t('organization.show.subtitle'),
-  text_secondary: t('organization.show.invitation')
+= render "profile"
+= render "projects"
+= render "map"

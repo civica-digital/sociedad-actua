@@ -1,0 +1,36 @@
+.profile-section {
+
+  background-color: #FECD36;
+  padding-bottom: 40px;
+  padding-top: 40px;
+
+  color: black;
+
+  .offset {
+    padding-top: 40px;
+  }
+
+  .frame {
+    width: 200px;
+    height: 200px;
+    border-color: white;
+    border-style: solid;
+    border-width: 15px;
+    background-color: #E5E5E5;
+
+    padding-top: 40px;
+
+    .logo {
+      width: 80%;
+      vertical-align: middle;
+    }
+  }
+  label {
+    font-weight: bold;
+    color: black;
+  }
+
+  .title {
+    color: $blue-800;
+  }
+}
