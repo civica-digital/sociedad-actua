@@ -44,6 +44,8 @@
       if (status == google.maps.GeocoderStatus.OK) {
         var latitude = results[0].geometry.location.lat();
         var longitude = results[0].geometry.location.lng();
+        document.getElementById('project_lat').value = latitude;
+        document.getElementById('project_lng').value = longitude;
         clearOverlays(latitude, longitude);
 
       } 
