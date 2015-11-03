@@ -15,7 +15,7 @@ before_action :skip_authorization
   end
 
   def index
-    
+  
   	@projects = Project.order(:name)
     if params[:tag]
       if !params[:tag][:distrito].blank? || !params[:tag][:seccion].blank? || !params[:tag][:ageb].blank? || !params[:tag][:city].blank?
@@ -27,7 +27,7 @@ before_action :skip_authorization
       load_markers
     end
 
-    
+    @elements= Organization.all.sample(2) + Investor.all.sample(2) + Project.all.sample(2)
 
   end
 
