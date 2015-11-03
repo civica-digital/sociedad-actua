@@ -47,6 +47,14 @@ es:
       saved: Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!
       profile_already_exists: Ya tienes un perfil asociado.
       updated: Tu información ha sido actualizada.
+    form:
+      sections:
+        general_information: "1. Información General"
+        information_funding: "Agrega aquí tus fuentes de fondeo"
+        contact_information: "2. Información de Contacto"
+        check_private_information: "Marca la información que deseas hacer pública"
+        sites_url: Escribe las ligas a tu sitio y redes sociales
+
   simple_form:
     options:
       organization:
@@ -84,7 +92,6 @@ es:
         rfc_with_tooltip_html: RFC <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Contar con este dato nos ayuda a tener información más completa para desarrollar mejores estudios sobre el sector. Proporcionarlo es opcional.">?</span>
         causes_interest_with_tooltip_html: Causas de Interés <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Puedes seleccionar tantas causas como desees, todas se escriben en el mismo recuadro.">?</span>
         logo: Adjunta tu logotipo
-        sites_url: Escribe las ligas a tu sitio y redes sociales
         has_funding_private:  Privada
         has_funding_public: Pública
         has_funding_auto: Autogeneración
