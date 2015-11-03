@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="row">
+    <%= simple_form_for [@organization, @project] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :goals, label: t('simple_form.labels.project.goals_html') %>
+      <%= f.input :description, label: t('simple_form.labels.project.description_html') %>
+      <%= f.input :status, collection: [["Activo", :active],["Concluido", :finish]], required: true, :value_method => :second%>
+      <div class="col-md-12">
+        <h3 class="blue">
+          <%= t('.map_title') %>
+        </h3>
+        <div id="geolocation" style="width: 100%; height: 400px;"></div>
+      </div>
+      <%= f.input :direction, :onkeypress => "loading();" %>
+      <%= f.input :lat, input_html: { type: "hidden" }, label: false %>
+      <%= f.input :lng, input_html: { type: "hidden" }, label: false %>
+      <div class="spinner" id="spinner" style="display:none;">
+        <%= image_tag "spinner.gif", class: "img-responsive center-block" ,:id=>"img-spinner" %>
+      </div>
+      <%= f.input :comments_from_direction %>
+      <%= f.input :name_of_owner %>
+      <%= f.input :photo_project %>
+      <%= link_to @project.photo_project.file.filename, @project.photo_project_url, target: '_blank' if @project.photo_project? %>
+      <%= f.input :email %>
+      <%= f.input :phone %>
+      <% [:website, :facebook, :twitter].each do |e| %>
+        <%= f.input e %>
+      <% end %>
+      <%= f.button :submit, "Crear proyecto" %>
+    <% end %>
+  </div>
+</div>
+
+<script type='text/javascript'>
+  $(document).ready(loadMap);
+
+  function loadMap(){
+      handler = Gmaps.build('Google');
+      infowindow = new google.maps.InfoWindow();
+      handler.buildMap({ internal: {id: 'geolocation'} }, function(){
+        geocoder = new google.maps.Geocoder();
+        user_has_location = <%=@project.lat.nil?%>;
+        if(user_has_location){
+          if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(displayOnMap);
+          }  
+        }else{
+          displayOnMap('loading') 
+        }
+      });
+    }
+
+
+  function displayOnMap(position){
+      if(position!='loading'){
+        marker = handler.addMarker({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+        },{ draggable: true});
+        markersArray.push(marker);
+        codeLatLng(position.coords.latitude,position.coords.longitude);
+      }else{
+          marker = handler.addMarker({
+          lat: <%=@project.lat.nil? ? 0 : @project.lat %>,
+          lng: <%=@project.lng.nil? ? 0 : @project.lng %>
+        },{ draggable: true});
+          markersArray.push(marker);
+          codeLatLng(<%=@project.lat.nil? ? 0 : @project.lat %>,<%=@project.lng.nil? ? 0 : @project.lng %>);
+        } 
+
+      handler.map.centerOn(marker);
+      handler.getMap().setZoom(18);
+      google.maps.event.addListener(marker.serviceObject, 'dragend', function() {
+        codeLatLng(this.getPosition().lat(),this.getPosition().lng());
+      });
+
+  }
+</script>
+

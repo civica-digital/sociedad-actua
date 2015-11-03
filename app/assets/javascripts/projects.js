@@ -1,32 +1,24 @@
  //Cargamos el mapa y llamamos la localizacion del usuario
    var markersArray = [];
 
-    function loadMap(){
+  function loadMap(){
       handler = Gmaps.build('Google');
       infowindow = new google.maps.InfoWindow();
       handler.buildMap({ internal: {id: 'geolocation'} }, function(){
         geocoder = new google.maps.Geocoder();
-        if(navigator.geolocation){
-          navigator.geolocation.getCurrentPosition(displayOnMap);
-        }  
+        user_has_location = "#{@project.lat.nil?}";
+        if(user_has_location == "true"){
+          if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(displayOnMap);
+          }  
+        }else{
+          displayOnMap('loading') 
+        }
       });
     }
 
-    //mostramos en el mapa la ubicacion del usuario
-    function displayOnMap(position){
-        marker = handler.addMarker({
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        },{ draggable: true});
-        markersArray.push(marker);
-        codeLatLng(position.coords.latitude,position.coords.longitude);
-      handler.map.centerOn(marker);
-      handler.getMap().setZoom(18);
-      google.maps.event.addListener(marker.serviceObject, 'dragend', function() {
-        codeLatLng(this.getPosition().lat(),this.getPosition().lng());
-      });
-
-  }
+      //mostramos en el mapa la ubicacion del usuario
+    
 
   //funcion para hacer un delay en el uso de georeferencia
   var delay = (function(){
@@ -60,6 +52,8 @@
 
   function codeLatLng(lat, lng) {
       $('#spinner').show();
+      document.getElementById('project_lat').value = lat;
+      document.getElementById('project_lng').value = lng;
       var latlng = new google.maps.LatLng(lat,lng);
       geocoder.geocode({'latLng': latlng}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
