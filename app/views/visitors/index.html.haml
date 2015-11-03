@@ -81,7 +81,12 @@
         });
         markersArray.push(marker);
       }
-      handler.map.centerOn([array_lat[0],array_lng[0]]);
+      if(array_lat[0]+"" == ""){
+        handler.map.centerOn(["25.6754382","-100.3483728"]);
+      }else{
+        handler.map.centerOn([array_lat[0],array_lng[0]]);
+      }
+      
       handler.getMap().setZoom(10);
   }
 

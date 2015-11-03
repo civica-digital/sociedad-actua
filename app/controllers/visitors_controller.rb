@@ -15,14 +15,13 @@ require 'open-uri'
     
   	@projects = Project.order(:name)
     if params[:tag]
-      get_electoral_information(params)
-    else
-      @projects.each_with_index do |project, index|
-        @array_lat[index] = project.lat
-        @array_lng[index] = project.lng
-        @array_name[index] = project.name
+      unless params[:tag][:distrito].blank? || params[:tag][:seccion].blank?
+        get_electoral_information(params)
+      else
+        load_markers
       end
-
+    else
+      load_markers
     end
 
     
@@ -53,5 +52,14 @@ require 'open-uri'
       end
     end
 
+  end
+
+  def load_markers
+    @projects.each_with_index do |project, index|
+        @array_lat[index] = project.lat
+        @array_lng[index] = project.lng
+        @array_name[index] = project.name
+      end
+    
   end
 end
