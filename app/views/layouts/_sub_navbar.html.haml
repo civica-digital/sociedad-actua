@@ -9,10 +9,10 @@
     #navbar.sub-navbar.navbar-collapse.collapse
       %ul.nav.navbar-nav
         %li.boldest= link_to 'Explorar', root_path, class: 'navbar-brand'
-        %li= link_to 'Organizaciones', '#/'
-        %li= link_to 'Proyectos', '#/'
-        %li= link_to 'Inversionistas', '#/'
-        %li= link_to 'Causas', '#/'
+        %li= link_to 'Organizaciones', organizations_path
+        %li= link_to 'Proyectos', projects_path
+        %li= link_to 'Inversionistas', investors_path
+        %li= link_to 'Causas', '#'
       %form.navbar-form.navbar-left{ role:'search' }
         %input.form-control.inline{type: "text", placeholder: "Buscar", style: 'width: 400px !important'}
       %ul.nav.navbar-nav.navbar-right
