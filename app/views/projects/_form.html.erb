@@ -18,6 +18,7 @@
         <%= image_tag "spinner.gif", class: "img-responsive center-block" ,:id=>"img-spinner" %>
       </div>
       <%= f.input :comments_from_direction %>
+      <%= f.input :town, collection: CITIES, include_black: false,input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.organization.city'), class: "chosen-select", tabindex: "2"  }%>
       <%= f.input :name_of_owner %>
       <%= f.input :photo_project %>
       <%= link_to @project.photo_project.file.filename, @project.photo_project_url, target: '_blank' if @project.photo_project? %>
