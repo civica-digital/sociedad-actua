@@ -15,15 +15,9 @@ require 'open-uri'
     
   	@projects = Project.order(:name)
     if params[:tag]
-      puts '*********TAG***********'
-      puts params[:tag][:distrito].blank?
-      puts params[:tag][:seccion].blank?
-
-      if !params[:tag][:distrito].blank? || !params[:tag][:seccion].blank?
-        puts '*********1***********'
+      if !params[:tag][:distrito].blank? || !params[:tag][:seccion].blank? || !params[:tag][:ageb].blank?
         get_electoral_information(params)
       else
-        puts '*********2***********'
         load_markers
       end
     else
@@ -46,11 +40,32 @@ require 'open-uri'
   end
 
   def get_electoral_information(params)
+    if !params[:tag][:distrito].blank? || !params[:tag][:seccion].blank? 
+      @projects.each_with_index do |project, index|
+        response = open("https://cicadmin.cartodb.com:443/api/v2/sql?q=select municipio, distrito, seccion from public.nl_secciones_electorales where ST_Within(ST_GeomFromText('POINT(#{project.lng} #{project.lat})', 4326), the_geom)").read
+        parsed = JSON.parse(response)
+        if parsed["total_rows"].to_i > 0
+          if parsed["distrito"].to_s == params[:tag][:distrito].to_s || params[:tag][:seccion].to_s == parsed["seccion"].to_s
+            @array_lat[index] = project.lat
+            @array_lng[index] = project.lng
+            @array_name[index] = project.name
+            @array_id[index] = project.id
+          end
+        end
+      end
+      @projects = Project.where(id: @array_id).order(:name)
+    end
+    if !params[:tag][:ageb].blank?
+        get_ageb_information(params)
+    end
+  end
+
+  def get_ageb_information(params)
     @projects.each_with_index do |project, index|
-      response = open("https://cicadmin.cartodb.com:443/api/v2/sql?q=select municipio, distrito, seccion from public.nl_secciones_electorales where ST_Within(ST_GeomFromText('POINT(#{project.lng} #{project.lat})', 4326), the_geom)").read
+      response = open("https://jpel.cartodb.com/api/v2/sql?q=SELECT cvegeo FROM nl_ageb_urb WHERE ST_Within(ST_GeomFromText('POINT(#{project.lng} #{project.lat})', 4326), the_geom)").read
       parsed = JSON.parse(response)
       if parsed["total_rows"].to_i > 0
-        if parsed["distrito"].to_s == params[:tag][:distrito].to_s || params[:tag][:seccion].to_s == parsed["seccion"].to_s
+        if parsed["rows"][0]["cvegeo"].to_s == params[:tag][:ageb].to_s
           @array_lat[index] = project.lat
           @array_lng[index] = project.lng
           @array_name[index] = project.name
@@ -58,7 +73,7 @@ require 'open-uri'
         end
       end
     end
-    @projects = Project.where(id: @array_id).order(:name)
+      @projects = Project.where(id: @array_id).order(:name)
   end
 
   def load_markers
@@ -67,6 +82,6 @@ require 'open-uri'
         @array_lng[index] = project.lng
         @array_name[index] = project.name
       end
-    
   end
+
 end
