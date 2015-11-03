@@ -27,6 +27,13 @@ es:
       saved: Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!
       profile_already_exists: Ya tienes un perfil asociado.
       updated: Tu información ha sido actualizada.
+    form:
+      header: "Edita tu perfil de colaborador"
+      sections:
+        general_information: "1. Información General"
+        social_information: "Escribe las ligas a tu sitio y redes sociales"
+
+
   simple_form:
     options:
       collaborator:
@@ -38,7 +45,7 @@ es:
       collaborator:
         name: Nombre
         email: Correo electrónico
-        type_collaborator: Tipo de colaborador
+        type_collaborator: "¿Cómo colaboras?"
         description: Descripción
         site_url: Url de sitio web
         blog_url: Url de blog
@@ -49,8 +56,9 @@ es:
         password: Contraseña
         password_confirmation: Confirma tu contraseña
         role: Tipo de perfil
-        causes_interest: Selecciona Causas de Interés
+        causes_interest: Causas de Interés
         other_causes: Otras causas
+        profile_image: Imagen de perfil
     hints:
       collaborator:
         # password: Mínimo 6 caracteres
@@ -66,5 +74,4 @@ es:
         instagram_url: http://www.instagram.com
         blog_url: http://www.miblog.com
         general_information: Información general
-        social_information: Escribe los enlaces a tu sitio y redes sociales (llena los campos de la información que deseas que sea publicada).
         causes_interest: Seleccionar causas
