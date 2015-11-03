@@ -1,6 +1,9 @@
 class VisitorsController < ApplicationController
-before_action :set_values_map
 require 'open-uri'
+
+before_action :set_values_map
+before_action :skip_authorization
+
 
   def tos
   end

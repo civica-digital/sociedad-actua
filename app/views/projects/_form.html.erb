@@ -5,6 +5,14 @@
       <%= f.input :goals, label: t('simple_form.labels.project.goals_html') %>
       <%= f.input :description, label: t('simple_form.labels.project.description_html') %>
       <%= f.input :status, collection: [["Activo", :active],["Concluido", :finish]], required: true, :value_method => :second%>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :causes_interest, label: t('simple_form.labels.project.causes_interest_with_tooltip_html'), collection: CAUSES, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.project.causes_interest'), multiple: true, class: "chosen-select", tabindex: "2" } %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :other_causes %>
+        </div>
+      </div>
       <div class="col-md-12">
         <h3 class="blue">
           <%= t('.map_title') %>
@@ -22,6 +30,7 @@
       <%= f.input :name_of_owner %>
       <%= f.input :photo_project %>
       <%= link_to @project.photo_project.file.filename, @project.photo_project_url, target: '_blank' if @project.photo_project? %>
+      <%= f.input :clasification, :collection => NTEE, :as => :grouped_select, group_method: :last, value_method: :first, label_method: :last, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.project.clasification'), multiple: true, class: "chosen-select", tabindex: "2"  } %>
       <%= f.input :email %>
       <%= f.input :phone %>
       <% [:website, :facebook, :twitter].each do |e| %>

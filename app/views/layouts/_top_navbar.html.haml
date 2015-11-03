@@ -1,7 +1,7 @@
 .text-right
   = render 'layouts/pretty_colors'
 
-%nav.navbar.navbar-default
+%nav.top-navbar.navbar.navbar-default
   .container-fluid
     .navbar-header
       %button.navbar-toggle.collapsed{ type: "button", 'data-toggle'=> "collapse", 'data-target'=> "#navbar", 'aria-expanded'=> "false", 'aria-controls'=> "navbar" }
@@ -12,7 +12,7 @@
       .navbar-logo
         = link_to root_path do
           = image_tag 'logo.png', class: 'img-responsive'
-    #navbar.navbar-collapse.collapse
+    #navbar.top-navbar.navbar-collapse.collapse
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           = render 'layouts/menu/session'

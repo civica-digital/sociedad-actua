@@ -58,6 +58,7 @@ class ProjectsController < ApplicationController
    def project_params
     params.require(:project).permit(:name, :goals, :description, :status, :photo_project,
                                      :direction, :comments_from_direction, :name_of_owner,
-                                     :email, :phone, :website, :facebook, :organization_id, :lat, :lng, :town)
+                                     :email, :phone, :website, :facebook, :organization_id, :lat, :lng, :town, :other_causes,causes_interest: [])
+
   end
 end

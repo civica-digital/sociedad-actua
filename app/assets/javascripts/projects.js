@@ -74,3 +74,9 @@
             codeLatLng(this.getPosition().lat(),this.getPosition().lng());
           });
       }
+
+ $(function () {
+    $("#project_clasification").chosen({
+       allow_single_deselect: true,
+       no_results_text: 'No se encontraron coincidencias',
+       width: '400px'})});

@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   before_create :create_resource
   after_create :send_welcome_email
 
+  validates :terms_of_service, acceptance: true, on: :create
+
   rolify :role_cname => 'Role'
 
 
@@ -30,7 +32,9 @@ class User < ActiveRecord::Base
   end
 
   def collaborator?
+  
     has_profile?('Collaborator') && self.profile.present?
+    
   end
 
   def investor?
@@ -39,10 +43,22 @@ class User < ActiveRecord::Base
 
   def organization?
     has_profile?('Organization') && self.profile.present?
+
   end
 
   def has_profile?(profile)
     self.profile_type == profile
+
+  end
+
+  
+
+  def create_resource 
+    
+      @organization=Organization.create
+      
+
+        
   end
 
   private

@@ -20,7 +20,7 @@ es:
   collaborator:
     show:
       welcome: ¡Gracias por registrarte!
-      subtitle: Tu información a sido registrada. 
+      subtitle: Tu información a sido registrada.
       invitation: Más adelante podras acceder a tu perfil de Sociedad Actúa.
       button_text: Ver perfil
     notices:
@@ -50,6 +50,7 @@ es:
         password_confirmation: Confirma tu contraseña
         role: Tipo de perfil
         causes_interest: Selecciona Causas de Interés
+        other_causes: Otras causas
     hints:
       collaborator:
         # password: Mínimo 6 caracteres
@@ -66,3 +67,4 @@ es:
         blog_url: http://www.miblog.com
         general_information: Información general
         social_information: Escribe los enlaces a tu sitio y redes sociales (llena los campos de la información que deseas que sea publicada).
+        causes_interest: Seleccionar causas
