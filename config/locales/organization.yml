@@ -49,6 +49,7 @@ es:
       updated: Tu información ha sido actualizada.
     form:
       sections:
+        edit_profile: "Edita tu perfil de organización"
         general_information: "1. Información General"
         information_funding: "Agrega aquí tus fuentes de fondeo"
         contact_information: "2. Información de Contacto"
