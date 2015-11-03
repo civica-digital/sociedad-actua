@@ -40,7 +40,7 @@
               %p.bright Encuentra
               %p.bright Encuentra proyectos por ubicación geográfica
             .col-md-6.text.right
-              =f.input :name, collection: @projects, include_black: false,input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.search'), class: "chosen-select ", tabindex: "2", :onchange=>"show_marker();"}, :label =>false
+              =f.input :name, collection: @projects, include_black: true,input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.search'), class: "chosen-select ", tabindex: "2", :onchange=>"show_marker();"}, :label =>false
       .row
         .col-md-12
           %p.yellow Usa los siguientes campos para hacer búsquedas específicas  
