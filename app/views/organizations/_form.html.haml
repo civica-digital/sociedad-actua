@@ -16,7 +16,7 @@
       .col-md-4
         = f.input :rfc, label: t('simple_form.labels.organization.rfc_with_tooltip_html')
       .col-md-2
-        = f.input :foundation, label: t('simple_form.labels.organization.foundation_with_tooltip_html'), collection: 1910..2016, selected: 2015
+        = f.input :foundation, label: t('simple_form.labels.organization.foundation_with_tooltip_html'), collection: 1910..2016, selected: year_to_select(@organization.foundation)
       .col-md-6
         = f.input :logo
         = link_to @organization.logo.file.filename, @organization.logo_url, target: '_blank' if @organization.logo?
