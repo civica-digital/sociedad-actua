@@ -84,7 +84,7 @@
       if(array_lat[0]+"" == ""){
         handler.map.centerOn(["25.6754382","-100.3483728"]);
       }else{
-        handler.map.centerOn([array_lat[0],array_lng[0]]);
+        handler.map.centerOn([array_lat[array_lat.length-1],array_lng[array_lng.length-1]]);
       }
       
       handler.getMap().setZoom(10);

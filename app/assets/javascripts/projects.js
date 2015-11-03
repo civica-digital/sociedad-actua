@@ -1,21 +1,7 @@
  //Cargamos el mapa y llamamos la localizacion del usuario
    var markersArray = [];
 
-  function loadMap(){
-      handler = Gmaps.build('Google');
-      infowindow = new google.maps.InfoWindow();
-      handler.buildMap({ internal: {id: 'geolocation'} }, function(){
-        geocoder = new google.maps.Geocoder();
-        user_has_location = "#{@project.lat.nil?}";
-        if(user_has_location == "true"){
-          if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(displayOnMap);
-          }  
-        }else{
-          displayOnMap('loading') 
-        }
-      });
-    }
+  
 
       //mostramos en el mapa la ubicacion del usuario
     
