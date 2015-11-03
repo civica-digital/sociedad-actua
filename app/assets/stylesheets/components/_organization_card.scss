@@ -1,0 +1,52 @@
+.organization-thumb {
+
+  h3 { @include heading-3(); }
+  h5 { @include heading-5($grey_200); }
+
+  padding: 0px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 30px;
+  background-color: $yellow_800;
+
+  label {
+    color: white;
+  }
+
+  .title {
+    margin-bottom: 15px;
+    color: $blue_800;
+  }
+
+  .thumb, .caption {
+    padding-left: 20px;
+    padding-left: 20px;
+  }
+
+  .thumb {
+    background-color: $orange_800;
+    img {
+      width: 140px;
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+  }
+
+  .list {
+    padding: 0;
+    list-style-type: none;
+    margin-bottom: 30px;
+
+    .item {
+      list-style-type: none;
+      margin-bottom: 5px;
+
+      .mini-thumb {
+        border-radius: 25px;
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,10 @@
+.thumbs
+  .container
+    %h3.title= "Conoce nuestros proyectos"
+
+    .row
+      - @organization.projects.each do |p|
+        .col-md-3.col-xs-6.thumb
+          %img.logo.img-responsive.center-block{:src => "#{p.photo_project.mid.url}"}
+          %h4.label_thumb= p.name
+

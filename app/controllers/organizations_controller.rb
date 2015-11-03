@@ -7,6 +7,7 @@ class OrganizationsController < ApplicationController
 
   def show
     authorize @organization
+    render :layout => "profiles"
   end
 
   def edit
