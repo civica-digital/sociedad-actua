@@ -1,35 +1,35 @@
-%div.container
-  %div.row
-    =  simple_form_for @collaborator do |f|
-
-      .col-md-12
-        = f.label I18n.t('simple_form.placeholders.collaborator.general_information')
+.container
+  .row
+    = simple_form_for @collaborator do |f|
+      .col-md-12.main-form-section
+        %h3= t('collaborator.form.sections.general_information')
         .row
-          .col-md-1
-          .col-md-10
-            .row
-              .col-md-8
-                = f.input :name
-              .col-md-4
-                = f.input :email
-            = f.input :type_collaborator, collection: %w{Asesor(a) Voluntario(a) Periodista Investigador(a)},selected: @collaborator.type_collaborator, prompt: "Tipo de colaborador"
-            = f.input :logo, label: "Adjunta tu logotipo."
+          .col-md-8
+            = f.input :name
+          .col-md-4
+            = f.input :type_collaborator, collection: %w{Asesor(a) Voluntario(a) Periodista Investigador(a)}, selected: @collaborator.type_collaborator, prompt: "Tipo de colaborador"
+        .row
+          .col-md-6
+            = f.input :email
+          .col-md-6
+            = f.input :logo, label: t('simple_form.labels.collaborator.profile_image')
             = link_to @collaborator.logo.file.filename, @collaborator.logo_url, target: '_blank' if @collaborator.logo?
+        .row
+          .col-md-12
             = f.input :description
-            .row
-              .col-md-6
-                = f.input :causes_interest, collection: CAUSES, include_black: true, multiple: true,
-                  input_html: { "data-placeholer" => I18n.t('simple_form.placeholders.collaborator.causes_interest'),
-                  multiple: true, class: "chosen-select", tabindex: "2" }
-              .col-md-6
-                = f.input :other_causes
-            .row
-              .col-md-12
-                = f.label I18n.t('simple_form.placeholders.collaborator.social_information')
-            .row
-              - [:site_url, :blog_url, :facebook_url, :twitter_url, :instagram_url, :youtube_url].each do |e|
-                .col-md-4
-                  = f.input e
-      .col-md-9
-      .col-md-3
-        = f.button :submit, "Guardar colaborador"
+        .row
+          .col-md-6
+            = f.input :causes_interest, collection: CAUSES, include_black: true, multiple: true,
+              input_html: { "data-placeholder" => I18n.t('simple_form.placeholders.collaborator.causes_interest'),
+              multiple: true, class: "chosen-select", tabindex: "2" }
+          .col-md-6
+            = f.input :other_causes
+
+        %h4.blue
+          = I18n.t('collaborator.form.sections.social_information')
+        .row
+          - [:site_url, :blog_url, :facebook_url, :twitter_url, :instagram_url, :youtube_url].each do |e|
+            .col-md-4
+              = f.input e
+
+        = f.button :submit, "Guardar colaborador", class: 'pull-right'
