@@ -1,0 +1,18 @@
+.col-xs-12.col-sm-6.col-md-6.col-lg-6.jumbotron.no-padding
+  .panel-thumbnail.box-relative
+    .col-md-6
+      -if element.class==Project
+        = image_tag element.photo_project, width: '100%'
+      -elsif element.class==Organization || element.class== Investor
+        = image_tag element.logo, width: '100%'
+         
+    .col-md-6
+      .row 
+        =element.class
+      .row  
+        = element.name 
+      .row
+        -if element.class==Project  
+          = element.description
+        -elsif element.class==Organization 
+          = element.mision

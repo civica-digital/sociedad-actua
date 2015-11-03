@@ -63,6 +63,11 @@
     .row
       .col-md-2.padding-text-map
         = link_to "ver listado", registration_new_path, :class=>"btn btn-default"
+.row.section
+  .row
+  - @elements.each_with_index do |element|
+    .p
+      = render partial: "elements", locals: { element: element }
 
 :javascript
   $(document).ready(loadMapLanding);
