@@ -15,7 +15,7 @@ var markersArray = [];
     }
 
   function show_marker(){
-   var project_name = $("#project_name").val()+"";
+   var project_name = $("#tag_name").val()+"";
     if(project_name == null || project_name == "" ){
       marker_visible(true,project_name)
     }else{

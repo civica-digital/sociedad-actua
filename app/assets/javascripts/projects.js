@@ -1,11 +1,6 @@
  //Cargamos el mapa y llamamos la localizacion del usuario
    var markersArray = [];
 
-  
-
-      //mostramos en el mapa la ubicacion del usuario
-    
-
   //funcion para hacer un delay en el uso de georeferencia
   var delay = (function(){
     var timer = 0;
