@@ -1,7 +1,9 @@
+- if current_user.nil?
+  %a.pull-right.btn.btn-default{:href => registration_new_path(user_type: "investor") }= "Registrate como inversionista"
+
 %h1= "Inversionistas"
 
-%p= "#{pluralize(Organization.count, "inversionista", "inversionistas")} #{"encontrado".pluralize(Organization.count)}"
-
+%p= "#{pluralize(Investor.count, "inversionista", "inversionistas")} #{"encontrado".pluralize(Investor.count)}"
 
 -@investors.each do |e|
   .col-md-4.col-sm-6
