@@ -1,0 +1,34 @@
+.showcase {
+  @extend .row;
+}
+
+@mixin base__thumbnail($bg_color: red, $heading_color: white, $text_color: $grey_800) {
+  background-color: $bg_color;
+  height: 250px !important;
+
+  h3 { @include heading-3($heading_color); }
+  h5 { @include heading-5($heading_color); }
+  p { @include text__decorator($text_color); }
+}
+
+.showcase__thumbnail {
+  &.sh-photo {
+    @include base__thumbnail();
+  }
+
+  &.sh-content-first-accent-th {
+    @include base__thumbnail($first__accent);
+  }
+
+  &.sh-content-second-accent-th {
+    @include base__thumbnail($second__accent);
+  }
+
+  &.sh-content-third-accent-th {
+    @include base__thumbnail($third__accent, $second__accent);
+  }
+
+  &.sh-content-fourth-accent-th {
+    @include base__thumbnail($fourth__accent);
+  }
+}

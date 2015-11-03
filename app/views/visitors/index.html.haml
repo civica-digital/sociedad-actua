@@ -44,30 +44,34 @@
               =f.input :name, collection: @projects, include_black: false,input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.search'), class: "chosen-select ", tabindex: "2", :onchange=>"show_marker();"}, :label =>false
       .row
         .col-md-12
-          %p.yellow Usa los siguientes campos para hacer búsquedas específicas  
+          %p.yellow Usa los siguientes campos para hacer búsquedas específicas
         .col-md-3
           =f.label I18n.t('simple_form.placeholders.search_city'), class: "bright"
           =f.input :city, collection: CITIES, include_black: false,input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.organization.city'), class: "chosen-select", tabindex: "2"  }, label: false
         .col-md-2
           =f.label I18n.t('simple_form.placeholders.search_ageb'), class: "bright"
-          =f.input :ageb, :label =>false 
+          =f.input :ageb, :label =>false
         .col-md-2
           =f.label I18n.t('simple_form.placeholders.search_distrito'), class: "bright"
-          =f.input :distrito, :label =>false 
+          =f.input :distrito, :label =>false
         .col-md-2
           =f.label I18n.t('simple_form.placeholders.search_seccion'), class: "bright"
-          =f.input :seccion, :label =>false 
+          =f.input :seccion, :label =>false
         .col-md-1.margin-top-button.text-right
-          = f.button :submit, "buscar" 
+          = f.button :submit, "buscar"
     %div{:id=>"geolocation", :style=>'width: 100%; height: 400px;'}
     .row
       .col-md-2.padding-text-map
         = link_to "ver listado", registration_new_path, :class=>"btn btn-default"
+
+
 .row.section
-  .row
-  - @elements.each_with_index do |element|
-    .p
-      = render partial: "elements", locals: { element: element }
+  %h3 Descubre
+  %h5 Descubre lo que está pasando en el lugar donde vives
+  .showcase
+    -# - @elements.each_with_index do |element|
+    -# = render partial: "elements", locals: { element: element }
+    = render partial: "elements"
 
 :javascript
   $(document).ready(loadMapLanding);
@@ -91,8 +95,6 @@
       }else{
         handler.map.centerOn([array_lat[array_lat.length-1],array_lng[array_lng.length-1]]);
       }
-      
+
       handler.getMap().setZoom(10);
   }
-
-  
