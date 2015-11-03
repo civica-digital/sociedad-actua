@@ -10,7 +10,7 @@ class InvestorsController < ApplicationController
   def show
     authorize @investor
 
-    render :layout => "profilesi"
+    render :layout => "profiles"
   end
 
   def edit
