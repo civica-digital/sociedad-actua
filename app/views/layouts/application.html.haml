@@ -17,7 +17,7 @@
       .navigation.container
         / <haml_loud> render &#39;layouts/navigation&#39; </haml_loud>
         = render 'layouts/top_navbar'
-        = render 'layouts/sub_navbar'
+        = render 'layouts/sub_navbar' unless current_page?(root_path)
 
       .container
         = render 'layouts/messages'
