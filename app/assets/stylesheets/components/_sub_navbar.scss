@@ -1,7 +1,7 @@
-nav {
+nav.sub-navbar {
   @include nav__container(
+    $second__accent,
     white,
-    grey_600,
     black,
     20px,
     10px,
@@ -12,11 +12,12 @@ nav {
 
 }
 
-#navbar {
+#navbar.sub-navbar {
   @include nav__links(
+    $second__accent,
     white,
-    grey_600,
     black,
-    20px
+    20px,
+    0
   );
 }

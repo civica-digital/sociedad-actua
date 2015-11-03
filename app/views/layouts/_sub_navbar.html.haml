@@ -1,0 +1,19 @@
+%nav.sub-navbar.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{ type: "button", 'data-toggle'=> "collapse", 'data-target'=> "#navbar", 'aria-expanded'=> "false", 'aria-controls'=> "navbar" }
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    #navbar.sub-navbar.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li.boldest= link_to 'Explorar', root_path, class: 'navbar-brand'
+        %li= link_to 'Organizaciones', '#/'
+        %li= link_to 'Proyectos', '#/'
+        %li= link_to 'Inversionistas', '#/'
+        %li= link_to 'Causas', '#/'
+      %form.navbar-form.navbar-left{ role:'search' }
+        %input.form-control.inline{type: "text", placeholder: "Buscar", style: 'width: 400px !important'}
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to 'Ver Mapa', '#/'

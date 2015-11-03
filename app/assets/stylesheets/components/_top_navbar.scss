@@ -1,0 +1,24 @@
+nav.top-navbar {
+  @include nav__container(
+    white,
+    grey_600,
+    black,
+    20px,
+    10px,
+    10px,
+    25px,
+    80px
+  );
+
+}
+
+#navbar.top-navbar {
+  @include nav__links(
+    white,
+    grey_600,
+    black,
+    20px,
+    25px,
+    0
+  );
+}
