@@ -59,10 +59,12 @@ before_action :skip_authorization
     clean_arrays
     @projects.each_with_index do |project, index|
       if project.town.to_s == params[:tag][:city].to_s
-        @array_lat[index] = project.lat
-        @array_lng[index] = project.lng
-        @array_name[index] = project.name
-        @array_id[index] = project.id
+        unless project.lat.nil?
+          @array_lat[index] = project.lat
+          @array_lng[index] = project.lng
+          @array_name[index] = project.name
+          @array_id[index] = project.id
+        end
       end
     end
     @projects = Project.where(id: @array_id).order(:name)
@@ -75,10 +77,12 @@ before_action :skip_authorization
       parsed = JSON.parse(response)
       if parsed["total_rows"].to_i > 0
         if parsed["rows"][0]["cvegeo"].to_s == params[:tag][:ageb].to_s
-          @array_lat[index] = project.lat
-          @array_lng[index] = project.lng
-          @array_name[index] = project.name
-          @array_id[index] = project.id
+          unless project.lat.nil?
+            @array_lat[index] = project.lat
+            @array_lng[index] = project.lng
+            @array_name[index] = project.name
+            @array_id[index] = project.id
+          end
         end
       end
     end
@@ -94,10 +98,12 @@ before_action :skip_authorization
         parsed = JSON.parse(response)
         if parsed["total_rows"].to_i > 0
           if parsed["distrito"].to_s == params[:tag][:distrito].to_s || params[:tag][:seccion].to_s == parsed["seccion"].to_s
-            @array_lat[index] = project.lat
-            @array_lng[index] = project.lng
-            @array_name[index] = project.name
-            @array_id[index] = project.id
+            unless project.lat.nil?
+              @array_lat[index] = project.lat
+              @array_lng[index] = project.lng
+              @array_name[index] = project.name
+              @array_id[index] = project.id
+            end
           end
         end
       end
@@ -106,10 +112,13 @@ before_action :skip_authorization
 
   def load_markers
     @projects.each_with_index do |project, index|
-        @array_lat[index] = project.lat
-        @array_lng[index] = project.lng
-        @array_name[index] = project.name
+      unless project.lat.nil?
+          @array_lat[index] = project.lat
+          @array_lng[index] = project.lng
+          @array_name[index] = project.name
+          @array_id[index] = project.id
       end
+    end
   end
 
   def clean_arrays
