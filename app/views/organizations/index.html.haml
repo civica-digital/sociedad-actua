@@ -1,8 +1,20 @@
 %h1
   Organizaciones
+
+%p= "#{pluralize(Organization.count, "organización", "organizaciones")} #{"encontrada".pluralize(Organization.count)}"
+
 -@organizations.each do |e|
-  %div.row
-    %div.col-md-4
-      %h3= e.name
-      %small= e.email
-      %p= e.type_organization
+  .col-md-4.col-sm-6
+    %a{:href => organization_path(e) }
+      .thumbnail.organization-thumb
+        .thumb
+          %img.center-block{ src: e.logo.mid.url}
+        .caption
+          %h3.title= e.name
+          %label= "Proyectos"
+          %ul.list.list-inline
+            - e.projects.each do |p|
+              - unless p.photo_project.thumb.url.blank?
+                %li.item
+                  %a{:href => organization_project_path(p.organization, p) }
+                    %img.mini-thumb{src: p.photo_project.thumb.url }
