@@ -9,6 +9,8 @@ class CollaboratorsController < ApplicationController
 
   def show
     authorize @collaborator
+
+    render :layout => "profiles"
   end
 
   def edit
