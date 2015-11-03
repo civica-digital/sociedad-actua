@@ -10,10 +10,11 @@
       %ul.nav.navbar-nav
         %li.boldest= link_to 'Explorar', root_path, class: 'navbar-brand'
         %li= link_to 'Organizaciones', organizations_path
-        %li= link_to 'Proyectos', projects_path
+        %li= link_to 'Proyectos', search_projects_path
         %li= link_to 'Inversionistas', investors_path
         %li= link_to 'Causas', '#'
-      %form.navbar-form.navbar-left{ role:'search' }
-        %input.form-control.inline{type: "text", placeholder: "Buscar", style: 'width: 400px !important'}
+
+      = form_tag(search_projects_path, method: :get, class: 'navbar-form navbar-left') do
+        = text_field_tag(:q, nil, class: 'form-control inline', placeholder: "Busca proyectos por nombre, organización, descripción ó causas", style: 'width:400px !important')
       %ul.nav.navbar-nav.navbar-right
         %li= link_to 'Ver Mapa', '#/'

@@ -27,7 +27,11 @@ Rails.application.routes.draw do
     end
 
     resources :users, except: :destroy
-    resources :projects, only: :index
+
+    namespace :search do
+      resources :projects
+    end
+
     resources :organizations, except: [:new, :create, :destroy] do
       resources :projects, except: :destroy
     end
