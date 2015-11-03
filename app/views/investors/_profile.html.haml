@@ -1,0 +1,59 @@
+.profile-section
+  .container
+    =image_tag "organizations/gracias_2x.png", :class => "profile-logo"
+    %h1.inline.title= "Inversionista/Fundación"
+
+    .row
+      .col-md-3.offset
+        .frame.center-block
+          %img.center-block.logo{:src => @investor.logo.mid.url }
+      .col-md-8
+        %h1.title= @investor.name
+        %label= "Causas de interés"
+        %p= @investor.causes_supported.to_a.join(", ")
+
+        %hr
+
+        %h2.title= "Caracteristicas de proyectos que si apoyamos"
+        .row
+          .col-md-12
+            %label= "Tipo de apoyo"
+            #{@investor.investment_type}
+          .col-md-6
+            %label= "Rango de montos"
+            #{@investor.amount}
+          .col-md-6
+            %label= "Necesidad de contistución legal"
+            #{@investor.constitution}
+          .col-md-6
+            %label= "Tipo de gasto autorizado"
+            #{@investor.expense_type}
+          .col-md-6
+            %label= "Tiempo minimo de constitución legal"
+            #{@investor.legal_time}
+
+        %hr
+
+        .row
+          .col-md-6
+            %label= "Sitio web:"
+            #{@investor.site_url}
+          .col-md-6
+            %label= "Facebook:"
+            #{@investor.facebook_url}
+          .col-md-6
+            %label= "Twitter:"
+            #{@investor.twitter_url}
+          .col-md-6
+            %label= "Youtube:"
+            #{@investor.youtube_url}
+          .col-md-6
+            %label= "Instagram:"
+            #{@investor.instagram_url}
+          .col-md-6
+            %label= "Blog"
+            #{@investor.blog_url}
+
+        %hr
+
+        %a.btn.btn-default= "Contactar"
