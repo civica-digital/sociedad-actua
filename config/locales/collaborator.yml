@@ -4,8 +4,6 @@ es:
       models:
         collaborator:
           attributes:
-            site_url:
-              invalid: El formato web es invalido.
             email:
               blank: Este campo no puede estar vacío.
               taken: Este correo ya está siendo utilizado.
@@ -16,6 +14,18 @@ es:
             description:
               blank: Este campo no puede estar vacío.
               too_short: Este campo es obligatorio llenarlo con una longitud no mayor a 500 caracteres.
+            site_url:
+              invalid: El url proporcionado no es válido.
+            blog_url:
+              invalid: El url proporcionado no es válido.
+            facebook_url:
+              invalid: El url proporcionado no es válido.
+            youtube_url:
+              invalid: El url proporcionado no es válido.
+            instagram_url:
+              invalid: El url proporcionado no es válido.
+            twitter_url:
+              invalid: El url proporcionado no es válido.
 
   collaborator:
     show:

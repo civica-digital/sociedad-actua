@@ -30,13 +30,13 @@ class Organization < ActiveRecord::Base
 
   # TODO: validar el formato de url para sitio y redes sociales
   # validates_with URLValidator, fields: [:site, :blog, facebook, youtube, instagram, twitter]
-  validates :profile_url, format: { with: URI.regexp }, if: Proc.new { |a| a.profile_url.present? }
-  validates :site, format: { with: URI.regexp }, if: Proc.new { |a| a.site.present? }
-  validates :blog, format: { with: URI.regexp }, if: Proc.new { |a| a.blog.present? }
-  validates :facebook, format: { with: URI.regexp }, if: Proc.new { |a| a.facebook.present? }
-  validates :youtube, format: { with: URI.regexp }, if: Proc.new { |a| a.youtube.present? }
-  validates :instagram, format: { with: URI.regexp }, if: Proc.new { |a| a.instagram.present? }
-  validates :twitter, format: { with: URI.regexp }, if: Proc.new { |a| a.twitter.present? }
+  validates :profile_url, format: { with: /((ftp|http|https):\/\/)?[a-zA-Z0-9\-\#\/\_]+[\.][a-zA-Z0-9\-\.\#\/\_]+/i }, if: Proc.new { |a| a.profile_url.present? }
+  validates :site, format: { with: /((ftp|http|https):\/\/)?[a-zA-Z0-9\-\#\/\_]+[\.][a-zA-Z0-9\-\.\#\/\_]+/i }, if: Proc.new { |a| a.site.present? }
+  validates :blog, format: { with: /((ftp|http|https):\/\/)?[a-zA-Z0-9\-\#\/\_]+[\.][a-zA-Z0-9\-\.\#\/\_]+/i }, if: Proc.new { |a| a.blog.present? }
+  validates :facebook, format: { with: /((ftp|http|https):\/\/)?[a-zA-Z0-9\-\#\/\_]+[\.][a-zA-Z0-9\-\.\#\/\_]+/i }, if: Proc.new { |a| a.facebook.present? }
+  validates :youtube, format: { with: /((ftp|http|https):\/\/)?[a-zA-Z0-9\-\#\/\_]+[\.][a-zA-Z0-9\-\.\#\/\_]+/i }, if: Proc.new { |a| a.youtube.present? }
+  validates :instagram, format: { with: /((ftp|http|https):\/\/)?[a-zA-Z0-9\-\#\/\_]+[\.][a-zA-Z0-9\-\.\#\/\_]+/i }, if: Proc.new { |a| a.instagram.present? }
+  validates :twitter, format: { with: /((ftp|http|https):\/\/)?[a-zA-Z0-9\-\#\/\_]+[\.][a-zA-Z0-9\-\.\#\/\_]+/i }, if: Proc.new { |a| a.twitter.present? }
 
   validates :show_address, :show_town, :show_colonia,
             :show_telephone, :show_zip, :show_email, :inclusion => { :in => [true, false] }, allow_blank: true
