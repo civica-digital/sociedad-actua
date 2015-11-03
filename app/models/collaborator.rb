@@ -9,7 +9,7 @@ class Collaborator < ActiveRecord::Base
   validates :description, :length => { :maximum => 500 }, allow_blank: false, on: :update
 
   validates :type_collaborator, inclusion: {
-                                  :in => %w{Asesor(a) Voluntario(a) Periodista},
+                                  :in => %w{Asesor(a) Voluntario(a) Periodista Investigador(a)},
                                   :message => "%{value} no es un tipo de collaborador valido"
                                 }, on: :update
   validates :site_url, format: { with: URI.regexp }, if: Proc.new { |a| a.site_url.present? }
