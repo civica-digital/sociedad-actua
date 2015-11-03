@@ -11,6 +11,11 @@ es:
     "yes": 'Sí'
     "no": 'No'
     placeholders:
+      search: 'Busca por nombre de proyecto:'
+      search_city: 'Municipio:'
+      search_ageb: "AGEB:"
+      search_distrito: "Distrito Electoral:"
+      search_seccion: "Sección Electoral:"
       organization:
         information_funding: "Agrega aquí tus fuentes de fondeo"
     required:

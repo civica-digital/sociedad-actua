@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20151103061626) do
 
   create_table "investors", force: :cascade do |t|
     t.string   "name"
+    t.text     "mantra"
+    t.text     "characteristics"
     t.string   "type_investor"
     t.string   "site_url"
     t.string   "blog_url"
@@ -115,6 +117,7 @@ ActiveRecord::Schema.define(version: 20151103061626) do
     t.string   "photo_project"
     t.float    "lat"
     t.float    "lng"
+    t.string   "town"
     t.string   "causes_interest"
     t.string   "clasification"
     t.string   "other_causes"

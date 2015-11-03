@@ -54,7 +54,9 @@ es:
         other_causes: ¿Alguna otra causa que no estaba en la lista?
         causes_interest_with_tooltip_html: Causas de Interés <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Puedes seleccionar tantas causas como desees, todas se escriben en el mismo recuadro.">?</span>
         clasification: Clasificación NTEE
-        
+        town: Municipio
+        other_causes: Otras causas
+        causes_interest_with_tooltip_html: Causas de Interés <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Puedes seleccionar tantas causas como desees, todas se escriben en el mismo recuadro.">?</span>
     hints:
       project:
         # password: Mínimo 6 caracteres

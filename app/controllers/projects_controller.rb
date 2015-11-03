@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
 
   def update
     authorize @project
-    
+
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to organization_projects_path(@project.organization), notice: I18n.t('project.notices.successfully_updated') }
@@ -60,6 +60,5 @@ class ProjectsController < ApplicationController
                                      :direction, :comments_from_direction, :name_of_owner,
                                      :email, :phone, :website, :twitter, :facebook, :organization_id,
                                      :lat, :lng, :other_causes, causes_interest: [], clasification: [])
-
   end
 end
