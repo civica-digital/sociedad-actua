@@ -50,6 +50,11 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def list
+    skip_authorization
+    @projects = Project.all
+  end
+
   private
     def set_project
       @project = Project.find(params[:id])

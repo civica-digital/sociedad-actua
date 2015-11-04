@@ -1,0 +1,37 @@
+.project-thumb {
+
+  h3 { @include heading-3(); }
+  h5 { @include heading-5($grey_200); }
+
+  padding: 0px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 30px;
+  background-color: #FECD36;
+
+  label {
+    color: $blue_800;
+    font-weight: bold;
+  }
+
+  .title {
+    margin-bottom: 15px;
+    color: $blue_800;
+  }
+
+  .caption {
+    padding-left: 20px;
+    padding-left: 30px;
+  }
+
+  .thumb {
+    img {
+      width: 100%;
+      height: 200px;
+    }
+  }
+
+  p {
+    color: $gray-dark;
+  }
+}
