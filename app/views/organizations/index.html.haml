@@ -3,6 +3,10 @@
 
 %p= "#{pluralize(Organization.count, "organización", "organizaciones")} #{"encontrada".pluralize(Organization.count)}"
 
+.row.padding-text-button-organizaciones
+  .col-md-12.text-right.padding-text-map
+    = link_to "descargar proyectos", download_csv_project_visitors_path(format: :csv),:class=>"btn btn-default"
+
 -@organizations.each do |e|
   .col-md-4.col-sm-6
     %a{:href => organization_path(e) }

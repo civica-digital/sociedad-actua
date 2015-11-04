@@ -26,9 +26,13 @@ before_action :skip_authorization
     else
       load_markers
     end
+  end
 
-    
-
+    def download_csv_project
+      respond_to do |format|
+        @projects = Project.order(:name)
+        format.csv
+      end
   end
 
 

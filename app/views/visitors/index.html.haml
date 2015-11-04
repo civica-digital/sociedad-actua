@@ -65,6 +65,8 @@
     .row
       .col-md-2.padding-text-map
         = link_to "ver listado", registration_new_path, :class=>"btn btn-default"
+      .col-md-10.text-right.padding-text-map
+        = link_to "descargar proyectos", download_csv_project_visitors_path(format: :csv),:class=>"btn btn-default"
 
 :javascript
   $(document).ready(loadMapLanding);

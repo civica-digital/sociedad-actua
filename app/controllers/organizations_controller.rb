@@ -27,6 +27,13 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def download_csv_project
+    respond_to do |format|
+      @projects = Project.order(:name)
+      format.csv
+    end
+  end
+
   private
 
   def organization_params
