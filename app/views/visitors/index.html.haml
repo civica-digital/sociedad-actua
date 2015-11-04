@@ -93,11 +93,12 @@
       var array_lat =  "#{raw @array_lat}".substring(1,"#{raw @array_lat}".length-1).split(",");
       var array_lng = "#{raw @array_lng}".substring(1, "#{raw @array_lng}".length-1).split(",");
       var array_name = '#{raw @array_name}'.substring(1, '#{raw @array_name}'.length-1).split(",");
+      var array_url = '#{raw @array_url}'.substring(1, '#{raw @array_url}'.length-1).split(",");
       for(i=0; i< array_lng.length; i++){
        marker = handler.addMarker({
           lat: array_lat[i],
           lng: array_lng[i],
-          infowindow: "Proyecto: "+ array_name[i],
+          infowindow: "<a href=" + array_url[i] + ">Proyecto: " + array_name[i] + "</a>",
           title:  array_name[i]
         });
         markersArray.push(marker);
