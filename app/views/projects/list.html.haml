@@ -1,17 +1,19 @@
 - if current_user and current_user.profile.instance_of?(Organization)
   %a.pull-right.btn.btn-default{:href => new_organization_project_path(current_user.profile) }= "Inicia un nuevo proyecto"
 
-%h1= "Proyectos"
+%h1
+  = image_tag 'roles/projects_2x.png', class: 'icon-title'
+  = "Proyectos"
 
 %p= "#{pluralize(@projects.count, "proyecto")} #{"encontrado".pluralize(@projects.count)}"
 
--@projects.each do |e|
+-@projects.each do |project|
   .col-md-4.col-sm-6
-    %a.no-decoration{:href => organization_projects_path(e.organization, e)}
+    = link_to organization_project_path(project.organization, project), class: 'no-decoration' do
       .thumbnail.project-thumb
         .thumb
-          %img{ src: e.photo_project.mid.url}
+          = image_tag project.photo_project.mid.url
         .caption
-          %h3.title= e.name
+          %h3.title= project.name
           %label= "Agente"
-          %p= e.organization.name
+          %p= project.organization.name
