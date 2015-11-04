@@ -1,0 +1,22 @@
+.map-profile
+  .container
+    .row
+      %h3.title= "Encuéntranos:"
+
+      .row
+        .col-sm-7
+          .map
+            %div{:id=>"geolocation", :style=>'width: 100%; height: 200px;'}
+        .col-sm-4
+          %label
+            %strong=  "Oficinas"
+          %p= @organization.address
+          %p= @organization.colonia
+          %p= "Municipio #{@organization.town}"
+          %p= "C.P. #{@organization.zip}"
+
+
+:javascript
+  $(document).ready(loadMap);
+  delay(function() {
+    address_latlng("#{@organization.address} #{@organization.colonia} #{@organization.town}")}, 3000);

@@ -1,0 +1,45 @@
+.profile-section {
+
+  .profile-logo {
+    width: 75px;
+    height: 75px;
+    display: inline-block;
+
+    margin-left: 25px;
+  }
+
+
+  background-color: #FECD36;
+  padding-bottom: 40px;
+  padding-top: 40px;
+
+  color: black;
+
+  .offset {
+    padding-top: 40px;
+  }
+
+  .frame {
+    width: 200px;
+    height: 200px;
+    border-color: white;
+    border-style: solid;
+    border-width: 15px;
+    background-color: #E5E5E5;
+
+    padding-top: 20px;
+
+    .logo {
+      width: 80%;
+      vertical-align: middle;
+    }
+  }
+  label {
+    font-weight: bold;
+    color: black;
+  }
+
+  .title {
+    color: $blue-800;
+  }
+}
