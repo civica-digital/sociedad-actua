@@ -1,9 +1,16 @@
-%h1
-  Proyectos
+.row
+  .col-sm-6
+    %h1
+      Proyectos
 
-.h4= pluralize(@projects.count, "proyecto")
+  .col-sm-6.text-right
+    - if policy(:project).new?
+      %h1
+        = link_to "Agregar proyecto", new_organization_project_path(@organization), class: 'btn btn-default'
 
--@projects.each do |project|
+%h4 proyecto(s)
+
+- @organization.projects.each do |project|
   .row
     .col-md-4
       .thumbnail

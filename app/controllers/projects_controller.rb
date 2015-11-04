@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @projects = Organization.find(params[:organization_id]).projects
+    @organization = Organization.find(params[:organization_id])
   end
 
   def show
