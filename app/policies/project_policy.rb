@@ -1,6 +1,6 @@
 class ProjectPolicy < ApplicationPolicy
   def new?
-    @user.organization?
+    @user.present? && @user.organization?
   end
 
   def create?
