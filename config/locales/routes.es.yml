@@ -1,6 +1,7 @@
 es:
   routes:
     users: usuarios
+    search: buscar
     organizations: organizaciones
     collaborators: colaboradores
     investors: inversionistas
