@@ -4,6 +4,8 @@ class Project < ActiveRecord::Base
   serialize :clasification, Array
 	mount_uploader :photo_project, LogoUploader
 
+	# default_scope { order('projects.id ASC') }
+
 	scope :multisearch, -> (search_param) {
 		includes(:organization).
 		where("projects.name LIKE ? OR
