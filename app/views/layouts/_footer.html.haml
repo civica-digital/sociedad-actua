@@ -6,14 +6,14 @@
       .col-xs-12.col-sm-2
         %p.header Conoce
         %ul
-          %li= link_to 'Causas', '#/', onclick: "alert('Gracias por explorar Sociedad Actúa. Esta sección estará disponible a partir del 4 de noviembre.')"
-          %li= link_to 'Proyectos', '#/', onclick: "alert('Gracias por explorar Sociedad Actúa. Esta sección estará disponible a partir del 4 de noviembre.')"
-          %li= link_to 'Organizaciones', '#/', onclick: "alert('Gracias por explorar Sociedad Actúa. Esta sección estará disponible a partir del 4 de noviembre.')"
+          -# %li= link_to 'Causas', '#/'
+          %li= link_to 'Proyectos', search_projects_path, target: '_blank'
+          %li= link_to 'Organizaciones', organizations_path, target: '_blank'
       .col-xs-12.col-sm-2
         %p.header
         %ul
-          %li= link_to 'Grupos', '#/', onclick: "alert('Gracias por explorar Sociedad Actúa. Esta sección estará disponible a partir del 4 de noviembre.')"
-          %li= link_to 'Inversionistas', '#/', onclick: "alert('Gracias por explorar Sociedad Actúa. Esta sección estará disponible a partir del 4 de noviembre.')"
+          %li= link_to 'Grupos', organizations_path, target: '_blank'
+          %li= link_to 'Inversionistas', investors_path, target: '_blank'
       .col-xs-12.col-sm-3
         %p.header
         %ul
