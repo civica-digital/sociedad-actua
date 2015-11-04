@@ -120,7 +120,7 @@ class VisitorsController < ApplicationController
           @array_lng[index] = project.lng
           @array_name[index] = project.name
           @array_id[index] = project.id
-          @array_url[index] = organization_projects_path(project.organization, project.id)
+          @array_url[index] = organization_project_path(project.organization, project.id)
       end
     end
   end
