@@ -33,10 +33,6 @@ Rails.application.routes.draw do
     end
     resources :users, except: :destroy
 
-    namespace :search do
-      resources :projects
-    end
-
     get '/projects' => 'projects#list', :as => :projects_list
 
     resources :organizations, except: [:new, :create, :destroy] do

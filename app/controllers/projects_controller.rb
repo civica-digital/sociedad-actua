@@ -53,7 +53,11 @@ class ProjectsController < ApplicationController
 
   def list
     skip_authorization
-    @projects = Project.all
+    if params[:q]
+      @projects = Project.multisearch(params[:q])
+    else
+      @projects = Project.all
+    end
   end
 
   private
