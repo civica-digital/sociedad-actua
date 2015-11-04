@@ -15,6 +15,17 @@ class VisitorsController < ApplicationController
 
   def index
   	@projects = Project.order(:name)
+     @projects.each do |project|
+        if (project.lat == nil)
+             geocoder_results=Geocoder.search(project.direction)
+             geocoder_results.each do |result|
+               project.lat=result.geometry["location"]["lat"]
+               project.lng=result.geometry["location"]["lng"]
+               project.save
+             end
+            
+        end
+    end
     if params[:tag]
       if !params[:tag][:distrito].blank? || !params[:tag][:seccion].blank? || !params[:tag][:ageb].blank? || !params[:tag][:city].blank?
         search_information(params)
