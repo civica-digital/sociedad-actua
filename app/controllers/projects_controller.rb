@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
   def show
     authorize @project
+    render :layout => "profiles"
   end
 
   def new
