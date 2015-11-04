@@ -2,6 +2,7 @@ es:
   user:
     menu:
       edit_profile: Mi perfil
+      projects: Mis proyectos
     mailers:
       welcome_email:
         subject: "¡Bienvenido(a) a Sociedad Actúa!"
@@ -55,4 +56,3 @@ es:
         email: ej. usuario@dominio.org
         password: Al menos 6 caracteres
         password_confirmation: Confirma tu contraseña
-
