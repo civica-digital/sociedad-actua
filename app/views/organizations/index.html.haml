@@ -18,7 +18,10 @@
     .col-md-4.col-sm-6
       = link_to organization_path(organization) do
         .thumbnail.organization-thumb
-          .thumb.org-photo{ style: "background-image: url(\'#{organization.logo.mid.url}\');height:200px;"}
+          .showcase__thumbnail.sh-photo
+            .photo_container
+              .photo
+                = image_tag organization.logo.mid.url
           .caption
             %h3.title= truncate(organization.name, length: 30)
             - if organization.projects.any?
