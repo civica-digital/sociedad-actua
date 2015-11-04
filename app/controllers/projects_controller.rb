@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
   def show
     authorize @project
+    render :layout => "profiles"
   end
 
   def new
@@ -48,6 +49,11 @@ class ProjectsController < ApplicationController
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def list
+    skip_authorization
+    @projects = Project.all
   end
 
   private
