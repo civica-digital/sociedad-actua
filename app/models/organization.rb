@@ -41,4 +41,6 @@ class Organization < ActiveRecord::Base
   validates :show_address, :show_town, :show_colonia,
             :show_telephone, :show_zip, :show_email, :inclusion => { :in => [true, false] }, allow_blank: true
 
+  scope :with_logo, -> { where('logo IS NOT NULL') }
+
 end

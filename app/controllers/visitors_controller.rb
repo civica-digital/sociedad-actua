@@ -1,9 +1,8 @@
 class VisitorsController < ApplicationController
-require 'open-uri'
+  require 'open-uri'
 
-before_action :set_values_map
-before_action :skip_authorization
-
+  before_action :set_values_map
+  before_action :skip_authorization
 
   def tos
   end
@@ -15,7 +14,6 @@ before_action :skip_authorization
   end
 
   def index
-    
   	@projects = Project.order(:name)
     if params[:tag]
       if !params[:tag][:distrito].blank? || !params[:tag][:seccion].blank? || !params[:tag][:ageb].blank? || !params[:tag][:city].blank?
@@ -27,8 +25,8 @@ before_action :skip_authorization
       load_markers
     end
 
-    
-
+    # the showcase only needs 6 elements
+    @organizations = Organization.with_logo.take(4)
   end
 
 
@@ -36,7 +34,7 @@ before_action :skip_authorization
   def set_values_map
     @projetc =  Project.new
     clean_arrays
-    
+
   end
 
   def search_information(params)
@@ -45,7 +43,7 @@ before_action :skip_authorization
       get_town_information(params)
     end
 
-    if !params[:tag][:distrito].blank? || !params[:tag][:seccion].blank? 
+    if !params[:tag][:distrito].blank? || !params[:tag][:seccion].blank?
       get_electoral_information(params)
     end
 
