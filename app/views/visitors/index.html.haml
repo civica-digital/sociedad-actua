@@ -1,10 +1,11 @@
 - content_for :landing do
-  = video_tag 'https://s3.amazonaws.com/sociedad-actua-production/Sociedad-Actua-Calidad-Media.mp4',
-    class: 'video', width: '100%', autoplay: true, muted: true, loop: true
   .content
-    %h1.content__heading Sociedad Actúa
-    %p.content__desc
-      es el lugar de encuentro entre organizaciones, proyectos, inversionistas y personas
+    = video_tag 'https://s3.amazonaws.com/sociedad-actua-production/Sociedad-Actua-Calidad-Media.mp4',
+    class: 'video', width: '100%', autoplay: true, muted: true, loop: true
+    .content__overlay
+      %h1.content__heading Sociedad Actúa
+      %p.content__desc
+        es el lugar de encuentro entre organizaciones, proyectos, inversionistas y personas
 
 .row.section.text-center
   %h1 Reg&iacute;strate
