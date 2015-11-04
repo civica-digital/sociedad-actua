@@ -2,7 +2,7 @@ class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update]
 
   def index
-    @organizations = Organization.all
+    @organizations = Organization.with_projects
   end
 
   def show

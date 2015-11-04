@@ -7,7 +7,7 @@
     %h1
       = link_to "Registra tu organización", registration_new_path(user_type: "organization"), class: 'btn btn-default'
 
-%h3= "#{pluralize(Organization.count, "organización", "organizaciones")} #{"encontrada".pluralize(Organization.count)}"
+%h3= "#{pluralize(@organizations.length, "organización", "organizaciones")} #{"encontrada".pluralize(Organization.count)}"
 
 .row
   - @organizations.each do |organization|
