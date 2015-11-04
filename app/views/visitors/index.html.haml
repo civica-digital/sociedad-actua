@@ -42,9 +42,12 @@
             .col-md-6.text.right
               =f.label I18n.t('simple_form.placeholders.search'), class: "bright"
               =f.input :name, collection: @projects, include_black: false,input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.search'), class: "chosen-select ", tabindex: "2", :onchange=>"show_marker();"}, :label =>false
-      .row
-        .col-md-12
-          %p.yellow Usa los siguientes campos para hacer búsquedas específicas  
+      
+      
+      =f.label I18n.t('simple_form.placeholders.fields'), class: "yellow"
+      .yellow.glyphicon.glyphicon-chevron-down{:data => {:toggle => 'collapse', :target => '.avanzada'}}
+      .row.avanzada.panel-collapse.collapse{"aria-labelledby" => "headingOne", :role => "tabpanel"}
+        .col-md-1
         .col-md-3
           =f.label I18n.t('simple_form.placeholders.search_city'), class: "bright"
           =f.input :city, collection: CITIES, include_black: false,input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.organization.city'), class: "chosen-select", tabindex: "2"  }, label: false
