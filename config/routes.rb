@@ -26,6 +26,11 @@ Rails.application.routes.draw do
       get  '/logout' => 'devise/sessions#destroy', :as => :signout
     end
 
+    resources :visitors do
+      collection do
+        get 'download_csv_project', :path => "descargar_csv_proyectos"
+      end
+    end
     resources :users, except: :destroy
 
     namespace :search do
@@ -33,6 +38,9 @@ Rails.application.routes.draw do
     end
 
     resources :organizations, except: [:new, :create, :destroy] do
+      collection do
+        get 'download_csv_project', :path => "descargar_csv_proyectos"
+      end
       resources :projects, except: :destroy
     end
     resources :collaborators, except: [:new, :create, :destroy]

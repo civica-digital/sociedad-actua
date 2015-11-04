@@ -9,6 +9,10 @@
 
 %h3= "#{pluralize(@organizations.length, "organización", "organizaciones")} #{"encontrada".pluralize(Organization.count)}"
 
+.row.padding-text-button-organizaciones
+  .col-md-12.text-right.padding-text-map
+    = link_to "descargar proyectos", download_csv_project_visitors_path(format: :csv),:class=>"btn btn-default"
+
 .row
   - @organizations.each do |organization|
     .col-md-4.col-sm-6
