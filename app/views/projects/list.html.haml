@@ -11,9 +11,8 @@
   .col-md-4.col-sm-6
     = link_to organization_project_path(project.organization, project), class: 'no-decoration' do
       .thumbnail.project-thumb
-        .thumb
-          = image_tag project.photo_project.mid.url
+        .thumb.org-photo{ style: "background-image: url(\'#{project.photo_project.mid.url}\');height:200px;"}
         .caption
-          %h3.title= project.name
+          %h3.title= truncate(project.name, length: 30)
           %label= "Agente"
           %p= project.organization.name
