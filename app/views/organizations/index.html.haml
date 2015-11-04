@@ -1,6 +1,11 @@
-%h1.fourth_accent
-  = image_tag 'roles/organizations_2x.png', class: 'icon-title'
-  Organizaciones
+.row
+  .col-sm-6
+    %h1.fourth_accent
+      = image_tag 'roles/organizations_2x.png', class: 'icon-title'
+      Organizaciones
+  .col-sm-6.text-right
+    %h1
+      = link_to "Registra tu organización", registration_new_path(user_type: "organization"), class: 'btn btn-default'
 
 %h3= "#{pluralize(Organization.count, "organización", "organizaciones")} #{"encontrada".pluralize(Organization.count)}"
 
