@@ -12,9 +12,8 @@
         %li= link_to 'Organizaciones', organizations_path
         %li= link_to 'Proyectos', projects_list_path
         %li= link_to 'Inversionistas', investors_path
-        %li= link_to 'Causas', '#'
 
       = form_tag(projects_list_path, method: :get, class: 'navbar-form navbar-left') do
         = text_field_tag(:q, nil, class: 'form-control inline', placeholder: "Busca proyectos por nombre, organización, descripción ó causas", style: 'width:400px !important')
       %ul.nav.navbar-nav.navbar-right
-        %li= link_to 'Ver Mapa', '#/'
+        %li= link_to 'Ver Mapa', root_path(anchor: 'map')
