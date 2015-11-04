@@ -14,7 +14,7 @@
         %p= @collaborator.description
 
         %label= "Causas de interés"
-        %p= JSON.parse(@collaborator.causes_interest).join(', ')
+        %p= @collaborator.causes_interest.join(', ')
 
         %hr
 
