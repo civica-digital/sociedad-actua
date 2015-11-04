@@ -13,7 +13,7 @@
   padding-bottom: 40px;
   padding-top: 40px;
 
-  color: black;
+  color: $gray-dark;
 
   .offset {
     padding-top: 40px;
@@ -36,7 +36,10 @@
   }
   label {
     font-weight: bold;
-    color: black;
+  }
+
+  p, label {
+    color: $gray-darker;
   }
 
   .title {

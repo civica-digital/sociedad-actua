@@ -14,3 +14,6 @@ es:
   common:
     active: 'Activo'
     finished: 'Terminado'
+    logic:
+      false_: "No"
+      true_: "Si"
