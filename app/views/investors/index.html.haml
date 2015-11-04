@@ -7,10 +7,9 @@
 
 -@investors.each do |e|
   .col-md-4.col-sm-6
-    %a.no-decoration{:href => investor_path(e) }
+    = link_to investor_path(e), class: "no-decoration" do
       .thumbnail.investor-thumb
-        .thumb
-          %img.center-block{ src: e.logo.mid.url}
+        .thumb.org-photo{ style: "background-image: url(\'#{e.logo.mid.url}\');height:200px;"}
         .caption
           %h3.title= e.name
           %label= "Causas de Interés"
