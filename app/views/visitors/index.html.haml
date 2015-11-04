@@ -1,5 +1,5 @@
 - content_for :landing do
-  .content-video
+  #video.content-video
     = video_tag 'https://s3.amazonaws.com/sociedad-actua-production/Sociedad-Actua-Calidad-Media.mp4',
     class: 'video', width: '100%', autoplay: true, muted: true, loop: true
     .content__overlay
@@ -7,10 +7,9 @@
       %p.content__desc
         es el lugar de encuentro entre organizaciones, proyectos, inversionistas y personas
 
-.row.section.text-center
+#explore.row.text-center
   %h1 Descubre
 
-.row.section
   .col-xs-12.col-sm-3.text-center
     = link_to projects_list_path do
       = image_tag 'roles/projects_2x.png', class: 'landing-icon'
@@ -35,6 +34,7 @@
       %h3 Inversionistas
     %p Organizaciones y personas interesadas en invertir en los proyectos sociales
 
+.row
   .col-md-12.map-landing{:id=>"map"}
     = simple_form_for :tag, :url => root_path(:anchor => "map", :defaults => {:required => false}), :method => :get do |f|
       .row
@@ -75,7 +75,7 @@
         = link_to "descargar proyectos", download_csv_project_visitors_path(format: :csv),:class=>"btn btn-default"
 
 - if @organizations.count >= 4
-  .row.section
+  #showcase.row
     %h3.fourth_accent
       = image_tag 'other/showcase_2x.png', class: 'icon-title'
       Descubre
