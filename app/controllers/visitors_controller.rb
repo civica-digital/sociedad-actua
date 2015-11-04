@@ -24,8 +24,9 @@ class VisitorsController < ApplicationController
     else
       load_markers
     end
-    
-    @elements= Organization.all.sample(2) + Investor.all.sample(2) + Project.all.sample(2)
+
+    # the showcase only needs 6 elements
+    @organizations = Organization.with_logo.take(4)
   end
 
 

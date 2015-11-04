@@ -65,13 +65,13 @@
         = link_to "ver listado", registration_new_path, :class=>"btn btn-default"
 
 
-.row.section
-  %h3 Descubre
-  %h5 Descubre lo que está pasando en el lugar donde vives
-  .showcase
-    -# - @elements.each_with_index do |element|
-    -# = render partial: "elements", locals: { element: element }
-    = render partial: "elements"
+- if @organizations.count >= 4
+  .row.section
+    %h3.fourth_accent Descubre
+    %h5.fourth_accent Descubre lo que está pasando en el lugar donde vives
+    .showcase
+      = render "showcase", organizations: @organizations.take(2), type: :even
+      = render "showcase", organizations: [@organizations.third, @organizations.fourth], type: :odd
 
 :javascript
   $(document).ready(loadMapLanding);
