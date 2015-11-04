@@ -25,3 +25,14 @@
 .fourth-accent-bg { background-color: $fourth__accent !important; }
 
 .no-decoration { text-decoration: none !important; }
+
+.icon-title { height: 50px; }
+
+.vest {
+    display: table;
+}
+
+.vest-element {
+    float: none;
+    display: table-cell;
+}

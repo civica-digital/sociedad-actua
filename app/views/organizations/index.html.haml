@@ -1,20 +1,22 @@
-%h1
+%h1.fourth_accent
+  = image_tag 'roles/organizations_2x.png', class: 'icon-title'
   Organizaciones
 
-%p= "#{pluralize(Organization.count, "organización", "organizaciones")} #{"encontrada".pluralize(Organization.count)}"
+%h3= "#{pluralize(Organization.count, "organización", "organizaciones")} #{"encontrada".pluralize(Organization.count)}"
 
--@organizations.each do |e|
-  .col-md-4.col-sm-6
-    %a{:href => organization_path(e) }
-      .thumbnail.organization-thumb
-        .thumb
-          %img.center-block{ src: e.logo.mid.url}
-        .caption
-          %h3.title= e.name
-          %label= "Proyectos"
-          %ul.list.list-inline
-            - e.projects.each do |p|
-              - unless p.photo_project.thumb.url.blank?
-                %li.item
-                  %a{:href => organization_project_path(p.organization, p) }
-                    %img.mini-thumb{src: p.photo_project.thumb.url }
+.row
+  - @organizations.each do |organization|
+    .col-md-4.col-sm-6
+      = link_to organization_path(organization) do
+        .thumbnail.organization-thumb
+          .thumb.org-photo{ style: "background-image: url(\'#{organization.logo_url}\');height:200px;"}
+          .caption
+            %h3.title= truncate(organization.name, length: 30)
+            - if organization.projects.any?
+              %label= "Proyectos"
+              %ul.list.list-inline
+                - organization.projects.each do |project|
+                  - unless project.photo_project.thumb.url.blank?
+                    %li.item
+                      = link_to organization_project_path(project.organization, project) do
+                        = image_tag project.photo_project.thumb.url, class: 'mini-thumb'
