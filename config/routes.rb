@@ -43,7 +43,7 @@ Rails.application.routes.draw do
       end
       resources :projects, except: :destroy
     end
-    resources :collaborators, except: [:new, :create, :destroy]
+    resources :collaborators, except: [:new, :create, :destroy, :index]
     resources :investors, except: [:new, :create, :destroy]
   end
 end
