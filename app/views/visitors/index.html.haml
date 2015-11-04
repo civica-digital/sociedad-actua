@@ -12,7 +12,7 @@
 
 .row.section
   .col-xs-12.col-sm-3.text-center
-    = link_to search_projects_path do
+    = link_to projects_list_path do
       = image_tag 'roles/projects_2x.png', class: 'landing-icon'
       %h3 Proyectos
     %p Acciones que están realizando individuos, grupos o instituciones para mejorar nuestra sociedad
@@ -70,7 +70,7 @@
     %div{:id=>"geolocation", :style=>'width: 100%; height: 400px;'}
     .row
       .col-md-2.padding-text-map
-        = link_to "ver listado", search_projects_path, :class=>"btn btn-default"
+        = link_to "ver listado", projects_list_path, :class=>"btn btn-default"
       .col-md-10.text-right.padding-text-map
         = link_to "descargar proyectos", download_csv_project_visitors_path(format: :csv),:class=>"btn btn-default"
 
