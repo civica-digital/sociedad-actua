@@ -1,0 +1,21 @@
+.content {
+  position: relative;
+  z-index: 2;
+  top: 30%;
+  margin: 0 auto;
+  max-width: 720px;
+  text-align: center;
+}
+
+.content__heading {
+  margin-bottom: 50px;
+  color: white;
+}
+
+.content__desc {
+  font-size: 30px;
+}
+
+.video {
+  z-index: -1;
+}
