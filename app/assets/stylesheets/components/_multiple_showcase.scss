@@ -11,7 +11,7 @@
     margin-top: 10px;
   }
   h5 { @include heading-5($heading_color); }
-  p { @include text__decorator($text_color); }
+  a { color: $heading_color !important; }
 
   h3, h5, p {
     font-weight: 700;
@@ -36,9 +36,9 @@
       position:absolute;
       width:100%;
       height:100%;
-      
+
     }
-    
+
     .photo img {
       position: absolute;
       top: 0;

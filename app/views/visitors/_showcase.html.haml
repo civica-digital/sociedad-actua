@@ -8,7 +8,7 @@
     %h3
       = image_tag 'roles/organizations_2x.png', class: 'thumbnail-icon'
       Organización
-    %h3= organizations.first.name
+    %h3= link_to organizations.first.name, organization_path(organizations.first)
     %p= truncate(organizations.first.mision, length: 120)
 
   .col-xs-6.col-sm-3.showcase__thumbnail.sh-photo
@@ -20,7 +20,7 @@
     %h3
       = image_tag 'roles/organizations_2x.png', class: 'thumbnail-icon'
       Organización
-    %h3= organizations.second.name
+    %h3= link_to organizations.second.name, organization_path(organizations.second)
     %p= truncate(organizations.second.mision, length: 120)
 
 
@@ -29,7 +29,7 @@
     %h3
       = image_tag 'roles/organizations_2x.png', class: 'thumbnail-icon'
       Organización
-    %h3= organizations.first.name
+    %h3= link_to organizations.first.name, organization_path(organizations.first)
     %p= truncate(organizations.first.mision, length: 120)
 
   .col-xs-6.col-sm-3.showcase__thumbnail.sh-photo
@@ -41,7 +41,7 @@
     %h3
       = image_tag 'roles/organizations_2x.png', class: 'thumbnail-icon'
       Organización
-    %h3= organizations.second.name
+    %h3= link_to organizations.second.name, organization_path(organizations.second)
     %p= truncate(organizations.second.mision, length: 120)
 
   .col-xs-6.col-sm-3.showcase__thumbnail.sh-photo
