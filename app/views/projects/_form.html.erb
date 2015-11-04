@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <%= simple_form_for [@organization, @project] do |f| %>
+    <%= simple_form_for [@project.organization, @project] do |f| %>
       <%= f.input :name %>
       <%= f.input :goals, label: t('simple_form.labels.project.goals_html') %>
       <%= f.input :description, label: t('simple_form.labels.project.description_html') %>
@@ -53,9 +53,9 @@
         if(user_has_location){
           if(navigator.geolocation){
             navigator.geolocation.getCurrentPosition(displayOnMap);
-          }  
+          }
         }else{
-          displayOnMap('loading') 
+          displayOnMap('loading')
         }
       });
     }
@@ -76,7 +76,7 @@
         },{ draggable: true});
           markersArray.push(marker);
           codeLatLng(<%=@project.lat.nil? ? 0 : @project.lat %>,<%=@project.lng.nil? ? 0 : @project.lng %>);
-        } 
+        }
 
       handler.map.centerOn(marker);
       handler.getMap().setZoom(18);
@@ -86,4 +86,3 @@
 
   }
 </script>
-
