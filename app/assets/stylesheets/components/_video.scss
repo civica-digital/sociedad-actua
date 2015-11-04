@@ -1,0 +1,36 @@
+.content {
+  position: relative;
+  text-align: center;
+
+  video {
+    width: 100%;
+    position: relative;
+    z-index: -1;
+  }
+}
+
+.content__overlay {
+  z-index: 2;
+  position: absolute;
+  top: 30%;
+  left: 15%;
+  width: 70%;
+  color: white;
+
+  h1.content__heading {
+    margin-bottom: 30px;
+    color: #FFF;
+    font-size: 6em;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #333;
+  }
+
+  p.content__desc {
+    font-size: 30px;
+    color: #FFF;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #000;
+  }
+}
+
+
