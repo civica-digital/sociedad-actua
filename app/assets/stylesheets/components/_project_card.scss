@@ -9,6 +9,10 @@
   margin-bottom: 30px;
   background-color: #FECD36;
 
+  height: 350px;
+  min-height: 350px;
+  max-height: 350px;
+
   label {
     color: $blue_800;
     font-weight: bold;

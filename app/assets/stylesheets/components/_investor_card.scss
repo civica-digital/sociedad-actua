@@ -9,6 +9,11 @@
   margin-bottom: 30px;
   background-color: #F58417;
 
+
+  height: 400px;
+  min-height: 400px;
+  max-height: 400px;
+
   label {
     color: white;
     font-weight: bold;
@@ -27,6 +32,8 @@
 
   .thumb {
     background-color: #FECD36;
+    height: 200px;
+
     img {
       width: 140px;
       padding-top: 30px;

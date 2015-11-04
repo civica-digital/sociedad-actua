@@ -14,4 +14,4 @@
         .caption
           %h3.title= e.name
           %label= "Causas de Interés"
-          %p= e.causes_supported.to_a.join(", ")
+          %p= truncate(e.causes_supported.to_a.join(", "), length: 120)
