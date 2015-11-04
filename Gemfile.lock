@@ -145,6 +145,7 @@ GEM
     font-awesome-rails (4.4.0.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.5)
+    geocoder (1.2.12)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     gmaps4rails (2.1.2)
@@ -413,6 +414,7 @@ DEPENDENCIES
   faker
   figaro
   font-awesome-rails
+  geocoder
   gmaps4rails
   guard-bundler
   guard-rails
