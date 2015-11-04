@@ -3,10 +3,6 @@ class CollaboratorsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_collaborator, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @collaborators = Collaborator.all
-  end
-
   def show
     authorize @collaborator
 
