@@ -25,7 +25,8 @@ class Investor < ActiveRecord::Base
   def validate_causes
 
     if (self.causes_supported[0]== "")
-      raise
+      self.causes_supported.delete("")
+      
     end  
   end
 end
