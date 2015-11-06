@@ -9,7 +9,6 @@ class InvestorsController < ApplicationController
 
   def show
     authorize @investor
-
     render :layout => "profiles"
   end
 
@@ -21,7 +20,6 @@ class InvestorsController < ApplicationController
     authorize @investor
     respond_to do |format|
       if @investor.update(investor_params)
-
         format.html { redirect_to @investor, notice: I18n.t('investor.notices.updated') }
         format.json { render :show, status: :ok, location: @investor }
       else
