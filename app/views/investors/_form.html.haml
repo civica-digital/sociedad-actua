@@ -22,18 +22,17 @@
     .row
       .col-md-12
         = f.label I18n.t('simple_form.placeholders.investor.investment_information')
-      .col-md-3
-        =check_box_tag "investment_type[]", "Dinero"
-        = "Dinero"
-      .col-md-3
-        =check_box_tag "investment_type[]", "Servicios"
-        = "Servicios"
-      .col-md-3
-        =check_box_tag "investment_type[]", "Especie"
-        = "Especie"
-      .col-md-3
-        =check_box_tag "investment_type[]", "Voluntariado"
-        = "Voluntariado"
+
+      .col-md-2
+        = f.input :money, :as => :boolean
+      .col-md-2
+        = f.input :service, :as => :boolean
+      .col-md-2
+        = f.input :specie, :as => :boolean
+      .col-md-2
+        = f.input :voluntering, :as => :boolean
+      .col-md-2
+        = f.input :investment_type
     .row
       .col-md-4
         = f.input :amount, label: t('simple_form.labels.investor.amount_html')
