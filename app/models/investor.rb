@@ -23,8 +23,8 @@ class Investor < ActiveRecord::Base
  validates :zipcode, :format => { :with => /[0-9]{5}/} ,presence:  true, on: :update
  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: [:create,:update] }, presence:  true, on: :update,if: Proc.new { |a| a.email.present? }
   def validate_causes
-    raise
-    if (self.investment_type[0]== "")
+
+    if (self.causes_supported[0]== "")
       raise
     end  
   end
