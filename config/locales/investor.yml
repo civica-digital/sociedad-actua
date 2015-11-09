@@ -76,13 +76,17 @@ es:
         mantra: Misión
         characteristics: Características de proyectos que apoya
         causes_supported: "Causas que más apoya:   "
-        investment_type: ¿Con qué te gustaría apoyar?
         other_causes: Otras causas
         amount_html: Rango montos <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Escribe aquí lo mínimo y máximo que tienes disponibilidad para invertir en un proyecto social.">?</span>
         expense_type_html: Tipo de gasto autorizado <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Comenta en caso de que tengas restricciones específicas en qué se pueden aplicar los recursos que inviertas.">?</span>
         constitution_html: Necesidad de Constitución <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="¿Es imprescindible que se trate de una organización legalmente constituida para recibir tu apoyo?">?</span>
         contact_name: Nombre de contacto
         legal_time: Tiempo mínimo de constitución legal
+        money: Dinero
+        service: Servicios
+        specie: Especies
+        voluntering: Voluntariado
+        investment_type: Otro
     hints:
       investor:
         # password: Mínimo 6 caracteres
@@ -104,3 +108,4 @@ es:
         contact_information: Información de contacto
         help_information: Esta información ayudará a guiar mejor a las personas para saber en qué casos contactarte.
         investment_information: ¿Con qué te gustaría ayudar?
+        investment_type: Describe Cuál
