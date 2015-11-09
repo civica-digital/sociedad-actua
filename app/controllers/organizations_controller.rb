@@ -7,7 +7,7 @@ class OrganizationsController < ApplicationController
 
   def show
     authorize @organization
-    render :layout => "profiles"
+    @container_fluid = true
   end
 
   def edit

@@ -5,8 +5,7 @@ class CollaboratorsController < ApplicationController
 
   def show
     authorize @collaborator
-
-    render :layout => "profiles"
+    @container_fluid = true
   end
 
   def edit
