@@ -5,13 +5,6 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#create'
 
-  as :user do
-    get  '/register' => 'users/registrations#new', :as => :registration_new
-    post '/register' => 'users/registrations#create', :as => :registration
-    get  '/login' => 'devise/sessions#new', :as => :signin
-    post '/login' => 'devise/sessions#create', :as => :session
-    get  '/logout' => 'devise/sessions#destroy', :as => :signout
-  end
 
   get '/auth/failure' => 'sessions#failure'
 
@@ -20,10 +13,14 @@ Rails.application.routes.draw do
     get '/privacy' => 'visitors#privacy'
     get '/about' => 'visitors#about'
 
+    resources :users, except: :destroy
+
     as :user do
       get  '/register' => 'users/registrations#new', :as => :registration_new
+      post '/register' => 'users/registrations#create', :as => :registration
       get  '/login' => 'devise/sessions#new', :as => :signin
-      get  '/logout' => 'devise/sessions#destroy', :as => :signout
+      post '/login' => 'devise/sessions#create', :as => :session
+      delete  '/logout' => 'devise/sessions#destroy', :as => :signout
     end
 
     resources :visitors do
@@ -31,7 +28,6 @@ Rails.application.routes.draw do
         get 'download_csv_project', :path => "descargar_csv_proyectos"
       end
     end
-    resources :users, except: :destroy
 
     get '/projects' => 'projects#list', :as => :projects_list
 

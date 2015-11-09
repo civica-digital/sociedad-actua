@@ -8,4 +8,4 @@
   %li= link_to t('user.menu.edit_profile'), edit_organization_path(current_user.profile)
 
 -# Every other link that applies to all roles
-%li= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete
+%li= link_to 'Cerrar sesión', signout_path, method: :delete
