@@ -4,6 +4,7 @@ class Organization < ActiveRecord::Base
   has_one :user, as: :profile
   has_many :projects
   has_many :investors
+  has_many :events
   mount_uploader :logo, LogoUploader
 
   validates :name, :type_organization, :email, presence:  true, on: :update

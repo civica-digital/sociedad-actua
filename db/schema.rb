@@ -37,7 +37,11 @@ ActiveRecord::Schema.define(version: 20151117223117) do
     t.text     "description"
     t.datetime "date"
     t.text     "notes"
+<<<<<<< f4787946f0b1a9e849492ffe5deab439e6e85223
     t.integer  "price"
+=======
+    t.decimal  "price"
+>>>>>>> controlador y vistas para el evento
     t.string   "image"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false

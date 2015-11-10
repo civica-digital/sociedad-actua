@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   devise_for :users
 
   root to: 'visitors#index'
@@ -36,7 +38,9 @@ Rails.application.routes.draw do
       collection do
         get 'download_csv_project', :path => "descargar_csv_proyectos"
       end
+
       resources :projects, except: :destroy
+      resources :events, except: :destroy
     end
     resources :collaborators, except: [:new, :create, :destroy, :index]
     resources :investors, except: [:new, :create, :destroy]
