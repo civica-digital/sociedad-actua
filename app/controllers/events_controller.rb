@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
  
+
  def show
   authorize @event
   end
@@ -18,6 +19,14 @@ class EventsController < ApplicationController
     authorize @event
     @organization = Organization.find(params[:organization_id])
   end
+
+  def new
+    @organization = Organization.find(params[:organization_id])
+    @event = @organization.events.new
+    authorize @event
+   
+  end
+
 
   def create
     @event = Event.new(event_params)
