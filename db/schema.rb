@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117223117) do
+ActiveRecord::Schema.define(version: 20151110170737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,11 +37,15 @@ ActiveRecord::Schema.define(version: 20151117223117) do
     t.text     "description"
     t.datetime "date"
     t.text     "notes"
+<<<<<<< 808dc0cf41a6fe9a7891754150c8e623fd89e1c3
 <<<<<<< f4787946f0b1a9e849492ffe5deab439e6e85223
     t.integer  "price"
 =======
     t.decimal  "price"
 >>>>>>> controlador y vistas para el evento
+=======
+    t.integer  "price"
+>>>>>>> migracion para cambio de datos y orden en el form
     t.string   "image"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
