@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     get '/projects' => 'projects#list', :as => :projects_list
 
     resources :organizations, except: [:new, :create, :destroy] do
+      get 'causes', :path => 'causas'
       collection do
         get 'download_csv_project', :path => "descargar_csv_proyectos"
       end
