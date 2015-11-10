@@ -2,6 +2,7 @@ class Organization < ActiveRecord::Base
   serialize :causes_interest, Array
   has_one :user, as: :profile
   has_many :projects
+  has_many :events
   mount_uploader :logo, LogoUploader
 
   validates :name, :type_organization, :email, presence:  true, on: :update
