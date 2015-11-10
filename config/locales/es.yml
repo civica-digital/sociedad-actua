@@ -3,8 +3,13 @@ es:
     formats:
       default: "%Y/%m/%d"
       short: "%m/%d"
+<<<<<<< ba1b4a008788c9b2070db3672f90ba00164e4ccd
     month_names: [~, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
+=======
+
+    month_names: [~, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+>>>>>>> migracion para cambio de datos y orden en el form
   errors:
     messages:
       extension_white_list_error: 'Ese tipo de archivo no es aceptado.'

@@ -11,4 +11,5 @@ class Event < ActiveRecord::Base
       self.causes.delete("")
     end  
   end
+
 end

@@ -11,12 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< 1909b5c65f61fff2a2342abdb34fe4e1bfef7e37
 ActiveRecord::Schema.define(version: 20151120144319) do
-=======
-ActiveRecord::Schema.define(version: 20151109231512) do
->>>>>>> controlador y vistas para el evento
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,7 +36,7 @@ ActiveRecord::Schema.define(version: 20151109231512) do
     t.text     "description"
     t.datetime "date"
     t.text     "notes"
-    t.decimal  "price"
+    t.integer  "price"
     t.string   "image"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -156,11 +151,8 @@ ActiveRecord::Schema.define(version: 20151109231512) do
     t.string   "causes_interest"
     t.float    "lat"
     t.float    "lng"
-<<<<<<< 1909b5c65f61fff2a2342abdb34fe4e1bfef7e37
     t.string   "clasification"
-=======
     t.string   "causes_interest"
->>>>>>> controlador y vistas para el evento
     t.string   "other_causes"
     t.string   "clasification"
     t.string   "town"

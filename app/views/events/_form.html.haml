@@ -1,6 +1,5 @@
 .container
   .row
-<<<<<<< 1909b5c65f61fff2a2342abdb34fe4e1bfef7e37
     .col-md-2
     .col-md-8
       = simple_form_for [@event.organization, @event] do |f|
@@ -91,29 +90,3 @@
       });
 
   }
-=======
-   
-    =simple_form_for [@event.organization, @event] do |f|
-      .col-md-12.main-form-section
-        %h3= t('collaborator.form.sections.general_information')
-        .row
-          .col-md-8
-            = f.input :name
-          .co-md-4
-            = f.input :date, :as => :datetime, order: [:day, :month, :year]
-        .row
-          .col-md-6
-            = f.input :price
-          .col-md-6
-            = f.input :image, label: t('simple_form.labels.collaborator.profile_image')
-            = link_to @event.image.file.filename, @event.image_url, target: '_blank' if @event.image?
-        .row
-          .col-md-12
-            = f.input :description
-        .row
-          .col-md-12
-            = f.input :notes
-       
-
-        = f.button :submit, "Guardar Evento", class: 'pull-right'
->>>>>>> controlador y vistas para el evento
