@@ -33,7 +33,16 @@ class OrganizationsController < ApplicationController
       format.csv
     end
   end
-
+  def causes
+    @organization = Organization.find(params[:organization_id])
+    authorize @organization
+    @causes=[]
+    @organization.projects.each do |project|
+      @causes+= project.causes_interest
+    end
+    @causes.uniq.sort_by{|cause| cause.downcase}
+    
+  end
   private
 
   def organization_params
