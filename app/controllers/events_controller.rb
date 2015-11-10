@@ -30,6 +30,7 @@ class EventsController < ApplicationController
   end
 
   def index
+    @organization = Organization.find(params[:organization_id])
   end
 
   def destroy
