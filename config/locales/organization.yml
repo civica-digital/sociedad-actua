@@ -64,6 +64,7 @@ es:
           abps: ABPs
           collective: Colectivo
           groups: Grupos
+          religious_association: Asociación Religiosa
 
     labels:
       organization:
