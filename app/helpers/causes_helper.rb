@@ -4,6 +4,10 @@ module CausesHelper
 		projects.each do |project|
 		  @causes+= project.causes_interest
 		end
-		return @causes
+		return sort_causes(@causes)
 	end
+	def sort_causes(causes)
+		return causes.sort_by{|cause| cause.downcase}.uniq
+	end
+
 end
