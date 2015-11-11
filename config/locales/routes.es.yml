@@ -6,8 +6,8 @@ es:
     collaborators: colaboradores
     investors: inversionistas
     register: registro
-    login: iniciar-sesion
-    logut: cerrar-sesion
+    login: iniciar_sesion
+    logout: cerrar_sesion
     new: nuevo
     edit: editar
     projects: proyectos
