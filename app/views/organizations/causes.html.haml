@@ -10,7 +10,7 @@
 
 %h4 proyecto(s)
 
--@causes.sort_by{|cause| cause.downcase}.uniq.each_with_index do |cause,index|
+-fetch_causes_from(@organization.projects).sort_by{|cause| cause.downcase}.uniq.each_with_index do |cause,index|
   =cause
   .glyphicon.glyphicon-chevron-down{:data => {:toggle => 'collapse', :target => ".projects#{index}"}}
   - @organization.projects.each do |project|
