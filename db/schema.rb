@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20151106002422) do
     t.string "youtube_url"
     t.string "blog_url"
     t.string "logo"
-    t.string "causes_interest"
     t.string "other_causes"
+    t.string "causes_interest"
   end
 
   create_table "investors", force: :cascade do |t|
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20151106002422) do
   create_table "organizations", force: :cascade do |t|
     t.string   "type_organization"
     t.string   "name"
-    t.datetime "remember_created_at", default: '2015-10-27 22:05:44', null: false
+    t.datetime "remember_created_at", default: '2015-10-20 06:18:53', null: false
     t.string   "email"
     t.string   "rfc"
     t.text     "mision"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20151106002422) do
     t.string   "youtube"
     t.string   "instagram"
     t.integer  "foundation",          default: 2015
+    t.boolean  "show_street",         default: false
     t.boolean  "show_address",        default: false
     t.boolean  "show_colonia",        default: false
     t.boolean  "show_town",           default: false
@@ -117,11 +118,11 @@ ActiveRecord::Schema.define(version: 20151106002422) do
     t.datetime "updated_at",              null: false
     t.integer  "organization_id"
     t.string   "photo_project"
-    t.string   "causes_interest"
     t.float    "lat"
     t.float    "lng"
-    t.string   "clasification"
+    t.string   "causes_interest"
     t.string   "other_causes"
+    t.string   "clasification"
     t.string   "town"
   end
 

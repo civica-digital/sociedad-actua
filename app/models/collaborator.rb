@@ -1,5 +1,6 @@
 class Collaborator < ActiveRecord::Base
   has_one :user, as: :profile
+  before_save :validate_causes
   mount_uploader :logo, LogoUploader
 
   validates :email, :type_collaborator, :description, presence:  true, on: :update
@@ -22,4 +23,12 @@ class Collaborator < ActiveRecord::Base
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
 
   serialize :causes_interest, Array
+
+  private
+  def validate_causes
+
+    if (self.causes_interest[0]== "")
+      self.causes_interest.delete("")
+    end  
+  end
 end

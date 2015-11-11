@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
 	serialize :causes_interest, Array
   serialize :clasification, Array
 	mount_uploader :photo_project, LogoUploader
+	before_save :validate_causes
 
 	# default_scope { order('projects.id ASC') }
 
@@ -21,4 +22,11 @@ class Project < ActiveRecord::Base
 			).
 		references(:organization)
 	}
+	private
+	  def validate_causes
+
+	    if (self.causes_interest[0]== "")
+	      self.causes_interest.delete("")
+	    end  
+	  end
 end

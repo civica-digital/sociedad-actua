@@ -1,5 +1,6 @@
 class Organization < ActiveRecord::Base
   serialize :causes_interest, Array
+  before_save :validate_causes
   has_one :user, as: :profile
   has_many :projects
   mount_uploader :logo, LogoUploader
@@ -49,4 +50,12 @@ class Organization < ActiveRecord::Base
 		joins(:projects).
     group(:id)
 	}
+
+   private
+  def validate_causes
+
+    if (self.causes_interest[0]== "")
+      self.causes_interest.delete("")
+    end  
+  end
 end
