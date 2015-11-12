@@ -17,6 +17,7 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree .
+//= require disqus_rails
 
 $(document).ready(function() {
   $('.with-tooltip').tooltip();
