@@ -52,6 +52,7 @@ es:
           institution: Institución
           business: Empresa
           individual: Individuo
+          government: Gobierno
     labels:
       investor:
         name: Nombre
