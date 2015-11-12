@@ -6,6 +6,9 @@ class OrganizationPolicy < ApplicationPolicy
   def show?
     true
   end
+  def causes?
+    true
+  end
 
   def edit?
     update?

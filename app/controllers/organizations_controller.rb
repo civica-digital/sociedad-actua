@@ -34,6 +34,11 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def causes
+    @organization = Organization.find(params[:organization_id])
+    authorize @organization
+  end
+  
   private
 
   def organization_params
