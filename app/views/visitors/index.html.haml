@@ -94,14 +94,17 @@
       var array_lng = "#{raw @array_lng}".substring(1, "#{raw @array_lng}".length-1).split(",");
       var array_name = '#{raw @array_name}'.substring(1, '#{raw @array_name}'.length-1).split(",");
       var array_url = '#{raw @array_url}'.substring(1, '#{raw @array_url}'.length-1).split(",");
-      for(i=0; i< array_lng.length; i++){
-       marker = handler.addMarker({
-          lat: array_lat[i],
-          lng: array_lng[i],
-          infowindow: "<a href=" + array_url[i] + ">Proyecto: " + array_name[i] + "</a>",
-          title:  array_name[i]
-        });
-        markersArray.push(marker);
+      var array_status = '#{raw @array_status}'.substring(1, '#{raw @array_status}'.length-1).split(",");
+       for(i=0; i< array_lng.length; i++){
+        if(array_status[i]+"" === '"active"'){
+         marker = handler.addMarker({
+            lat: array_lat[i],
+            lng: array_lng[i],
+            infowindow: "<a href=" + array_url[i] + ">Proyecto: " + array_name[i] + "</a>",
+            title:  array_name[i]
+          });
+          markersArray.push(marker);
+        }
       }
       if(array_lat[0]+"" == ""){
         handler.map.centerOn(["25.6754382","-100.3483728"]);
