@@ -8,11 +8,15 @@ class InvestorsController < ApplicationController
   end
 
   def show
+     @organizations=Organization.where('id in (?)',@investor.organization)
     authorize @investor
     render :layout => "profiles"
   end
-
+  def new
+    @organizations=Organization.all
+  end 
   def edit
+    @organizations=Organization.all
     authorize @investor
   end
 
@@ -36,7 +40,7 @@ class InvestorsController < ApplicationController
                                     :telephone, :email, :address, :zipcode, :city,
                                      :amount, :constitution, :expense_type,
                                     :neighborhood, :site_url, :facebook_url, :blog_url,
-                                    :twitter_url,:youtube_url,:instagram_url,:contact_name,:legal_time,:other_causes,:logo,
+                                    :twitter_url,:youtube_url,:instagram_url,:contact_name,:legal_time,:other_causes,:logo,organization: [],
                                     causes_supported: [])
   end
 
