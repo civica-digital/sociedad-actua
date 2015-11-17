@@ -88,6 +88,7 @@ es:
         specie: Especies
         voluntering: Voluntariado
         investment_type: Otro
+        organization: Da a conocer a quienes has apoyado en los últimos 5 años, seleccionalos aquí
     hints:
       investor:
         # password: Mínimo 6 caracteres
@@ -110,3 +111,4 @@ es:
         help_information: Esta información ayudará a guiar mejor a las personas para saber en qué casos contactarte.
         investment_information: ¿Con qué te gustaría ayudar?
         investment_type: Describe Cuál
+        organizations: selecciona organizaciones
