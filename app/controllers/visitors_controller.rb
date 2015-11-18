@@ -36,7 +36,7 @@ class VisitorsController < ApplicationController
       load_markers
     end
     # the showcase only needs 6 elements
-    @organizations ||= Organization.with_logo.take(4)
+    @organizations ||= Organization.with_logo.sample(4)
   end
 
   def download_csv_project
