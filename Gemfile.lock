@@ -127,6 +127,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    disqus_rails (0.0.6)
     erubis (2.7.0)
     eventmachine (1.0.5)
     execjs (2.6.0)
@@ -410,6 +411,7 @@ DEPENDENCIES
   compass-rails!
   database_cleaner
   devise
+  disqus_rails
   factory_girl_rails
   faker
   figaro
