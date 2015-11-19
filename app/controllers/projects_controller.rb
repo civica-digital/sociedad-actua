@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
 
   def show
     authorize @project
-    render :layout => "profiles"
+    @container_fluid = true
   end
 
   def new

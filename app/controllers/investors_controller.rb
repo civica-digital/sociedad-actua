@@ -9,7 +9,7 @@ class InvestorsController < ApplicationController
 
   def show
     authorize @investor
-    render :layout => "profiles"
+    @container_fluid = true
   end
 
   def edit
