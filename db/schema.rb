@@ -117,9 +117,9 @@ ActiveRecord::Schema.define(version: 20151106002422) do
     t.datetime "updated_at",              null: false
     t.integer  "organization_id"
     t.string   "photo_project"
-    t.string   "causes_interest"
     t.float    "lat"
     t.float    "lng"
+    t.string   "causes_interest"
     t.string   "clasification"
     t.string   "other_causes"
     t.string   "town"
