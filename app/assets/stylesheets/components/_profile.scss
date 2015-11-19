@@ -30,8 +30,13 @@
     padding-top: 20px;
 
     .logo {
-      width: 80%;
+      
       vertical-align: middle;
+
+      max-width:80%; 
+      height:45px; 
+      transform:scale(3);
+      transform-origin:center top;
     }
   }
   label {
