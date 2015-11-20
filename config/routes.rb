@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     resources :users, except: :destroy
 
     get '/projects' => 'projects#list', :as => :projects_list
+    get '/events' => 'events#list', :as => :events_list
 
     resources :organizations, except: [:new, :create, :destroy] do
       collection do
