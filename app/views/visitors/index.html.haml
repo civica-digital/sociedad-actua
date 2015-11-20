@@ -90,7 +90,6 @@
   var markersArray = [];
   //mostramos en el mapa la ubicacion del usuario
     function centerOnMap(position){
-     
       var markers = JSON.parse('#{raw(@markers.to_json)}');
        for(i=0; i< markers.length; i++){
         if(markers[i]["status"] === 'active'){

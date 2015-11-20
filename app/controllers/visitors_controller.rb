@@ -14,7 +14,7 @@ class VisitorsController < ApplicationController
   end
 
   def index
-  	@projects = Project.order(:name)
+    @projects = Project.order(:name)
      @projects.each do |project|
         if (project.lat == nil)
              geocoder_results=Geocoder.search(project.direction)
