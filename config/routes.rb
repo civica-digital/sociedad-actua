@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     end
 
     get '/projects' => 'projects#list', :as => :projects_list
+    get '/events' => 'events#list', :as => :events_list
 
     resources :organizations, except: [:new, :create, :destroy] do
       get 'causes', :path => 'causas'
