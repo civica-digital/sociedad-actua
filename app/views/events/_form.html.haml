@@ -17,7 +17,8 @@
             = f.input :description
         .row
           .co-md-12
-            = f.input :date, :as => :datetime, order: [:day, :month, :year]
+            = f.date_field :date, :as => :datetime, order: [:day, :month, :year]
+            
         .row
           .col-md-6
             = f.input :price
