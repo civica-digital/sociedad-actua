@@ -51,8 +51,15 @@ class EventsController < ApplicationController
     @organization = Organization.find(params[:organization_id])
   end
 
-  def destroy
+  def list
+    skip_authorization
+    if params[:q]
+      @events = Event.multisearch(params[:q])
+    else
+      @events = Event.all
+    end
   end
+
 
   private
     def set_event
