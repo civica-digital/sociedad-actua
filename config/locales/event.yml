@@ -2,12 +2,14 @@ es:
   activerecord:
     errors:
       models:
-        collaborator:
+        event:
           attributes:
             name:
               blank: Este campo no puede estar vacío.
               taken: Este nombre ya está dado de alta.
             description:
+              blank: Este campo no puede estar vacío.
+            notes:
               blank: Este campo no puede estar vacío.
 
   events:
@@ -55,4 +57,6 @@ es:
         twitter: http://www.twitter.com/usuario
         description: Descripción del evento
         causes: Seleccionar causas
+        info: www.evento.com
+        price: Entrada libre
         
