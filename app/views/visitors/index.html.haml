@@ -90,26 +90,23 @@
   var markersArray = [];
   //mostramos en el mapa la ubicacion del usuario
     function centerOnMap(position){
-      var array_lat =  "#{raw @array_lat}".substring(1,"#{raw @array_lat}".length-1).split(",");
-      var array_lng = "#{raw @array_lng}".substring(1, "#{raw @array_lng}".length-1).split(",");
-      var array_name = '#{raw @array_name}'.substring(1, '#{raw @array_name}'.length-1).split(",");
-      var array_url = '#{raw @array_url}'.substring(1, '#{raw @array_url}'.length-1).split(",");
-      var array_status = '#{raw @array_status}'.substring(1, '#{raw @array_status}'.length-1).split(",");
-       for(i=0; i< array_lng.length; i++){
-        if(array_status[i]+"" === '"active"'){
-         marker = handler.addMarker({
-            lat: array_lat[i],
-            lng: array_lng[i],
-            infowindow: "<a href=" + array_url[i] + ">Proyecto: " + array_name[i] + "</a>",
-            title:  array_name[i]
+     
+      var markers = JSON.parse('#{raw(@markers.to_json)}');
+       for(i=0; i< markers.length; i++){
+        if(markers[i]["status"] === 'active'){
+          marker = handler.addMarker({
+            lat: markers[i]["lat"],
+            lng: markers[i]["lng"],
+            infowindow: "<a href=" + markers[i]["url"] + ">Proyecto: " + markers[i]["name"] + "</a>",
+            title:  markers[i]["name"]
           });
           markersArray.push(marker);
         }
       }
-      if(array_lat[0]+"" == ""){
+      if(markers[0]["lat"]+"" == ""){
         handler.map.centerOn(["25.6754382","-100.3483728"]);
       }else{
-        handler.map.centerOn([array_lat[array_lat.length-1],array_lng[array_lng.length-1]]);
+        handler.map.centerOn([markers[markers.length-1]["lat"],markers[markers.length-1]["lng"]]);
       }
 
       handler.getMap().setZoom(10);

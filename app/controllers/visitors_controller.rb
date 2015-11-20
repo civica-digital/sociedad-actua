@@ -50,7 +50,7 @@ class VisitorsController < ApplicationController
   private
   def set_values_map
     @projetc =  Project.new
-    clean_arrays
+    
   end
 
   def search_information(params)
@@ -68,82 +68,50 @@ class VisitorsController < ApplicationController
     end
   end
 
-
   def get_town_information(params)
-    clean_arrays
-    @projects.each_with_index do |project, index|
-      if project.town.to_s == params[:tag][:city].to_s
-        unless project.lat.nil?
-          @array_lat[index] = project.lat
-          @array_lng[index] = project.lng
-          @array_name[index] = project.name
-          @array_id[index] = project.id
-        end
-      end
-    end
-    @projects = Project.where(id: @array_id).order(:name)
+    @markers =@projects.select { |elem| elem.lat.present? && elem.town.to_s  == params[:tag][:city].to_s }.map{ |project| {lat: project.lat , lng: project.lng , name: project.name , id: project.id , url: organization_project_path(project.organization, project.id) , status: project.status }}
+    @projects = Project.where(id:  @markers.collect {|i| i[:id] }).order(:name)
   end
-
+   
   def get_ageb_information(params)
-    clean_arrays
-    @projects.each_with_index do |project, index|
-      response = open("https://jpel.cartodb.com/api/v2/sql?q=SELECT cvegeo FROM nl_ageb_urb WHERE ST_Within(ST_GeomFromText('POINT(#{project.lng} #{project.lat})', 4326), the_geom)").read
-      parsed = JSON.parse(response)
-      if parsed["total_rows"].to_i > 0
-        if parsed["rows"][0]["cvegeo"].to_s == params[:tag][:ageb].to_s
-          unless project.lat.nil?
-            @array_lat[index] = project.lat
-            @array_lng[index] = project.lng
-            @array_name[index] = project.name
-            @array_id[index] = project.id
-          end
-        end
-      end
-    end
-      @projects = Project.where(id: @array_id).order(:name)
+    @markers =@projects.select { |elem| elem.lat.present? && get_projects_from_ageb(elem) }.map{ |project| {lat: project.lat , lng: project.lng , name: project.name , id: project.id , url: organization_project_path(project.organization, project.id) , status: project.status }}
+    @projects = Project.where(id:  @markers.collect {|i| i[:id] }).order(:name)
   end
 
+  def get_projects_from_ageb(element)
+    result =false;
+    response = open("https://jpel.cartodb.com/api/v2/sql?q=SELECT cvegeo FROM nl_ageb_urb WHERE ST_Within(ST_GeomFromText('POINT(#{element.lng} #{element.lat})', 4326), the_geom)").read
+    parsed = JSON.parse(response)
 
+    if parsed["total_rows"].to_i > 0
+      if parsed["rows"][0]["cvegeo"].to_s == params[:tag][:ageb].to_s
+        result= true;
+      end
+    end
+    return result;
+  end
 
   def get_electoral_information(params)
-    clean_arrays
-    @projects.each_with_index do |project, index|
-        response = open("https://cicadmin.cartodb.com:443/api/v2/sql?q=select municipio, distrito, seccion from public.nl_secciones_electorales where ST_Within(ST_GeomFromText('POINT(#{project.lng} #{project.lat})', 4326), the_geom)").read
-        parsed = JSON.parse(response)
-        if parsed["total_rows"].to_i > 0
-          if parsed["distrito"].to_s == params[:tag][:distrito].to_s || params[:tag][:seccion].to_s == parsed["seccion"].to_s
-            unless project.lat.nil?
-              @array_lat[index] = project.lat
-              @array_lng[index] = project.lng
-              @array_name[index] = project.name
-              @array_id[index] = project.id
-            end
-          end
-        end
+    @markers =@projects.select { |elem| elem.lat.present? && get_projects_from_electoral_information(elem) }.map{ |project| {lat: project.lat , lng: project.lng , name: project.name , id: project.id , url: organization_project_path(project.organization, project.id) , status: project.status }}
+    @projects = Project.where(id:  @markers.collect {|i| i[:id] }).order(:name) 
+  end
+
+  def get_projects_from_electoral_information(element)
+    result =false;
+    response = open("https://cicadmin.cartodb.com:443/api/v2/sql?q=select municipio, distrito, seccion from public.nl_secciones_electorales where ST_Within(ST_GeomFromText('POINT(#{element.lng} #{element.lat})', 4326), the_geom)").read
+    parsed = JSON.parse(response)
+    if parsed["total_rows"].to_i > 0
+      if parsed["rows"][0]["distrito"].to_s == params[:tag][:distrito].to_s || params[:tag][:seccion].to_s == parsed["rows"][0]["seccion"].to_s
+        result= true;
       end
-      @projects = Project.where(id: @array_id).order(:name)
+    end
+    return result;
   end
 
   def load_markers
-    @projects.each_with_index do |project, index|
-      unless project.lat.nil?
-          @array_lat[index] = project.lat
-          @array_lng[index] = project.lng
-          @array_name[index] = project.name
-          @array_id[index] = project.id
-          @array_url[index] = organization_project_path(project.organization, project.id)
-          @array_status[index] = project.status
-      end
-    end
+    @markers =@projects.select { |elem| elem.lat.present? }.map{ |project| {lat: project.lat , lng: project.lng , name: project.name , id: project.id , url: organization_project_path(project.organization, project.id) , status: project.status }}
   end
 
-  def clean_arrays
-    @array_lat=[]
-    @array_lng=[]
-    @array_name=[]
-    @array_id=[]
-    @array_url=[]
-    @array_status=[]
-  end
+   
 
 end
