@@ -33,8 +33,8 @@
               = t('.map_title')
             #mapa_evento{:style => "width: 100%; height: 400px;"}
             = f.input :address, :onkeypress => "loading();"
-            = f.input :lat, label: false
-            = f.input :lng, label: false
+            = f.input :lat, input_html: { type: "hidden" },label: false
+            = f.input :lng, input_html: { type: "hidden" },label: false
           .row
             .col-md-6
               = f.input :price
