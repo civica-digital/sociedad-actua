@@ -10,6 +10,7 @@ class EventsController < ApplicationController
   def new
     @organization = Organization.find(params[:organization_id])
     @event = @organization.events.new
+    @project = @organization.projects.new
     authorize @event
    
   end
@@ -67,6 +68,6 @@ class EventsController < ApplicationController
     end
 
    def event_params
-    params.require(:event).permit(:name, :description, :notes, :image,:price, :date,:organization_id)
+    params.require(:event).permit(:name, :description, :notes, :image,:price, :date,:organization_id,:lat,:time, :lng,:address,:info,causes: [])
   end
 end

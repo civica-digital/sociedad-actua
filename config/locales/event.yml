@@ -1,0 +1,58 @@
+es:
+  activerecord:
+    errors:
+      models:
+        collaborator:
+          attributes:
+            name:
+              blank: Este campo no puede estar vacío.
+              taken: Este nombre ya está dado de alta.
+            description:
+              blank: Este campo no puede estar vacío.
+
+  events:
+    form:
+      price: Precio
+      address: Dirección
+      date: Fecha
+      description: Descripción
+      notos: Notas
+      map_title: Comprueba que la ubicación en el mapa sea correcta, mueve el marcador.
+  event:
+    notices:
+      successfully_created: El evento se creó con éxito.
+      successfully_updated: El evento se actualizó con éxito.
+      successfully_destroyed: El evento fue eliminado con éxito.
+    form:
+      sections:
+        general_information: "1. Información General"
+        address_information: "2. ¿En dónde se lleva a cabo tu evento?"
+        contact_information: "3. Información de contacto"
+        links: "Escribe las ligas del sitio y redes sociales del evento"
+        new_event: "Nuevo evento"
+
+  simple_form:
+    labels:
+      event:
+        name: Nombre
+        price: Precio
+        notes: Notas
+        address: Dirección
+        info: Más información
+        date: Fecha
+        description: Descripción
+        image: Foto del proyecto
+        other_causes: ¿Alguna otra causa que no estaba en la lista?
+        causes_with_tooltip_html: Causas de Interés <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Puedes seleccionar tantas causas como desees, todas se escriben en el mismo recuadro.">?</span>
+        
+    hints:
+      event:
+        # password: Mínimo 6 caracteres
+    placeholders:
+      event:
+        name: Nombre del evento
+        address: Dirección
+        twitter: http://www.twitter.com/usuario
+        description: Descripción del evento
+        causes: Seleccionar causas
+        
