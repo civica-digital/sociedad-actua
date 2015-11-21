@@ -3,6 +3,7 @@ es:
     menu:
       edit_profile: Mi perfil
       projects: Mis proyectos
+      events: Mis eventos
     mailers:
       welcome_email:
         subject: "¡Bienvenido(a) a Sociedad Actúa!"
