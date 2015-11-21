@@ -1,6 +1,6 @@
 .profile-project
   .container
-    //=image_tag "roles/proyectos_2x.png", :class => "profile-logo"
+    =image_tag "roles/eventos_detalle_2x.png", :class => "profile-logo"
     %h1.inline.title= "Evento"
 
     .row
@@ -12,14 +12,29 @@
 
         %p.middle= "un evento de"
         %h2.subtitle= @event.organization.name
-
+        .row
+          .col-md-6
+            %label= "Fecha"
+            .blue-lbl
+              %p.blue-lbl= @event.date.strftime("%B %d, %Y")
+              %p.blue-lbl= @event.time.to_s(:time) 
+              %p.blue-lbl= @event.address
+          .col-md-6
+            %a{href:"https://www.google.com.mx/maps/place/#{@event.lat},#{@event.lng}" , class: "btn btn-default", role: "button"} Ver en Google Maps
+             
         %label= "Descripción"
         %p= @event.description
 
+        %label= "Costo"
+        %p= @event.price
+
         %label= "Notas"
-        %p= @event.notes
+        %p.orange-lbl= @event.notes
 
-        %label= "Fecha"
-        %p= @event.date
+        %label= "Causas"
+        %p= @event.causes.to_a.join(", ")
 
+        %label= "Más informacion"
+        = link_to   truncate(@event.info, length: 50), @event.info, target: '_blank', class: "social-url" if @event.info.present?
+      
     .row
