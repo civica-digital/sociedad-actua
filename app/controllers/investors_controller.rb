@@ -9,9 +9,19 @@ class InvestorsController < ApplicationController
 
   def show
     authorize @investor
-    render :layout => "profiles"
+   # UserMailer.contact_email(self).deliver
+    if current_user.profile_type == "Organization"
+      @projects=Project.where("organization_id = (?)",current_user.profile_id)
+
+    end
+    render :layout => "profiles", projects: @projects
+   
   end
 
+  def send_message ()
+    raise
+  end
+  
   def edit
     authorize @investor
   end
