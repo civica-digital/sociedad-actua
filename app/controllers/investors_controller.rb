@@ -1,22 +1,30 @@
 class InvestorsController < ApplicationController
   before_action :investor_params, only: :create
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :set_investor, only: [:show, :edit, :update, :destroy]
+  before_action :set_investor, only: [:show, :edit, :update, :destroy , :send_message]
 
   def index
     @investors = Investor.all
   end
 
   def show
-     @organizations=Organization.where('id in (?)',@investor.organization)
     authorize @investor
-    render :layout => "profiles"
+  
+    if current_user.present? && current_user.profile_type == "Organization" 
+      @projects=Project.where("organization_id = (?)",current_user.profile_id)
+
+    end
+    render :layout => "profiles", projects: @projects
+   
   end
-  def new
-    @organizations=Organization.all
-  end 
+
+  def send_message ()
+    UserMailer.contact_email({ "email" => params["email"], "name" => params["name"],"projects" => params["projects"],"causes" => params["causes"], "comments" => params["comments"], "org_name" => Organization.where("id = (?)", current_user.profile_id ).first["name"], "org_email" => Organization.where("id = (?)", current_user.profile_id ).first["email"] }).deliver
+    authorize @investor
+    redirect_to @investor , notice: "Correo enviado"
+  end
+  
   def edit
-    @organizations=Organization.all
     authorize @investor
   end
 
@@ -40,7 +48,7 @@ class InvestorsController < ApplicationController
                                     :telephone, :email, :address, :zipcode, :city,
                                      :amount, :constitution, :expense_type,
                                     :neighborhood, :site_url, :facebook_url, :blog_url,
-                                    :twitter_url,:youtube_url,:instagram_url,:contact_name,:legal_time,:other_causes,:logo,organization: [],
+                                    :twitter_url,:youtube_url,:instagram_url,:contact_name,:legal_time,:other_causes,:logo,
                                     causes_supported: [])
   end
 

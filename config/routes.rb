@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#create'
 
+  post 'investors/send_message' 
 
   get '/auth/failure' => 'sessions#failure'
 
