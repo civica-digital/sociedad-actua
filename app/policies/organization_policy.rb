@@ -9,6 +9,10 @@ class OrganizationPolicy < ApplicationPolicy
   def causes?
     true
   end
+  def send_message?
+    true
+  end
+
 
   def edit?
     update?

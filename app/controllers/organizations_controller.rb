@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  before_action :set_organization, only: [:show, :edit, :update]
+  before_action :set_organization, only: [:show, :edit, :update , :send_message]
 
   def index
     @organizations = Organization.with_projects
@@ -8,6 +8,12 @@ class OrganizationsController < ApplicationController
   def show
     authorize @organization
     render :layout => "profiles"
+  end
+
+  def send_message ()
+    UserMailer.contact_org_email({ "email" => params["email"], "name" => params["name"],"projects" => params["projects"],"causes" => params["causes"], "comments" => params["comments"], "collaborator_name" => Collaborator.where("id = (?)", current_user.profile_id ).first["name"], "collaborator_email" => Collaborator.where("id = (?)", current_user.profile_id ).first["email"] }).deliver
+    authorize @organization
+    redirect_to @organization , notice: "Correo enviado"
   end
 
   def edit
