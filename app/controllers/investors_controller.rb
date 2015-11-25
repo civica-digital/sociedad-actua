@@ -10,7 +10,7 @@ class InvestorsController < ApplicationController
   def show
     authorize @investor
   
-    if current_user.profile_type == "Organization"
+    if current_user.present? && current_user.profile_type == "Organization" 
       @projects=Project.where("organization_id = (?)",current_user.profile_id)
 
     end
