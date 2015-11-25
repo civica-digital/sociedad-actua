@@ -5,4 +5,9 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(to: @user.email, subject: I18n.t('user.mailers.welcome_email.subject'))
   end
+
+  def contact_email(data)
+    @data=data
+    mail(to:@data.email, subject: I18n.t('user.mailers.welcome_email.subject'))
+  end
 end
