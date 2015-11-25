@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hola <%= @data["name"] %></h1>
+    <p>
+      La organización <%= @data["org_name"] %> te mando un mail por tus causas
+      <%= @data["causes"] %> y quiere que apoyes su proyecto <%= @data["projects"] %>
+      %p
+      Te manda estos comentarios:
+      <%= @data["comments"] %>
+
+      contactalo a: <%= @data["org_email"] %>
+      
+    </p>
+  </body>
+</html>
