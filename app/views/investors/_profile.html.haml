@@ -88,11 +88,14 @@
                       .col-md-12
                         %h4 Comentarios:
                         %textarea#address_input.address{:name => "comments"}
-
+                        %input.hidden{ :name => "name" , :value => @investor.name}
+                        %input.hidden{ :name => "email" , :value => @investor.email}
+                        %input.hidden{ :name => "id" , :value => @investor.id}
+                        
+    
                     %button.btn{"data-dismiss" => "modal", :type => "button"} Cerrar
                     = submit_tag "Enviar", class: "btn btn-default"
                   
             .modal-footer
-              %button.btn{"data-dismiss" => "modal", :type => "button"} Cerrar
-              %button.btn.btn-primary{:type => "button"} Enviar
+              r
                               

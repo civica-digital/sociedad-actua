@@ -6,6 +6,10 @@ class InvestorPolicy < ApplicationPolicy
   def show?
     true
   end
+  def send_message?
+    true
+  end
+
 
   def edit?
     update?
