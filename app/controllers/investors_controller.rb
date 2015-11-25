@@ -13,7 +13,6 @@ class InvestorsController < ApplicationController
       @projects=Project.where("organization_id = (?)",current_user.profile_id)
     end
     render :layout => "profiles", projects: @projects
-   
   end
 
   def send_message ()
