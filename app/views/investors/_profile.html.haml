@@ -17,7 +17,7 @@
 
         %h2.title= "Caracteristicas de proyectos que si apoyamos"
         .row
-          - unless @investor.investment_type.empty?
+          - if @investor.investment_type.present?
             .col-md-12
               %label= "Tipo de apoyo"
               #{@investor.investment_type}
@@ -61,8 +61,12 @@
 
         
         .navbar-text-blanco
-          %a-verde.m{"data-target" => "#myModalDialog", "data-toggle" => "modal", :href => ""}
-            %a.btn.btn-default= "Contactar"
+          - if current_user.present? && current_user.profile_type == "Organization" 
+            %a-verde.m{"data-target" => "#myModalDialog", "data-toggle" => "modal", :href => ""}
+              %a.btn.btn-default= "Contactar"
+
+          -else    
+            %a{href:"#{signin_path}" , class: "btn btn-default", role: "button"} Contactar
         / Modal para explicar porque no hay más municipios
         / Button trigger modal
         #myModalDialog.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalDialogLabel", :role => "dialog", :tabindex => "-1"}
