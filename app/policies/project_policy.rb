@@ -1,10 +1,10 @@
 class ProjectPolicy < ApplicationPolicy
   def new?
-    @user.present? && @user.organization?
+    @user.present? && (@user.organization? || @user.investor?)
   end
 
   def create?
-    @record.organization == @user.profile
+    @record.projectable == @user.profile
   end
 
   def update?

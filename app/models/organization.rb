@@ -4,9 +4,9 @@ class Organization < ActiveRecord::Base
   serialize :supports, Array
   before_save :validate_causes
   has_one :user, as: :profile
-  has_many :projects
   has_many :investors
   has_many :events
+  has_many :projects, as: :projectable
   mount_uploader :logo, LogoUploader
 
   validates :name, :type_organization, :email, presence:  true, on: :update

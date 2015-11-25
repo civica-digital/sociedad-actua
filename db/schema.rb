@@ -105,12 +105,12 @@ ActiveRecord::Schema.define(version: 20160215113124) do
     t.string   "twitter"
     t.string   "youtube"
     t.string   "instagram"
-    t.integer  "foundation",                default: 2015
-    t.boolean  "show_address",              default: false
-    t.boolean  "show_colonia",              default: false
-    t.boolean  "show_town",                 default: false
-    t.boolean  "show_telephone",            default: false
-    t.boolean  "show_zip",                  default: false
+    t.integer  "foundation",          default: 2016
+    t.boolean  "show_address",        default: false
+    t.boolean  "show_colonia",        default: false
+    t.boolean  "show_town",           default: false
+    t.boolean  "show_telephone",      default: false
+    t.boolean  "show_zip",            default: false
     t.boolean  "show_email"
     t.string   "logo"
     t.string   "causes_interest"
@@ -152,6 +152,8 @@ ActiveRecord::Schema.define(version: 20160215113124) do
     t.string   "other_causes"
     t.string   "town"
     t.string   "collaborators"
+    t.integer  "projectable_id"
+    t.string   "projectable_type"
   end
 
   create_table "roles", force: :cascade do |t|

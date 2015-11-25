@@ -9,7 +9,7 @@
 
 -@projects.each do |project|
   .col-md-4.col-sm-6
-    = link_to organization_project_path(project.organization, project), class: 'no-decoration' do
+    = link_to polymorphic_path([project.projectable, project]), class: 'no-decoration' do
       .thumbnail.project-thumb
         .thumb.org-photo
           =image_tag project.photo_project.mid.url, style: "height:200px;"
