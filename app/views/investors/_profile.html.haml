@@ -61,45 +61,61 @@
 
         
         .navbar-text-blanco
-          - if current_user.present? && current_user.profile_type == "Organization" 
-            %a-verde.m{"data-target" => "#myModalDialog", "data-toggle" => "modal", :href => ""}
-              %a.btn.btn-default= "Contactar"
+          - if current_user.present? 
+            -if current_user.profile_type == "Organization"
+              -if @projects.present? 
+                %a-verde.m{"data-target" => "#myModalDialog", "data-toggle" => "modal", :href => ""}
+                  %a.btn.btn-default= "Contactar"
 
+                / Modal para explicar porque no hay más municipios
+                / Button trigger modal
+                #myModalDialog.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalDialogLabel", :role => "dialog", :tabindex => "-1"}
+                  .modal-dialog-center
+                    .modal-content
+                      .modal-header
+                        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                          %span{"aria-hidden" => "true"} &times;
+                        %h4#myModalLabel.modal-title.bg-primary-verde.texto-verde= "Contacto"
+                      .modal-body
+                        =form_tag({:action => 'send_message'}, {:method => :post}) do 
+                          .row-fluid
+                            .row
+                              .col-md-12
+                                %h4 ¿Qué causa lo quieres contactar?
+                                = select_tag "causes",options_for_select(@investor.causes_supported), class: "chosen-select"
+                            .row
+                              .col-md-12
+                                %h4 ¿Para cuál de tus proyectos te interesa?
+                                = select_tag "projects",options_for_select(@projects.map(&:name)), class: "chosen-select" if @projects.present?
+                            
+                            .row
+                              .col-md-12
+                                %h4 Comentarios:
+                                %textarea#address_input.address{:name => "comments"}
+                                %input.hidden{ :name => "name" , :value => @investor.name}
+                                %input.hidden{ :name => "email" , :value => @investor.email}
+                                %input.hidden{ :name => "id" , :value => @investor.id}
+                                
+            
+                            %button.btn{"data-dismiss" => "modal", :type => "button"} Cerrar
+                            = submit_tag "Enviar", class: "btn btn-default"  
+              -else
+                %a{name: "send", id: "send", value: "send" , class: "btn btn-default", role: "button"} Contactar
+              -msj = I18n.t('simple_form.placeholders.investor.no_projects')
+
+            -else
+              %a{name: "send", id: "send", value: "send" , class: "btn btn-default", role: "button"} Contactar
+              -msj = I18n.t('simple_form.placeholders.investor.no_organization')
+          
           -else    
             %a{href:"#{signin_path}" , class: "btn btn-default", role: "button"} Contactar
-        / Modal para explicar porque no hay más municipios
-        / Button trigger modal
-        #myModalDialog.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalDialogLabel", :role => "dialog", :tabindex => "-1"}
-          .modal-dialog-center
-            .modal-content
-              .modal-header
-                %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-                  %span{"aria-hidden" => "true"} &times;
-                %h4#myModalLabel.modal-title.bg-primary-verde.texto-verde= "Contacto"
-              .modal-body
-                =form_tag({:action => 'send_message'}, {:method => :post}) do 
-                  .row-fluid
-                    .row
-                      .col-md-12
-                        %h4 ¿Qué causa lo quieres contactar?
-                        = select_tag "causes",options_for_select(@investor.causes_supported), class: "chosen-select"
-                    .row
-                      .col-md-12
-                        %h4 ¿Para cuál de tus proyectos te interesa?
-                        = select_tag "projects",options_for_select(@projects.map(&:name)), class: "chosen-select" if @projects.present?
-                    
-                    .row
-                      .col-md-12
-                        %h4 Comentarios:
-                        %textarea#address_input.address{:name => "comments"}
-                        %input.hidden{ :name => "name" , :value => @investor.name}
-                        %input.hidden{ :name => "email" , :value => @investor.email}
-                        %input.hidden{ :name => "id" , :value => @investor.id}
-                        
+
+:javascript
+  window.onload = function(){
     
-                    %button.btn{"data-dismiss" => "modal", :type => "button"} Cerrar
-                    = submit_tag "Enviar", class: "btn btn-default"
-                  
-            .modal-footer
-              r
+     document.getElementById('send').onclick = function(e){
+         alert("#{msj}");
+         return false;
+     }
+  }        
                               

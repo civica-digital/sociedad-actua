@@ -110,3 +110,5 @@ es:
         help_information: Esta información ayudará a guiar mejor a las personas para saber en qué casos contactarte.
         investment_information: ¿Con qué te gustaría ayudar?
         investment_type: Describe Cuál
+        no_organization: Para contactar al Inversionista debes ser una organización
+        no_projects: Para contactar al Inversionista debes tener registrado un proyecto
