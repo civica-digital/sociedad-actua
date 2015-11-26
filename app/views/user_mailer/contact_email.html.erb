@@ -6,14 +6,19 @@
   <body>
     <h1>Hola <%= @data["name"] %></h1>
     <p>
-      La organización <%= @data["org_name"] %> te mando un mail por tus causas
-      <%= @data["causes"] %> y quiere que apoyes su proyecto <%= @data["projects"] %>
-      %p
-      Te manda estos comentarios:
-      <%= @data["comments"] %>
-
-      contactalo a: <%= @data["org_email"] %>
+      <%= @data["org_name"] %> te contactó a través de Sociedad Actúa:
+      <br>
+      Causas de interés en actuar : <%= @data["causes"] %> 
+      <br>
+      Proyecto de la organización: <%= @data["projects"] %>
+      <br>
+      Comentarios de la organización: <%= @data["comments"] %>
+      <br>
+      Responde a este correo si te interesa contactarlos.
+      <br>
+      ¡Gracias por actuar!
       
     </p>
+    <p><b>Sociedad Actúa</b></p>
   </body>
 </html>
