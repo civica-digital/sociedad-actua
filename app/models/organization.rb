@@ -54,9 +54,6 @@ class Organization < ActiveRecord::Base
 
    private
   def validate_causes
-
-    if (self.causes_interest[0]== "")
-      self.causes_interest.delete("")
-    end  
+    self.causes_interest.delete("")
   end
 end
