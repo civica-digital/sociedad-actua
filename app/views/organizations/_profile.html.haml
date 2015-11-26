@@ -105,8 +105,11 @@
               %a{name: "send", id: "send", value: "send" , class: "btn btn-default", role: "button"} Contactar
               -msj = I18n.t('simple_form.placeholders.investor.no_organization')
           
-          -else    
-            %a{href:"#{signin_path}" , class: "btn btn-default", role: "button"} Contactar
+          -else   
+            =link_to "Contactar", signin_path(notice: "Necesitas iniciar sesión como colaborador para contactar a la organización" ),class: "btn btn-default"
+           
+          
+
 
 :javascript
   window.onload = function(){
