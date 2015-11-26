@@ -2,7 +2,7 @@
   %a.pull-right.btn.btn-default{:href => new_organization_project_path(current_user.profile) }= "Crea un nuevo Evento"
 
 %h1
-  = image_tag 'roles/projects_2x.png', class: 'icon-title'
+  = image_tag 'roles/eventos_grid_2x.png', class: 'icon-title'
   = "Eventos"
 
 %p= "#{pluralize(@events.count, "evento")} #{"encontrado".pluralize(@events.count)}"
@@ -10,9 +10,11 @@
 -@events.each do |event|
   .col-md-4.col-sm-6
     = link_to organization_event_path(event.organization, event), class: 'no-decoration' do
-      .thumbnail.project-thumb
+      .thumbnail.event-thumb
         .thumb.org-photo{ style: "background-image: url(\'#{event.image.mid.url}\');height:200px;"}
         .caption
           %h3.title= truncate(event.name, length: 30)
-          %label Organizaci&oacute;n
-          %p= event.organization.name
+          %p.yellow-lbl= event.date.strftime("%B %d, %Y")
+          %p.yellow-lbl= event.time.to_s(:time) 
+          %p.white-lbl= event.address
+
