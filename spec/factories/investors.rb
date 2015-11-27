@@ -1,12 +1,8 @@
 FactoryGirl.define do
   factory :investor do
     name "MyString"
-mantra "MyText"
-characteristics "MyText"
-type ""
-site_url "MyString"
-blog_url "MyString"
-facebook_url "MyString"
+    zipcode "12345"
+    type_investor "Gobierno"
   end
 
 end
