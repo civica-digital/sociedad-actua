@@ -1,0 +1,11 @@
+.thumbs
+  .container
+    %h3.title= title
+
+    .row
+      - organizations.each do |p|
+        = link_to organization_path(p) do
+          .col-md-3.col-xs-6.thumb
+            %img.logo.img-responsive.center-block{:src => "#{p.logo.mid.url}"}
+            %h4.label_thumb= p.name
+

@@ -1,7 +1,10 @@
 class Investor < ActiveRecord::Base
   serialize :causes_supported, Array
+  serialize :organization, Array
   before_save :validate_causes
+  before_save :validate_organizations
   has_one :user, as: :profile
+  has_many :organizations
   mount_uploader :logo, LogoUploader
 
   validates :name, :type_investor,  presence:  true, on: :update
@@ -27,6 +30,12 @@ class Investor < ActiveRecord::Base
 
     if (self.causes_supported[0]== "")
       self.causes_supported.delete("")
+    end  
+  end
+  def validate_organizations
+
+    if (self.organization[0]== "")
+      self.organization.delete("")
     end  
   end
 end

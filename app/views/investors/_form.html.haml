@@ -82,6 +82,10 @@
         .row
           .col-md-4
             = f.input :zipcode
+  %p
+          
+  = f.input :organization, collection: @organizations, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.investor.organizations'), multiple: true, class: "chosen-select", tabindex: "2"  }
 
+    
   .text-right
     = f.button :submit, "Guardar inversionista"
