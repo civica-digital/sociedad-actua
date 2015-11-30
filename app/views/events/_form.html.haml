@@ -48,7 +48,6 @@
           = f.button :submit, "Guardar Evento", class: 'pull-right'
 :javascript
   $(document).ready(loadMap);
-
   function loadMap(){
       handler = Gmaps.build('Google');
       infowindow = new google.maps.InfoWindow();
@@ -64,8 +63,6 @@
         }
       });
     }
-
-
   function displayOnMap(position){
       if(position!='loading'){
         marker = handler.addMarker({
@@ -82,11 +79,9 @@
           markersArray.push(marker);
           codeLatLngEvents(#{raw @event.lat.nil? ? 0 : @event.lat } ,#{raw@event.lng.nil? ? 0 : @event.lng } );
         }
-
       handler.map.centerOn(marker);
       handler.getMap().setZoom(18);
       google.maps.event.addListener(marker.serviceObject, 'dragend', function() {
         codeLatLngEvents(this.getPosition().lat(),this.getPosition().lng());
       });
-
   }

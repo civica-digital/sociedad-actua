@@ -7,9 +7,6 @@ class Event < ActiveRecord::Base
 
   private
   def validate_causes
-    if (self.causes[0]== "")
-      self.causes.delete("")
-    end  
+    self.causes.delete("")
   end
-
 end

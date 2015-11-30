@@ -70,3 +70,4 @@ class EventsController < ApplicationController
     params.require(:event).permit(:name, :description, :notes, :image,:price, :date,:organization_id,:lat,:time, :lng,:address,:info,causes: [])
   end
 end
+
