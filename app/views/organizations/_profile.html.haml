@@ -64,4 +64,66 @@
 
         %hr
 
-        -# %a.btn.btn-default= "Contactar"
+        
+
+        
+        .navbar-text-blanco
+          - if current_user.present? 
+            -if current_user.profile_type == "Collaborator"
+              
+              %a-verde.m{"data-target" => "#myModalDialog", "data-toggle" => "modal", :href => ""}
+                %a.btn.btn-default= "Contactar"
+
+              / Modal para explicar porque no hay más municipios
+              / Button trigger modal
+              #myModalDialog.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalDialogLabel", :role => "dialog", :tabindex => "-1"}
+                .modal-dialog-center
+                  .modal-content
+                    .modal-header
+                      %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                        %span{"aria-hidden" => "true"} &times;
+                      %h4#myModalLabel.modal-title.bg-primary-verde.texto-verde= "Contacto"
+                    .modal-body
+                      =form_tag({:action => 'send_message'}, {:method => :post}) do 
+                        .row-fluid
+                          .row
+                            .col-md-12
+                              %h4 ¿Qué causa lo quieres contactar?
+                              = select_tag "causes",options_for_select(@organization.causes_interest), class: "chosen-select"
+                          .row
+                            .col-md-12
+                              %h4 ¿Cuál de sus proyectos te interesa?
+                              = select_tag "projects",options_for_select(@organization.projects.map(&:name)), class: "chosen-select" if @organization.projects.present?
+                          
+                          .row
+                            .col-md-12
+                              %h4 Comentarios:
+                              %textarea#address_input.address{:name => "comments"}
+                              %input.hidden{ :name => "name" , :value => @organization.name}
+                              %input.hidden{ :name => "email" , :value => @organization.email}
+                              %input.hidden{ :name => "id" , :value => @organization.id}
+                              
+          
+                          %button.btn{"data-dismiss" => "modal", :type => "button"} Cerrar
+                          = submit_tag "Enviar", class: "btn btn-default"  
+            
+
+            -else
+              %a{name: "send", id: "send", value: "send" , class: "btn btn-default", role: "button"} Contactar
+              -msj = I18n.t('simple_form.placeholders.investor.no_organization')
+          
+          -else   
+            =link_to "Contactar", signin_path(notice: "Necesitas iniciar sesión como colaborador para contactar a la organización" ),class: "btn btn-default"
+           
+          
+
+
+:javascript
+  window.onload = function(){
+    
+     document.getElementById('send').onclick = function(e){
+         alert("#{msj}");
+         return false;
+     }
+  }        
+                              

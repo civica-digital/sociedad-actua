@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hola <%= @data["name"] %></h1>
+    <p>
+      <%= @data["collaborator_name"] %> te contactó a través de Sociedad Actúa:
+      <br>
+      Causas de interés en actuar : <%= @data["causes"] %> 
+      <br>
+      Proyecto de interés: <%= @data["projects"] %>
+      <br>
+      Comentarios del colaborador: <%= @data["comments"] %>
+      <br>
+      Responde a este correo si te interesa contactarlos.
+      <br>
+      ¡Gracias por actuar!
+      
+    </p>
+    <p><b>Sociedad Actúa</b></p>
+  </body>
+</html>

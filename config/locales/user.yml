@@ -7,6 +7,10 @@ es:
     mailers:
       welcome_email:
         subject: "¡Bienvenido(a) a Sociedad Actúa!"
+      contact_email:
+        subject: "Te han contactado en Sociedad Actúa"
+      contact_org_email:
+        subject: "Te han contactado en Sociedad Actúa"
   activerecord:
     errors:
       models:
