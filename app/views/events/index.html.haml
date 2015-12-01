@@ -1,0 +1,22 @@
+.row
+  .col-sm-6
+    %h1
+      Eventos
+
+  .col-sm-6.text-right
+    - if policy(:event).new?
+      %h1
+        = link_to "Agregar Evento", new_organization_event_path(@organization), class: 'btn btn-default'
+
+%h4 Evento(s)
+
+- @organization.events.each do |event|
+  .row
+    .col-md-4
+      .thumbnail
+        %img{ src: event.image}
+        .caption
+          %h3= truncate(event.name, length: 20)
+          %p= truncate(event.description, length: 30)
+          %p
+            %a{href: edit_organization_event_path(event.organization, event), class: "btn btn-default", role: "button"} Editar

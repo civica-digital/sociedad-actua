@@ -1,4 +1,10 @@
 es:
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%m/%d"
+
+    month_names: [~, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
   errors:
     messages:
       extension_white_list_error: 'Ese tipo de archivo no es aceptado.'
@@ -17,3 +23,4 @@ es:
     logic:
       false_: "No"
       true_: "Si"
+    

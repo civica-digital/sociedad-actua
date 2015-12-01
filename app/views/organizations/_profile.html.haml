@@ -7,6 +7,13 @@
       .col-md-3.offset
         .frame.center-block
           %img.center-block.logo{:src => @organization.logo.mid.url }
+        %p  
+        
+        .col-md-2
+        .col-md-8  
+          .center-block.pagination-centered
+            = link_to "Registrar Evento", new_organization_event_path(@organization), :class=>"btn btn-default" if user_signed_in?
+             
       .col-md-8
         %h1.title= @organization.name
         %label= "Misión, Visión, Valores y Objeticos generales"

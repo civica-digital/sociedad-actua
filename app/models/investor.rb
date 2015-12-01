@@ -27,15 +27,6 @@ class Investor < ActiveRecord::Base
  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: [:create,:update] }, presence:  true, on: :update,if: Proc.new { |a| a.email.present? }
   private
   def validate_causes
-
-    if (self.causes_supported[0]== "")
-      self.causes_supported.delete("")
-    end  
-  end
-  def validate_organizations
-
-    if (self.organization[0]== "")
-      self.organization.delete("")
-    end  
+    self.causes_supported.delete("")
   end
 end

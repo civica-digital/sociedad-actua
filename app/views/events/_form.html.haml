@@ -1,0 +1,87 @@
+.container
+  .row
+    .col-md-2
+    .col-md-8
+      = simple_form_for [@event.organization, @event] do |f|
+        .col-md-12.main-form-section
+          %h3
+            = t('collaborator.form.sections.general_information')
+          .row
+            .col-md-12
+              = f.input :image, label: t('simple_form.labels.collaborator.profile_image')
+              = link_to @event.image.file.filename, @event.image_url, target: '_blank' if @event.image?
+          .row
+            .col-md-12
+              = f.input :name
+          .row
+            .col-md-12
+              = f.input :description
+          .row
+            .col-md-6
+              = f.input :causes, label: t('simple_form.labels.event.causes_with_tooltip_html'), collection: CAUSES, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.event.causes'), multiple: true, class: "chosen-select", tabindex: "2" }
+          
+            .co-md-3
+              %p
+              = "Fecha"
+              = f.date_field :date, :as => :datetime, order: [:day, :month, :year]
+              %p
+            .co-md-3
+              = "Hora"
+              = f.time_field :time
+          .col-md-12
+            %h3.blue
+              = t('.map_title')
+            #mapa_evento{:style => "width: 100%; height: 400px;"}
+            = f.input :address, :onkeypress => "loading();"
+            = f.input :lat, input_html: { type: "hidden" },label: false
+            = f.input :lng, input_html: { type: "hidden" },label: false
+          .row
+            .col-md-6
+              = f.input :price
+            .col-md-6
+              = f.input :info
+          .row
+            .col-md-12
+              = f.input :notes      
+            #spinner.spinner{:style => "display:none;"}
+              = image_tag "spinner.gif", class: "img-responsive center-block" ,:id=>"img-spinner"
+          = f.button :submit, "Guardar Evento", class: 'pull-right'
+:javascript
+  $(document).ready(loadMap);
+  function loadMap(){
+      handler = Gmaps.build('Google');
+      infowindow = new google.maps.InfoWindow();
+      handler.buildMap({ internal: {id: 'mapa_evento'} }, function(){
+        geocoder = new google.maps.Geocoder();
+        user_has_location = #{raw @event.lat.nil?};
+        if(user_has_location){
+          if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(displayOnMap);
+          }
+        }else{
+          displayOnMap('loading')
+        }
+      });
+    }
+  function displayOnMap(position){
+      if(position!='loading'){
+        marker = handler.addMarker({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+        },{ draggable: true});
+        markersArray.push(marker);
+        codeLatLngEvents(position.coords.latitude,position.coords.longitude);
+      }else{
+          marker = handler.addMarker({
+          lat: #{raw @event.lat.nil? ? 0 : @event.lat },
+          lng: #{raw@event.lng.nil? ? 0 : @event.lng } 
+        },{ draggable: true});
+          markersArray.push(marker);
+          codeLatLngEvents(#{raw @event.lat.nil? ? 0 : @event.lat } ,#{raw@event.lng.nil? ? 0 : @event.lng } );
+        }
+      handler.map.centerOn(marker);
+      handler.getMap().setZoom(18);
+      google.maps.event.addListener(marker.serviceObject, 'dragend', function() {
+        codeLatLngEvents(this.getPosition().lat(),this.getPosition().lng());
+      });
+  }
