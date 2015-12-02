@@ -12,12 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require chosen-jquery
 //= require underscore
 //= require gmaps/google
 //= require_tree .
+//= require disqus_rails
 
 $(document).ready(function() {
   $('.with-tooltip').tooltip();

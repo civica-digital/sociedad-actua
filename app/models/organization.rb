@@ -1,5 +1,6 @@
 class Organization < ActiveRecord::Base
   serialize :causes_interest, Array
+  before_save :validate_causes
   has_one :user, as: :profile
   has_many :projects
   mount_uploader :logo, LogoUploader
@@ -17,7 +18,7 @@ class Organization < ActiveRecord::Base
 
   # TODO: validar formato de correo
   # validates :email,
-  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :update }
   # TODO: validar formato de
   # validates :rfc
   validates :rfc, format: { with: /\A[A-ZÑ&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9]([A-Z0-9]{3})?\z/i, message: 'No es un formato de RFC válido' }, if: Proc.new { |a| a.rfc.present? }
@@ -30,14 +31,31 @@ class Organization < ActiveRecord::Base
 
   # TODO: validar el formato de url para sitio y redes sociales
   # validates_with URLValidator, fields: [:site, :blog, facebook, youtube, instagram, twitter]
-  validates :profile_url, format: { with: URI.regexp }, if: Proc.new { |a| a.profile_url.present? }
-  validates :site, format: { with: URI.regexp }, if: Proc.new { |a| a.site.present? }
-  validates :blog, format: { with: URI.regexp }, if: Proc.new { |a| a.blog.present? }
-  validates :facebook, format: { with: URI.regexp }, if: Proc.new { |a| a.facebook.present? }
-  validates :youtube, format: { with: URI.regexp }, if: Proc.new { |a| a.youtube.present? }
-  validates :instagram, format: { with: URI.regexp }, if: Proc.new { |a| a.instagram.present? }
-  validates :twitter, format: { with: URI.regexp }, if: Proc.new { |a| a.twitter.present? }
+  validates :profile_url, format: { with: /((ftp|http|https):\/\/)?[a-zA-Z0-9\-\#\/\_]+[\.][a-zA-Z0-9\-\.\#\/\_]+/i }, if: Proc.new { |a| a.profile_url.present? }
+  validates :site, format: { with: /((ftp|http|https):\/\/)?[a-zA-Z0-9\-\#\/\_]+[\.][a-zA-Z0-9\-\.\#\/\_]+/i }, if: Proc.new { |a| a.site.present? }
+  validates :blog, format: { with: /((ftp|http|https):\/\/)?[a-zA-Z0-9\-\#\/\_]+[\.][a-zA-Z0-9\-\.\#\/\_]+/i }, if: Proc.new { |a| a.blog.present? }
+  validates :facebook, format: { with: /((ftp|http|https):\/\/)?[a-zA-Z0-9\-\#\/\_]+[\.][a-zA-Z0-9\-\.\#\/\_]+/i }, if: Proc.new { |a| a.facebook.present? }
+  validates :youtube, format: { with: /((ftp|http|https):\/\/)?[a-zA-Z0-9\-\#\/\_]+[\.][a-zA-Z0-9\-\.\#\/\_]+/i }, if: Proc.new { |a| a.youtube.present? }
+  validates :instagram, format: { with: /((ftp|http|https):\/\/)?[a-zA-Z0-9\-\#\/\_]+[\.][a-zA-Z0-9\-\.\#\/\_]+/i }, if: Proc.new { |a| a.instagram.present? }
+  validates :twitter, format: { with: /((ftp|http|https):\/\/)?[a-zA-Z0-9\-\#\/\_]+[\.][a-zA-Z0-9\-\.\#\/\_]+/i }, if: Proc.new { |a| a.twitter.present? }
 
   validates :show_address, :show_town, :show_colonia,
             :show_telephone, :show_zip, :show_email, :inclusion => { :in => [true, false] }, allow_blank: true
+
+
+  default_scope { order('organizations.id ASC') }
+  scope :with_logo, -> { where('logo IS NOT NULL') }
+
+  scope :with_projects, -> {
+		joins(:projects).
+    group(:id)
+	}
+
+   private
+  def validate_causes
+
+    if (self.causes_interest[0]== "")
+      self.causes_interest.delete("")
+    end  
+  end
 end

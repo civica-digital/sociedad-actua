@@ -34,16 +34,26 @@
  @import "elements/table";
 
  // Components
- @import "components/navbar";
+ @import "components/top_navbar";
+ @import "components/sub_navbar";
  @import "components/footer";
  @import "components/landing";
  @import "components/forms";
  @import "components/checkbox";
- // @import "components/top_navbar";
  @import "components/cards";
  @import "components/multiple_chosen";
  @import "components/pretty_colors";
  @import "components/tooltip";
+ @import "components/chosen";
+ @import "components/organization_card";
+ @import "components/profile";
+ @import "components/thumb";
+ @import "components/map_profile";
+ @import "components/investor_card";
+ @import "components/multiple_showcase";
+ @import "components/video";
+ @import "components/project_card";
+ @import "components/profile_project";
 
  #main {
    margin-bottom: 70px;

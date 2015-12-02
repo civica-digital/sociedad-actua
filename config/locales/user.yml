@@ -2,6 +2,7 @@ es:
   user:
     menu:
       edit_profile: Mi perfil
+      projects: Mis proyectos
     mailers:
       welcome_email:
         subject: "¡Bienvenido(a) a Sociedad Actúa!"
@@ -21,6 +22,8 @@ es:
               confirmation: Las contraseñas deben ser iguales.
             password:
               blank: Las contraseñas no deben estar en blanco.
+            terms_of_service:
+              accepted: Debes estar de acuerdo con las Políticas de Uso para registrarte
   form:
     sign_in:
       title: Inicia sesión
@@ -47,6 +50,8 @@ es:
         password: Contraseña
         password_confirmation: Confirma tu contraseña
         profile_type: Tipo de perfil
+        terms_of_service: "Estoy de acuerdo con las Políticas de Uso"
+
     hints:
       user:
         # password: Mínimo 6 caracteres
@@ -55,4 +60,3 @@ es:
         email: ej. usuario@dominio.org
         password: Al menos 6 caracteres
         password_confirmation: Confirma tu contraseña
-

@@ -13,6 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if params[:action] == 'create'
       devise_parameter_sanitizer.for(:sign_up) {
           |u| u.permit(*REGISTRATION_PARAMS)
+        
       }
     end
   end

@@ -1,0 +1,50 @@
+- if type == :even
+  .col-xs-6.col-sm-3.showcase__thumbnail.sh-photo
+    .photo_container
+      .photo
+        = image_tag organizations.first.logo_url
+
+  .col-xs-6.col-sm-3.showcase__thumbnail.sh-content-third-accent-th
+    %h3
+      = image_tag 'roles/organizations_2x.png', class: 'thumbnail-icon'
+      Organización
+    %h3= link_to organizations.first.name, organization_path(organizations.first)
+    %p= truncate(organizations.first.mision, length: 120)
+
+  .col-xs-6.col-sm-3.showcase__thumbnail.sh-photo
+    .photo_container
+      .photo
+        = image_tag organizations.second.logo_url
+
+  .col-xs-6.col-sm-3.showcase__thumbnail.sh-content-fourth-accent-th
+    %h3
+      = image_tag 'roles/organizations_2x.png', class: 'thumbnail-icon'
+      Organización
+    %h3= link_to organizations.second.name, organization_path(organizations.second)
+    %p= truncate(organizations.second.mision, length: 120)
+
+
+- else
+  .col-xs-6.col-sm-3.showcase__thumbnail.sh-content-fourth-accent-th
+    %h3
+      = image_tag 'roles/organizations_2x.png', class: 'thumbnail-icon'
+      Organización
+    %h3= link_to organizations.first.name, organization_path(organizations.first)
+    %p= truncate(organizations.first.mision, length: 120)
+
+  .col-xs-6.col-sm-3.showcase__thumbnail.sh-photo
+    .photo_container
+      .photo
+        = image_tag organizations.first.logo_url
+
+  .col-xs-6.col-sm-3.showcase__thumbnail.sh-content-third-accent-th
+    %h3
+      = image_tag 'roles/organizations_2x.png', class: 'thumbnail-icon'
+      Organización
+    %h3= link_to organizations.second.name, organization_path(organizations.second)
+    %p= truncate(organizations.second.mision, length: 120)
+
+  .col-xs-6.col-sm-3.showcase__thumbnail.sh-photo
+    .photo_container
+      .photo
+        = image_tag organizations.second.logo_url

@@ -1,0 +1,26 @@
+.map-profile {
+  background-color: #FECD36;
+  padding-bottom: 40px;
+  padding-top: 40px;
+
+
+  .title, label, p {
+    color: black;
+  }
+
+  .title {
+    marging-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .map {
+    border-color: #43A8F3;
+    border-style: solid;
+    border-width: 2px;
+
+    #geolocation {
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+  }
+}

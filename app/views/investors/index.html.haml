@@ -1,7 +1,16 @@
-%h1
-  Inversionistas
+- if current_user.nil?
+  %a.pull-right.btn.btn-default{:href => registration_new_path(user_type: "investor") }= "Registrate como inversionista"
+
+%h1= "Inversionistas"
+
+%p= "#{pluralize(Investor.count, "inversionista", "inversionistas")} #{"encontrado".pluralize(Investor.count)}"
+
 -@investors.each do |e|
-  %div.row
-    %div.col-md-4
-      %h3= e.name
-      %p= e.characteristics
+  .col-md-4.col-sm-6
+    = link_to investor_path(e), class: "no-decoration" do
+      .thumbnail.investor-thumb
+        .thumb.org-photo{ style: "background-image: url(\'#{e.logo.mid.url}\');height:200px;"}
+        .caption
+          %h3.title= e.name
+          %label= "Causas de Interés"
+          %p= truncate(e.causes_supported.to_a.join(", "), length: 120)

@@ -1,0 +1,18 @@
+- if current_user and current_user.profile.instance_of?(Organization)
+  %a.pull-right.btn.btn-default{:href => new_organization_project_path(current_user.profile) }= "Inicia un nuevo proyecto"
+
+%h1
+  = image_tag 'roles/projects_2x.png', class: 'icon-title'
+  = "Proyectos"
+
+%p= "#{pluralize(@projects.count, "proyecto")} #{"encontrado".pluralize(@projects.count)}"
+
+-@projects.each do |project|
+  .col-md-4.col-sm-6
+    = link_to organization_project_path(project.organization, project), class: 'no-decoration' do
+      .thumbnail.project-thumb
+        .thumb.org-photo{ style: "background-image: url(\'#{project.photo_project.mid.url}\');height:200px;"}
+        .caption
+          %h3.title= truncate(project.name, length: 30)
+          %label Organizaci&oacute;n
+          %p= project.organization.name

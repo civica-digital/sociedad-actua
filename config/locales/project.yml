@@ -29,6 +29,13 @@ es:
       successfully_created: El proyecto se creó con éxito.
       successfully_updated: El proyecto se actualizó con éxito.
       successfully_destroyed: El proyecto fue eliminado con éxito.
+    form:
+      sections:
+        general_information: "1. Información General"
+        address_information: "2. ¿En dónde se lleva a cabo tu proyecto?"
+        contact_information: "3. Información de contacto"
+        links: "Escribe las ligas del sitio y redes sociales del proyecto"
+        new_project: "Nuevo proyecto"
 
   simple_form:
     labels:
@@ -44,6 +51,12 @@ es:
         website: Sitio Web
         description_html: Descripción <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Comenta en qué consiste el proyecto cuáles son las actividades específicas que realizan, a qué tipo de población atienden, en dónde lo hacen, con qué frecuencia, quiénes participan, si tienen alianzas con otros actores sociales y cuáles son.">?</span>
         photo_project: Foto del proyecto
+        other_causes: ¿Alguna otra causa que no estaba en la lista?
+        causes_interest_with_tooltip_html: Causas de Interés <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Puedes seleccionar tantas causas como desees, todas se escriben en el mismo recuadro.">?</span>
+        clasification: Clasificación NTEE
+        town: Municipio
+        other_causes: Otras causas
+        causes_interest_with_tooltip_html: Causas de Interés <span class='with-tooltip' data-toggle="tooltip" data-placement= "top" title="Puedes seleccionar tantas causas como desees, todas se escriben en el mismo recuadro.">?</span>
     hints:
       project:
         # password: Mínimo 6 caracteres
@@ -54,10 +67,13 @@ es:
         goals: Objetivos
         status:  Estatus
         direction: Dirección
-        comments_from_direction: Comentarios de la dirección
+        comments_from_direction: ¿Cómo lo localizamos mejor?
         name_of_owner: ej. Nombre Apellido
         phone: Teléfono
         website: http://www.misitio.com
         facebook: http://www.facebook.com/usuario
         twitter: http://www.twitter.com/usuario
         description: Descripción del proyecto
+        causes_interest: Seleccionar causas
+        clasification_ntee: Selecciona categorías NTEE
+        clasification: Selecciona categorías NTEE

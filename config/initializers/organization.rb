@@ -2,6 +2,7 @@ ORGANIZATION_TYPE = [
   :acs,
   :abps,
   :collective,
-  :groups
+  :groups,
+  :religious_association
 
 ]

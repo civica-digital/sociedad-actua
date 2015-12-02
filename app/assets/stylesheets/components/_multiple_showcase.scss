@@ -1,0 +1,76 @@
+.showcase {
+  @extend .row;
+}
+
+@mixin base__thumbnail($bg_color: $second__accent, $heading_color: white, $text_color: $grey_600) {
+  background-color: $bg_color;
+  height: 250px !important;
+
+  h3 {
+    @include heading-3($heading_color);
+    margin-top: 10px;
+  }
+  h5 { @include heading-5($heading_color); }
+  a { color: $heading_color !important; }
+
+  h3, h5, p {
+    font-weight: 500 !important;
+  }
+}
+.showcase__thumbnail.sh-photo {
+  background-color: white !important;
+  height: 250px !important;
+}
+.showcase__thumbnail {
+  &.sh-photo {
+    @include base__thumbnail();
+    .photo_container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%;
+      margin-bottom:20px;
+      background-color: white !important ;
+    }
+
+    .photo {
+      position:absolute;
+      width:100%;
+      height:100%;
+
+    }
+
+    .photo img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    img{
+      max-height:100%;
+      max-width:100%;
+    }
+  }
+
+  &.sh-content-first-accent-th {
+    @include base__thumbnail($first__accent);
+  }
+
+  &.sh-content-second-accent-th {
+    @include base__thumbnail($second__accent);
+  }
+
+  &.sh-content-third-accent-th {
+    @include base__thumbnail($third__accent, $second__accent);
+  }
+
+  &.sh-content-fourth-accent-th {
+    @include base__thumbnail($fourth__accent);
+  }
+
+  &.sh-content-fifth-accent-th {
+    @include base__thumbnail($fourth__accent);
+  }
+}

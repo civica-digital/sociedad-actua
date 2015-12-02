@@ -3,12 +3,10 @@ class CollaboratorsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_collaborator, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @collaborators = Collaborator.all
-  end
-
   def show
     authorize @collaborator
+
+    render :layout => "profiles"
   end
 
   def edit
@@ -34,7 +32,7 @@ class CollaboratorsController < ApplicationController
   def collaborator_params
     params.require(:collaborator).permit(:name, :email, :type_collaborator, :description,
                                          :site_url, :facebook_url, :instagram_url,
-                                         :twitter_url, :youtube_url, :blog_url, :logo)
+                                         :twitter_url, :youtube_url, :blog_url, :logo, :other_causes, causes_interest: [])
   end
 
   def set_collaborator

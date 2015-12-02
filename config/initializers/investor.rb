@@ -1,5 +1,6 @@
 INVESTOR_TYPE = [
   :institution,
   :business,
-  :individual
+  :individual,
+  :government
 ]

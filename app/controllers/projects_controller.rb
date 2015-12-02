@@ -2,11 +2,12 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @projects = Organization.find(params[:organization_id]).projects
+    @organization = Organization.find(params[:organization_id])
   end
 
   def show
     authorize @project
+    render :layout => "profiles"
   end
 
   def new
@@ -38,7 +39,7 @@ class ProjectsController < ApplicationController
 
   def update
     authorize @project
-    
+
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to organization_projects_path(@project.organization), notice: I18n.t('project.notices.successfully_updated') }
@@ -50,6 +51,15 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def list
+    skip_authorization
+    if params[:q]
+      @projects = Project.multisearch(params[:q])
+    else
+      @projects = Project.all
+    end
+  end
+
   private
     def set_project
       @project = Project.find(params[:id])
@@ -58,6 +68,7 @@ class ProjectsController < ApplicationController
    def project_params
     params.require(:project).permit(:name, :goals, :description, :status, :photo_project,
                                      :direction, :comments_from_direction, :name_of_owner,
-                                     :email, :phone, :website, :facebook, :organization_id, :lat, :lng)
+                                     :email, :phone, :website, :twitter, :facebook, :organization_id,
+                                     :lat, :lng, :other_causes, causes_interest: [], clasification: [])
   end
 end

@@ -1,8 +1,35 @@
-%h1
-  Organizaciones
--@organizations.each do |e|
-  %div.row
-    %div.col-md-4
-      %h3= e.name
-      %small= e.email
-      %p= e.type_organization
+.row
+  .col-sm-6
+    %h1.fourth_accent
+      = image_tag 'roles/organizations_2x.png', class: 'icon-title'
+      Organizaciones
+  - if current_user.nil?
+    .col-sm-6.text-right
+      %h1
+        = link_to "Registra tu organización", registration_new_path(user_type: "organization"), class: 'btn btn-default'
+
+%h3= "#{pluralize(@organizations.length, "organización", "organizaciones")} #{"encontrada".pluralize(Organization.count)}"
+
+.row.padding-text-button-organizaciones
+  .col-md-12.text-right.padding-text-map
+    = link_to "descargar proyectos", download_csv_project_visitors_path(format: :csv),:class=>"btn btn-default"
+
+.row
+  - @organizations.each do |organization|
+    .col-md-4.col-sm-6
+      = link_to organization_path(organization) do
+        .thumbnail.organization-thumb
+          .showcase__thumbnail.sh-photo
+            .photo_container
+              .photo
+                = image_tag organization.logo.mid.url
+          .caption
+            %h3.title= truncate(organization.name, length: 30)
+            - if organization.projects.any?
+              %label= "Proyectos"
+              %ul.list.list-inline
+                - organization.projects.each do |project|
+                  - unless project.photo_project.thumb.url.blank?
+                    %li.item
+                      = link_to organization_project_path(project.organization, project) do
+                        = image_tag project.photo_project.thumb.url, class: 'mini-thumb'

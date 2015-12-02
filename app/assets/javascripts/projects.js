@@ -1,33 +1,6 @@
  //Cargamos el mapa y llamamos la localizacion del usuario
    var markersArray = [];
 
-    function loadMap(){
-      handler = Gmaps.build('Google');
-      infowindow = new google.maps.InfoWindow();
-      handler.buildMap({ internal: {id: 'geolocation'} }, function(){
-        geocoder = new google.maps.Geocoder();
-        if(navigator.geolocation){
-          navigator.geolocation.getCurrentPosition(displayOnMap);
-        }  
-      });
-    }
-
-    //mostramos en el mapa la ubicacion del usuario
-    function displayOnMap(position){
-        marker = handler.addMarker({
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        },{ draggable: true});
-        markersArray.push(marker);
-        codeLatLng(position.coords.latitude,position.coords.longitude);
-      handler.map.centerOn(marker);
-      handler.getMap().setZoom(18);
-      google.maps.event.addListener(marker.serviceObject, 'dragend', function() {
-        codeLatLng(this.getPosition().lat(),this.getPosition().lng());
-      });
-
-  }
-
   //funcion para hacer un delay en el uso de georeferencia
   var delay = (function(){
     var timer = 0;
@@ -44,6 +17,8 @@
       if (status == google.maps.GeocoderStatus.OK) {
         var latitude = results[0].geometry.location.lat();
         var longitude = results[0].geometry.location.lng();
+        document.getElementById('project_lat').value = latitude;
+        document.getElementById('project_lng').value = longitude;
         clearOverlays(latitude, longitude);
 
       } 
@@ -58,13 +33,17 @@
 
   function codeLatLng(lat, lng) {
       $('#spinner').show();
+      try {
+          document.getElementById('project_lat').value = lat;
+          document.getElementById('project_lng').value = lng;
+      } catch (e) { };
       var latlng = new google.maps.LatLng(lat,lng);
       geocoder.geocode({'latLng': latlng}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           if (results[1]) {
-            document.getElementById('project_direction').value = results[1].formatted_address;
-            document.getElementById('project_lat').value = lat;
-            document.getElementById('project_lng').value = lng;
+            try {
+                document.getElementById('project_direction').value = results[1].formatted_address;
+            } catch (err) {}
             $('#spinner').hide();
           }
           else{
@@ -97,3 +76,9 @@
             codeLatLng(this.getPosition().lat(),this.getPosition().lng());
           });
       }
+
+ $(function () {
+    $("#project_clasification").chosen({
+       allow_single_deselect: true,
+       no_results_text: 'No se encontraron coincidencias',
+       width: '400px'})});

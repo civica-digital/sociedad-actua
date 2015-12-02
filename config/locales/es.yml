@@ -11,3 +11,9 @@ es:
                   logra la visibilidad de los proyectos de la sociedad civil que mejoran Nuevo León
                   y facilita el encuentro con los fondos que desean impulsar su desarrollo, así
                   como con otros aliados.'
+  common:
+    active: 'Activo'
+    finished: 'Terminado'
+    logic:
+      false_: "No"
+      true_: "Si"

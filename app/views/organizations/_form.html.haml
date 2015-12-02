@@ -1,34 +1,35 @@
 = simple_form_for @organization do |f|
-  .row
-    .col-md-12
-      = f.label I18n.t('simple_form.placeholders.organization.general_information')
-    .col-md-1
-    .col-md-10  
+  .col-md-12.main-form-section
+    .row
+      %h3= I18n.t('organization.form.sections.general_information')
       .col-md-8
         = f.input :name
       .col-md-4
         = f.input :type_organization, collection: ORGANIZATION_TYPE,prompt: "Tipo de organización", selected: "ACs"
 
-      .col-md-12  
-        .row
-          .col-md-6
-            = f.input :causes_interest, label: t('simple_form.labels.organization.causes_interest_with_tooltip_html'), collection: CAUSES, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.organization.causes_interest'), multiple: true, class: "chosen-select", tabindex: "2" }
-        .row
-          .col-md-4= f.input :rfc, label: t('simple_form.labels.organization.rfc_with_tooltip_html')
-          .col-md-2= f.input :foundation, label: t('simple_form.labels.organization.foundation_with_tooltip_html'), collection: 1980..2016, selected: 2015
-          .col-md-4
-            = f.input :logo
-            = link_to @organization.logo.file.filename, @organization.logo_url, target: '_blank' if @organization.logo?
-        .row
-          .col-md-12
-            = f.input :mision, label: t('simple_form.labels.organization.mision_with_tooltip_html')
-            = f.input :profile_url
-          .col-md-12
-            = f.label I18n.t('simple_form.placeholders.organization.information_funding')    
+    .row
+      .col-md-6
+        = f.input :causes_interest, label: t('simple_form.labels.organization.causes_interest_with_tooltip_html'), collection: CAUSES, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.organization.causes_interest'), multiple: true, class: "chosen-select", tabindex: "2" }
+      .col-md-6
+        = f.input :other_causes
+    .row
+      .col-md-4
+        = f.input :rfc, label: t('simple_form.labels.organization.rfc_with_tooltip_html')
+      .col-md-2
+        = f.input :foundation, label: t('simple_form.labels.organization.foundation_with_tooltip_html'), collection: 1910..2016, selected: year_to_select(@organization.foundation)
+      .col-md-6
+        = f.input :logo
+        = link_to @organization.logo.file.filename, @organization.logo_url, target: '_blank' if @organization.logo?
+    .row
+      .col-md-12
+        = f.input :mision, label: t('simple_form.labels.organization.mision_with_tooltip_html')
+        = f.input :profile_url
 
-  .row
-    
-    .col-md-12.background-funding
+    %h4.blue.toggle-form-section
+      = I18n.t('organization.form.sections.information_funding')
+      .glyphicon.glyphicon-chevron-down{:data => {:toggle => 'collapse', :target => '.background-funding'}}
+
+    .col-md-12.background-funding.panel-collapse.collapse{"aria-labelledby" => "headingOne", :role => "tabpanel"}
       .row
         .col-md-4.checkbox-funding= f.input :rate_private, collection: 0..100, selected: @organization.rate_private, :input_html => { :onchange=>"validate_private_public_sum('is_private');"}
         .col-md-4.checkbox-funding= f.input :rate_public, collection: 0..100, selected: @organization.rate_public, :input_html => { :onchange=>"validate_private_public_sum('is_public');"}
@@ -36,55 +37,53 @@
       .row
         .col-md-6.checkbox-funding= f.input :rate_national, collection: 0..100, selected: @organization.rate_national, :input_html => { :onchange=>"validate_national_sum('national');"}
         .col-md-6.checkbox-funding= f.input :rate_international, collection: 0..100, selected: @organization.rate_international, :input_html => { :onchange=>"validate_national_sum('international');"}
-  
-  %p  
-  .row.background-information
-    .col-md-12
-      = f.label I18n.t('simple_form.placeholders.organization.contact_information')
-      %p
-      .col-md-1
-      .col-md-10
-        = f.label I18n.t('simple_form.placeholders.organization.information'),class: "blue"
 
-        .row
-          .col-md-4
-            .col-md-10
-              = f.input :address
-            .col-md-2
-              = f.check_box :show_address
-          .col-md-4
-            .col-md-10
-              = f.input :colonia
-            .col-md-2
-              = f.check_box :show_colonia
-          .col-md-4
-            .col-md-10
-              = f.input :town, collection: CITIES, include_black: false,input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.organization.city'), class: "chosen-select", tabindex: "2"  }
-            .col-md-2
-              = f.check_box :show_town
-        .row
-          .col-md-4
-            .col-md-10
-              = f.input :zip
-            .col-md-2
-              = f.check_box :show_zip
-          .col-md-4
-            .col-md-10
-              = f.input :telephone
-            .col-md-2
-              = f.check_box :show_telephone
-          .col-md-4
-            .col-md-10
-              = f.input :email
-            .col-md-2
-              = f.check_box :show_email
-        .row
-          .col-md-12
-            = f.label I18n.t('simple_form.placeholders.organization.sites_url')
-          .col-md-4= f.input :site
-          .col-md-4= f.input :facebook
-          .col-md-4= f.input :twitter
-          .col-md-4= f.input :youtube
-          .col-md-4= f.input :instagram
-          .col-md-4= f.input :blog
-  = f.button :submit, "Guardar organización"
+  .col-md-12.background-information.main-form-section
+    %h3= I18n.t('organization.form.sections.contact_information')
+    %h4.section-notice.blue
+      = I18n.t('organization.form.sections.check_private_information')
+    .row
+      .col-md-4
+        .col-md-10
+          = f.input :address
+        .col-md-2
+          = f.check_box :show_address
+      .col-md-4
+        .col-md-10
+          = f.input :colonia
+        .col-md-2
+          = f.check_box :show_colonia
+      .col-md-4
+        .col-md-10
+          = f.input :town, collection: CITIES, include_black: false,input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.organization.city'), class: "chosen-select", tabindex: "2"  }
+        .col-md-2
+          = f.check_box :show_town
+    .row
+      .col-md-4
+        .col-md-10
+          = f.input :zip
+        .col-md-2
+          = f.check_box :show_zip
+      .col-md-4
+        .col-md-10
+          = f.input :telephone
+        .col-md-2
+          = f.check_box :show_telephone
+      .col-md-4
+        .col-md-10
+          = f.input :email
+        .col-md-2
+          = f.check_box :show_email
+
+    %h4.section-notice.blue
+      = I18n.t('organization.form.sections.sites_url')
+    .row
+      .col-md-12
+        .col-md-4= f.input :site
+        .col-md-4= f.input :facebook
+        .col-md-4= f.input :twitter
+        .col-md-4= f.input :youtube
+        .col-md-4= f.input :instagram
+        .col-md-4= f.input :blog
+
+  = f.button :submit, "Guardar organización", class: 'pull-right'

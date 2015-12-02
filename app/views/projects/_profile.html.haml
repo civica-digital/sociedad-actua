@@ -1,0 +1,110 @@
+.profile-project
+  .container
+    =image_tag "roles/proyectos_2x.png", :class => "profile-logo"
+    %h1.inline.title= "Proyecto"
+
+    .row
+      .col-md-6
+        .frame.center-block
+          %img.center-block.logo{:src => @project.photo_project.mid.url }
+      .col-md-6
+        %h1.title= @project.name
+
+        %p.middle= "un proyecto de"
+        %h2.subtitle= @project.organization.name
+
+        %label= "Descripción"
+        %p= @project.description
+
+        %label= "Causas de interés"
+        %p= @project.causes_interest.to_a.join(", ")
+
+        %label= "Objetivo"
+        %p= @project.goals
+
+    .row
+      .col-md-12
+        %hr
+
+        #geolocation.center-block{:style=>"width: 80%; height: 400px;"}
+
+
+  - if @project.status?
+    .status
+      .container
+        %label= "Estatus: #{I18n.t("common.#{@project.status}")}"
+
+  .profile-section
+    .container
+      .col-md-10.col-md-offset-1
+        .row
+          - if @project.website?
+            .col-md-6
+              %label.social= "Sitio web:"
+              = link_to truncate(@project.website, length: 50), @project.website, target: '_blank', class: 'social-url'
+          - if @project.facebook?
+            .col-md-6
+              %label= "Facebook:"
+              = link_to truncate(@project.facebook, length: 50), @project.facebook, target: '_blank', class: 'social-url'
+          - if @project.twitter?
+            .col-md-6
+              %label= "Twitter:"
+              = link_to truncate(@project.twitter, length: 50), @project.twitter, target: '_blank', class: 'social-url'
+          -# .col-md-6
+          -#   %label= "Instagram:"
+          -#    %a.social-url
+          -# .col-md-6
+          -#   %label= "Youtube:"
+          -#   %a.social-url
+  .comments
+    .container
+      .col-md-10.col-md-offset-1
+        - disqus_thread
+
+:javascript
+
+  function loadMap(){
+      handler = Gmaps.build('Google');
+      infowindow = new google.maps.InfoWindow();
+      handler.buildMap({ internal: {id: 'geolocation'} }, function(){
+        geocoder = new google.maps.Geocoder();
+        user_has_location = #{@project.lat.nil?};
+        if(user_has_location){
+          if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(displayOnMap);
+          }
+        }else{
+          displayOnMap('loading')
+        }
+      });
+    }
+
+
+  function displayOnMap(position){
+  console.log("#{@project.lat.nil? ? 0 : @project.lat },#{@project.lng.nil? ? 0 : @project.lng }");
+      if(position!='loading'){
+        marker = handler.addMarker({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+        },{ draggable: true});
+        markersArray.push(marker);
+        codeLatLng(position.coords.latitude,position.coords.longitude);
+      }else{
+          marker = handler.addMarker({
+          lat: #{@project.lat.nil? ? 0 : @project.lat },
+          lng: #{@project.lng.nil? ? 0 : @project.lng}
+        },{ draggable: true});
+          markersArray.push(marker);
+          codeLatLng(#{@project.lat.nil? ? 0 : @project.lat },#{@project.lng.nil? ? 0 : @project.lng });
+        }
+
+
+      handler.map.centerOn(marker);
+      handler.getMap().setZoom(18);
+      google.maps.event.addListener(marker.serviceObject, 'dragend', function() {
+        codeLatLng(this.getPosition().lat(),this.getPosition().lng());
+      });
+
+  }
+
+  $(document).ready(loadMap);

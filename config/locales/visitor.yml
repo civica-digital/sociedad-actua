@@ -1,0 +1,26 @@
+es:
+  search:
+    button: Buscar
+  visitors:
+    index:
+      search: Busqueda
+  csv:
+    project:
+      name: Nombre
+      goals: Metas
+      description: Descripción
+      status: Estatus
+      direction: Dirección
+      comments_from_direction: Comentarios de la dirección
+      name_of_owner: Nombre del responsable
+      email: Correo
+      phone: Teléfono
+      website: Sitio Web
+      facebook: Facebook
+      twitter: Twitter
+      lat: Latitud
+      lng: Longitud
+      causes_interest: Causas de interes
+      other_causes: Otras causas
+      clasification: clasificación
+      town: Municipio

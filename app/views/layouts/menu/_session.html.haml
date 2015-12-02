@@ -1,10 +1,11 @@
 -# Links depending on user role
 - if current_user.collaborator?
-  %li= link_to t('user.menu.edit_profile'), edit_collaborator_path(current_user.profile), data: { no_turbolink: true }
+  %li= link_to t('user.menu.edit_profile'), edit_collaborator_path(current_user.profile)
 - if current_user.investor?
-  %li= link_to t('user.menu.edit_profile'), edit_investor_path(current_user.profile), data: { no_turbolink: true }
+  %li= link_to t('user.menu.edit_profile'), edit_investor_path(current_user.profile)
 - if current_user.organization?
-  %li= link_to t('user.menu.edit_profile'), edit_organization_path(current_user.profile), data: { no_turbolink: true }
+  %li= link_to t('user.menu.projects'), organization_projects_path(current_user.profile)
+  %li= link_to t('user.menu.edit_profile'), edit_organization_path(current_user.profile)
 
 -# Every other link that applies to all roles
-%li= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete
+%li= link_to 'Cerrar sesión', signout_path, method: :delete

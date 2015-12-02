@@ -1,0 +1,66 @@
+.map-profile
+  .container
+    .row
+      %h3.title= "Encuéntranos:"
+
+      .row
+        .col-sm-7
+          .map
+            %div{:id=>"geolocation", :style=>'width: 100%; height: 250px;'}
+        .col-sm-4
+          %label
+            %strong=  "Oficinas"
+          %p= @organization.address
+          %p= @organization.colonia
+          %p= "Municipio #{@organization.town}"
+          %p= "C.P. #{@organization.zip}"
+
+
+:javascript
+      //Cargamos el mapa y llamamos la localizacion del usuario
+
+      function loadMap(){
+        handler = Gmaps.build('Google');
+        infowindow = new google.maps.InfoWindow();
+        handler.buildMap({ internal: {id: 'geolocation'} }, function(){
+          geocoder = new google.maps.Geocoder();
+          if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(displayOnMap);
+          }
+        });
+      }
+
+      //mostramos en el mapa la ubicacion del usuario
+      function displayOnMap(position){
+          marker = handler.addMarker({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          },{ draggable: true});
+          markersArray.push(marker);
+          codeLatLng(position.coords.latitude,position.coords.longitude);
+        handler.map.centerOn(marker);
+        handler.getMap().setZoom(18);
+        google.maps.event.addListener(marker.serviceObject, 'dragend', function() {
+          codeLatLng(this.getPosition().lat(),this.getPosition().lng());
+        });
+
+    }
+
+
+    //obtiene las coordenadas a partir de una direccion en Mexico
+    function address_latlng(address){
+      $('#spinner').show();
+      geocoder.geocode( { 'address': address, 'region':  'mx',}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          var latitude = results[0].geometry.location.lat();
+          var longitude = results[0].geometry.location.lng();
+          clearOverlays(latitude, longitude);
+
+        }
+      });
+    }
+
+    $(document).ready(loadMap);
+
+    delay(function() {
+      address_latlng("#{@organization.address} #{@organization.colonia} #{@organization.town}")}, 3000);

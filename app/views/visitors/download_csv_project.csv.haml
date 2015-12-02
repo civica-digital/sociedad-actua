@@ -1,0 +1,5 @@
+- headers = [t('csv.project.name'),t('csv.project.goals'),t('csv.project.description'),t('csv.project.status'),t('csv.project.direction'),t('csv.project.comments_from_direction'),t('csv.project.name_of_owner'),t('csv.project.email'),t('csv.project.phone'),t('csv.project.website'),t('csv.project.facebook'),t('csv.project.twitter'),t('csv.project.lat'),t('csv.project.lng'),t('csv.project.town'),t('csv.project.causes_interest'),t('csv.project.other_causes'),t('csv.project.clasification')]
+= CSV.generate_line headers
+- @projects.each do |project|
+  - if @projects.any?
+    = CSV.generate_line([project.name,project.goals,project.description,project.status,project.direction,project.comments_from_direction,project.name_of_owner,project.email,project.phone,project.website,project.facebook,project.twitter,project.lat,project.lng,project.town,project.causes_interest,project.other_causes,project.clasification])

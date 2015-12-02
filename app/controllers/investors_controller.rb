@@ -9,6 +9,7 @@ class InvestorsController < ApplicationController
 
   def show
     authorize @investor
+    render :layout => "profiles"
   end
 
   def edit
@@ -31,14 +32,15 @@ class InvestorsController < ApplicationController
   private
 
   def investor_params
-    params.require(:investor).permit(:name, :type_investor, :mantra, :characteristics,
-                                     :telephone, :email, :address, :zipcode, :city,
-                                     :investment_type, :amount, :constitution, :expense_type,
-                                     :neighborhood, :site_url, :facebook_url, :blog_url, :logo,
-                                     causes_supported: [])
+    params.require(:investor).permit(:investment_type,:money,:voluntering,:specie,:service,:name, :type_investor,
+                                    :telephone, :email, :address, :zipcode, :city,
+                                     :amount, :constitution, :expense_type,
+                                    :neighborhood, :site_url, :facebook_url, :blog_url,
+                                    :twitter_url,:youtube_url,:instagram_url,:contact_name,:legal_time,:other_causes,:logo,
+                                    causes_supported: [])
   end
 
   def set_investor
-    @investor = Investor.find(params[:id])
+     @investor = Investor.find(params[:id])
   end
 end
