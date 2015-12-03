@@ -111,3 +111,7 @@ img.thumbnail-icon {
 #video, #explore, #map, #showcase {
   @extend .base_landing_section;
 }
+
+#explore div {
+  margin-top: 25px;
+}
