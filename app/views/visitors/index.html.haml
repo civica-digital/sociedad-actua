@@ -10,29 +10,37 @@
 #explore.row.text-center
   %h1 Descubre
 
-  .col-xs-12.col-sm-3.text-center
-    = link_to projects_list_path do
-      = image_tag 'roles/projects_2x.png', class: 'landing-icon'
-      %h3 Proyectos
-    %p Acciones que están realizando individuos, grupos o instituciones para mejorar nuestra sociedad
+  .row
+    .col-xs-12.col-sm-4.text-center
+      = link_to projects_list_path do
+        = image_tag 'roles/projects_2x.png', class: 'landing-icon'
+        %h3 Proyectos
+      %p Acciones que están realizando individuos, grupos o instituciones para mejorar nuestra sociedad
 
-  .col-xs-12.col-sm-3.text-center
-    = link_to organizations_path do
-      = image_tag 'roles/organizations_2x.png', class: 'landing-icon'
-      %h3 Organizaciones
-    %p Organizaciones legalmente constituidas que ejecutan proyectos
+    .col-xs-12.col-sm-4.text-center
+      = link_to organizations_path do
+        = image_tag 'roles/organizations_2x.png', class: 'landing-icon'
+        %h3 Organizaciones
+      %p Organizaciones legalmente constituidas que ejecutan proyectos
 
-  .col-xs-12.col-sm-3.text-center
-    = link_to organizations_path do
-      = image_tag 'roles/groups_2x.png', class: 'landing-icon'
-      %h3 Grupos
-    %p Colectivos sin figura jurídica que ejecutan proyectos
+    .col-xs-12.col-sm-4.text-center
+      = link_to organizations_path do
+        = image_tag 'roles/groups_2x.png', class: 'landing-icon'
+        %h3 Grupos
+      %p Colectivos sin figura jurídica que ejecutan proyectos
 
-  .col-xs-12.col-sm-3.text-center
-    = link_to investors_path do
-      = image_tag 'roles/investors_2x.png', class: 'landing-icon'
-      %h3 Inversionistas
-    %p Organizaciones y personas interesadas en invertir en los proyectos sociales
+  .row
+    .col-xs-12.col-sm-offset-2.col-sm-4.text-center
+      = link_to investors_path do
+        = image_tag 'roles/investors_2x.png', class: 'landing-icon'
+        %h3 Inversionistas
+      %p Organizaciones y personas interesadas en invertir en los proyectos sociales
+
+    .col-xs-12.col-sm-4.text-center
+      = link_to registration_url(user_type: "collaborator")  do
+        = image_tag 'roles/collaborators_2x.png', class: 'landing-icon'
+        %h3 Colaboradores
+      %p Personas interesadas en ayudar en los proyectos sociales
 
 .row
   .col-md-12.map-landing{:id=>"map"}
