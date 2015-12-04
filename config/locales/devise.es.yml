@@ -35,6 +35,15 @@ es:
       updated: 'Su contraseña fue cambiada exitosamente y ha sido ingresado al sistema.'
       updated_not_active: 'Su contraseña se cambió exitosamente.'
       send_paranoid_instructions: "Si su correo electrónico existe en nuestra base de datos, usted recibirá un enlace para reiniciar su contraseña en unos minutos."
+      new:
+        forgot_password: '¿Olvidaste tu contraseña?'
+        new_instructions: 'Te enviaremos una nueva a tu correo electrónico.'
+        reset_password: 'Envíame mi nueva contraseña'
+      edit:
+        change_your_password: 'Crear una nueva contraseña'
+        change_my_password: 'Cambiar contraseña'
+      user:
+        no_token: 'El token no puede estar en blanco.'
     confirmations:
       send_instructions: 'Usted recibirá un correo electrónico con instrucciones sobre cómo confirmar su cuenta en unos minutos.'
       send_paranoid_instructions: 'Si su correo electrónico existe en nuestra base de datos, usted recibirá un correo con instrucciones sobre cómo confirmar su cuenta en unos minutos.'
