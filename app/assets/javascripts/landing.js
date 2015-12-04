@@ -36,3 +36,7 @@ var markersArray = [];
       }
     }
   }
+
+$(document).ready(function (){
+    $(".content-video video").delay(2000).animate({opacity: 1}, 700);
+});
