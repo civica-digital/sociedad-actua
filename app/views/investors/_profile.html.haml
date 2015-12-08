@@ -108,8 +108,11 @@
               -msj = I18n.t('simple_form.placeholders.investor.no_organization')
           
           -else
-            =link_to "Contactar", signin_path(notice: "Necesitas iniciar sesión como organización para contactar al inversionista" ),class: "btn btn-default"   
-           
+            //=link_to "Contactar", signin_path(notice: "Necesitas iniciar sesión como organización para contactar al inversionista" ),class: "btn btn-default" 
+            =form_tag({:action => 'login'}, {:method => :post} ) do 
+              = submit_tag "Contactar" ,class: "btn btn-default"
+            //, {:controller => :investors, :action => "login"}, {:method => :post }   
+
          
 
 :javascript

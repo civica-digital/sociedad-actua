@@ -46,5 +46,6 @@ Rails.application.routes.draw do
     end
     resources :collaborators, except: [:new, :create, :destroy, :index]
     resources :investors, except: [:new, :create, :destroy]
+    post 'investors/login'
   end
 end
