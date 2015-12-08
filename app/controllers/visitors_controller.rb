@@ -69,12 +69,12 @@ class VisitorsController < ApplicationController
   end
 
   def get_town_information(params)
-    @markers =@projects.select { |elem| elem.lat.present? && elem.town.to_s  == params[:tag][:city].to_s }.map{ |project| {lat: project.lat , lng: project.lng , name: project.name , id: project.id , url: organization_project_path(project.organization, project.id) , status: project.status }}
+    @markers =@projects.select { |elem| elem.lat.present? && elem.town.to_s  == params[:tag][:city].to_s }.map{ |project| {lat: project.lat , lng: project.lng , name: project.name.gsub('"'," ") , id: project.id , url: organization_project_path(project.organization, project.id) , status: project.status }}
     @projects = Project.where(id:  @markers.collect {|i| i[:id] }).order(:name)
   end
    
   def get_ageb_information(params)
-    @markers =@projects.select { |elem| elem.lat.present? && get_projects_from_ageb(elem) }.map{ |project| {lat: project.lat , lng: project.lng , name: project.name , id: project.id , url: organization_project_path(project.organization, project.id) , status: project.status }}
+    @markers =@projects.select { |elem| elem.lat.present? && get_projects_from_ageb(elem) }.map{ |project| {lat: project.lat , lng: project.lng , name: project.name.gsub('"'," "), id: project.id , url: organization_project_path(project.organization, project.id) , status: project.status }}
     @projects = Project.where(id:  @markers.collect {|i| i[:id] }).order(:name)
   end
 
@@ -92,7 +92,7 @@ class VisitorsController < ApplicationController
   end
 
   def get_electoral_information(params)
-    @markers =@projects.select { |elem| elem.lat.present? && get_projects_from_electoral_information(elem) }.map{ |project| {lat: project.lat , lng: project.lng , name: project.name , id: project.id , url: organization_project_path(project.organization, project.id) , status: project.status }}
+    @markers =@projects.select { |elem| elem.lat.present? && get_projects_from_electoral_information(elem) }.map{ |project| {lat: project.lat , lng: project.lng , name: project.name.gsub('"'," ") , id: project.id , url: organization_project_path(project.organization, project.id) , status: project.status }}
     @projects = Project.where(id:  @markers.collect {|i| i[:id] }).order(:name) 
   end
 
@@ -109,7 +109,7 @@ class VisitorsController < ApplicationController
   end
 
   def load_markers
-    @markers =@projects.select { |elem| elem.lat.present? }.map{ |project| {lat: project.lat , lng: project.lng , name: project.name , id: project.id , url: organization_project_path(project.organization, project.id) , status: project.status }}
+    @markers =@projects.select { |elem| elem.lat.present? }.map{ |project| {lat: project.lat , lng: project.lng , name: project.name.gsub('"'," "), id: project.id , url: organization_project_path(project.organization, project.id) , status: project.status }}
   end
 
    
