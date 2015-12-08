@@ -21,8 +21,7 @@ class InvestorsController < ApplicationController
     redirect_to @investor , notice: "Correo enviado"
   end
   def login()
-    raise
-    redirect_to signin_path , notice: "Necesitas iniciar sesión como organización para contactar al inversionista"
+     
   end
   def edit
     authorize @investor
