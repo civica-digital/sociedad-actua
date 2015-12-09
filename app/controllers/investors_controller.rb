@@ -20,7 +20,9 @@ class InvestorsController < ApplicationController
     authorize @investor
     redirect_to @investor , notice: "Correo enviado"
   end
-  
+  def login()
+     
+  end
   def edit
     authorize @investor
   end

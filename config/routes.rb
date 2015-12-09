@@ -44,7 +44,10 @@ Rails.application.routes.draw do
       resources :projects, except: :destroy
       resources :events, except: :destroy
     end
+    post 'organizations/login'
     resources :collaborators, except: [:new, :create, :destroy, :index]
     resources :investors, except: [:new, :create, :destroy]
+    post 'investors/login'
+
   end
 end

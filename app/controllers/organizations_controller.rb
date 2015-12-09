@@ -1,6 +1,7 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update , :send_message]
-
+  before_action :authenticate_user!, except: [:show, :index]
+  
   def index
     @organizations = Organization.with_projects
   end
@@ -14,6 +15,9 @@ class OrganizationsController < ApplicationController
     UserMailer.contact_org_email({ "email" => params["email"], "name" => params["name"],"projects" => params["projects"],"causes" => params["causes"], "comments" => params["comments"], "collaborator_name" => Collaborator.where("id = (?)", current_user.profile_id ).first["name"], "collaborator_email" => Collaborator.where("id = (?)", current_user.profile_id ).first["email"] }).deliver
     authorize @organization
     redirect_to @organization , notice: "Correo enviado"
+  end
+
+  def login ()
   end
 
   def edit
