@@ -32,6 +32,7 @@ gem 'underscore-rails'
 gem 'airbrake'
 gem 'pundit'
 gem 'disqus_rails'
+gem 'picky'
 
 group :development do
   gem 'better_errors'
