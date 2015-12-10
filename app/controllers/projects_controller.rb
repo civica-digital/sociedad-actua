@@ -60,6 +60,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def causes
+    skip_authorization
+  end
+
   private
     def set_project
       @project = Project.find(params[:id])
@@ -70,5 +74,5 @@ class ProjectsController < ApplicationController
                                      :direction, :comments_from_direction, :name_of_owner,
                                      :email, :phone, :website, :twitter, :facebook, :organization_id,
                                      :lat, :lng, :other_causes, causes_interest: [], clasification: [])
-  end
+   end
 end
