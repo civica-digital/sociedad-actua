@@ -29,4 +29,8 @@ class Investor < ActiveRecord::Base
   def validate_causes
     self.causes_supported.delete("")
   end
+  
+   def validate_organizations
+    self.organization.delete("")
+  end
 end
