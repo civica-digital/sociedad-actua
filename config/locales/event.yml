@@ -11,6 +11,10 @@ es:
               blank: Este campo no puede estar vacío.
             notes:
               blank: Este campo no puede estar vacío.
+            time:
+              blank: Este campo no puede estar vacío.
+            date:
+              blank: Este campo no puede estar vacío.
 
   events:
     form:

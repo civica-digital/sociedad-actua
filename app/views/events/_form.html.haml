@@ -23,11 +23,11 @@
             .co-md-3
               %p
               = "Fecha"
-              = f.date_field :date, :as => :datetime, order: [:day, :month, :year]
+              = f.date_select :date, :as => :datetime, order: [:day, :month, :year]
               %p
             .co-md-3
               = "Hora"
-              = f.time_field :time
+              = f.time_select :time
           .col-md-12
             %h3.blue
               = t('.map_title')
