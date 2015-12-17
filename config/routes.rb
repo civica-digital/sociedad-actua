@@ -33,10 +33,10 @@ Rails.application.routes.draw do
     end
 
     get '/projects' => 'projects#list', :as => :projects_list
+    get '/causes' => 'projects#causes', :as => :causes_list
     get '/events' => 'events#list', :as => :events_list
 
     resources :organizations, except: [:new, :create, :destroy] do
-      get 'causes', :path => 'causas'
       collection do
         get 'download_csv_project', :path => "descargar_csv_proyectos"
       end
@@ -48,6 +48,5 @@ Rails.application.routes.draw do
     resources :collaborators, except: [:new, :create, :destroy, :index]
     resources :investors, except: [:new, :create, :destroy]
     post 'investors/login'
-
   end
 end
