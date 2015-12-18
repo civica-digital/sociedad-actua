@@ -1,0 +1,18 @@
+.row
+  .col-sm-6
+    %h1.fourth_accent
+      = image_tag 'roles/projects_2x.png', class: 'icon-title'
+      Causas
+
+-get_causes_from(Project.all, by: [:causes_interest, :other_causes, :town]).each_with_index do |(cause, obj),index|
+  %h5{:data => {:toggle => 'collapse', :target => ".projects#{index}"}}
+    =cause
+    .glyphicon.glyphicon-chevron-down
+  .row.panel-collapse.collapse{"aria-labelledby" => "headingOne", :role => "tabpanel",:class => "projects#{index}"}
+    - obj.each do |project|
+      .col-md-4
+        .thumbnail
+          %img{ src: project.photo_project}
+          .caption
+            %h3= truncate(project.name, length: 20)
+            %p= truncate(project.description, length: 30)
