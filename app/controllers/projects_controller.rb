@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  include ProjectsHelper
+
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -54,7 +56,10 @@ class ProjectsController < ApplicationController
   def list
     skip_authorization
     if params[:q]
-      @projects = Project.multisearch(params[:q])
+      projects = Project.multisearch(params[:q])
+      causes = retrive_projects_with CAUSE.search(params[:q]).ids
+
+      @projects = causes.push(*projects).uniq
     else
       @projects = Project.all
     end
