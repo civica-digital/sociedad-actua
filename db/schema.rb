@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20151120144319) do
   create_table "organizations", force: :cascade do |t|
     t.string   "type_organization"
     t.string   "name"
-    t.datetime "remember_created_at", default: '2015-10-30 18:05:57', null: false
+    t.datetime "remember_created_at", default: '2015-10-27 22:05:44', null: false
     t.string   "email"
     t.string   "rfc"
     t.text     "mision"
@@ -136,9 +136,9 @@ ActiveRecord::Schema.define(version: 20151120144319) do
     t.datetime "updated_at",              null: false
     t.integer  "organization_id"
     t.string   "photo_project"
+    t.string   "causes_interest"
     t.float    "lat"
     t.float    "lng"
-    t.string   "causes_interest"
     t.string   "clasification"
     t.string   "other_causes"
     t.string   "town"
