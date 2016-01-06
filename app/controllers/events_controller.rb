@@ -2,7 +2,8 @@ class EventsController < ApplicationController
   before_action :event_params, only: :create
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
- 
+ include Pundit
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
  def show
   authorize @event
   end
@@ -15,7 +16,14 @@ class EventsController < ApplicationController
   end
   def edit
     authorize @event
+   
+
     @organization = Organization.find(params[:organization_id])
+  end
+
+  def user_not_authorized
+    flash[:alert] = I18n.t('event.pundit.default')
+    redirect_to(request.referrer || organization_events_path(@event.organization))
   end
 
   def create
