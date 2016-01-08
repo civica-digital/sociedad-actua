@@ -13,3 +13,9 @@
   // @include button($grey_150, $grey_600);
   @include button($fourth__accent, white);
 }
+
+.btn-secundary, .btn-secundary.disabled {
+  // @include button($grey_150, $grey_600, red);
+  @include button(white, $second__accent,$fourth__accent);
+}
+

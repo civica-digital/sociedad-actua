@@ -27,10 +27,10 @@ $default_text_color: $grey_800;
   text-align: $position;
 }
 
-@mixin button($background_color, $text_color) {
+@mixin button($background_color, $text_color, $border_color:none) {
   background-color: $background_color;
   color: $text_color;
-
+  border: 1px solid $border_color;
   &:hover {
     background-color: $background_color;
     color: $text_color;
