@@ -80,7 +80,7 @@
       .col-md-2.padding-text-map
         = link_to "ver listado", projects_list_path, :class=>"btn btn-secundary"
       .col-md-10.text-right.padding-text-map
-        = link_to "descargar proyectos", download_csv_project_visitors_path(format: :csv),:class=>"btn btn-secundary"
+        = link_to "descargar proyectos", download_csv_project_visitors_path(format: :csv),:class=>"btn btn-secondary"
 
 - if @organizations.count >= 4
   #showcase.row
