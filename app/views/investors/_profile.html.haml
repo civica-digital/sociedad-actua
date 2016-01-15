@@ -11,8 +11,8 @@
       .col-md-8
         %h1.title= @investor.name
         %label= "Causas de interés"
-        %p= @investor.causes_supported.to_a.join(", ")
-
+        %p= "#{@investor.causes_supported.to_a.join(", ")}, #{@investor.other_causes}"
+      
         %hr
 
         %h2.title= "Caracteristicas de proyectos que si apoyamos"
@@ -20,7 +20,11 @@
           - if @investor.investment_type.present?
             .col-md-12
               %label= "Tipo de apoyo"
-              #{@investor.investment_type}
+              #{@investor.investment_type.present? ? @investor.investment_type : ""}
+              #{@investor.voluntering ? "Voluntariado" : ""}
+              #{@investor.money ? ", Dinero" : ""}
+              #{@investor.specie ? ", Especies" : ""}
+              #{@investor.service ? ", Servicios" : ""}
           .col-md-6
             %label= "Rango de montos"
             = number_to_currency @investor.amount
