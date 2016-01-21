@@ -16,9 +16,10 @@
     = disqus_init
   %body
     #main{:role => "main"}
-      .navigation.container
+      .navigation.container-fluid
         / <haml_loud> render &#39;layouts/navigation&#39; </haml_loud>
-        = render 'layouts/top_navbar'
+        .container
+          = render 'layouts/top_navbar'
         = render 'layouts/sub_navbar' unless current_page?(root_path)
 
       .container
