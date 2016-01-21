@@ -50,6 +50,10 @@
   .title {
     color: $blue-800;
     margin-bottom: 0px;
+
+    &__offset {
+      margin-top: 10px;
+    }
   }
 
   .subtitle {
