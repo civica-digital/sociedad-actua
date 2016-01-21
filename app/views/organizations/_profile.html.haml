@@ -14,7 +14,7 @@
           .center-block.pagination-centered
             = link_to "Registrar Evento", new_organization_event_path(@organization), :class=>"btn btn-default" if user_signed_in?
              
-      .col-md-8
+      .col-md-8.offset--text
         %h1.title= @organization.name
         %label= "Misión, Visión, Valores y Objeticos generales"
         %p= @organization.mision
