@@ -48,19 +48,19 @@
         .row
           .col-md-6
             %label= "Sitio web:"
-            #{@organization.site}
+            = link_to   truncate(@investor.site_url, length: 50),  @investor.site_url, target: '_blank', class: "social-url" if  @investor.site_url.present?
           .col-md-6
             %label= "Facebook:"
-            #{@organization.facebook}
+            = link_to   truncate(@investor.facebook_url, length: 50),  @investor.facebook_url, target: '_blank', class: "social-url" if  @investor.facebook_url.present?
           .col-md-6
             %label= "Twitter:"
-            #{@organization.twitter}
+            = link_to   truncate(@investor.twitter_url, length: 50),  @investor.twitter_url, target: '_blank', class: "social-url" if  @investor.twitter_url.present?
           .col-md-6
             %label= "Youtube:"
-            #{@organization.youtube}
+            = link_to   truncate(@investor.youtube_url, length: 50),  @investor.youtube_url, target: '_blank', class: "social-url" if  @investor.youtube_url.present?
           .col-md-6
             %label= "Instagram:"
-            #{@organization.instagram}
+            = link_to   truncate(@investor.instagram_url, length: 50),  @investor.instagram_url, target: '_blank', class: "social-url" if  @investor.instagram_url.present?
 
         %hr
 
