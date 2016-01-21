@@ -31,7 +31,10 @@
   }
 
   .thumb {
-    background-color: #FECD36;
+    background-color: #FFFFFF;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     height: 200px;
 
     img {
