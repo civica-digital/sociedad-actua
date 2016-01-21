@@ -108,8 +108,12 @@ img.thumbnail-icon {
   h1 { margin-bottom: 50px; }
 }
 
-#video, #explore, #map, #showcase {
+#video, #explore, #map {
   @extend .base_landing_section;
+}
+
+#showcase {
+  margin-bottom: 25px;
 }
 
 #explore div {
