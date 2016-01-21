@@ -38,7 +38,8 @@ es:
         contact_information: "3. Información de contacto"
         links: "Escribe las ligas del sitio y redes sociales del evento"
         new_event: "Nuevo evento"
-
+    index:
+      empty: Aún no tienes eventos, crea el primero aquí.
   simple_form:
     labels:
       event:
