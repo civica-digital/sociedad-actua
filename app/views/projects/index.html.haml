@@ -10,9 +10,7 @@
 
 %h4 proyecto(s)
 
-- if @organization.projects.empty?
-  %label.text-center
-    = I18n.t "project.index.empty"
+= render "empty_msg"
 
 - @organization.projects.each do |project|
   .row
