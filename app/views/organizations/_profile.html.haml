@@ -10,9 +10,10 @@
         %p  
         
         .col-md-2
-        .col-md-8  
-          .center-block.pagination-centered
-            = link_to "Registrar Evento", new_organization_event_path(@organization), :class=>"btn btn-default" if current_user == @organization.user
+        .col-md-8
+          - if policy(@organization).update?
+            .center-block.pagination-centered
+              = link_to "Registrar Evento", new_organization_event_path(@organization), :class=>"btn btn-default"
              
       .col-md-8
         %h1.title= @organization.name
