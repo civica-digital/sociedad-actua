@@ -1,0 +1,22 @@
+:plain
+  <script type="text/template" id="events-calendar-template">
+  <div class="clndr-controls calendar-controls">
+    <div class="clndr-previous-button previous-button">&lt;</div>
+    <div class="clndr-next-button next-button">&gt;</div>
+    <div class="current-month"><%= month %> <%= year %></div>
+  </div>
+  <div class="clndr-grid grid">
+    <div class="days-of-the-week clearfix">
+      <% _.each(daysOfTheWeek, function(day) { %>
+        <div class="header-day"><%= day %></div>
+      <% }); %>
+    </div>
+    <div class="days">
+      <% _.each(days, function(day) { %>
+        <div class="<%= day.classes %>" id="<%= day.id %>"><span class="day-number"><%= day.day %></span></div>
+      <% }); %>
+    </div>
+  </div>
+  </script>
+
+= @calendar.view(class: 'full-clndr-template calendar-clndr')

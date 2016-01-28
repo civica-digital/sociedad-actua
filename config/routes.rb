@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     get '/projects' => 'projects#list', :as => :projects_list
     get '/causes' => 'projects#causes', :as => :causes_list
     get '/events' => 'events#list', :as => :events_list
+    get '/events/calendar' => 'events#calendar', :as => :events_calendar
 
     resources :organizations, except: [:new, :create, :destroy] do
       collection do

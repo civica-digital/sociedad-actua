@@ -33,6 +33,8 @@ gem 'airbrake'
 gem 'pundit'
 gem 'disqus_rails'
 gem 'picky'
+gem 'clndr-rails'
+gem 'momentjs-rails'
 
 group :development do
   gem 'better_errors'
