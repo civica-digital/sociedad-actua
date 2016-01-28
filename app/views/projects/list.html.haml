@@ -1,5 +1,5 @@
-- if current_user and current_user.profile.instance_of?(Organization)
-  %a.pull-right.btn.btn-default{:href => new_organization_project_path(current_user.profile) }= "Inicia un nuevo proyecto"
+- if current_user and current_user.profile.respond_to? :projects
+  %a.pull-right.btn.btn-default{:href => new_polymorphic_path([current_user.profile, :project])}= "Inicia un nuevo proyecto"
 
 %h1
   = image_tag 'roles/proyectos_2x.png', class: 'icon-title'
