@@ -11,7 +11,8 @@
         %h1.title.title__offset= @project.name
 
         %p.middle= "un proyecto de"
-        %h2.subtitle= @project.organization.name
+        %h2.subtitle
+          =link_to @project.organization.name, organization_path(@project.organization)
 
         %label= "Descripción"
         %p= @project.description
