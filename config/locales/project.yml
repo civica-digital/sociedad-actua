@@ -23,6 +23,8 @@ es:
       invitation: Puedes editar aquí el proyecto.
       button_text: Editar proyecto
       uses_polices_html: Conoce aquí nuestras <b>Políticas de uso</
+    index:
+      empty: Aún no tienes proyectos, crea el primero aquí.
     notices:
       saved: Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!
       profile_already_exists: Ya tienes un perfil asociado.

@@ -10,6 +10,11 @@
 
 %h4 Evento(s)
 
+- if @organization.events.empty?
+  %label.text-center
+    = I18n.t("event.index.empty")
+
+
 - @organization.events.each do |event|
   .row
     .col-md-4
