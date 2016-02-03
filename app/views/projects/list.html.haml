@@ -15,4 +15,4 @@
         .caption
           %h3.title= truncate(project.name, length: 30)
           %label Organizaci&oacute;n
-          %p= project.organization.name
+          %p= truncate(project.organization.name, length: 80)

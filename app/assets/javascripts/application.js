@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require third/jquery.fittext
 //= require bootstrap-sprockets
 //= require chosen-jquery
 //= require underscore
@@ -21,4 +22,5 @@
 
 $(document).ready(function() {
   $('.with-tooltip').tooltip();
+  $('.caption').fitText();
 });
