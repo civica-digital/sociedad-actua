@@ -38,7 +38,7 @@
       %p Colectivos sin figura jurídica que ejecutan proyectos
 
   .row
-    .col-xs-12.col-sm-offset-2.col-sm-4.text-center
+    .col-xs-12.col-sm-4.text-center
       = link_to investors_path do
         = image_tag 'roles/investors_2x.png', class: 'landing-icon'
         %h3 Inversionistas
@@ -49,6 +49,12 @@
         = image_tag 'roles/collaborators_2x.png', class: 'landing-icon'
         %h3 Colaboradores
       %p Personas interesadas en ayudar en los proyectos sociales
+
+    .col-xs-12.col-sm-4.text-center
+      = link_to events_list_path  do
+        = image_tag 'roles/eventos_grid_2x.png', class: 'landing-icon'
+        %h3 Eventos
+      %p ¿Quieres saber que está haciendo la comunidad de Sociedad Actúa? !No dejes de ver la sección de eventos!
 
 .row
   .col-md-12.map-landing{:id=>"map"}
