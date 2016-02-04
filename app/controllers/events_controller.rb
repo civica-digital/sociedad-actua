@@ -72,11 +72,14 @@ class EventsController < ApplicationController
     skip_authorization
 
     @calendar = Clndr.new("calendar")
-    @calendar.start_with_month = Time.now - 1.year
+    #@calendar.template = Clndr::Template::FULL
     @calendar.template = Clndr::Template.from_html("#events-calendar-template")
 
     Event.all.each do |event|
-      @calendar.add_event(event.time, event.name, { description: event.description })
+      @calendar.add_event(Time.parse(event.date.to_s), event.name, {
+          description: event.description,
+          url: organization_event_path(event.organization, event),
+          time: event.time.strftime('%H:%M') })
     end
   end
   private
