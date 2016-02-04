@@ -17,10 +17,8 @@ es:
     form:
       map_title: Comprueba que la ubicación en el mapa sea correcta, mueve el marcador.
   project:
-    index:
-      edit: Editar
-      show: Ver Proyecto
     show:
+      status: "Estatus: %{status} "
       welcome: ¡Gracias por agregar el proyecto!
       subtitle: Este ya es público.
       invitation: Puedes editar aquí el proyecto.
@@ -28,6 +26,8 @@ es:
       uses_polices_html: Conoce aquí nuestras <b>Políticas de uso</
     index:
       empty: Aún no tienes proyectos, crea el primero aquí.
+      edit: Editar
+      show: Ver Proyecto
     notices:
       saved: Tu información ha sido registrada. ¡Sociedad Actúa será presentado el próximo 4 de noviembre!
       profile_already_exists: Ya tienes un perfil asociado.
