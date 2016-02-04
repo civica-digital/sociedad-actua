@@ -1,0 +1,21 @@
+.calendar-clndr {
+  margin-top: 50px;
+  margin-bottom: 0px;
+  background-color: $grey_150 !important;
+
+  .clndr-controls {
+    background-color: $grey_800 !important;
+  }
+
+  .days-of-the-week {
+    background-color: $second__accent !important;
+  }
+
+  .event-listing-title {
+    background-color: $first__accent !important;
+  }
+
+  .clndr-grid .days .day.event .day-number {
+    border-bottom: 2px solid $fourth__accent;
+  }
+}
