@@ -1,10 +1,10 @@
 class EventsController < ApplicationController
   before_action :event_params, only: :create
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: [:show, :index, :list]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
  include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
- def show
+  def show
   authorize @event
   end
 
@@ -16,8 +16,6 @@ class EventsController < ApplicationController
   end
   def edit
     authorize @event
-   
-
     @organization = Organization.find(params[:organization_id])
   end
 
@@ -55,7 +53,9 @@ class EventsController < ApplicationController
       end
     end
   end
+
   def index
+    skip_authorization
     @organization = Organization.find(params[:organization_id])
   end
 
