@@ -39,3 +39,9 @@ nav.sub-navbar {
   top: 2px;
 }
 
+.alert {
+  @extend .alert;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 0;
+}
