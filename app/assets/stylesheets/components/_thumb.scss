@@ -20,6 +20,7 @@
 
     .logo {
       height: 150px;
+      width: 150px;
       border-radius: 75px;
     }
 
@@ -27,6 +28,10 @@
       color: white;
       font-weight: bold;
       text-align: center;
+    }
+
+    &__placeholder {
+      width: auto !important;
     }
   }
 }
