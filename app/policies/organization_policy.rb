@@ -16,7 +16,7 @@ class OrganizationPolicy < ApplicationPolicy
   end
 
   def edit?
-    update?
+    @user.profile == @record
   end
 
   def destroy?
