@@ -6,6 +6,9 @@
       - projects.each do |p|
         = link_to organization_project_url(p.organization, p) do
           .col-md-3.col-xs-6.thumb
-            = image_tag p.photo_project.mid.url, class: 'logo img-responsive center-block'
+            - if p.photo_project.blank?
+              = image_tag p.photo_project.mid.url, class: 'logo img-responsive center-block thumb__placeholder'
+            - else
+              = image_tag p.photo_project.mid.url, class: 'logo img-responsive center-block'
             %h4.label_thumb= p.name
 
