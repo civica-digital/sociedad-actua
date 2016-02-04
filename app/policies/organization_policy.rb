@@ -1,6 +1,6 @@
 class OrganizationPolicy < ApplicationPolicy
   def update?
-    @user == @record
+    @user.profile == @record
   end
 
   def show?
@@ -16,7 +16,7 @@ class OrganizationPolicy < ApplicationPolicy
   end
 
   def edit?
-    @user.profile == @record
+    update?
   end
 
   def destroy?
