@@ -33,7 +33,12 @@
   - if @project.status?
     .status
       .container
-        %label= "Estatus: #{I18n.t("common.#{@project.status}")}"
+        - if @project.status == "active" 
+          %label= I18n.t('project.show.status',status: "Activo") 
+        - else
+          %label= I18n.t('project.show.status',status: "Concluido")
+        
+        
 
   .profile-section
     .container
