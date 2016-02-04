@@ -6,8 +6,10 @@
     .row
       .col-md-3.offset
         .frame.center-block
-          
+          %span.frame--helper
           %img.center-block.logo{:src => @investor.logo.mid.url }
+
+
       .col-md-8.offset--text
         %h1.title= @investor.name
         %label= "Causas de interés"

@@ -30,17 +30,25 @@
     border-style: solid;
     border-width: 15px;
     background-color: #E5E5E5;
+    white-space: nowrap;
+    text-align: center;
 
-    padding-top: 20px;
-
+    // padding-top: 20px;
+    position: relative;
     .logo {
       
       vertical-align: middle;
-
-      max-width:80%; 
-      height:45px; 
+      display: inline-block;
+      width:30%;
+      max-height:200px;
       transform:scale(3);
-      transform-origin:center top;
+      // transform-origin:center top;
+    }
+
+    &--helper {
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
     }
   }
   label {
