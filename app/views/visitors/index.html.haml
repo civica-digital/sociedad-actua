@@ -7,6 +7,14 @@
       %p.content__desc
         es el lugar de encuentro entre organizaciones, proyectos, inversionistas y personas
 
+  .search-box-bar
+    .container
+      = form_tag(projects_list_path, method: :get, class: '') do
+        .inner-addon.left-addon
+          %i{:class  => "glyphicon glyphicon-search"}
+          = text_field_tag(:q, nil, class: 'search-box', placeholder: "Busca proyectos por nombre, organización, descripción ó causas", maxlength: 50, autocomplete: "off")
+
+
 #explore.row.text-center
   %h1 Descubre
 

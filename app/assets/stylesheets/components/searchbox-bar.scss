@@ -1,0 +1,50 @@
+.search-box-bar {
+  background-color: $blue_600;
+  margin-top: -7px;
+  font-size: 26px;
+  height: 60px;
+
+  .container, form, .inner-addon {
+    height: 100%;
+  }
+  .search-box, .search-box:enabled, .search-box:hover, .search-box:active {
+    border-width: 0px;
+    border-style: 0px;
+    width: 100% !important;
+    background-color: transparent;
+    color: white;
+    vertical-align: middle;
+    float: none;
+    outline: none;
+    padding-left: 50px;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  input::-webkit-input-placeholder {
+    color: $grey_175;
+    opacity: 0.8;
+  }
+
+  input:-moz-placeholder { /* Firefox 18- */
+    color: $grey_175;
+    opacity: 0.8;
+  }
+
+  input::-moz-placeholder {  /* Firefox 19+ */
+    color: $grey_175;
+    opacity: 0.8;
+  }
+
+  input:-ms-input-placeholder {
+    color: $grey_175;
+    opacity: 0.8;
+  }
+
+  .glyphicon {
+    color: $grey_175;
+    height: 100%;
+    top: 7px;
+    opacity: 0.8;
+  }
+}
