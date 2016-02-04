@@ -50,19 +50,19 @@
         .row
           .col-md-6
             %label= "Sitio web:"
-            #{@organization.site}
+            =link_to truncate(@organization.site, length: 50), @organization.site, target: "_blank", class: "social-url"
           .col-md-6
             %label= "Facebook:"
-            #{@organization.facebook}
+            =link_to truncate(@organization.facebook, length: 50), @organization.facebook, target: "_blank", class: "social_url"
           .col-md-6
             %label= "Twitter:"
-            #{@organization.twitter}
+            =link_to truncate(@organization.twitter, length: 50), @organization.twitter, target: "_blank", class: "social-url"
           .col-md-6
             %label= "Youtube:"
-            #{@organization.youtube}
+            =link_to truncate(@organization.youtube, length: 50), @organization.youtube, target: "_blank", class: "social-url"
           .col-md-6
             %label= "Instagram:"
-            #{@organization.instagram}
+            =link_to truncate(@organization.instagram, length: 50), @organization.instagram, target: "_blank", class: "social-url"
 
         %hr
 
