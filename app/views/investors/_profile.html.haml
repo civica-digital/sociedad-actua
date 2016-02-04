@@ -117,7 +117,7 @@
               = submit_tag "Contactar" ,class: "btn btn-default"
                
 
-= render "layouts/organizations", title: "Conoce nuestros proyectos", organizations: @organizations          
+= render "layouts/organizations", title:  I18n.t('investor.show.projects_supported'), organizations: @organizations          
 
 :javascript
   window.onload = function(){
