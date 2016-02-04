@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :event_params, only: :create
-  before_action :authenticate_user!, except: [:show, :index, :list]
+  before_action :authenticate_user!, except: [:show, :index, :calendar, :list]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
  include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -68,7 +68,20 @@ class EventsController < ApplicationController
     end
   end
 
+  def calendar
+    skip_authorization
 
+    @calendar = Clndr.new("calendar")
+    #@calendar.template = Clndr::Template::FULL
+    @calendar.template = Clndr::Template.from_html("#events-calendar-template")
+
+    Event.all.each do |event|
+      @calendar.add_event(Time.parse(event.date.to_s), event.name, {
+          description: event.description,
+          url: organization_event_path(event.organization, event),
+          time: event.time.strftime('%H:%M') })
+    end
+  end
   private
     def set_event
       @event = Event.find(params[:id])
