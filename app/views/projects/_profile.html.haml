@@ -95,14 +95,14 @@
         marker = handler.addMarker({
         lat: position.coords.latitude,
         lng: position.coords.longitude
-        },{ draggable: true});
+        },{ draggable: false});
         markersArray.push(marker);
         codeLatLng(position.coords.latitude,position.coords.longitude);
       }else{
           marker = handler.addMarker({
           lat: #{@project.lat.nil? ? 0 : @project.lat },
           lng: #{@project.lng.nil? ? 0 : @project.lng}
-        },{ draggable: true});
+        },{ draggable: false});
           markersArray.push(marker);
           codeLatLng(#{@project.lat.nil? ? 0 : @project.lat },#{@project.lng.nil? ? 0 : @project.lng });
         }
