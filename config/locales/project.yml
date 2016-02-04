@@ -40,7 +40,8 @@ es:
         address_information: "2. ¿En dónde se lleva a cabo tu proyecto?"
         contact_information: "3. Información de contacto"
         links: "Escribe las ligas del sitio y redes sociales del proyecto"
-        new_project: "Nuevo proyecto"
+        new: "Nuevo proyecto"
+        edit: "Editar proyecto"
 
   simple_form:
     labels:
