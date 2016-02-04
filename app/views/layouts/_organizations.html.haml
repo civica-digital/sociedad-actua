@@ -4,8 +4,11 @@
 
     .row
       - organizations.each do |p|
-        = link_to organization_path(p) do
-          .col-md-3.col-xs-6.thumb
-            = image_tag p.logo.mid.url, class: 'logo img-responsive center-block'
+        .col-md-3.col-xs-6.thumb
+          = link_to organization_path(p) do
+            - if p.logo.blank?
+              = image_tag p.logo.mid.url, class: 'logo img-responsive center-block thumb__placeholder'
+            - else
+              = image_tag p.logo.mid.url, class: 'logo img-responsive center-block'
             %h4.label_thumb= p.name
 
