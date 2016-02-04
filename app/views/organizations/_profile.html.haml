@@ -12,7 +12,7 @@
         
         .col-md-2
         .col-md-8
-          - if policy(@organization).update?
+          - if current_user && policy(@organization).update?
             .center-block.pagination-centered
               = link_to "Registrar Evento", new_organization_event_path(@organization), :class=>"btn btn-default"
              
