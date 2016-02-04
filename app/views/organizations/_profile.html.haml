@@ -7,7 +7,7 @@
       .col-md-3.offset
         .frame.center-block
           %span.frame--helper
-          %img.center-block.logo{:src => @organization.logo.mid.url }
+          = image_tag @organization.logo.mid.url, class: 'center-block logo'
         %p  
         
         .col-md-2
