@@ -32,4 +32,7 @@
                   - unless project.photo_project.thumb.url.blank?
                     %li.item
                       = link_to organization_project_path(project.organization, project) do
-                        = image_tag project.photo_project.thumb.url, class: 'mini-thumb'
+                        - if project.photo_project.to_s == 'placeholder/Project_placeholder.png'
+                          = image_tag  'roles/projects_2x.png', class: "mini-thumb mini-thumb--placeholder"
+                        - else
+                          = image_tag  project.photo_project.thumb.url, class: "mini-thumb"
