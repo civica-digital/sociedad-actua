@@ -13,8 +13,9 @@
   h5 { @include heading-5($heading_color); }
   a { color: $heading_color !important; }
 
-  h3, h5, p {
+   h5, p {
     font-weight: 500 !important;
+    color: $text_color ;
   }
 }
 .showcase__thumbnail.sh-photo {
@@ -63,11 +64,11 @@
   }
 
   &.sh-content-third-accent-th {
-    @include base__thumbnail($third__accent, $second__accent);
+    @include base__thumbnail($third__accent, $second__accent,$grey_250);
   }
 
   &.sh-content-fourth-accent-th {
-    @include base__thumbnail($fourth__accent);
+    @include base__thumbnail($fourth__accent,white,$yellow_600);
   }
 
   &.sh-content-fifth-accent-th {
