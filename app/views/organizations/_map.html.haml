@@ -17,50 +17,49 @@
 
 
 :javascript
-      //Cargamos el mapa y llamamos la localizacion del usuario
 
-      function loadMap(){
-        handler = Gmaps.build('Google');
-        infowindow = new google.maps.InfoWindow();
-        handler.buildMap({provider: {scrollwheel: false}, internal: {id: 'geolocation'} }, function(){
-          geocoder = new google.maps.Geocoder();
+  function loadMap(){
+      handler = Gmaps.build('Google');
+      infowindow = new google.maps.InfoWindow();
+      handler.buildMap({provider: {scrollwheel: false}, internal: {id: 'geolocation'} }, function(){
+        geocoder = new google.maps.Geocoder();
+        user_has_location = #{@organization.lat.nil?};
+        if(user_has_location){
           if(navigator.geolocation){
             navigator.geolocation.getCurrentPosition(displayOnMap);
           }
-        });
-      }
-
-      //mostramos en el mapa la ubicacion del usuario
-      function displayOnMap(position){
-          marker = handler.addMarker({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          },{ draggable: true});
-          markersArray.push(marker);
-          codeLatLng(position.coords.latitude,position.coords.longitude);
-        handler.map.centerOn(marker);
-        handler.getMap().setZoom(18);
-        google.maps.event.addListener(marker.serviceObject, 'dragend', function() {
-          codeLatLng(this.getPosition().lat(),this.getPosition().lng());
-        });
-
-    }
-
-
-    //obtiene las coordenadas a partir de una direccion en Mexico
-    function address_latlng(address){
-      $('#spinner').show();
-      geocoder.geocode( { 'address': address, 'region':  'mx',}, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          var latitude = results[0].geometry.location.lat();
-          var longitude = results[0].geometry.location.lng();
-          clearOverlays(latitude, longitude);
-
+        }else{
+          displayOnMap('loading')
         }
       });
     }
 
-    $(document).ready(loadMap);
 
-    delay(function() {
-      address_latlng("#{@organization.address} #{@organization.colonia} #{@organization.town}")}, 3000);
+  function displayOnMap(position){
+  console.log("#{@organization.lat.nil? ? 0 : @organization.lat },#{@organization.lng.nil? ? 0 : @organization.lng }");
+      if(position!='loading'){
+        marker = handler.addMarker({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+        },{ draggable: false});
+        markersArray.push(marker);
+        codeLatLng(position.coords.latitude,position.coords.longitude);
+      }else{
+          marker = handler.addMarker({
+          lat: #{@organization.lat.nil? ? 0 : @organization.lat },
+          lng: #{@organization.lng.nil? ? 0 : @organization.lng}
+        },{ draggable: false});
+          markersArray.push(marker);
+          codeLatLng(#{@organization.lat.nil? ? 0 : @organization.lat },#{@organization.lng.nil? ? 0 : @organization.lng });
+        }
+
+
+      handler.map.centerOn(marker);
+      handler.getMap().setZoom(18);
+      google.maps.event.addListener(marker.serviceObject, 'dragend', function() {
+        codeLatLng(this.getPosition().lat(),this.getPosition().lng());
+      });
+
+  }
+
+  $(document).ready(loadMap);
