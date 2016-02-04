@@ -1,32 +1,31 @@
 %script{:type=>"text/template", :id => "events-calendar-template"}
-  = content_tag(:div, nil, class:'clearfix full-clndr-template') do
-    = content_tag(:div,nil,class:'clndr-controls') do
-      =content_tag(:div,'<',class: 'clndr-previous-button')
-      =content_tag(:div,'>',class: 'clndr-next-button')
-      =content_tag(:div,'<%= month %> <%= year %>'.html_safe,class: 'current-month')
+  = content_tag(:div,nil,class:'clndr-controls') do
+    =content_tag(:div,'<',class: 'clndr-previous-button')
+    =content_tag(:div,'>',class: 'clndr-next-button')
+    =content_tag(:div,'<%= month %> <%= year %>'.html_safe,class: 'current-month')
 
-    =content_tag(:div,nil,class:'clndr-grid full') do
-      =content_tag(:div,nil, class:'days-of-the-week clearfix') do
-        = '<% _.each(daysOfTheWeek, function(day) { %>'.html_safe
-        = content_tag(:div,'<%= day %>'.html_safe,class:'header-day')+'<% }); %>'.html_safe
+  =content_tag(:div,nil,class:'clndr-grid full') do
+    =content_tag(:div,nil, class:'days-of-the-week clearfix') do
+      = '<% _.each(daysOfTheWeek, function(day) { %>'.html_safe
+      = content_tag(:div,'<%= day %>'.html_safe,class:'header-day')+'<% }); %>'.html_safe
 
-      =content_tag(:div,nil,class:'days')do
-        = '<% _.each(days, function(day) { %>'.html_safe
-        = '   <div class="<%= day.classes %>" id="<%= day.id %>"><span class="day-number"><%= day.day %></span></div> <% }); %>'.html_safe
-
-
-    =content_tag(:div,nil,class:'event-listing') do
-      =content_tag(:div, I18n.t("events.calendar.event_listing_title"), class: 'event-listing-title')
-      = '<% _.each(eventsThisMonth, function(event) { %>'.html_safe
-      = content_tag(:div,nil,class: 'event-item') do
-        = '<a href="<%= event.url %>" class="event-item-name"><%= event.title %></a>'.html_safe
-        =content_tag(:div, '<%= event.date %> <%= event.time %>'.html_safe, class: 'event-item-location')
-        =content_tag(:div, '<%= event.description %> '.html_safe, class: 'event-item-location')
-
-      = '<% }); %>'.html_safe
+    =content_tag(:div,nil,class:'days')do
+      = '<% _.each(days, function(day) { %>'.html_safe
+      = '   <div class="<%= day.classes %>" id="<%= day.id %>"><span class="day-number"><%= day.day %></span></div> <% }); %>'.html_safe
 
 
-= @calendar.view(class: 'full-clndr-template calendar-clndr')
+  =content_tag(:div,nil,class:'event-listing') do
+    =content_tag(:div, I18n.t("events.calendar.event_listing_title"), class: 'event-listing-title')
+    = '<% _.each(eventsThisMonth, function(event) { %>'.html_safe
+    = content_tag(:div,nil,class: 'event-item') do
+      = '<a href="<%= event.url %>" class="event-item-name"><%= event.title %></a>'.html_safe
+      =content_tag(:div, '<%= event.date %> <%= event.time %>'.html_safe, class: 'event-item-location')
+      =content_tag(:div, '<%= event.description %> '.html_safe, class: 'event-item-location')
+
+    = '<% }); %>'.html_safe
+
+
+= @calendar.view(class: 'calendar-clndr')
 
 :javascript
   $("#calendar-clndr").removeClass('blank-clndr-template')
