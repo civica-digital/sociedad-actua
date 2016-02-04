@@ -199,3 +199,17 @@ $default_text_color: $grey_800;
     background-color: $navbar_background_color !important;
   }
 }
+
+
+@mixin profile__link {
+  .social-url {
+    text-decoration: none;
+    color: $gray-dark;
+    display: block;
+    margin-bottom: 20px;
+
+    &:hover{
+      color: $blue_800;
+    }
+  }
+}

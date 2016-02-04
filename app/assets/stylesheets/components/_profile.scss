@@ -62,4 +62,6 @@
   .title {
     color: $blue-800;
   }
+
+  @include profile__link;
 }

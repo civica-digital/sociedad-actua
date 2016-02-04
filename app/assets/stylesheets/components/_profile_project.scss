@@ -67,16 +67,7 @@
     margin-bottom: 0px;
   }
 
-  .social-url {
-    text-decoration: none;
-    color: $gray-dark;
-    display: block;
-    margin-bottom: 20px;
-
-    &:hover{
-      color: $blue_800;
-    }
-  }
+  @include profile__link;
 
   .comments {
     background-color: white !important;
