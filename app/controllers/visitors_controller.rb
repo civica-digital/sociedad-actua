@@ -110,7 +110,7 @@ class VisitorsController < ApplicationController
   end
 
   def load_markers
-    @markers =@projects.select { |elem| elem.lat.present? }.map{ |project| {lat: project.lat , lng: project.lng , name: project.name.gsub('"'," "), id: project.id , url: organization_project_path(project.organization, project.id) , status: project.status }}
+    @markers =@projects.select { |elem| elem.lat.present? }.map{ |project| {lat: project.lat , lng: project.lng , name: project.name.gsub('"'," "), id: project.id , url: polymorphic_path([project.projectable, project]) , status: project.status }}
   end
 
    

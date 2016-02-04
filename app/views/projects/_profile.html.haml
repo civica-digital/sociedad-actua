@@ -12,7 +12,7 @@
 
         %p.middle= "un proyecto de"
         %h2.subtitle
-          =link_to @project.organization.name, organization_path(@project.organization)
+          =link_to @project.projectable.name, polymorphic_path([@project.projectable])
           - @collaborators.each do |clb|
             |
             = link_to clb.name, organization_path(clb)

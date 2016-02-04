@@ -4,7 +4,7 @@
 
     .row
       - projects.each do |p|
-        = link_to organization_project_url(p.organization, p) do
+        = link_to polymorphic_url([p.projectable, p]) do
           .col-md-3.col-xs-6.thumb
             - if p.photo_project.blank?
               = image_tag p.photo_project.mid.url, class: 'logo img-responsive center-block thumb__placeholder'
