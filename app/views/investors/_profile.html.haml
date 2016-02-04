@@ -7,8 +7,7 @@
       .col-md-3.offset
         .frame.center-block
           %span.frame--helper
-          %img.center-block.logo{:src => @investor.logo.mid.url }
-
+          = image_tag @investor.logo.mid.url, class: "center-block logo"
 
       .col-md-8.offset--text
         %h1.title= @investor.name

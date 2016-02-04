@@ -1,6 +1,6 @@
 class InvestorPolicy < ApplicationPolicy
   def update?
-    @user == @record
+    @user.profile == @record
   end
 
   def show?

@@ -19,7 +19,7 @@
   .row
     .col-md-4
       .thumbnail
-        %img{ src: event.image}
+        = image_tag event.image
         .caption
           %h3= truncate(event.name, length: 20)
           %p= truncate(event.description, length: 30)

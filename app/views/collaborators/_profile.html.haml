@@ -6,7 +6,7 @@
     .row
       .col-md-3.offset
         .frame.center-block
-          %img.center-block.logo{:src => @collaborator.logo.mid.url }
+          = image_tag @collaborator.logo.mid.url, class: "center-block logo"
       .col-md-8.offset--text
         %h1.title= @collaborator.name
 

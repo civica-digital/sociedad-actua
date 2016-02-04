@@ -6,7 +6,7 @@
     .row
       .col-md-6
         .frame.center-block
-          %img.center-block.logo{:src => @project.photo_project.mid.url }
+          = image_tag @project.photo_project.mid.url, class: 'center-block logo'
       .col-md-6
         %h1.title.title__offset= @project.name
 
