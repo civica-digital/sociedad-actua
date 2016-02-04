@@ -32,17 +32,18 @@
       %p Organizaciones legalmente constituidas que ejecutan proyectos
 
     .col-xs-12.col-sm-4.text-center
+      = link_to investors_path do
+        = image_tag 'roles/investors_2x.png', class: 'landing-icon'
+        %h3 Inversionistas
+      %p Organizaciones y personas interesadas en invertir en los proyectos sociales
+
+  .row
+    .col-xs-12.col-sm-4.text-center
       = link_to organizations_path do
         = image_tag 'roles/groups_2x.png', class: 'landing-icon'
         %h3 Grupos
       %p Colectivos sin figura jurídica que ejecutan proyectos
 
-  .row
-    .col-xs-12.col-sm-4.text-center
-      = link_to investors_path do
-        = image_tag 'roles/investors_2x.png', class: 'landing-icon'
-        %h3 Inversionistas
-      %p Organizaciones y personas interesadas en invertir en los proyectos sociales
 
     .col-xs-12.col-sm-4.text-center
       = link_to registration_url(user_type: "collaborator")  do
