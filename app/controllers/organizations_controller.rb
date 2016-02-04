@@ -27,7 +27,8 @@ class OrganizationsController < ApplicationController
     authorize @organization
   end
 
-  def update
+  def update 
+ 
     authorize @organization
     respond_to do |format|
       if @organization.update(organization_params)

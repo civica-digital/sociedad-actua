@@ -42,10 +42,16 @@
     %h3= I18n.t('organization.form.sections.contact_information')
     %h4.section-notice.blue
       = I18n.t('organization.form.sections.check_private_information')
+    
+    #mapa_evento{:style => "width: 100%; height: 400px;"}
+    = f.input :lat,input_html: { type: "hidden" },  label: false
+    = f.input :lng, input_html: { type: "hidden" },label: false
+    #spinner.spinner{:style => "display:none;"}
+      = image_tag "spinner.gif", class: "img-responsive center-block" ,:id=>"img-spinner"
     .row
       .col-md-4
         .col-md-10
-          = f.input :address
+          = f.input :address,:onkeypress => "loading();"
         .col-md-2
           = f.check_box :show_address
       .col-md-4
@@ -87,3 +93,43 @@
         .col-md-4= f.input :blog
 
   = f.button :submit, "Guardar organización", class: 'pull-right'
+
+:javascript
+  $(document).ready(loadMap);
+  function loadMap(){
+      handler = Gmaps.build('Google');
+      infowindow = new google.maps.InfoWindow();
+      handler.buildMap({provider: {scrollwheel: false}, internal: {id: 'mapa_evento'} }, function(){
+        geocoder = new google.maps.Geocoder();
+        user_has_location = #{raw @organization.lat.nil?};
+        if(user_has_location){
+          if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(displayOnMap);
+          }
+        }else{
+          displayOnMap('loading')
+        }
+      });
+    }
+  function displayOnMap(position){
+      if(position!='loading'){
+        marker = handler.addMarker({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+        },{ draggable: true});
+        markersArray.push(marker);
+        codeLatLngEvents(position.coords.latitude,position.coords.longitude);
+      }else{
+          marker = handler.addMarker({
+          lat: #{raw @organization.lat.nil? ? 0 : @organization.lat },
+          lng: #{raw@organization.lng.nil? ? 0 : @organization.lng } 
+        },{ draggable: true});
+          markersArray.push(marker);
+          codeLatLngEvents(#{raw @organization.lat.nil? ? 0 : @organization.lat } ,#{raw@organization.lng.nil? ? 0 : @organization.lng } );
+        }
+      handler.map.centerOn(marker);
+      handler.getMap().setZoom(18);
+      google.maps.event.addListener(marker.serviceObject, 'dragend', function() {
+        codeLatLngEvents(this.getPosition().lat(),this.getPosition().lng());
+      });
+  }
