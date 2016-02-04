@@ -108,15 +108,6 @@
                 %a{name: "send", id: "send", value: "send" , class: "btn btn-default", role: "button"} Contactar
               -msj = I18n.t('simple_form.placeholders.investor.no_projects')
 
-            -else
-              %a{name: "send", id: "send", value: "send" , class: "btn btn-default", role: "button"} Contactar
-              -msj = I18n.t('simple_form.placeholders.investor.no_organization')
-          
-          -else
-            =form_tag({:action => 'login'}, {:method => :post} ) do 
-              = submit_tag "Contactar" ,class: "btn btn-default"
-               
-
 = render "layouts/organizations", title:  I18n.t('investor.show.projects_supported'), organizations: @organizations          
 
 :javascript
