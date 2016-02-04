@@ -95,7 +95,7 @@
     %h3.fourth_accent
       = image_tag 'other/showcase_2x.png', class: 'icon-title'
       Descubre
-    %h5.fourth_accent Descubre lo que está pasando en el lugar donde vives
+    %h5.showcase__subtitle.fourth_accent Descubre lo que está pasando en el lugar donde vives
     .showcase
       = render "showcase", organizations: @organizations.take(2), type: :even
       = render "showcase", organizations: [@organizations.third, @organizations.fourth], type: :odd
