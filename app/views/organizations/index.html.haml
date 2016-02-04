@@ -28,7 +28,7 @@
             - if organization.projects.any?
               %label= "Proyectos"
               %ul.list.list-inline
-                - organization.projects.each do |project|
+                - organization.projects.limit(4).each do |project|
                   - unless project.photo_project.thumb.url.blank?
                     %li.item
                       = link_to organization_project_path(project.organization, project) do
