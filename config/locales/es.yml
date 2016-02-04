@@ -23,4 +23,5 @@ es:
     logic:
       false_: "No"
       true_: "Si"
-    
+
+  user_not_authorized: "¡Oops! No estás autorizado para ejecutar esta acción."
