@@ -125,10 +125,21 @@
           markersArray.push(marker);
         }
       }
-      if(markers[0]["lat"]+"" == ""){
-        handler.map.centerOn(["25.6754382","-100.3483728"]);
-      }else{
-        handler.map.centerOn([markers[markers.length-1]["lat"],markers[markers.length-1]["lng"]]);
+      if(#{raw(@markers.count)}<=0){
+       geocoder.geocode( { 'address': "#{@city}, Nuevo Leon", 'region':  'mx',}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            var latitude = results[0].geometry.location.lat();
+            var longitude = results[0].geometry.location.lng();
+             handler.map.centerOn([latitude,longitude]);
+          } 
+        });
+      }
+      else {
+        if(markers[0]["lat"]+"" == ""){
+          handler.map.centerOn(["25.6754382","-100.3483728"]);
+        }else{
+          handler.map.centerOn([markers[markers.length-1]["lat"],markers[markers.length-1]["lng"]]);
+        }
       }
 
       handler.getMap().setZoom(10);
