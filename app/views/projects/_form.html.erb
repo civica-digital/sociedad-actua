@@ -36,6 +36,9 @@
       <% [:website, :facebook, :twitter].each do |e| %>
         <%= f.input e %>
       <% end %>
+      <div>
+        <%= f.input :collaborators, collection: @collaborator, include_blank: true, multiple: true, input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.investor.organizations'), multiple: true, class: "chosen-select", tabindex: "2"  } %>
+      </div>
       <%= f.button :submit, "Crear proyecto" %>
     <% end %>
   </div>

@@ -8,3 +8,8 @@ $ ->
     allow_single_deselect: true
     no_results_text: 'No se encontraron resultados'
     width: '200px'
+
+  $("#project_collaborators").chosen
+    allow_single_deselect: true
+    no_results_text: 'No se encontraron resultados'
+    width: '200px'

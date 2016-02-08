@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120144319) do
+ActiveRecord::Schema.define(version: 20160208095725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20151120144319) do
     t.float    "lat"
     t.float    "lng"
     t.time     "time"
+    t.string   "collaborators"
   end
 
   create_table "investors", force: :cascade do |t|
@@ -81,12 +82,15 @@ ActiveRecord::Schema.define(version: 20151120144319) do
     t.boolean  "specie"
     t.boolean  "service"
     t.string   "organization"
+    t.integer  "organization_id"
   end
+
+  add_index "investors", ["organization_id"], name: "index_investors_on_organization_id", using: :btree
 
   create_table "organizations", force: :cascade do |t|
     t.string   "type_organization"
     t.string   "name"
-    t.datetime "remember_created_at", default: '2015-10-27 22:05:44', null: false
+    t.datetime "remember_created_at", default: '2015-10-30 18:05:57', null: false
     t.string   "email"
     t.string   "rfc"
     t.text     "mision"
@@ -136,12 +140,13 @@ ActiveRecord::Schema.define(version: 20151120144319) do
     t.datetime "updated_at",              null: false
     t.integer  "organization_id"
     t.string   "photo_project"
-    t.string   "causes_interest"
     t.float    "lat"
     t.float    "lng"
+    t.string   "causes_interest"
     t.string   "clasification"
     t.string   "other_causes"
     t.string   "town"
+    t.string   "collaborators"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -196,4 +201,5 @@ ActiveRecord::Schema.define(version: 20151120144319) do
 
   add_index "users_users", ["user_id", "user_id"], name: "index_users_users_on_user_id_and_user_id", using: :btree
 
+  add_foreign_key "investors", "organizations"
 end

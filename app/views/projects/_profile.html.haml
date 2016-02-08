@@ -13,6 +13,9 @@
         %p.middle= "un proyecto de"
         %h2.subtitle
           =link_to @project.organization.name, organization_path(@project.organization)
+          - @collaborators.each do |clb|
+            |
+            = link_to clb.name, organization_path(clb)
 
         %label= "Descripción"
         %p= @project.description
