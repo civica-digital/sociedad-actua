@@ -3,7 +3,11 @@ class OrganizationsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   
   def index
-    @organizations = Organization.with_projects
+    if params[:type]
+      @organizations =Organization.where("type_organization = 'groups'")
+    else
+      @organizations = Organization.with_projects
+    end
   end
 
   def show
