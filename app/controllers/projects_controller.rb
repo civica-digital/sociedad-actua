@@ -9,18 +9,21 @@ class ProjectsController < ApplicationController
 
   def show
     authorize @project
+    @collaborators = @project.collaborators.map { |id| Organization.find(id) }
     render :layout => "profiles"
   end
 
   def new
     @organization = Organization.find(params[:organization_id])
     @project = @organization.projects.new
+    @collaborator = Organization.all
     authorize @project
   end
 
   def edit
     authorize @project
     @organization = Organization.find(params[:organization_id])
+    @collaborator = Organization.all
   end
 
   def create
@@ -78,6 +81,6 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(:name, :goals, :description, :status, :photo_project,:town,
                                      :direction, :comments_from_direction, :name_of_owner,
                                      :email, :phone, :website, :twitter, :facebook, :organization_id,
-                                     :lat, :lng, :other_causes, causes_interest: [], clasification: [])
+                                     :lat, :lng, :other_causes, causes_interest: [], clasification: [], collaborators: [])
    end
 end
