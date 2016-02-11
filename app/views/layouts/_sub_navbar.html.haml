@@ -1,11 +1,10 @@
 %nav.sub-navbar.navbar.navbar-default
   .container
-    .navbar-header
-      %button.navbar-toggle.collapsed{ type: "button", 'data-toggle'=> "collapse", 'data-target'=> "#navbar", 'aria-expanded'=> "false", 'aria-controls'=> "navbar" }
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
+    .navbar-header.search-bar
+      = form_tag(projects_list_path, method: :get, class: 'navbar-form navbar-left') do
+        .inner-addon.right-addon
+          = text_field_tag(:q, nil, class: 'form-control inline', placeholder: "Busca proyectos por nombre, organización, descripción ó causas")
+          %i{:class  => "glyphicon glyphicon-search "}
     #navbar.sub-navbar.navbar-collapse.collapse
       %ul.nav.navbar-nav
         %li.boldest= link_to 'Explorar', root_path, class: 'navbar-brand'

@@ -45,3 +45,16 @@ nav.sub-navbar {
   font-size: 20px;
   margin-bottom: 0;
 }
+
+
+.search-bar {
+  .navbar-form {
+    border: none;
+    box-shadow: none;
+    margin: auto;
+  }
+
+  .form-control {
+    width: 100% !important;
+  }
+}
