@@ -36,3 +36,105 @@
     float: none;
     display: table-cell;
 }
+
+//margins-paddings:
+$m-xxs: 2px 4px;
+$m-xs:  5px;
+$m-sm:  10px;
+$m:     15px;
+$m-md:  20px;
+$m-lg:  30px;
+$m-xl:  50px;
+$m-xxl: 60px;
+$m-n:   0;
+$m-1:   1px;
+
+//MARGINS
+.m-xxs{margin: $m-xxs}
+.m-xs{margin: $m-xs;}
+.m-sm{margin: $m-sm;}
+.m{margin: $m;}
+.m-md{margin: $m-md;}
+.m-lg{margin: $m-lg;}
+.m-xl{margin: $m-xl;}
+.m-n{margin: $m-n!important}
+
+.m-l-none{margin-left: $m-n}
+.m-l-xs{margin-left: $m-xs;}
+.m-l-sm{margin-left: $m-sm;}
+.m-l{margin-left: $m;}
+.m-l-md{margin-left: $m-md;}
+.m-l-lg{margin-left: $m-lg;}
+.m-l-xl{margin-left: $m-xl;}
+
+.m-t-none{margin-top: $m-n}
+.m-t-xxs{margin-top: $m-1;}
+.m-t-xs{margin-top: $m-xs;}
+.m-t-sm{margin-top: $m-sm;}
+.m-t{margin-top: $m;}
+.m-t-md{margin-top: $m-md;}
+.m-t-lg{margin-top: $m-lg;}
+.m-t-xl{margin-top: $m-xl;}
+.m-t-xxl{margin-top: $m-xxl;}
+.m-t--1{margin-top: -1px;}
+
+.m-r-none{margin-right: $m-n}
+.m-r-xxs{margin-right: $m-1;}
+.m-r-xs{margin-right: $m-xs;}
+.m-r-sm{margin-right: $m-sm;}
+.m-r{margin-right: $m;}
+.m-r-md{margin-right: $m-md;}
+.m-r-lg{margin-right: $m-lg;}
+.m-r-xl{margin-right: $m-xl;}
+
+.m-b-none{margin-bottom: $m-n}
+.m-b-xxs{margin-bottom: $m-1;}
+.m-b-xs{margin-bottom: $m-xs;}
+.m-b-sm{margin-bottom: $m-sm;}
+.m-b{margin-bottom: $m;}
+.m-b-md{margin-bottom: $m-md;}
+.m-b-lg{margin-bottom: $m-lg;}
+.m-b-xl{margin-bottom: $m-xl;}
+
+//PADDINGS
+.p-0{padding:0}
+.p-l-0{padding-left:0}
+.p-r-0{padding-right:0}
+.p-t-0{padding-top:0}
+.p-b-0{padding-bottom:0}
+
+.p-xxs{padding: $m-xxs}
+.p-xs{padding: $m-xxs $m-xs;}
+.p-sm{padding: $m-xs $m-sm;}
+.p{padding: $m-sm $m;}
+.p-md{padding: $m $m-md;}
+.p-lg{padding: $m-md $m-lg;}
+.p-xl{padding: $m-lg $m-xl;}
+.p-n{padding: $m-n!important}
+
+.p-l-none{padding-left: $m-n}
+.p-l-xs{padding-left: $m-xs;}
+.p-l-sm{padding-left: $m-sm;}
+.p-l{padding-left: $m;}
+.p-l-md{padding-left: $m-md;}
+.p-l-lg{padding-left: $m-lg;}
+.p-l-xl{padding-left: $m-xl;}
+.p-l-xxl{padding-left: $m-xxl;}
+
+.p-t-none{padding-top: $m-n}
+.p-t-xs{padding-top: $m-xs;}
+.p-t-sm{padding-top: $m-sm;}
+.p-t{padding-top: $m;}
+.p-t-md{padding-top: $m-md;}
+.p-t-lg{padding-top: $m-lg;}
+.p-t-xl{padding-top: $m-xl;}
+.p-t-xxl{padding-top: $m-xxl;}
+
+.p-b-none{padding-bottom: $m-n}
+.p-b-xs{padding-bottom: $m-xs;}
+.p-b-sm{padding-bottom: $m-sm;}
+.p-b{padding-bottom: $m;}
+.p-b-md{padding-bottom: $m-md;}
+.p-b-lg{padding-bottom: $m-lg;}
+.p-b-xl{padding-bottom: $m-xl;}
+.p-b-xxl{padding-bottom: $m-xxl;}
