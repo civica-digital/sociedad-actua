@@ -20,8 +20,8 @@
         / <haml_loud> render &#39;layouts/navigation&#39; </haml_loud>
         .container
           = render 'layouts/top_navbar'
-        = render 'layouts/sub_navbar' unless current_page?(root_path)
-        = render 'layouts/messages'
+          = render 'layouts/sub_navbar' unless current_page?(root_path)
+          = render 'layouts/messages'
 
       = yield :landing
 
