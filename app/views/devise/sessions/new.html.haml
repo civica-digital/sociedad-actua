@@ -1,13 +1,14 @@
-.authform
-  = form_for(resource, :as => resource_name, :url => session_path, :html => { :role => 'form'}) do |f|
-    %h3= t('form.sign_in.title')
-    = devise_error_messages!
-    .form-group
-      = f.label t('form.sign_in.email')
-      = f.email_field :email, :autofocus => true, class: 'form-control'
-    .form-group
-      = f.label t('form.sign_in.password')
-      = f.password_field :password, class: 'form-control'
-    = link_to t('form.sign_in.forgot_password'), new_password_path(resource_name)
-    .form-group.text-right
-      = f.submit t('form.sign_in.submit'), class: 'btn btn-default'
+.col-sm-4.col-md-offset-4.m-t-md
+  .authform
+    = form_for(resource, :as => resource_name, :url => session_path, :html => { :role => 'form'}) do |f|
+      %h1.section= t('form.sign_in.title')
+      = devise_error_messages!
+      .form-group
+        = f.label t('form.sign_in.email')
+        = f.email_field :email, :autofocus => true, class: 'form-control'
+      .form-group
+        = f.label t('form.sign_in.password')
+        = f.password_field :password, class: 'form-control'
+      = link_to t('form.sign_in.forgot_password'), new_password_path(resource_name)
+      .form-group.text-right
+        = f.submit t('form.sign_in.submit'), class: 'btn btn-default'
