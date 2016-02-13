@@ -1,11 +1,6 @@
 %nav.sub-navbar.navbar.navbar-default
   .container
-    .navbar-header.search-bar
-      = form_tag(projects_list_path, method: :get, class: 'navbar-form navbar-left') do
-        .inner-addon.right-addon
-          = text_field_tag(:q, nil, class: 'form-control inline', placeholder: "Busca proyectos por nombre, organización, descripción ó causas")
-          %i{:class  => "glyphicon glyphicon-search "}
-    #navbar.sub-navbar.navbar-collapse.collapse
+    #navbar.sub-navbar
       %ul.nav.navbar-nav
         %li.boldest= link_to 'Explorar', root_path, class: 'navbar-brand'
         %li= link_to 'Organizaciones', organizations_path
@@ -14,7 +9,7 @@
 
       = form_tag(projects_list_path, method: :get, class: 'navbar-form navbar-left') do
         .inner-addon.right-addon
-          = text_field_tag(:q, nil, class: 'form-control inline', placeholder: "Busca proyectos por nombre, organización, descripción ó causas", style: 'width:400px !important')
+          = text_field_tag(:q, nil, class: 'form-control inline', placeholder: "Busca proyectos por nombre, organización, descripción ó causas")
           %i{:class  => "glyphicon glyphicon-search "}
       %ul.nav.navbar-nav.navbar-right
         %li= link_to 'Ver Mapa', root_path(anchor: 'map')
