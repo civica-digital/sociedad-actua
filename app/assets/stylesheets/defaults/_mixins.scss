@@ -154,8 +154,8 @@ $default_text_color: $grey_800;
     }
 
     .navbar-header > a > img {
-      margin-top: $navbar_avatar_size / 4;
-      margin-bottom: $navbar_avatar_size / 4;
+        margin-top: $navbar_avatar_size / 4;
+        margin-bottom: $navbar_avatar_size / 4;
     }
 
     .navbar-logo {
@@ -197,6 +197,26 @@ $default_text_color: $grey_800;
 
   .navbar-default .navbar-nav > .open > a {
     background-color: $navbar_background_color !important;
+  }
+
+  .form-control {
+    width: 400px !important;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .navbar-nav{
+     display: none;
+    }
+
+    .navbar-form {
+      border: none;
+      box-shadow: none;
+      margin: auto;
+    }
+
+    .form-control {
+      width: 100% !important;
+    }
   }
 }
 

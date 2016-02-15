@@ -1,6 +1,31 @@
 .showcase {
   @extend .row;
 }
+@mixin link__thumbail($bg-color: $second__accent, $direction: 'left') {
+  &--#{$direction}:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: 10000;
+    @if $direction == 'left' {
+      top: 20%;
+      right: 100%;
+      margin-top: -30px;
+      border-top: solid 25px transparent;
+      border-right: solid 20px $bg-color;
+      border-bottom: solid 25px transparent;
+    }
+    @else {
+      top: 20%;
+      left: 100%;
+      margin-top: -30px;
+      border-top: solid 25px transparent;
+      border-left: solid 25px $bg-color;
+      border-bottom: solid 25px transparent;
+    }
+  }
+}
 
 @mixin base__thumbnail($bg_color: $second__accent, $heading_color: white, $text_color: $grey_600) {
   background-color: $bg_color;
@@ -25,12 +50,20 @@
 .showcase__thumbnail {
   &.sh-photo {
     @include base__thumbnail();
+
+    background-color: white !important ;
+    -webkit-box-shadow: 2px 1px 2px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 1px 2px 1px rgba(0,0,0,0.75);
+    box-shadow: 2px 1px 2px 1px rgba(0,0,0,0.75);
+    overflow: hidden;
+    padding-left: auto;
+    padding-right: auto;
+
     .photo_container {
       position: relative;
       width: 100%;
       padding-bottom: 100%;
       margin-bottom:20px;
-      background-color: white !important ;
     }
 
     .photo {
@@ -57,21 +90,31 @@
 
   &.sh-content-first-accent-th {
     @include base__thumbnail($first__accent);
+    @include link__thumbail($first__accent);
+    @include link__thumbail($first__accent, 'right');
   }
 
   &.sh-content-second-accent-th {
     @include base__thumbnail($second__accent);
+    @include link__thumbail($second__accent);
+    @include link__thumbail($second__accent, 'right');
   }
 
   &.sh-content-third-accent-th {
     @include base__thumbnail($third__accent, $second__accent,$grey_250);
+    @include link__thumbail($third__accent);
+    @include link__thumbail($third__accent, 'right');
   }
 
   &.sh-content-fourth-accent-th {
     @include base__thumbnail($fourth__accent,white,$yellow_600);
+    @include link__thumbail($fourth__accent);
+    @include link__thumbail($fourth__accent, 'right');
   }
 
   &.sh-content-fifth-accent-th {
     @include base__thumbnail($fourth__accent);
+    @include link__thumbail($fourth__accent);
+    @include link__thumbail($fourth__accent, 'right');
   }
 }
