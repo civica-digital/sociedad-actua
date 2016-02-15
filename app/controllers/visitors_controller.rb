@@ -69,6 +69,7 @@ class VisitorsController < ApplicationController
   end
 
   def get_town_information(params)
+    @city=params[:tag][:city].to_s
     @markers =@projects.select { |elem| elem.lat.present? && elem.town.to_s  == params[:tag][:city].to_s }.map{ |project| {lat: project.lat , lng: project.lng , name: project.name.gsub('"'," ") , id: project.id , url: organization_project_path(project.organization, project.id) , status: project.status }}
     @projects = Project.where(id:  @markers.collect {|i| i[:id] }).order(:name)
   end
