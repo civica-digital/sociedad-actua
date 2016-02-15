@@ -121,9 +121,14 @@ ActiveRecord::Schema.define(version: 20160215113124) do
     t.integer  "rate_auto",                 default: 40
     t.string   "profile_url"
     t.string   "other_causes"
+<<<<<<< HEAD
     t.string   "supports"
     t.boolean  "has_funding_national"
     t.boolean  "has_funding_international"
+=======
+    t.float    "lat"
+    t.float    "lng"
+>>>>>>> changes string for groups
   end
 
   create_table "projects", force: :cascade do |t|
