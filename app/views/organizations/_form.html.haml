@@ -35,8 +35,8 @@
         .col-md-4.checkbox-funding= f.input :rate_public, collection: 0..100, selected: @organization.rate_public, :input_html => { :onchange=>"validate_private_public_sum('is_public');"}
         .col-md-4.checkbox-funding= f.input :rate_auto, collection: 0..100, selected: @organization.rate_auto, :input_html => { :onchange=>"validate_private_public_sum('auto');"}
       .row
-        .col-md-6.checkbox-funding= f.input :rate_national, collection: 0..100, selected: @organization.rate_national, :input_html => { :onchange=>"validate_national_sum('national');"}
-        .col-md-6.checkbox-funding= f.input :rate_international, collection: 0..100, selected: @organization.rate_international, :input_html => { :onchange=>"validate_national_sum('international');"}
+        .col-md-4.checkbox-funding= f.input :has_funding_national
+        .col-md-4.checkbox-funding= f.input :has_funding_international
 
   .col-md-12.background-information.main-form-section
     %h3= I18n.t('organization.form.sections.contact_information')

@@ -31,8 +31,15 @@ class ProjectsController < ApplicationController
     @project.organization = current_user.profile # TO-DO: Refactor this
     authorize @project
 
+    supports = project_params[:collaborators].keep_if { |x| not x.empty? }
+ 
     respond_to do |format|
       if @project.save
+          collaborators = Organization.where('id in (?)', supports).each do |collaborator|
+          collaborator.supports.push @project.id
+          collaborator.save
+        end
+
         format.html { redirect_to organization_projects_path(@project.organization), notice: I18n.t('project.notices.successfully_created') }
         format.json { render :show, status: :created, location: @project }
       else
@@ -45,8 +52,22 @@ class ProjectsController < ApplicationController
   def update
     authorize @project
 
+    supports = project_params[:collaborators].keep_if { |x| not x.empty? }
+
+    collaborators = Organization.where('id in (?)', supports).each do |collaborator|
+      collaborator.supports.push @project.id unless collaborator.supports.include? @project.id
+      collaborator.save
+    end
+    
+    diff = @project.collaborators - supports
+    collaborators += Organization.where('id in (?)', diff).each do |collaborator|
+      collaborator.supports.delete @project.id unless  collaborator.supports.include? @project.id
+      collaborator.save
+    end
+
+
     respond_to do |format|
-      if @project.update(project_params)
+      if @project.update(project_params) and collaborators.flatten.any?
         format.html { redirect_to organization_projects_path(@project.organization), notice: I18n.t('project.notices.successfully_updated') }
         format.json { render :show, status: :ok, location: @project }
       else

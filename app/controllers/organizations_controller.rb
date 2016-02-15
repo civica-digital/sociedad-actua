@@ -8,6 +8,9 @@ class OrganizationsController < ApplicationController
 
   def show
     authorize @organization
+    @orgs = @organization.projects
+    @orgs = Project.where('id in (?)', @organization)
+    @collaborators = Project.where('id in (?)', @organization.supports)
     render :layout => "profiles"
   end
 
@@ -57,7 +60,7 @@ class OrganizationsController < ApplicationController
                                          :zip, :telephone, :email, :site, :facebook,
                                          :twitter, :youtube, :instagram, :blog,:profile_url,
                                          :show_address, :show_town, :show_colonia,
-                                         :rate_private, :rate_public, :rate_national, :rate_international, :rate_auto,
+                                         :rate_private, :rate_public, :rate_national, :rate_international, :rate_auto, :has_funding_national, :has_funding_international,
                                          :show_telephone, :show_zip, :show_email, :logo,:other_causes, causes_interest: [])
   end
 

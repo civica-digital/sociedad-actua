@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 class Organization < ActiveRecord::Base
   serialize :causes_interest, Array
+  serialize :supports, Array
   before_save :validate_causes
   has_one :user, as: :profile
   has_many :projects

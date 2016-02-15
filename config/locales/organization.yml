@@ -97,8 +97,8 @@ es:
         has_funding_private:  Privada
         has_funding_public: Pública
         has_funding_auto: Autogeneración
-        has_funding_national: Nacional
-        has_funding_international: Internacional
+        has_funding_national: ¿Recibe fondos nacionales?
+        has_funding_international: ¿Recibe fondos internacional?
         rate_private: '% de fondo privado'
         rate_national: '% de fondo nacional'
         rate_international: '% de fondo internacional'

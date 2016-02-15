@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160208095725) do
+ActiveRecord::Schema.define(version: 20160215113124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20160208095725) do
   create_table "organizations", force: :cascade do |t|
     t.string   "type_organization"
     t.string   "name"
-    t.datetime "remember_created_at", default: '2015-10-30 18:05:57', null: false
+    t.datetime "remember_created_at",       default: '2015-10-30 18:05:57', null: false
     t.string   "email"
     t.string   "rfc"
     t.text     "mision"
@@ -105,22 +105,25 @@ ActiveRecord::Schema.define(version: 20160208095725) do
     t.string   "twitter"
     t.string   "youtube"
     t.string   "instagram"
-    t.integer  "foundation",          default: 2015
-    t.boolean  "show_address",        default: false
-    t.boolean  "show_colonia",        default: false
-    t.boolean  "show_town",           default: false
-    t.boolean  "show_telephone",      default: false
-    t.boolean  "show_zip",            default: false
+    t.integer  "foundation",                default: 2015
+    t.boolean  "show_address",              default: false
+    t.boolean  "show_colonia",              default: false
+    t.boolean  "show_town",                 default: false
+    t.boolean  "show_telephone",            default: false
+    t.boolean  "show_zip",                  default: false
     t.boolean  "show_email"
     t.string   "logo"
     t.string   "causes_interest"
-    t.integer  "rate_private",        default: 30
-    t.integer  "rate_national",       default: 50
-    t.integer  "rate_international",  default: 50
-    t.integer  "rate_public",         default: 30
-    t.integer  "rate_auto",           default: 40
+    t.integer  "rate_private",              default: 30
+    t.integer  "rate_national",             default: 50
+    t.integer  "rate_international",        default: 50
+    t.integer  "rate_public",               default: 30
+    t.integer  "rate_auto",                 default: 40
     t.string   "profile_url"
     t.string   "other_causes"
+    t.string   "supports"
+    t.boolean  "has_funding_national"
+    t.boolean  "has_funding_international"
   end
 
   create_table "projects", force: :cascade do |t|
