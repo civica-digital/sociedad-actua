@@ -27,7 +27,8 @@ class OrganizationsController < ApplicationController
     authorize @organization
   end
 
-  def update
+  def update 
+ 
     authorize @organization
     respond_to do |format|
       if @organization.update(organization_params)
@@ -56,7 +57,7 @@ class OrganizationsController < ApplicationController
 
   def organization_params
     params.require(:organization).permit(:name, :type_organization, :rfc, :foundation,
-                                         :mision, :address, :colonia, :town,
+                                         :mision, :address, :colonia, :lat,:lng,:town,
                                          :zip, :telephone, :email, :site, :facebook,
                                          :twitter, :youtube, :instagram, :blog,:profile_url,
                                          :show_address, :show_town, :show_colonia,
