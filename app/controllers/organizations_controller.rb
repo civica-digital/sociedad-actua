@@ -8,6 +8,9 @@ class OrganizationsController < ApplicationController
 
   def show
     authorize @organization
+    @orgs = @organization.projects
+    @orgs = Project.where('id in (?)', @organization)
+    @collaborators = Project.where('id in (?)', @organization.supports)
     render :layout => "profiles"
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160208095725) do
+ActiveRecord::Schema.define(version: 20160215093712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(version: 20160208095725) do
     t.integer  "rate_auto",           default: 40
     t.string   "profile_url"
     t.string   "other_causes"
+    t.string   "supports"
   end
 
   create_table "projects", force: :cascade do |t|
