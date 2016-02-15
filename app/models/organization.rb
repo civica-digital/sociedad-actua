@@ -9,7 +9,7 @@ class Organization < ActiveRecord::Base
   has_many :events
   mount_uploader :logo, LogoUploader
 
-  validates :name, :type_organization,:lat,:lng, :email, presence:  true, on: :update
+  validates :name, :type_organization, :email, presence:  true, on: :update
   validates :email, :uniqueness => true
   validates :name, :length => { :minimum => 2 },if: Proc.new { |a| a.name.present? }
   validates :mision, :length => { :maximum => 500 },presence:  true, on: :update, allow_blank: false
