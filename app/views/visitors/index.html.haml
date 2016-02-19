@@ -14,104 +14,98 @@
           %i{:class  => "glyphicon glyphicon-search"}
           = text_field_tag(:q, nil, class: 'search-box', placeholder: "Busca proyectos por nombre, organización, descripción ó causas", maxlength: 50, autocomplete: "off")
 
-- content_for :no_container, true
 
-.container
-  #explore.row.text-center
-    %h1 Descubre
+#explore.row.text-center
+  %h1 Descubre
 
-    .row
-      .col-xs-12.col-sm-4.text-center
-        = link_to projects_list_path do
-          = image_tag 'roles/proyectos_2x.png', class: 'landing-icon'
-          %h3 Proyectos
-        %p Acciones que están realizando individuos, grupos o instituciones para mejorar nuestra sociedad
+  .row
+    .col-xs-12.col-sm-4.text-center
+      = link_to projects_list_path do
+        = image_tag 'roles/proyectos_2x.png', class: 'landing-icon'
+        %h3 Proyectos
+      %p Acciones que están realizando individuos, grupos o instituciones para mejorar nuestra sociedad
 
-      .col-xs-12.col-sm-4.text-center
-        = link_to organizations_path do
-          = image_tag 'roles/organizations_2x.png', class: 'landing-icon'
-          %h3 Organizaciones
-        %p Organizaciones legalmente constituidas que ejecutan proyectos
+    .col-xs-12.col-sm-4.text-center
+      = link_to organizations_path do
+        = image_tag 'roles/organizations_2x.png', class: 'landing-icon'
+        %h3 Organizaciones
+      %p Organizaciones legalmente constituidas que ejecutan proyectos
 
-      .col-xs-12.col-sm-4.text-center
-        = link_to investors_path do
-          = image_tag 'roles/investors_2x.png', class: 'landing-icon'
-          %h3 Inversionistas
-        %p Organizaciones y personas interesadas en invertir en los proyectos sociales
+    .col-xs-12.col-sm-4.text-center
+      = link_to investors_path do
+        = image_tag 'roles/investors_2x.png', class: 'landing-icon'
+        %h3 Inversionistas
+      %p Organizaciones y personas interesadas en invertir en los proyectos sociales
 
-    .row
-      .col-xs-12.col-sm-4.text-center
-        = link_to organizations_path do
-          = image_tag 'roles/groups_2x.png', class: 'landing-icon'
-          %h3 Grupos
-        %p Colectivos sin figura jurídica que ejecutan proyectos
+  .row
+    .col-xs-12.col-sm-4.text-center
+      = link_to organizations_path(type: "grupos")  do
+        = image_tag 'roles/groups_2x.png', class: 'landing-icon'
+        %h3 Grupos
+      %p Colectivos sin figura jurídica que ejecutan proyectos
 
 
-      .col-xs-12.col-sm-4.text-center
-        = link_to registration_url(user_type: "collaborator")  do
-          = image_tag 'roles/collaborators_2x.png', class: 'landing-icon'
-          %h3 Colaboradores
-        %p Personas interesadas en ayudar en los proyectos sociales
+    .col-xs-12.col-sm-4.text-center
+      = link_to registration_url(user_type: "collaborator")  do
+        = image_tag 'roles/collaborators_2x.png', class: 'landing-icon'
+        %h3 Colaboradores
+      %p Personas interesadas en ayudar en los proyectos sociales
 
-      .col-xs-12.col-sm-4.text-center
-        = link_to events_list_path  do
-          = image_tag 'roles/eventos_grid_2x.png', class: 'landing-icon'
-          %h3 Eventos
-        %p ¿Quieres saber que está haciendo la comunidad de Sociedad Actúa? !No dejes de ver la sección de eventos!
+    .col-xs-12.col-sm-4.text-center
+      = link_to events_list_path  do
+        = image_tag 'roles/eventos_grid_2x.png', class: 'landing-icon'
+        %h3 Eventos
+      %p ¿Quieres saber que está haciendo la comunidad de Sociedad Actúa? !No dejes de ver la sección de eventos!
 
-.container-fluid
+.row
   .col-md-12.map-landing{:id=>"map"}
-    .container
-      = simple_form_for :tag, :url => root_path(:anchor => "map", :defaults => {:required => false}), :method => :get do |f|
-        .row
-          .col-md-1
-            = image_tag "landing/encuentra_2x.png", class: "map-icon"
-          .col-md-11.padding-text-map
-            .row
-              .col-md-6
-                %p.big-ass.bright Encuentra
-                %p.bright Encuentra proyectos por ubicación geográfica
-              .col-md-6.text.right
-                =f.input :name, collection: @projects, include_black: false,input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.search'), class: "chosen-select ", tabindex: "2", :onchange=>"show_marker();"}, :label =>false, :required => false
-
-
-        =f.label I18n.t('simple_form.placeholders.fields'), class: "yellow", :required => false
-        .yellow.glyphicon.glyphicon-chevron-down{:data => {:toggle => 'collapse', :target => '.avanzada'}}
-        .row.avanzada.panel-collapse.collapse{"aria-labelledby" => "headingOne", :role => "tabpanel"}
-          .col-md-1
-          .col-md-3
-            =f.label I18n.t('simple_form.placeholders.search_city'), class: "bright", :required => false
-            =f.input :city, collection: CITIES, include_black: false,input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.organization.city'), class: "chosen-select", tabindex: "2"  }, label: false, :required => false
-          .col-md-2
-            =f.label I18n.t('simple_form.placeholders.search_ageb'), class: "bright", :required => false
-            =f.input :ageb, :label =>false, :required => false
-          .col-md-2
-            =f.label I18n.t('simple_form.placeholders.search_distrito'), class: "bright", :required => false
-            =f.input :distrito, :label =>false , :required => false
-          .col-md-2
-            =f.label I18n.t('simple_form.placeholders.search_seccion'), class: "bright", :required => false
-            =f.input :seccion, :label =>false , :required => false
-          .col-md-1.margin-top-button.text-right
-            = f.button :submit, "buscar"
-    %div{:id=>"geolocation", :style=>'width: 100%; height: 400px;'}
-    .container
+    = simple_form_for :tag, :url => root_path(:anchor => "map", :defaults => {:required => false}), :method => :get do |f|
       .row
-        .col-md-2.padding-text-map
-          = link_to "ver listado", projects_list_path, :class=>"btn btn-secondary"
-        .col-md-10.text-right.padding-text-map
-          = link_to "descargar proyectos", download_csv_project_visitors_path(format: :csv),:class=>"btn btn-secondary"
+        .col-md-1
+          = image_tag "landing/encuentra_2x.png", class: "map-icon"
+        .col-md-11.padding-text-map
+          .row
+            .col-md-6
+              %p.big-ass.bright Encuentra
+              %p.bright Encuentra proyectos por ubicación geográfica
+            .col-md-6.text.right
+              =f.input :name, collection: @projects, include_black: false,input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.search'), class: "chosen-select ", tabindex: "2", :onchange=>"show_marker();"}, :label =>false, :required => false
 
+
+      =f.label I18n.t('simple_form.placeholders.fields'), class: "yellow", :required => false
+      .yellow.glyphicon.glyphicon-chevron-down{:data => {:toggle => 'collapse', :target => '.avanzada'}}
+      .row.avanzada.panel-collapse.collapse{"aria-labelledby" => "headingOne", :role => "tabpanel"}
+        .col-md-1
+        .col-md-3
+          =f.label I18n.t('simple_form.placeholders.search_city'), class: "bright", :required => false
+          =f.input :city, collection: CITIES, include_black: false,input_html: { "data-placeholder"=> I18n.t('simple_form.placeholders.organization.city'), class: "chosen-select", tabindex: "2"  }, label: false, :required => false
+        .col-md-2
+          =f.label I18n.t('simple_form.placeholders.search_ageb'), class: "bright", :required => false
+          =f.input :ageb, :label =>false, :required => false
+        .col-md-2
+          =f.label I18n.t('simple_form.placeholders.search_distrito'), class: "bright", :required => false
+          =f.input :distrito, :label =>false , :required => false
+        .col-md-2
+          =f.label I18n.t('simple_form.placeholders.search_seccion'), class: "bright", :required => false
+          =f.input :seccion, :label =>false , :required => false
+        .col-md-1.margin-top-button.text-right
+          = f.button :submit, "buscar"
+    %div{:id=>"geolocation", :style=>'width: 100%; height: 400px;'}
+    .row
+      .col-md-2.padding-text-map
+        = link_to "ver listado", projects_list_path, :class=>"btn btn-secondary"
+      .col-md-10.text-right.padding-text-map
+        = link_to "descargar proyectos", download_csv_project_visitors_path(format: :csv),:class=>"btn btn-secondary"
 
 - if @organizations.count >= 4
-  .container
-    #showcase.row
-      %h3.fourth_accent
-        = image_tag 'other/showcase_2x.png', class: 'icon-title'
-        Descubre
-      %h5.showcase__subtitle.fourth_accent Descubre lo que está pasando en el lugar donde vives
-      .showcase
-        = render "showcase", organizations: @organizations.take(2), type: :even
-        = render "showcase", organizations: [@organizations.third, @organizations.fourth], type: :odd
+  #showcase.row
+    %h3.fourth_accent
+      = image_tag 'other/showcase_2x.png', class: 'icon-title'
+      Descubre
+    %h5.showcase__subtitle.fourth_accent Descubre lo que está pasando en el lugar donde vives
+    .showcase
+      = render "showcase", organizations: @organizations.take(2), type: :even
+      = render "showcase", organizations: [@organizations.third, @organizations.fourth], type: :odd
 
 
 :javascript
@@ -131,21 +125,10 @@
           markersArray.push(marker);
         }
       }
-      if(#{raw(@markers.count)}<=0){
-       geocoder.geocode( { 'address': "#{@city}, Nuevo Leon", 'region':  'mx',}, function(results, status) {
-          if (status == google.maps.GeocoderStatus.OK) {
-            var latitude = results[0].geometry.location.lat();
-            var longitude = results[0].geometry.location.lng();
-             handler.map.centerOn([latitude,longitude]);
-          } 
-        });
-      }
-      else {
-        if(markers[0]["lat"]+"" == ""){
-          handler.map.centerOn(["25.6754382","-100.3483728"]);
-        }else{
-          handler.map.centerOn([markers[markers.length-1]["lat"],markers[markers.length-1]["lng"]]);
-        }
+      if(markers[0]["lat"]+"" == ""){
+        handler.map.centerOn(["25.6754382","-100.3483728"]);
+      }else{
+        handler.map.centerOn([markers[markers.length-1]["lat"],markers[markers.length-1]["lng"]]);
       }
 
       handler.getMap().setZoom(10);
