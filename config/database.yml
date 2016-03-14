@@ -1,0 +1,22 @@
+postgresql: &postgresql
+  adapter: postgresql
+  encoding: UTF-8
+  min_messages: ERROR
+  timeout: 5000
+  username: <%= ENV['PG_USERNAME'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
+  host: <%= ENV['PG_HOSTNAME'] %>
+  port: <%= ENV['PG_PORT'] %>
+  pool: 5
+
+development:
+  <<: *postgresql
+  database: <%= ENV['PG_DB_NAME'] %>_development
+
+test:
+  <<: *postgresql
+  database: <%= ENV['PG_DB_NAME'] %>_test
+
+production:
+  <<: *postgresql
+  database: <%= ENV['PG_DB_NAME'] %>_production

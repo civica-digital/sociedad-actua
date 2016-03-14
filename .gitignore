@@ -69,3 +69,8 @@ pickle-email-*.html
 # Dev environment files
 .ruby-version
 .ruby-gemset
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
