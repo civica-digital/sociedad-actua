@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  default_url_options host: ENV["DOMAIN_NAME"]
 
   devise_for :users
 
@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#create'
 
-  post 'investors/send_message' 
+  post 'investors/send_message'
   post 'organizations/send_message'
   get '/auth/failure' => 'sessions#failure'
 
