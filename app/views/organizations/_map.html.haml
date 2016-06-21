@@ -10,10 +10,14 @@
         .col-sm-4
           %label
             %strong=  "Oficinas"
-          %p= @organization.address
-          %p= @organization.colonia
-          %p= "Municipio #{@organization.town}"
-          %p= "C.P. #{@organization.zip}"
+          - if @organization.show_address
+            %p= @organization.address
+          - if @organization.show_colonia
+            %p= @organization.colonia
+          - if @organization.show_town
+            %p= "Municipio #{@organization.town}"
+          - if @organization.show_zip
+            %p= "C.P. #{@organization.zip}"
 
 
 :javascript
