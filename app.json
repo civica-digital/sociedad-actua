@@ -1,0 +1,64 @@
+{
+  "name": "sociedad-actua",
+  "scripts": {
+  },
+  "env": {
+    "AIRBRAKE_API_KEY": {
+      "required": true
+    },
+    "AWS_KEY": {
+      "required": true
+    },
+    "AWS_REGION": {
+      "required": true
+    },
+    "AWS_SECRET": {
+      "required": true
+    },
+    "DOMAIN_NAME": {
+      "required": true
+    },
+    "GA_CODE": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "MAILER_FROM": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "S3_BUCKET": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    },
+    "worker": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "newrelic",
+    "heroku-postgresql",
+    "sendgrid"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
