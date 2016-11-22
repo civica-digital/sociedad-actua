@@ -6,18 +6,18 @@
   .col-sm-6.text-right
     - if policy(:project).new?
       %h1
-        = link_to "Agregar proyecto", new_organization_project_path(@organization), class: 'btn btn-default'
+        = link_to "Agregar proyecto", new_polymorphic_path([@projectable, :project ]), class: 'btn btn-default'
 
 = render "empty_msg"
 
-.row
-- @organization.projects.each do |project|
-  .col-md-4
-    .thumbnail
-      = image_tag project.photo_project
-      .caption
-        %h3= truncate(project.name, length: 20)
-        %p= truncate(project.description, length: 30)
-        %p
-          %a.btn.btn-default{href: organization_project_path(project.organization, project), role: "button"}= I18n.t('project.index.show')
-          %a.btn.btn-default{href: edit_organization_project_path(project.organization, project), role: "button"}= I18n.t("project.index.edit")
+- @projectable.projects.each do |project|
+  .row
+    .col-md-4
+      .thumbnail 
+        = image_tag project.photo_project
+        .caption
+          %h3= truncate(project.name, length: 20)
+          %p= truncate(project.description, length: 30)
+          %p
+            %a.btn.btn-default{href: polymorphic_path([project.projectable, project]), role: "button"}= I18n.t('project.index.show')
+            %a.btn.btn-default{href: edit_polymorphic_path([project.projectable, project]), role: "button"} Editar

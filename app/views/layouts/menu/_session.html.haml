@@ -2,6 +2,7 @@
 - if current_user.collaborator?
   %li= link_to t('user.menu.edit_profile'), edit_collaborator_path(current_user.profile)
 - if current_user.investor?
+  %li= link_to t('user.menu.projects'), investor_projects_path(current_user.profile)
   %li= link_to t('user.menu.edit_profile'), edit_investor_path(current_user.profile)
 - if current_user.organization?
   %li= link_to t('user.menu.events'), organization_events_path(current_user.profile)

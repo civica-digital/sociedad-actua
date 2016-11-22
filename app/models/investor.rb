@@ -3,6 +3,7 @@ class Investor < ActiveRecord::Base
   serialize :organization, Array
   before_save :validate_causes
   before_save :validate_organizations
+  has_many :projects, as: :projectable
   has_one :user, as: :profile
   has_many :organizations
   mount_uploader :logo, LogoUploader

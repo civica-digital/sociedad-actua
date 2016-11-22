@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-	belongs_to :organization
+	belongs_to :projectable, polymorphic: true
 	serialize :causes_interest, Array
   serialize :clasification, Array
 	serialize :collaborators, Array

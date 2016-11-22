@@ -4,7 +4,11 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @organization = Organization.find(params[:organization_id])
+    if params[:organization_id]
+      @projectable = Organization.find(params[:organization_id])
+    elsif params[:investor_id]
+      @projectable = Investor.find(params[:investor_id])
+    end
   end
 
   def show
@@ -28,19 +32,19 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project.organization = current_user.profile # TO-DO: Refactor this
+    @project.projectable = current_user.profile # TO-DO: Refactor this
     authorize @project
 
     supports = project_params[:collaborators].keep_if { |x| not x.empty? }
  
     respond_to do |format|
       if @project.save
-          collaborators = Organization.where('id in (?)', supports).each do |collaborator|
+        collaborators = Organization.where('id in (?)', supports).each do |collaborator|
           collaborator.supports.push @project.id
           collaborator.save
         end
 
-        format.html { redirect_to organization_projects_path(@project.organization), notice: I18n.t('project.notices.successfully_created') }
+        format.html { redirect_to polymorphic_path([@project.projectable, @project] ), notice: I18n.t('project.notices.successfully_created') }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -68,7 +72,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update(project_params) and collaborators.flatten.any?
-        format.html { redirect_to organization_projects_path(@project.organization), notice: I18n.t('project.notices.successfully_updated') }
+        format.html { redirect_to polymorphic_path([@project.projectable, @project] ), notice: I18n.t('project.notices.successfully_created') }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
