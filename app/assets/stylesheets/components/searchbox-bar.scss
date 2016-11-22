@@ -22,29 +22,24 @@
   }
 
   input::-webkit-input-placeholder {
-    color: $grey_175;
-    opacity: 0.8;
+    color: white;
   }
 
   input:-moz-placeholder { /* Firefox 18- */
-    color: $grey_175;
-    opacity: 0.8;
+    color: white;
   }
 
   input::-moz-placeholder {  /* Firefox 19+ */
-    color: $grey_175;
-    opacity: 0.8;
+    color: white;
   }
 
   input:-ms-input-placeholder {
-    color: $grey_175;
-    opacity: 0.8;
+    color: white;
   }
 
   .glyphicon {
-    color: $grey_175;
+    color: white;
     height: 100%;
     top: 7px;
-    opacity: 0.8;
   }
 }

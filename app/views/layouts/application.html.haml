@@ -5,7 +5,7 @@
     %meta{:content => "width=1024", :name => "viewport"}/
     %title= content_for?(:title) ? yield(:title) : "Sociedad Actua"
     %meta{:content => "#{content_for?(:description) ? yield(:description) : "Sociedad Actúa"}", :name => "description"}/
-    %link{:href => "https://fonts.googleapis.com/css?family=Dosis:400,500,700", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Dosis:400,600,700", :rel => "stylesheet", :type => "text/css"}/
     %script{:src => "//maps.google.com/maps/api/js?v=3.23", :type => "text/javascript"}
     %script{:src => "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js", :type => "text/javascript"}
     = favicon_link_tag 'favicon.ico'
@@ -20,8 +20,8 @@
         / <haml_loud> render &#39;layouts/navigation&#39; </haml_loud>
         .container
           = render 'layouts/top_navbar'
-        = render 'layouts/sub_navbar' unless current_page?(root_path)
-        = render 'layouts/messages'
+          = render 'layouts/sub_navbar' unless current_page?(root_path)
+          = render 'layouts/messages'
 
       = yield :landing
 

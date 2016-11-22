@@ -1,11 +1,12 @@
-%h1.section= t('.forgot_password')
-%h3= t('.new_instructions')
+.col-sm-4.col-md-offset-4.m-t-md
+  %h1.section= t('.forgot_password')
+  %h3.p-b-md= t('.new_instructions')
 
-= simple_form_for(resource, as: resource_name, url: password_path(resource_name)) do |f|
-  = f.error_notification
+  = simple_form_for(resource, as: resource_name, url: password_path(resource_name)) do |f|
+    = f.error_notification
 
-  .form-inputs
-    = f.input :email, required: true, autofocus: true
+    .form-inputs
+      = f.input :email, required: true, autofocus: true
 
-  .form-actions.text-right
-    = f.button :submit, t('.reset_password')
+    .form-actions.text-right
+      = f.button :submit, t('.reset_password')

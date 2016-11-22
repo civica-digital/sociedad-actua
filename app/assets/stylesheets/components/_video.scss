@@ -2,7 +2,6 @@
   position: relative;
   text-align: center;
 
-
   video {
     width: 100%;
     position: relative;
@@ -20,18 +19,19 @@
   color: white;
 
   h1.content__heading {
-    margin-bottom: 30px;
+    margin-bottom: 20px!important;
     color: #FFF;
     font-size: 6em;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px #333;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
   }
 
   p.content__desc {
-    font-size: 30px;
+    font-size: 36px;
+    line-height: 50px;
     color: #FFF;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px #000;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
   }
 }
 
